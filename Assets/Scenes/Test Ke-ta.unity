@@ -559,7 +559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeLeft: 10
   timerText: {fileID: 314414671}
-  nextSceneName: MainGame
+  nextSceneName: Title
 --- !u!4 &1336502939
 Transform:
   m_ObjectHideFlags: 0
