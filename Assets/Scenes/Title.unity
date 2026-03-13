@@ -686,7 +686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _SButton: {fileID: 824849980}
-  _Scene: Title
+  _Scene: Test Ke-ta
 --- !u!1 &1548164243
 GameObject:
   m_ObjectHideFlags: 0
