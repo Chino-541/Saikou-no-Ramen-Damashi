@@ -1,5 +1,4 @@
 using NaughtyAttributes;
-using NaughtyAttributes.Editor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,12 +6,13 @@ using UnityEngine.UI;
 public class Ken_TStartButton : MonoBehaviour
 {
     [Header("Nyanスクリプトへようこそ")]
-    [SerializeField] private Button _SButton;
+    private Button _SButton;
     [Scene]
     [SerializeField] private string _Scene;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _SButton = GetComponent<Button>();
         _SButton.onClick.AddListener(StartButton);
 
     }
@@ -22,8 +22,11 @@ public class Ken_TStartButton : MonoBehaviour
     {
         
     }
+    
     void StartButton()
     {
+        Debug.Log("aa");
         SceneManager.LoadScene(_Scene);
+
     }
 }
