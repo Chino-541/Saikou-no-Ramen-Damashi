@@ -1,62 +1,97 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class player : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    Rigidbody2D rb;
-    float axish; // 入力
-    public float speed; // 速さ
-    public float Dash;
-    InputAction moveAction; // moveアクション
-    bool isDash;
-
-    public float Camleft;   // カメラ左リミット
-    public float CamRight;  // カメラ右リミット
-    public float CamTop;    // カメラ上リミット
-    public float CamBottom; // カメラ下リミット
+    private Animator anim;
+    public float speed = 2.0f;
+    public float dash = 5.0f;
+    public GameObject bullet;
+    private float currentSpeed;
+    // bool isDashing = false;
+    Vector2 move = Vector2.zero;
 
     void Start()
     {
-        isDash = false;
-        rb = GetComponent<Rigidbody2D>();
-
-        PlayerInput input = GetComponent<PlayerInput>();
-        moveAction = input.currentActionMap.FindAction("move");
+        currentSpeed = speed;
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
-        Vector2 inputVec = moveAction.ReadValue<Vector2>();
-        rb.linearVelocity = inputVec * speed;
+        move = Vector2.zero;
 
-        // Rigidbody2D の移動は MovePosition を使う
-        // Vector2 move = inputVec * speed * Time.deltaTime;
-        //rb.MovePosition(rb.position + move);
-
-        // 向き調整
-        axish = inputVec.x;
-        if (axish > 0)
+        // --- 左右 ---
+        if (Input.GetKey(KeyCode.A))
         {
-            transform.localScale = new Vector2(1, 1);
+            anim.SetBool("left", true);
+            anim.SetBool("right", false);
+            anim.SetBool("Up", false);
+            anim.SetBool("down", false);
+            anim.SetBool("move", true);
+            move.x = -1;
         }
-        else if (axish < 0)
+        else if (Input.GetKey(KeyCode.D))
         {
-            transform.localScale = new Vector2(-1, 1);
+            anim.SetBool("right", true);
+            anim.SetBool("left", false);
+            anim.SetBool("Up", false);
+            anim.SetBool("down", false);
+            anim.SetBool("move", true);
+            move.x = 1;
         }
 
-        // カメラ制御
-        float x = Mathf.Clamp(transform.position.x, Camleft, CamRight);
-        float y = Mathf.Clamp(transform.position.y, CamBottom, CamTop);
-        Camera.main.transform.position = new Vector3(x, y, -10);
-        float currentSpeed = isDash ? speed * Dash : speed;
+        // --- 上下 ---
+        if (Input.GetKey(KeyCode.W))
+        {
+            anim.SetBool("Up", true);
+            anim.SetBool("left", false);
+            anim.SetBool("right", false);
+            anim.SetBool("down", false);
+            anim.SetBool("move", true);
+            move.y = 1;
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            anim.SetBool("down", true);
+            anim.SetBool("left", false);
+            anim.SetBool("right", false);
+            anim.SetBool("Up", false);
+            anim.SetBool("move", true);
 
-if (Keyboard.current.leftShiftKey.wasPressedThisFrame)
-            isDash = true;
+            move.y = -1;
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            anim.SetTrigger("jump");
+        }
+        if (Input.GetKey(KeyCode.RightShift))
+        {
+            // isDashing = true;
+            currentSpeed = dash;
+        }
+        else
+        {
+            {
+                currentSpeed = speed;
+            }
+        }
 
-        if (Keyboard.current.leftShiftKey.wasReleasedThisFrame)
-            isDash = false;
-
+        // どのキーも押していない
+        if (move == Vector2.zero)
+        {
+            anim.SetBool("move", false);
+        }
     }
-   
+
+    void FixedUpdate()
+    {
+        transform.Translate(move.normalized * currentSpeed * Time.fixedDeltaTime);
+    }
+    void shoot()
+    {
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            Instantiate(bullet, transform.position, transform.rotation);
+        }
+    }
 }

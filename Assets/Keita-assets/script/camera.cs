@@ -1,18 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 public class camera : MonoBehaviour
 {
-    public GameObject player;
-    // Use this for initialization
-    void Start()
+    public Transform player; //
+
+    public float smoothSpeed = 0.125f;
+    public Vector3 offset;
+
+    void LateUpdate()
     {
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        Vector3 playerPos = player.transform.position;
-        //カメラとプレイヤーの位置を同じにする
-        transform.position = new Vector3(playerPos.x, playerPos.y, 0);
+        // 目標位置（プレイヤー位置 + オフセット）
+        Vector3 nextPos = player.position + offset;
+
+        // 現在位置から目標位置へ移動
+        Vector3 newPos = Vector3.Lerp(transform.position, nextPos, smoothSpeed);
+
+        // カメラの位置を更新
+        transform.position = newPos;
     }
 }
