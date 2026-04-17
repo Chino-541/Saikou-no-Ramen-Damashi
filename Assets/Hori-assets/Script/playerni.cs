@@ -2,7 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class player : MonoBehaviour
+public class playerni : MonoBehaviour
 {
     Rigidbody2D rb;
     float axish; // “ü—Í
