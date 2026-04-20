@@ -2,18 +2,25 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    // animator使えるようにする？
     private Animator anim;
+    // 速さ
     public float speed = 2.0f;
     public float dash = 5.0f;
-    public GameObject bullet;
     private float currentSpeed;
+    // 攻撃の判定を入れる
+    public GameObject Attack;
     // bool isDashing = false;
     Vector2 move = Vector2.zero;
 
     void Start()
     {
+        // 速さの定義？
         currentSpeed = speed;
+        // animatorを取得
         anim = GetComponent<Animator>();
+        // 攻撃オブジェクトを非表示にする
+        Attack.SetActive(false);
     }
 
     void Update()
@@ -29,6 +36,7 @@ public class Player : MonoBehaviour
             anim.SetBool("down", false);
             anim.SetBool("move", true);
             move.x = -1;
+
         }
         else if (Input.GetKey(KeyCode.D))
         {
@@ -58,6 +66,7 @@ public class Player : MonoBehaviour
             anim.SetBool("Up", false);
             anim.SetBool("move", true);
 
+
             move.y = -1;
         }
         if (Input.GetKey(KeyCode.Space))
@@ -76,22 +85,31 @@ public class Player : MonoBehaviour
             }
         }
 
-        // どのキーも押していない
+        // キー押してない
         if (move == Vector2.zero)
         {
             anim.SetBool("move", false);
         }
+        // 攻撃
+        Attacker();
     }
 
     void FixedUpdate()
     {
         transform.Translate(move.normalized * currentSpeed * Time.fixedDeltaTime);
     }
-    void shoot()
+    void Attacker()
     {
-        if (Input.GetKeyDown(KeyCode.V))
+
+        if (Input.GetKey(KeyCode.V))
         {
-            Instantiate(bullet, transform.position, transform.rotation);
+            Attack.SetActive(true);
+
+            Debug.Log("攻撃してるよ");
+        }
+        else
+        {
+            Attack.SetActive(false);
         }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyAngle : MonoBehaviour
 {
     public float chargeTime = 3f;
     private float timeCount;
