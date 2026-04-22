@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Player : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Player : MonoBehaviour
     public GameObject Attack;
     // bool isDashing = false;
     Vector2 move = Vector2.zero;
+    private bool isAttacking = false;
 
     void Start()
     {
@@ -100,16 +102,22 @@ public class Player : MonoBehaviour
     }
     void Attacker()
     {
-
-        if (Input.GetKey(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.V) && !isAttacking)
         {
-            Attack.SetActive(true);
-
-            Debug.Log("çUåÇÇµÇƒÇÈÇÊ");
-        }
-        else
-        {
-            Attack.SetActive(false);
+            StartCoroutine(AttackForOneSecond());
         }
     }
+
+    IEnumerator AttackForOneSecond()
+    {
+        isAttacking = true;
+        Attack.SetActive(true);
+        Debug.Log("çUåÇÇµÇƒÇÈÇÊ");
+
+        yield return new WaitForSeconds(0.5f);
+
+        Attack.SetActive(false);
+        isAttacking = false;
+    }
+
 }
