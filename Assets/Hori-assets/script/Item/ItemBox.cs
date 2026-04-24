@@ -7,22 +7,29 @@ public class ItemBox : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        GameObject obj = GameObject.FindGameObjectWithTag("Player");
+        if (obj != null)
+        {
+            player = obj.transform;
+        }
     }
+
     void Update()
     {
-        if (player = null) return;
+        if (player == null) return;
+
         float distance = Vector2.Distance(transform.position, player.position);
-        {
-            Inventory.instance.MoveAllToBox();
-        }
+
         if (distance < interactRange && Input.GetKeyDown(KeyCode.E))
         {
             if (Inventory.instance != null)
             {
                 Inventory.instance.MoveAllToBox();
             }
+            else
+            {
+                Debug.LogError("Inventory.instance ‚ª null");
+            }
         }
-
     }
 }

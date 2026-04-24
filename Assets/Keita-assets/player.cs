@@ -1,48 +1,123 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using System.Collections;
 
-public class player : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    CharacterController cc;
-    float axish; // 入力
-    public float speed; // ひゃさ
-    InputAction moveAction; // moveアクション
-    public float Camleft; // カメラ左リミット
-    public float CamRight; // カメラ右リミット
-    public float CamTop; // カメラ上リミット
-    public float CamBottom; // カメラ下リミット
-    Animator animator; // アニメーター
+    // animator使えるようにする？
+    private Animator anim;
+    // 速さ
+    public float speed = 2.0f;
+    public float dash = 5.0f;
+    private float currentSpeed;
+    // 攻撃の判定を入れる
+    public GameObject Attack;
+    // bool isDashing = false;
+    Vector2 move = Vector2.zero;
+    private bool isAttacking = false;
+
     void Start()
     {
-        cc = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
-        PlayerInput input = GetComponent<PlayerInput>(); // playerinput取得
-        moveAction = input.currentActionMap.FindAction("move"); // movesy得
+        // 速さの定義？
+        currentSpeed = speed;
+        // animatorを取得
+        anim = GetComponent<Animator>();
+        // 攻撃オブジェクトを非表示にする
+        Attack.SetActive(false);
     }
+
     void Update()
     {
-        Vector2 inputVec = moveAction.ReadValue<Vector2>();
+        move = Vector2.zero;
 
-        // 実際に動かす
-        Vector3 move = new Vector3(inputVec.x, inputVec.y, 0);
-        cc.Move(move * speed * Time.deltaTime);
+        // --- 左右 ---
+        if (Input.GetKey(KeyCode.A))
+        {
+            anim.SetBool("left", true);
+            anim.SetBool("right", false);
+            anim.SetBool("Up", false);
+            anim.SetBool("down", false);
+            anim.SetBool("move", true);
+            move.x = -1;
 
-        axish = moveAction.ReadValue<Vector2>().x; // 入力をとる
-        if (axish > 0.0f) // 向き調整
-        {
-            transform.localScale = new Vector2(1, 1); // 右移動
         }
-        else if (axish < 0.0f)
+        else if (Input.GetKey(KeyCode.D))
         {
-            transform.localScale = new Vector2(-1, 1); // 左右反転
+            anim.SetBool("right", true);
+            anim.SetBool("left", false);
+            anim.SetBool("Up", false);
+            anim.SetBool("down", false);
+            anim.SetBool("move", true);
+            move.x = 1;
         }
-        // カメラ制御
-        float x = Mathf.Clamp(transform.position.x, Camleft, CamRight);
-        float y = Mathf.Clamp(transform.position.y, CamBottom, CamTop);
-        Vector3 camPos = new Vector3(x, y, -10); // カメラ位置のvector3を作る
-        Camera.main.transform.position = camPos; // カメラの更新座標
-        // アニメーション制御
-        //animator.SetBool("isMove", (axish != 0));
+
+        // --- 上下 ---
+        if (Input.GetKey(KeyCode.W))
+        {
+            anim.SetBool("Up", true);
+            anim.SetBool("left", false);
+            anim.SetBool("right", false);
+            anim.SetBool("down", false);
+            anim.SetBool("move", true);
+            move.y = 1;
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            anim.SetBool("down", true);
+            anim.SetBool("left", false);
+            anim.SetBool("right", false);
+            anim.SetBool("Up", false);
+            anim.SetBool("move", true);
+
+
+            move.y = -1;
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            anim.SetTrigger("jump");
+        }
+        if (Input.GetKey(KeyCode.RightShift))
+        {
+            // isDashing = true;
+            currentSpeed = dash;
+        }
+        else
+        {
+            {
+                currentSpeed = speed;
+            }
+        }
+
+        // キー押してない
+        if (move == Vector2.zero)
+        {
+            anim.SetBool("move", false);
+        }
+        // 攻撃
+        Attacker();
     }
+
+    void FixedUpdate()
+    {
+        transform.Translate(move.normalized * currentSpeed * Time.fixedDeltaTime);
+    }
+    void Attacker()
+    {
+        if (Input.GetKeyDown(KeyCode.V) && !isAttacking)
+        {
+            StartCoroutine(AttackForOneSecond());
+        }
+    }
+
+    IEnumerator AttackForOneSecond()
+    {
+        isAttacking = true;
+        Attack.SetActive(true);
+        Debug.Log("攻撃してるよ");
+
+        yield return new WaitForSeconds(0.5f);
+
+        Attack.SetActive(false);
+        isAttacking = false;
+    }
+
 }

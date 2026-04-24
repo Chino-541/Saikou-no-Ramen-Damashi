@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +7,9 @@ public class Inventory : MonoBehaviour
     public static Inventory instance;
 
     Dictionary<string, int> items = new Dictionary<string, int>();
+    public static Inventory Instance;
 
+    public event Action onItemChanged;
     void Awake()
     {
         instance = this;
@@ -20,6 +23,8 @@ public class Inventory : MonoBehaviour
             items.Add(name, amount);
 
         Debug.Log(name + " ÇèEÇ¡ÇΩ");
+
+        onItemChanged?.Invoke();
     }
 
     public void MoveAllToBox()
@@ -30,5 +35,12 @@ public class Inventory : MonoBehaviour
         }
 
         items.Clear();
+
+        onItemChanged?.Invoke();
+
+    }
+    public Dictionary<string, int> GetItems()
+    {
+        return items;
     }
 }
