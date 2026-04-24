@@ -3,25 +3,21 @@ using System.Collections;
 
 public class Player : MonoBehaviour
 {
-    // animator使えるようにする？
     private Animator anim;
-    // 速さ
+
     public float speed = 2.0f;
     public float dash = 5.0f;
     private float currentSpeed;
-    // 攻撃の判定を入れる
+
     public GameObject Attack;
-    // bool isDashing = false;
+
     Vector2 move = Vector2.zero;
-    private bool isAttacking = false;
+    bool isAttacking = false;
 
     void Start()
     {
-        // 速さの定義？
         currentSpeed = speed;
-        // animatorを取得
         anim = GetComponent<Animator>();
-        // 攻撃オブジェクトを非表示にする
         Attack.SetActive(false);
     }
 
@@ -29,70 +25,46 @@ public class Player : MonoBehaviour
     {
         move = Vector2.zero;
 
-        // --- 左右 ---
-        if (Input.GetKey(KeyCode.A))
-        {
-            anim.SetBool("left", true);
-            anim.SetBool("right", false);
-            anim.SetBool("Up", false);
-            anim.SetBool("down", false);
-            anim.SetBool("move", true);
-            move.x = -1;
+        // --- 移動入力 ---
+        if (Input.GetKey(KeyCode.A)) move.x = -1;
+        if (Input.GetKey(KeyCode.D)) move.x = 1;
+        if (Input.GetKey(KeyCode.W)) move.y = 1;
+        if (Input.GetKey(KeyCode.S)) move.y = -1;
 
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            anim.SetBool("right", true);
-            anim.SetBool("left", false);
-            anim.SetBool("Up", false);
-            anim.SetBool("down", false);
-            anim.SetBool("move", true);
-            move.x = 1;
-        }
+        // --- ダッシュ ---
+        currentSpeed = Input.GetKey(KeyCode.RightShift) ? dash : speed;
 
-        // --- 上下 ---
-        if (Input.GetKey(KeyCode.W))
+        // --- 向きとアニメーション ---
+        if (move != Vector2.zero)
         {
-            anim.SetBool("Up", true);
-            anim.SetBool("left", false);
-            anim.SetBool("right", false);
-            anim.SetBool("down", false);
-            anim.SetBool("move", true);
-            move.y = 1;
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            anim.SetBool("down", true);
-            anim.SetBool("left", false);
-            anim.SetBool("right", false);
-            anim.SetBool("Up", false);
             anim.SetBool("move", true);
 
-
-            move.y = -1;
-        }
-        if (Input.GetKey(KeyCode.Space))
-        {
-            anim.SetTrigger("jump");
-        }
-        if (Input.GetKey(KeyCode.RightShift))
-        {
-            // isDashing = true;
-            currentSpeed = dash;
+            // 方向判定
+            if (Mathf.Abs(move.x) > Mathf.Abs(move.y))
+            {
+                // 横方向
+                if (move.x > 0) anim.SetInteger("Direction", 2); // 右
+                else anim.SetInteger("Direction", 1);            // 左
+            }
+            else
+            {
+                // 縦方向
+                if (move.y > 0) anim.SetInteger("Direction", 3); // 上
+                else anim.SetInteger("Direction", 0);            // 下
+            }
         }
         else
         {
-            {
-                currentSpeed = speed;
-            }
-        }
-
-        // キー押してない
-        if (move == Vector2.zero)
-        {
             anim.SetBool("move", false);
         }
-        // 攻撃
+
+        // --- ジャンプ ---
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            anim.SetTrigger("jump");
+        }
+
+        // --- 攻撃 ---
         Attacker();
     }
 
@@ -100,6 +72,7 @@ public class Player : MonoBehaviour
     {
         transform.Translate(move.normalized * currentSpeed * Time.fixedDeltaTime);
     }
+
     void Attacker()
     {
         if (Input.GetKeyDown(KeyCode.V) && !isAttacking)
@@ -112,12 +85,10 @@ public class Player : MonoBehaviour
     {
         isAttacking = true;
         Attack.SetActive(true);
-        Debug.Log("攻撃してるよ");
 
         yield return new WaitForSeconds(0.5f);
 
         Attack.SetActive(false);
         isAttacking = false;
     }
-
 }
