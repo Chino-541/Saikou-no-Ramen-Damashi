@@ -3,34 +3,52 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using NaughtyAttributes;
 
 
 public class Ken_SetsumeiSystem : MonoBehaviour
 {
     [Header("Nyanスクリプトへようこそ")]
 
-    [SerializeField] private TextMeshProUGUI _CharName;
-    [SerializeField] private TextMeshProUGUI _CharText;
-    [SerializeField] private Image _CharImage;
+    [BoxGroup("UI")][SerializeField] private TextMeshProUGUI _CharName;
+    [BoxGroup("UI")][SerializeField] private TextMeshProUGUI _CharText;
+    [BoxGroup("UI")][SerializeField] private Image _CharImage;
 
-    [SerializeField] private float _CharTextSpeed = 0.05f;
-    [SerializeField] private int _CharTextDelay = 1;
+    [BoxGroup("TextSystem")][SerializeField] private float _CharTextSpeed = 0.05f;
+    [BoxGroup("TextSystem")][SerializeField] private int _CharTextDelay = 1;
 
-    [SerializeField] private Button _AutoClickButton;
-    [SerializeField] private TextMeshProUGUI _AutoClickButtonT;
+    [BoxGroup("AutoClick")][SerializeField] private Button _AutoClickButton;
+    [BoxGroup("AutoClick")][SerializeField] private TextMeshProUGUI _AutoClickButtonT;
 
-    [SerializeField] private Animator _CharNaikTurun;
+    [BoxGroup("Animation")][SerializeField] private Animator _CharNaikTurun;
 
-    public string _RamenYa = "ラーメン屋";
-    public string _PlayerName = "Player";
+    [BoxGroup("UI")][SerializeField] private Image _RamenYaImage;
+    [BoxGroup("UI")][SerializeField] private Image _PlayerImage;
 
-    public bool _AutoClickText = false;
+    [BoxGroup("Name")] public string _Ojiisan = "知らないおじいさん";
+    [BoxGroup("Name")] public string _RamenYa = "ラーメン屋";
+    [BoxGroup("Name")][SerializeField] Color _RamenYaColour = Color.purple;
 
-  
-    
+    [BoxGroup("Name")] public string _PlayerName = "Player";
+    [BoxGroup("Name")][SerializeField] Color _PlayerColour = Color.blue;
+
+    [BoxGroup("AutoClick")] public bool _AutoClickText = false;
+
+    [BoxGroup("Pilihan")][SerializeField] private TMP_InputField _PlayerNameInput;
+    [BoxGroup("Pilihan")][SerializeField] private Button _PlayerInputB;
+
+    [BoxGroup("Jawaban")][SerializeField] private Button _ChoiceYes;
+    [BoxGroup("Jawaban")][SerializeField] private Button _ChoiceNo;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _PlayerNameInput.gameObject.SetActive(false);
+        _PlayerInputB.gameObject.SetActive(false);  
+        _ChoiceYes.gameObject.SetActive(false);
+        _ChoiceNo.gameObject.SetActive(false);
+
         StartCoroutine(CharSetsumeiText());
         AutoClickSystem();
     }
@@ -42,38 +60,73 @@ public class Ken_SetsumeiSystem : MonoBehaviour
     }
     IEnumerator CharSetsumeiText()
     {
-        _CharName.text = _RamenYa;
-        _CharName.color = Color.purple;
+        _CharName.text = _Ojiisan;
+        _CharName.color = _RamenYaColour;
+        _CharImage.sprite = _RamenYaImage.sprite;
         _CharNaikTurun.SetTrigger("CharNaikTurun");
         yield return StartCoroutine(CharSetsumeiSystem("こんにちは"));
         yield return StartCoroutine(AutoClickText());
         //yield return new WaitForSeconds(_CharTextDelay);
 
-        yield return StartCoroutine(CharSetsumeiSystem("俺の夢はラーメン屋になることなんだ！"));
+        _CharName.text = _PlayerName;
+        _CharName.color = _PlayerColour;
+        _CharImage.sprite = _PlayerImage.sprite;
+        _CharNaikTurun.SetTrigger("CharNaikTurun");
+        yield return StartCoroutine(CharSetsumeiSystem("こんにちは"));
         yield return StartCoroutine(AutoClickText());
-        //yield return new WaitForSeconds(_CharTextDelay);
 
-        yield return StartCoroutine(CharSetsumeiSystem("俺の夢を叶えるために、手伝ってくれないかい"));
+        _CharName.text = _Ojiisan;
+        _CharName.color = _RamenYaColour;
+        _CharImage.sprite = _RamenYaImage.sprite;
+        //_CharNaikTurun.SetTrigger("CharNaikTurun");
+        yield return StartCoroutine(CharSetsumeiSystem("君の名前を教えてくれないかな？"));
         yield return StartCoroutine(AutoClickText());
-        // yield return new WaitForSeconds(_CharTextDelay);
+
+        //-----------------------------------------------------------
+        yield return StartCoroutine(PlayerNameIn());
+
+        _CharName.text = _Ojiisan;
+        _CharName.color =_RamenYaColour;
+        _CharImage.sprite = _RamenYaImage.sprite;
+        //_CharNaikTurun.SetTrigger("CharNaikTurun");
+        yield return StartCoroutine(CharSetsumeiSystem("へぇ～、よろしくね"+_PlayerName+"さん"));
+        yield return StartCoroutine(AutoClickText());
 
         _CharName.text = _PlayerName;
-        _CharName.color = Color.blue;
-        _CharNaikTurun.SetTrigger("CharNaikTurun");
-        yield return StartCoroutine(CharSetsumeiSystem("いいよ！"));
+        _CharName.color = _PlayerColour;
+        _CharImage.sprite = _PlayerImage.sprite;
+        yield return StartCoroutine(CharSetsumeiSystem("それで、おじいさんはなにものだ？"));
         yield return StartCoroutine(AutoClickText());
-        //yield return new WaitForSeconds(_CharTextDelay);
-
-        yield return StartCoroutine(CharSetsumeiSystem("何をすればいいのか？"));
-        yield return StartCoroutine(AutoClickText());
-        //yield return new WaitForSeconds(_CharTextDelay);
 
         _CharName.text = _RamenYa;
-        _CharName.color = Color.purple;
-        _CharNaikTurun.SetTrigger("CharNaikTurun");
-        yield return StartCoroutine(CharSetsumeiSystem("まず、食材収集から"));
+        _CharName.color = _RamenYaColour;
+        _CharImage.sprite = _RamenYaImage.sprite;
+        yield return StartCoroutine(CharSetsumeiSystem("僕はラーメン屋さん。"));
         yield return StartCoroutine(AutoClickText());
-        //yield return new WaitForSeconds(_CharTextDelay);
+
+        yield return StartCoroutine(CharSetsumeiSystem("僕と一緒にラーメンを作らないかい？"));
+        yield return StartCoroutine(AutoClickText());
+
+        //-----------------------------------------------------------
+        bool PlayerChoice = false;
+
+        yield return StartCoroutine(ChoiceYes((pilihan) =>
+        {
+            PlayerChoice = pilihan;
+        }));
+
+        if(PlayerChoice)
+        {
+            yield return StartCoroutine(CharSetsumeiSystem("いいね！"));
+        }
+        else
+        {
+            _CharNaikTurun.SetTrigger("CharNaikTurun");
+            yield return StartCoroutine(CharSetsumeiSystem("はあ！、なんだって！！！"));
+        }
+        yield return StartCoroutine(AutoClickText());
+
+      
     }
     IEnumerator CharSetsumeiSystem(string _CharT)
     {
@@ -128,6 +181,56 @@ public class Ken_SetsumeiSystem : MonoBehaviour
             }
         });
     }
+    IEnumerator PlayerNameIn()
+    {
+        _PlayerNameInput.gameObject.SetActive(true);
+        _PlayerInputB.gameObject.SetActive(true);   
+        _PlayerNameInput.text = "";
+        _PlayerNameInput.ActivateInputField();
 
+        bool _PlayerNameInBool = false;
+
+       _PlayerInputB.onClick.RemoveAllListeners();
+        _PlayerInputB.onClick.AddListener(() =>
+        {
+            if (!string.IsNullOrEmpty(_PlayerNameInput.text))
+            {
+                _PlayerNameInBool = true;
+            }
+        });
+
+        yield return new WaitUntil(() => _PlayerNameInBool);
+
+        _PlayerName = _PlayerNameInput.text;
+        _PlayerNameInput.gameObject.SetActive(false);
+        _PlayerInputB.gameObject.SetActive(false);
+    }
+    IEnumerator ChoiceYes(System.Action<bool> pilihan)
+    {
+        _ChoiceYes.gameObject.SetActive(true); 
+        _ChoiceNo.gameObject.SetActive(true);
+
+        bool _Choiced = false;
+        bool _Answer = false;
+
+        _ChoiceYes.onClick.RemoveAllListeners();
+        _ChoiceNo.onClick.RemoveAllListeners();
+
+        _ChoiceYes.onClick.AddListener(() =>
+        {
+            _Answer = true;
+            _Choiced = true;
+        });
+        _ChoiceNo.onClick.AddListener(() =>
+        {
+            _Answer = false;
+            _Choiced = true;
+        });
+        yield return new WaitUntil(() => _Choiced);
+
+        _ChoiceYes.gameObject.SetActive(false);
+        _ChoiceNo.gameObject.SetActive(false);
+        pilihan?.Invoke(_Answer);
+    }
     
 }
