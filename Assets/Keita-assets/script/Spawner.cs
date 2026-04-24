@@ -12,7 +12,7 @@ public class Spawner : MonoBehaviour
         if (timer >= 10f)
         {
             Instantiate(banana, transform.position, Quaternion.identity);
-            timer = 0f; // ŒJ‚è•Ô‚µ‚½‚­‚È‚¢‚È‚çíœ
+            timer = 0f; // ŒJ‚è•Ô‚µ
         }
     }
 }

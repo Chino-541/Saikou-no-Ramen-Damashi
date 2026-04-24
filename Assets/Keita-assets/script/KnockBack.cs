@@ -20,7 +20,7 @@ public class KnockBack : MonoBehaviour
             // プレイヤーをノックバックさせる
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
-            float knockbackForce = 30.0f; // ノックバックの強さを調整
+            float knockbackForce = 5.0f; // ノックバックの強さを調整
             rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
         }
     }

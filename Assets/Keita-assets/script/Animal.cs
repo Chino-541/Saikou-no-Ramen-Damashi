@@ -20,6 +20,7 @@ public class Animal : MonoBehaviour
     // ƒ‰ƒ“ƒ_ƒ€ˆÚ“®‚Ì•ûŒü
     private Vector2 direction;
     private Rigidbody2D rb2;
+    public GameObject item;
     void Start()
     {
         rb2 = GetComponent<Rigidbody2D>();
@@ -78,6 +79,7 @@ public class Animal : MonoBehaviour
         else if (CurrentHp < 0)
         {
             Destroy(gameObject);
+            Instantiate(item, transform.position, Quaternion.identity);
             Debug.Log("uwaaa");
         }
     }
