@@ -8,15 +8,16 @@ public class Player : MonoBehaviour
     public float speed = 2.0f;
     public float dash = 5.0f;
     private float currentSpeed;
-
+    private Rigidbody2D _rb;
     public GameObject Attack;
 
     Vector2 move = Vector2.zero;
-    Vector2 facing = Vector2.down; // ‰ŠúŒü‚«
+    Vector2 facing = Vector2.down; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     bool isAttacking = false;
 
     void Start()
     {
+        _rb = GetComponent<Rigidbody2D>();
         currentSpeed = speed;
         anim = GetComponent<Animator>();
         Attack.SetActive(false);
@@ -24,52 +25,57 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        move = Vector2.zero;
+       // move = Vector2.zero;
+        float inputX = Input.GetAxisRaw("Horizontal");
+        float inputY = Input.GetAxisRaw("Vertical");
+        Vector2 dir = new Vector2(inputX, inputY).normalized;
+        _rb.linearVelocity = dir * currentSpeed;
+        
 
-        // --- ¶‰E ---
+        // --- ï¿½ï¿½ï¿½E ---
         if (Input.GetKey(KeyCode.A))
         {
-            move.x = -1;
+            // move.x = -1;
             facing = Vector2.left;
             SetAnimDirection("left");
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            move.x = 1;
+            // move.x = 1;
             facing = Vector2.right;
             SetAnimDirection("right");
         }
 
-        // --- ã‰º ---
+        // --- ï¿½ã‰º ---
         if (Input.GetKey(KeyCode.W))
         {
-            move.y = 1;
+            // move.y = 1;
             facing = Vector2.up;
             SetAnimDirection("Up");
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            move.y = -1;
+            // move.y = -1;
             facing = Vector2.down;
             SetAnimDirection("down");
         }
 
-        // ˆÚ“®‚µ‚Ä‚¢‚È‚¢
+        // ï¿½Ú“ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½
         if (move == Vector2.zero)
         {
             anim.SetBool("move", false);
         }
 
-        // ƒWƒƒƒ“ƒv
+        // ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½v
         if (Input.GetKey(KeyCode.Space))
         {
             anim.SetTrigger("jump");
         }
 
-        // ƒ_ƒbƒVƒ…
+        
         currentSpeed = Input.GetKey(KeyCode.RightShift) ? dash : speed;
 
-        // UŒ‚
+       
         Attacker();
     }
 
@@ -78,7 +84,7 @@ public class Player : MonoBehaviour
         transform.Translate(move.normalized * currentSpeed * Time.fixedDeltaTime);
     }
 
-    // ƒAƒjƒ[ƒVƒ‡ƒ“•ûŒüİ’è
+    
     void SetAnimDirection(string dir)
     {
         anim.SetBool("move", true);
@@ -88,7 +94,7 @@ public class Player : MonoBehaviour
         anim.SetBool("down", dir == "down");
     }
 
-    // UŒ‚ˆ—
+    
     void Attacker()
     {
         if (Input.GetKeyDown(KeyCode.V) && !isAttacking)
@@ -101,11 +107,11 @@ public class Player : MonoBehaviour
     {
         isAttacking = true;
 
-        // UŒ‚ˆÊ’u‚ğƒvƒŒƒCƒ„[‚Ì³–Ê‚ÉˆÚ“®
+       
         Attack.transform.localPosition = facing * 0.5f;
 
         Attack.SetActive(true);
-        Debug.Log("UŒ‚‚µ‚Ä‚é‚æ");
+        Debug.Log("ï¿½Uï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½");
 
         yield return new WaitForSeconds(0.5f);
 

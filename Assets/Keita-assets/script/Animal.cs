@@ -1,6 +1,8 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
+using UnityEngine.UIElements;
+
 public class Animal : MonoBehaviour
 {
     // ‘Ì—Í
@@ -69,11 +71,11 @@ public class Animal : MonoBehaviour
         }
         Hp();
     }
-    void Hp()
+    public void Hp()
     {
         if (CurrentHp == 1)
         {
-            CurrentSpeed = dash;     
+            CurrentSpeed = dash;
             Debug.Log("ƒsƒ“ƒ`");
         }
         else if (CurrentHp < 0)
