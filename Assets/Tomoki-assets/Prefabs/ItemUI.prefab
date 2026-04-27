@@ -354,6 +354,7 @@ GameObject:
   - component: {fileID: 6346055298705298763}
   - component: {fileID: 7851569801223335615}
   - component: {fileID: 6260211944964395202}
+  - component: {fileID: 5039991822166414847}
   m_Layer: 5
   m_Name: ItemUI
   m_TagString: Untagged
@@ -419,6 +420,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5039991822166414847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4710247453185837697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3211b158d94d27242b6770881176018f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIInvantoryItem
 --- !u!1 &7403212468442350075
 GameObject:
   m_ObjectHideFlags: 0
