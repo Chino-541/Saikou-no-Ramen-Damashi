@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using NaughtyAttributes;
+using UnityEngine.SceneManagement;
 
 
 public class Ken_SetsumeiSystem : MonoBehaviour
@@ -40,6 +41,8 @@ public class Ken_SetsumeiSystem : MonoBehaviour
     [BoxGroup("Jawaban")][SerializeField] private Button _ChoiceYes;
     [BoxGroup("Jawaban")][SerializeField] private Button _ChoiceNo;
 
+    [BoxGroup("NScene")][Scene][SerializeField] private int _NScene;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -48,7 +51,7 @@ public class Ken_SetsumeiSystem : MonoBehaviour
         _PlayerInputB.gameObject.SetActive(false);  
         _ChoiceYes.gameObject.SetActive(false);
         _ChoiceNo.gameObject.SetActive(false);
-
+        //-----------------------------------------------------------
         StartCoroutine(CharSetsumeiText());
         AutoClickSystem();
     }
@@ -126,6 +129,9 @@ public class Ken_SetsumeiSystem : MonoBehaviour
         }
         yield return StartCoroutine(AutoClickText());
 
+        //-----------------------------------------------------------
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(_NScene);
       
     }
     IEnumerator CharSetsumeiSystem(string _CharT)

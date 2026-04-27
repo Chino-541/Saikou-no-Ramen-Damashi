@@ -1,0 +1,650 @@
+fileFormatVersion: 2
+guid: 33bfe6ec07a44014d8ad9108a378a1d9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6474004719229530410
+    second: Hato_Residence_Auto_A_Tub_B_003_0
+  - first:
+      213: 9123831967267558981
+    second: Hato_Residence_Auto_A_Tub_B_003_1
+  - first:
+      213: 6412192586014487724
+    second: Hato_Residence_Auto_A_Tub_B_003_2
+  - first:
+      213: -7592932192843454325
+    second: Hato_Residence_Auto_A_Tub_B_003_3
+  - first:
+      213: -8814717965807594422
+    second: Hato_Residence_Auto_A_Tub_B_003_4
+  - first:
+      213: 5313424280359399327
+    second: Hato_Residence_Auto_A_Tub_B_003_5
+  - first:
+      213: 3577371002287257092
+    second: Hato_Residence_Auto_A_Tub_B_003_6
+  - first:
+      213: -3625750164945569866
+    second: Hato_Residence_Auto_A_Tub_B_003_7
+  - first:
+      213: 4009588611903485730
+    second: Hato_Residence_Auto_A_Tub_B_003_8
+  - first:
+      213: -4083721973802041072
+    second: Hato_Residence_Auto_A_Tub_B_003_9
+  - first:
+      213: -3483132258931287597
+    second: Hato_Residence_Auto_A_Tub_B_003_10
+  - first:
+      213: 2772734390675703517
+    second: Hato_Residence_Auto_A_Tub_B_003_11
+  - first:
+      213: 1742625357168049044
+    second: Hato_Residence_Auto_A_Tub_B_003_12
+  - first:
+      213: -966820152047559298
+    second: Hato_Residence_Auto_A_Tub_B_003_13
+  - first:
+      213: 5046757279423247684
+    second: Hato_Residence_Auto_A_Tub_B_003_14
+  - first:
+      213: -6383308599886674245
+    second: Hato_Residence_Auto_A_Tub_B_003_15
+  - first:
+      213: 7694991759899288525
+    second: Hato_Residence_Auto_A_Tub_B_003_16
+  - first:
+      213: 8069280988161479021
+    second: Hato_Residence_Auto_A_Tub_B_003_17
+  - first:
+      213: -1798526959246310360
+    second: Hato_Residence_Auto_A_Tub_B_003_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hato_Residence_Auto_A_Tub_B_003_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 203
+        width: 8
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6de0f143207b726a0800000000000000
+      internalID: -6474004719229530410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Auto_A_Tub_B_003_1
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 203
+        width: 8
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 546165785dc5e9e70800000000000000
+      internalID: 9123831967267558981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Auto_A_Tub_B_003_2
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 203
+        width: 8
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca479c80f2facf850800000000000000
+      internalID: 6412192586014487724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Auto_A_Tub_B_003_3
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 203
+        width: 8
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8820f1566c70a690800000000000000
+      internalID: -7592932192843454325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Auto_A_Tub_B_003_4
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 203
+        width: 8
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a44d8c466b4dba580800000000000000
+      internalID: -8814717965807594422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Auto_A_Tub_B_003_5
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 203
+        width: 8
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9fe1c33b331db940800000000000000
+      internalID: 5313424280359399327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Auto_A_Tub_B_003_6
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 203
+        width: 8
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4067d1d09ff55a130800000000000000
+      internalID: 3577371002287257092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Auto_A_Tub_B_003_7
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 191
+        width: 6
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b7fa1e5f6fbeadc0800000000000000
+      internalID: -3625750164945569866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Auto_A_Tub_B_003_8
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 191
+        width: 13
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22775fb499be4a730800000000000000
+      internalID: 4009588611903485730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Auto_A_Tub_B_003_9
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 191
+        width: 13
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01182165084b357c0800000000000000
+      internalID: -4083721973802041072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Auto_A_Tub_B_003_10
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 191
+        width: 13
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d952b83aad69afc0800000000000000
+      internalID: -3483132258931287597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Auto_A_Tub_B_003_11
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 191
+        width: 8
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd60cbcdc3bba7620800000000000000
+      internalID: 2772734390675703517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Auto_A_Tub_B_003_12
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 23
+        width: 13
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49bf69e878c0f2810800000000000000
+      internalID: 1742625357168049044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Auto_A_Tub_B_003_13
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 23
+        width: 13
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7d1483b13a2592f0800000000000000
+      internalID: -966820152047559298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Auto_A_Tub_B_003_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 23
+        width: 13
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 445b3abb10fa90640800000000000000
+      internalID: 5046757279423247684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Auto_A_Tub_B_003_15
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 23
+        width: 13
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb60f0c06aee967a0800000000000000
+      internalID: -6383308599886674245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Auto_A_Tub_B_003_16
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 23
+        width: 13
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc3ea5e5c3a1aca60800000000000000
+      internalID: 7694991759899288525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Auto_A_Tub_B_003_17
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 23
+        width: 13
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d619d2c4e48dbff60800000000000000
+      internalID: 8069280988161479021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Auto_A_Tub_B_003_18
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 23
+        width: 13
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 824092372495a07e0800000000000000
+      internalID: -1798526959246310360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Hato_Residence_Auto_A_Tub_B_003_0: -6474004719229530410
+      Hato_Residence_Auto_A_Tub_B_003_1: 9123831967267558981
+      Hato_Residence_Auto_A_Tub_B_003_10: -3483132258931287597
+      Hato_Residence_Auto_A_Tub_B_003_11: 2772734390675703517
+      Hato_Residence_Auto_A_Tub_B_003_12: 1742625357168049044
+      Hato_Residence_Auto_A_Tub_B_003_13: -966820152047559298
+      Hato_Residence_Auto_A_Tub_B_003_14: 5046757279423247684
+      Hato_Residence_Auto_A_Tub_B_003_15: -6383308599886674245
+      Hato_Residence_Auto_A_Tub_B_003_16: 7694991759899288525
+      Hato_Residence_Auto_A_Tub_B_003_17: 8069280988161479021
+      Hato_Residence_Auto_A_Tub_B_003_18: -1798526959246310360
+      Hato_Residence_Auto_A_Tub_B_003_2: 6412192586014487724
+      Hato_Residence_Auto_A_Tub_B_003_3: -7592932192843454325
+      Hato_Residence_Auto_A_Tub_B_003_4: -8814717965807594422
+      Hato_Residence_Auto_A_Tub_B_003_5: 5313424280359399327
+      Hato_Residence_Auto_A_Tub_B_003_6: 3577371002287257092
+      Hato_Residence_Auto_A_Tub_B_003_7: -3625750164945569866
+      Hato_Residence_Auto_A_Tub_B_003_8: 4009588611903485730
+      Hato_Residence_Auto_A_Tub_B_003_9: -4083721973802041072
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
