@@ -9,7 +9,11 @@ public class ItemPickup : MonoBehaviour
     public Transform player;
     public float pickupRange = 2f;
 
-    public GameObject pickupUI; 
+    public GameObject pickupUI;
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     void Update()
     {
@@ -30,9 +34,6 @@ public class ItemPickup : MonoBehaviour
             }
         }
     }
-    void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-    }
+    
 
 }
