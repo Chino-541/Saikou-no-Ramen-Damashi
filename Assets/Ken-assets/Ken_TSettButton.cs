@@ -11,6 +11,7 @@ public class Ken_TSettButton : MonoBehaviour
     void Start()
     {
         _SettButton.onClick.AddListener(SettPanel);
+        _SettPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -20,6 +21,6 @@ public class Ken_TSettButton : MonoBehaviour
     }
     void SettPanel()
     {
-
+        _SettPanel.gameObject.SetActive(true);
     }
 }

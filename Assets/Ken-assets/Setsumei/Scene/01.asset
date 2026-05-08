@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abe076302f17a11448f28b2f14f23114, type: 3}
+  m_Name: 01
+  m_EditorClassIdentifier: Assembly-CSharp::Ken_SText
+  sentences:
+  - _Text: "\u3053\u3093\u306B\u3061\u306F"
+    _Char: {fileID: 11400000, guid: f3db30f262d0d1444b5b961e721b7adb, type: 2}
+  - _Text: "\u50D5\u306E\u5922\u306F\u30E9\u30FC\u30E1\u30F3\u5C4B\u3055\u3093\u306B\u306A\u308A\u305F\u3044"
+    _Char: {fileID: 11400000, guid: f3db30f262d0d1444b5b961e721b7adb, type: 2}
+  - _Text: "\u305D\u306E\u305F\u3081\u306B\u3001\u3002\u3002\u3002"
+    _Char: {fileID: 11400000, guid: f3db30f262d0d1444b5b961e721b7adb, type: 2}
+  _Background: {fileID: 915796842702919884, guid: dbac9970fdbb3334aaf99093fde27593, type: 3}
+  _NextScene: {fileID: 0}

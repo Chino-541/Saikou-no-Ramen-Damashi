@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: 609f1a867d72cee4696c95e8cbba5477
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8199305971481510418
+    second: Tileset_Residence_Omake_D_48x48_0
+  - first:
+      213: -6906282755438968885
+    second: Tileset_Residence_Omake_D_48x48_1
+  - first:
+      213: 5127896027725502736
+    second: Tileset_Residence_Omake_D_48x48_2
+  - first:
+      213: 7428318175839237475
+    second: Tileset_Residence_Omake_D_48x48_3
+  - first:
+      213: -7934987560168474593
+    second: Tileset_Residence_Omake_D_48x48_4
+  - first:
+      213: -6860659233879963149
+    second: Tileset_Residence_Omake_D_48x48_5
+  - first:
+      213: -6797774243375993517
+    second: Tileset_Residence_Omake_D_48x48_6
+  - first:
+      213: -5157720265870267033
+    second: Tileset_Residence_Omake_D_48x48_7
+  - first:
+      213: -8943005944671399522
+    second: Tileset_Residence_Omake_D_48x48_8
+  - first:
+      213: 8516721752837149554
+    second: Tileset_Residence_Omake_D_48x48_9
+  - first:
+      213: -6773687812727679768
+    second: Tileset_Residence_Omake_D_48x48_10
+  - first:
+      213: 403927655006649293
+    second: Tileset_Residence_Omake_D_48x48_11
+  - first:
+      213: 6351589322691809526
+    second: Tileset_Residence_Omake_D_48x48_12
+  - first:
+      213: -5723192873868069166
+    second: Tileset_Residence_Omake_D_48x48_13
+  - first:
+      213: 3792794259719509112
+    second: Tileset_Residence_Omake_D_48x48_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tileset_Residence_Omake_D_48x48_0
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 479
+        width: 86
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eedfa1529a6363e80800000000000000
+      internalID: -8199305971481510418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset_Residence_Omake_D_48x48_1
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 479
+        width: 86
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcf77abcc64f720a0800000000000000
+      internalID: -6906282755438968885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset_Residence_Omake_D_48x48_2
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 239
+        width: 146
+        height: 529
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01917b9b442f92740800000000000000
+      internalID: 5127896027725502736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset_Residence_Omake_D_48x48_3
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 671
+        width: 86
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 365b9752600b61760800000000000000
+      internalID: 7428318175839237475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset_Residence_Omake_D_48x48_4
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 695
+        width: 98
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f18b30bfad241e190800000000000000
+      internalID: -7934987560168474593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset_Residence_Omake_D_48x48_5
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 527
+        width: 97
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f9c49fa6ca0ac0a0800000000000000
+      internalID: -6860659233879963149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset_Residence_Omake_D_48x48_6
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 551
+        width: 98
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35d2640875479a1a0800000000000000
+      internalID: -6797774243375993517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset_Residence_Omake_D_48x48_7
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 570
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76d28f5beb81c68b0800000000000000
+      internalID: -5157720265870267033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset_Residence_Omake_D_48x48_8
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 407
+        width: 98
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9197a3b97f04e380800000000000000
+      internalID: -8943005944671399522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset_Residence_Omake_D_48x48_9
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 407
+        width: 98
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27353b88f49713670800000000000000
+      internalID: 8516721752837149554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset_Residence_Omake_D_48x48_10
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 460
+        width: 97
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e459f6a2d60ff1a0800000000000000
+      internalID: -6773687812727679768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset_Residence_Omake_D_48x48_11
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 191
+        width: 86
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcbb0a7ef0a0b9500800000000000000
+      internalID: 403927655006649293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset_Residence_Omake_D_48x48_12
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 0
+        width: 530
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f0953a36d0652850800000000000000
+      internalID: 6351589322691809526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset_Residence_Omake_D_48x48_13
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 143
+        width: 62
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d6fb0c67622390b0800000000000000
+      internalID: -5723192873868069166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset_Residence_Omake_D_48x48_14
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 0
+        width: 86
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 874d8bcb846b2a430800000000000000
+      internalID: 3792794259719509112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Tileset_Residence_Omake_D_48x48_0: -8199305971481510418
+      Tileset_Residence_Omake_D_48x48_1: -6906282755438968885
+      Tileset_Residence_Omake_D_48x48_10: -6773687812727679768
+      Tileset_Residence_Omake_D_48x48_11: 403927655006649293
+      Tileset_Residence_Omake_D_48x48_12: 6351589322691809526
+      Tileset_Residence_Omake_D_48x48_13: -5723192873868069166
+      Tileset_Residence_Omake_D_48x48_14: 3792794259719509112
+      Tileset_Residence_Omake_D_48x48_2: 5127896027725502736
+      Tileset_Residence_Omake_D_48x48_3: 7428318175839237475
+      Tileset_Residence_Omake_D_48x48_4: -7934987560168474593
+      Tileset_Residence_Omake_D_48x48_5: -6860659233879963149
+      Tileset_Residence_Omake_D_48x48_6: -6797774243375993517
+      Tileset_Residence_Omake_D_48x48_7: -5157720265870267033
+      Tileset_Residence_Omake_D_48x48_8: -8943005944671399522
+      Tileset_Residence_Omake_D_48x48_9: 8516721752837149554
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
