@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2665702989328804004}
   - component: {fileID: 4294413053768697072}
   - component: {fileID: 4274945539019215191}
-  - component: {fileID: 1336164847726304508}
   m_Layer: 0
   m_Name: animal
   m_TagString: Untagged
@@ -108,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RandomMovement
   EnemyHp: 2
-  Speed: 1
+  Speed: 0.5
   dash: 2
   chargeTime: 2
   chaseRange: 1
@@ -186,15 +185,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1336164847726304508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6852871876267306534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b9719f9a6383f44fa306698a4a1329c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::KnockBack

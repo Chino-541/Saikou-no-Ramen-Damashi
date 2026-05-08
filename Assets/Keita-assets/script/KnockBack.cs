@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class KnockBack : MonoBehaviour
 {
+    public float knockbackForce = 5.0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,7 +21,7 @@ public class KnockBack : MonoBehaviour
             // プレイヤーをノックバックさせる
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
-            float knockbackForce = 5.0f; // ノックバックの強さを調整
+             float knockbackForce = 5.0f; // ノックバックの強さを調整
             rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
         }
     }
