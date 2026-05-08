@@ -59,13 +59,13 @@ TagManager:
   - name: Decor
     uniqueID: 160125793
     locked: 0
-  - name: F1
+  - name: Fishing UI
     uniqueID: 4262921881
     locked: 0
-  - name: F2
+  - name: 
     uniqueID: 413847487
     locked: 0
-  - name: F3
+  - name: 
     uniqueID: 3468416815
     locked: 0
   m_RenderingLayers:
