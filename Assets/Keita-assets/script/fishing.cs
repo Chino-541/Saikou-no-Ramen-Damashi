@@ -1,16 +1,41 @@
+using System.Collections;
 using UnityEngine;
+
+using UnityEngine.UIElements;
 
 public class fishing : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    private int éûä‘êßå¿ = 8;
+    private int number = 50;
+    public Slider slider;
 
-    // Update is called once per frame
-    void Update()
+     void start()
     {
-        
-    }
-}
+        //éûä‘êßå¿
+        for (int i = 8; i < 0; i--)
+        {
+            //ämó¶
+
+
+            
+            //ñàïbämó¶Ç÷ÇÈ
+            for(int j = 50; j < 0; j--)
+            {
+                if(Input.GetMouseButton(0))
+                {
+                    number++;
+                }
+
+                if(j > 40 && j < 60)
+                {
+                    Debug.Log("ãõÇ∆ÇÍÇΩÇÊ");
+                }
+                else
+                {
+                    Debug.Log("écîOÇ≈ÇµÇΩÇÇ");
+                }
+            }
+        }
+
+    }       
+ }
