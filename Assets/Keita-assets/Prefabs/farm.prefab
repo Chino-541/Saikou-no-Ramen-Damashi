@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4557577134625748772}
   - component: {fileID: 5649831553583493335}
   - component: {fileID: 7638074586817615890}
-  - component: {fileID: -3545396503366743938}
   m_Layer: 0
   m_Name: farm
   m_TagString: Vegetable
@@ -252,16 +251,3 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
---- !u!114 &-3545396503366743938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4517357532346688978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ccebd4c1de31d840adc037be087b22f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Vegetable
-  banana: {fileID: 4517357532346688978}
