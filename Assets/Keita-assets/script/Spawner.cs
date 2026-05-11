@@ -19,13 +19,7 @@ public class Spawner : MonoBehaviour
         {
             float x = Random.Range(minX, maxX);
             float y = Random.Range(minY, maxY);
-
-            Vector3 pos = new Vector3(
-                x,
-                y,
-                transform.position.z
-            );
-
+            Vector3 pos = new Vector3(x,y,transform.position.z);
             Instantiate(banana, pos, Quaternion.identity);
             timer = 0f;
         }

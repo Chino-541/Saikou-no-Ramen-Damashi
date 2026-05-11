@@ -5,11 +5,11 @@ using UnityEngine.UIElements;
 
 public class fishing : MonoBehaviour
 {
-    private int ŠÔ§ŒÀ = 8;
-    private int number = 50;
+   // private int ŠÔ§ŒÀ = 8;
+  //  private int number = 50;
     public Slider slider;
 
-     void start()
+     void Start()
     {
         //ŠÔ§ŒÀ
         for (int i = 8; i < 0; i--)
@@ -23,7 +23,7 @@ public class fishing : MonoBehaviour
             {
                 if(Input.GetMouseButton(0))
                 {
-                    number++;
+                    //number++;
                 }
 
                 if(j > 40 && j < 60)
