@@ -68,5 +68,8 @@ TagManager:
   - name: F3
     uniqueID: 3468416815
     locked: 0
+  - name: Canvas
+    uniqueID: 2651317615
+    locked: 0
   m_RenderingLayers:
   - Default
