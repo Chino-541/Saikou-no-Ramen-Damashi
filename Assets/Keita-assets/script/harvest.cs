@@ -1,5 +1,7 @@
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 
 public class harvest : MonoBehaviour
@@ -23,7 +25,7 @@ public class harvest : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.F))
+        if (collision.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.E))
         {
             if (timer >= 8f)
             {
@@ -43,5 +45,7 @@ public class harvest : MonoBehaviour
                 Debug.Log("ëÅÇ∑Ç¨ë“ÇøÇ»Ç≥Ç¢");
             }
         }
+
     }
+    
 }
