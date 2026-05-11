@@ -27,9 +27,13 @@ public class ItemPickup : MonoBehaviour
         //　アイテムを拾う
         if (distance < pickupRange &&Input.GetKeyDown(KeyCode.E))
         {
+            bool success = false;
             if (Inventory.instance != null)
             {
-                Inventory.instance.AddItem(itemName, amount);
+                success = Inventory.instance.AddItem(itemName, amount);
+            }
+            if(success)
+            {
                 Destroy(gameObject);
             }
         }
