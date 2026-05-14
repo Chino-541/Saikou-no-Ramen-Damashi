@@ -13,6 +13,7 @@ public class Vegetable : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (!Application.isPlaying) return;
         // ï€ë∂ÇµÇΩà íuÇ…ê∂ê¨
         Instantiate(banana, spawnPos, Quaternion.identity);
     }

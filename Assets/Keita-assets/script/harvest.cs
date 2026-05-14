@@ -1,21 +1,13 @@
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.Tilemaps;
+
 
 public class harvest : MonoBehaviour
 {
-    //[SerializeField] private GameObject Vegetable;
-    // [SerializeField] private AnimatedTile animatedTile;
-    // [SerializeField] private Tilemap tilemap;
-    // [SerializeField] private GameObject Prefab;
-
     private float timer = 0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        timer = 0f;
     }
 
     // Update is called once per frame
@@ -29,14 +21,10 @@ public class harvest : MonoBehaviour
         {
             if (timer >= 8f)
             {
-                // ¶¬ˆÊ’u‚ğ•Û‘¶
-                //Vector3 spawnPos = transform.position;
-
+                Destroy(gameObject);
                 // ©•ª‚ğíœ
                 Destroy(gameObject);
 
-                // •Û‘¶‚µ‚½ˆÊ’u‚É¶¬
-                //Instantiate(Vegetable, spawnPos, Quaternion.identity);
                 timer = 0f;
                 Debug.Log("Ìæ");
             }

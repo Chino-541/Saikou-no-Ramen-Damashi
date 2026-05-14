@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public GameObject Attack;
 
     Vector2 move = Vector2.zero;
-    Vector2 facing = Vector2.down; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    Vector2 facing = Vector2.down; 
     bool isAttacking = false;
 
     void Start()
@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
         _rb.linearVelocity = dir * currentSpeed;
         
 
-        // --- ï¿½ï¿½ï¿½E ---
+        // --- ???E ---
         if (Input.GetKey(KeyCode.A))
         {
             // move.x = -1;
@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
             SetAnimDirection("right");
         }
 
-        // --- ï¿½ã‰º ---
+        // --- ?? ---
         if (Input.GetKey(KeyCode.W))
         {
             // move.y = 1;
@@ -60,13 +60,13 @@ public class Player : MonoBehaviour
             SetAnimDirection("down");
         }
 
-        // ï¿½Ú“ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½
+        // ???????????
         if (move == Vector2.zero)
         {
             anim.SetBool("move", false);
         }
 
-        // ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½v
+        // ƒWƒƒƒ“ƒv
         if (Input.GetKey(KeyCode.Space))
         {
             anim.SetTrigger("jump");
@@ -111,7 +111,7 @@ public class Player : MonoBehaviour
         Attack.transform.localPosition = facing * 0.5f;
 
         Attack.SetActive(true);
-        Debug.Log("ï¿½Uï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½");
+        Debug.Log("attaking");
 
         yield return new WaitForSeconds(0.5f);
 

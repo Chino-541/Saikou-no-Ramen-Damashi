@@ -8,19 +8,20 @@ public class Animal : MonoBehaviour
     // 体力
     public int EnemyHp = 2;
     int CurrentHp;
+
     // 速さ
     public float Speed = 1f;
     public float dash = 3f;
     float CurrentSpeed;
+
     // 方向が切り替わる時間
     public float chargeTime = 3f;
     private float timeCount;
-    // 視界の範囲
-    public float chaseRange = 5f;
-    // prayerを格納
-    private Transform player;
+
     // ランダム移動の方向
     private Vector2 direction;
+
+
     private Rigidbody2D rb2;
     public GameObject item;
     void Start()
@@ -30,8 +31,6 @@ public class Animal : MonoBehaviour
         CurrentSpeed = Speed;
         // 体力の定義？
         CurrentHp = EnemyHp;
-        // Playerタグのオブジェクトを探す
-        player = GameObject.FindGameObjectWithTag("Player").transform;
 
         // 最初の方向
         float angle = Random.Range(0f, 360f);
@@ -41,21 +40,7 @@ public class Animal : MonoBehaviour
 
     void Update()
     {
-        float distance = Vector2.Distance(transform.position, player.position);
-
-        // 追跡
-        if (distance < chaseRange)
-        {
-            Vector2 playerPos = player.position;
-
-            transform.position = Vector2.MoveTowards(
-                transform.position,
-                playerPos,
-                CurrentSpeed * Time.deltaTime
-            );
-            return;
-        }
-
+       
         // ランダム移動
         timeCount += Time.deltaTime;
 
@@ -69,7 +54,7 @@ public class Animal : MonoBehaviour
 
             timeCount = 0;
         }
-        Hp();
+        
     }
     public void Hp()
     {
@@ -89,6 +74,8 @@ public class Animal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Attack"))
         {
+            Hp();
+            Debug.Log("当たった");
             CurrentHp--;
         }
     }
