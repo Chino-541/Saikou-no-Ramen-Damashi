@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class ItemPickup : MonoBehaviour
 {
+    [SerializeField] Cook cook;
     public string itemName;
     public int amount = 1;
 
@@ -25,6 +26,8 @@ public class ItemPickup : MonoBehaviour
         {
             if (Inventory.instance != null)
             {
+                cook.a++;
+                Debug.Log("お肉増加");
                 Inventory.instance.AddItem(itemName, amount);
                 Destroy(gameObject);
             }
@@ -33,6 +36,8 @@ public class ItemPickup : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        // cookがアタッチされているオブジェクトを探す
+        cook = FindAnyObjectByType<Cook>();
     }
 
 }
