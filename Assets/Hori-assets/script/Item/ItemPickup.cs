@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class ItemPickup : MonoBehaviour
 {
-    public string itemName;
+    public ItemData itemData;
     public int amount = 1;
 
     public Transform player;
@@ -30,7 +30,7 @@ public class ItemPickup : MonoBehaviour
             bool success = false;
             if (Inventory.instance != null)
             {
-                success = Inventory.instance.AddItem(itemName, amount);
+                success = Inventory.instance.AddItem(itemData, amount);
             }
             if(success)
             {

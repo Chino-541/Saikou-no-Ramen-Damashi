@@ -9,9 +9,7 @@ public class CookingManager : MonoBehaviour
     [System.Serializable]
     public class CookingItem
     {
-        public string itemName;
-
-        public Sprite icon;
+        public ItemData itemData;
     }
 
     public List<CookingItem> cookingItems =
@@ -27,9 +25,7 @@ public class CookingManager : MonoBehaviour
     }
 
     // ‘fÞ’Ç‰Á
-    public void AddMaterial(
-        string itemName,
-        Sprite icon)
+    public void AddMaterial(ItemData itemData)
     {
         if (cookingItems.Count >= 3)
             return;
@@ -37,9 +33,7 @@ public class CookingManager : MonoBehaviour
         CookingItem item =
             new CookingItem();
 
-        item.itemName = itemName;
-
-        item.icon = icon;
+        item.itemData = itemData;
 
         cookingItems.Add(item);
 
@@ -68,7 +62,8 @@ public class CookingManager : MonoBehaviour
             if (i < cookingItems.Count)
             {
                 cookingSlotIcons[i].sprite =
-                    cookingItems[i].icon;
+                    cookingItems[i]
+                    .itemData.icon;
             }
             else
             {

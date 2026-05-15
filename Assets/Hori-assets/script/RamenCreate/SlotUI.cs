@@ -8,9 +8,7 @@ public class SlotUI : MonoBehaviour
 
     public TMP_Text countText;
 
-    string itemName;
-
-    Sprite itemIcon;
+    ItemData itemData;
 
     Button button;
 
@@ -22,15 +20,12 @@ public class SlotUI : MonoBehaviour
     }
 
     public void SetItem(
-        string newItemName,
-        Sprite sprite,
+        ItemData newItem,
         int count)
     {
-        itemName = newItemName;
+        itemData = newItem;
 
-        itemIcon = sprite;
-
-        if (sprite == null)
+        if (itemData == null)
         {
             icon.enabled = false;
 
@@ -41,7 +36,7 @@ public class SlotUI : MonoBehaviour
 
         icon.enabled = true;
 
-        icon.sprite = sprite;
+        icon.sprite = itemData.icon;
 
         countText.text = count.ToString();
     }
@@ -49,7 +44,6 @@ public class SlotUI : MonoBehaviour
     void OnClick()
     {
         CookingManager.instance.AddMaterial(
-            itemName,
-            itemIcon);
+            itemData);
     }
 }

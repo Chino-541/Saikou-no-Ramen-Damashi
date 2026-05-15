@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dd7d1625c4afb46ab8d33662610c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: hana
+  itemData: {fileID: 11400000, guid: b97149853ac84e0409fdd95a6ec4e50c, type: 2}
   amount: 2
   player: {fileID: 1703355842}
   pickupRange: 1
@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dd7d1625c4afb46ab8d33662610c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: banana
+  itemData: {fileID: 11400000, guid: 5436dad21cea3fa4a9523a7ae1a27f5b, type: 2}
   amount: 2
   player: {fileID: 1703355842}
   pickupRange: 1
@@ -751,7 +751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dd7d1625c4afb46ab8d33662610c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: moti
+  itemData: {fileID: 11400000, guid: b97149853ac84e0409fdd95a6ec4e50c, type: 2}
   amount: 2
   player: {fileID: 1703355842}
   pickupRange: 1
@@ -935,7 +935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dd7d1625c4afb46ab8d33662610c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: butaniku
+  itemData: {fileID: 11400000, guid: 53fe1f2b3c7a0434a87e0ce9b4f8424f, type: 2}
   amount: 3
   player: {fileID: 1703355842}
   pickupRange: 1
@@ -1506,7 +1506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dd7d1625c4afb46ab8d33662610c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: toriniku
+  itemData: {fileID: 11400000, guid: 646989528790ef94aba184fbc76908d9, type: 2}
   amount: 2
   player: {fileID: 1703355842}
   pickupRange: 1
