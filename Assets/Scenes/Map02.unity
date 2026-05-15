@@ -128,6 +128,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 142561891394285493, guid: a1f51ae6fca410543914353424a9e560, type: 3}
+      propertyPath: cook
+      value: 
+      objectReference: {fileID: 1677396948}
+    - target: {fileID: 142561891394285493, guid: a1f51ae6fca410543914353424a9e560, type: 3}
       propertyPath: banana
       value: 
       objectReference: {fileID: 3695538690110899690, guid: a1f51ae6fca410543914353424a9e560, type: 3}
@@ -253,6 +257,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 142561891394285493, guid: a1f51ae6fca410543914353424a9e560, type: 3}
+      propertyPath: cook
+      value: 
+      objectReference: {fileID: 1677396948}
+    - target: {fileID: 142561891394285493, guid: a1f51ae6fca410543914353424a9e560, type: 3}
       propertyPath: banana
       value: 
       objectReference: {fileID: 3695538690110899690, guid: a1f51ae6fca410543914353424a9e560, type: 3}
@@ -325,6 +333,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 142561891394285493, guid: a1f51ae6fca410543914353424a9e560, type: 3}
+      propertyPath: cook
+      value: 
+      objectReference: {fileID: 1677396948}
     - target: {fileID: 142561891394285493, guid: a1f51ae6fca410543914353424a9e560, type: 3}
       propertyPath: banana
       value: 
@@ -541,6 +553,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 142561891394285493, guid: a1f51ae6fca410543914353424a9e560, type: 3}
+      propertyPath: cook
+      value: 
+      objectReference: {fileID: 1677396948}
     - target: {fileID: 142561891394285493, guid: a1f51ae6fca410543914353424a9e560, type: 3}
       propertyPath: banana
       value: 
@@ -38848,7 +38864,6 @@ GameObject:
   m_Component:
   - component: {fileID: 783172926}
   - component: {fileID: 783172925}
-  - component: {fileID: 783172927}
   m_Layer: 0
   m_Name: cow spawn
   m_TagString: Untagged
@@ -38888,52 +38903,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &783172927
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 783172924}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &789946782
 GameObject:
   m_ObjectHideFlags: 0
@@ -46732,6 +46701,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1537453378}
   m_CullTransparentMesh: 1
+--- !u!1001 &1541969627
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 35975519845684496, guid: 0232a7b5ad74de844a360201c2ffc373, type: 3}
+      propertyPath: m_Name
+      value: cow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985021403687072909, guid: 0232a7b5ad74de844a360201c2ffc373, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.3095455
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985021403687072909, guid: 0232a7b5ad74de844a360201c2ffc373, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.867987
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985021403687072909, guid: 0232a7b5ad74de844a360201c2ffc373, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985021403687072909, guid: 0232a7b5ad74de844a360201c2ffc373, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985021403687072909, guid: 0232a7b5ad74de844a360201c2ffc373, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985021403687072909, guid: 0232a7b5ad74de844a360201c2ffc373, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985021403687072909, guid: 0232a7b5ad74de844a360201c2ffc373, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985021403687072909, guid: 0232a7b5ad74de844a360201c2ffc373, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985021403687072909, guid: 0232a7b5ad74de844a360201c2ffc373, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985021403687072909, guid: 0232a7b5ad74de844a360201c2ffc373, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0232a7b5ad74de844a360201c2ffc373, type: 3}
 --- !u!1 &1545623604
 GameObject:
   m_ObjectHideFlags: 0
@@ -47576,7 +47602,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1632058217}
   - component: {fileID: 1632058216}
-  - component: {fileID: 1632058215}
   m_Layer: 0
   m_Name: pig spawn
   m_TagString: Untagged
@@ -47584,52 +47609,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &1632058215
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632058214}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &1632058216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47678,6 +47657,8 @@ GameObject:
   - component: {fileID: 1677396943}
   - component: {fileID: 1677396945}
   - component: {fileID: 1677396946}
+  - component: {fileID: 1677396947}
+  - component: {fileID: 1677396948}
   m_Layer: 0
   m_Name: char
   m_TagString: Player
@@ -47999,6 +47980,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1677396947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677396937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2655d9d2fd62b7146908e1fb48bf62ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Inventory
+--- !u!114 &1677396948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677396937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3313fb16ef9411944b5984b841452354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Cook
+  a: 10
+  b: 5
+  ramen: {fileID: 5934357702317259493, guid: 79d4fb36bd3dbc9498857f191401f9ca, type: 3}
 --- !u!1 &1688875270
 GameObject:
   m_ObjectHideFlags: 0
@@ -48617,6 +48625,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 142561891394285493, guid: a1f51ae6fca410543914353424a9e560, type: 3}
+      propertyPath: cook
+      value: 
+      objectReference: {fileID: 1677396948}
+    - target: {fileID: 142561891394285493, guid: a1f51ae6fca410543914353424a9e560, type: 3}
       propertyPath: banana
       value: 
       objectReference: {fileID: 3695538690110899690, guid: a1f51ae6fca410543914353424a9e560, type: 3}
@@ -48747,7 +48759,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9217621279873622325, guid: a1f51ae6fca410543914353424a9e560, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
-      value: 0.2
+      value: 0.20000002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -64227,6 +64239,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 142561891394285493, guid: a1f51ae6fca410543914353424a9e560, type: 3}
+      propertyPath: cook
+      value: 
+      objectReference: {fileID: 1677396948}
+    - target: {fileID: 142561891394285493, guid: a1f51ae6fca410543914353424a9e560, type: 3}
       propertyPath: banana
       value: 
       objectReference: {fileID: 3695538690110899690, guid: a1f51ae6fca410543914353424a9e560, type: 3}
@@ -64324,3 +64340,4 @@ SceneRoots:
   - {fileID: 338756216}
   - {fileID: 1738411476}
   - {fileID: 1459682960}
+  - {fileID: 1541969627}
