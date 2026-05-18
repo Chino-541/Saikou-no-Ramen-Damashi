@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class Ken_GChar : MonoBehaviour
 {
+    [Header("Nyanスクリプトへようこそ")]
     [SerializeField] private Vector2 _MoveInp;
     [SerializeField] Rigidbody2D _Rb;
     [SerializeField] float _MoveSpeed = 5f;

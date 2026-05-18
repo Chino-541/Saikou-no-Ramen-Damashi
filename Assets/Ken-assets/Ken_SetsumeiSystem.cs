@@ -236,6 +236,7 @@ public class Ken_SetsumeiSystem : MonoBehaviour
 
         _ChoiceYes.gameObject.SetActive(false);
         _ChoiceNo.gameObject.SetActive(false);
+        //tunggu
         pilihan?.Invoke(_Answer);
     }
     

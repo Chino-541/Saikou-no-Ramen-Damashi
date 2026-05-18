@@ -72,5 +72,14 @@ TagManager:
   - name: Canvas
     uniqueID: 2651317615
     locked: 0
+  - name: c-tile
+    uniqueID: 1338579325
+    locked: 0
+  - name: c-player
+    uniqueID: 3018667195
+    locked: 0
+  - name: c-ui
+    uniqueID: 1683368381
+    locked: 0
   m_RenderingLayers:
   - Default

@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class Ken_CSystem : MonoBehaviour
 {
+    [Header("Nyanスクリプトへようこそ")]
     [SerializeField] private int _PV = 0;
     [SerializeField] private int _RV = 0;
     //[SerializeField] private GameObject _Player, _Rival;

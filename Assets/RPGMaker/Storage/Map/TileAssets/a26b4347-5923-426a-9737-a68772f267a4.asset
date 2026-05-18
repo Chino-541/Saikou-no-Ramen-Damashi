@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b1526fcc0de4f4083ff88c57902b6c4, type: 3}
+  m_Name: a26b4347-5923-426a-9737-a68772f267a4
+  m_EditorClassIdentifier: 
+  m_DefaultSprite: {fileID: 21300000, guid: cd402f4ec6e10cc469a3b107484bf673, type: 3}
+  m_DefaultGameObject: {fileID: 0}
+  m_DefaultColliderType: 1
+  m_TilingRules: []
+  animationFrame: 0
+  animationSpeed: 0
+  damageFloorType: 0
+  damageFloorValue: 0
+  terrainTagValue: 0
+  filename: 
+  hasAnimation: 0
+  id: a26b4347-5923-426a-9737-a68772f267a4
+  imageAdjustType: 0
+  isBush: 0
+  isCounter: 0
+  isDamageFloor: 0
+  isLadder: 0
+  isPassBottom: 1
+  isPassLeft: 1
+  isPassRight: 1
+  isPassTop: 1
+  largePartsDataModel:
+    parentId: d1e6a9c3-c9a6-4e73-ad8a-d618a1a9483f
+    x: 0
+    y: 0
+  name: 
+  passType: 1
+  regionId: 0
+  serialNumber: 10338
+  listNumber: 339
+  tileImageDataModel:
+    filename: Hato_Residence_Large_002.png
+    texture: {fileID: 0}
+  type: 7
+  vehicleTypes: []

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Ken_CTime : MonoBehaviour
 {
+    [Header("Nyanスクリプトへようこそ")]
     [SerializeField] private int _M, _S;
     [SerializeField] private int _SMax = 60;
     [SerializeField] private TextMeshProUGUI _TMP;
