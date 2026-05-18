@@ -1,11 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryUIRamen : MonoBehaviour
+public class HotbarUI : MonoBehaviour
 {
-    public GameObject slotPrefab;
-
-    public Transform content;
+    public HotbarSlot[] slots;
 
     void Start()
     {
@@ -16,25 +14,29 @@ public class InventoryUIRamen : MonoBehaviour
 
     void RefreshUI()
     {
-        foreach (Transform child in content)
-        {
-            Destroy(child.gameObject);
-        }
-
         Dictionary<ItemData, int> items =
             Inventory.instance.GetItems();
 
+        int index = 0;
+
         foreach (var item in items)
         {
-            GameObject slot =
-                Instantiate(slotPrefab, content);
+            if (index >= slots.Length)
+                break;
 
-            SlotUI ui =
-                slot.GetComponent<SlotUI>();
-
-            ui.SetItem(
+            slots[index].SetItem(
                 item.Key,
                 item.Value);
+
+            index++;
+        }
+
+        // ãÛÉXÉçÉbÉgÇè¡Ç∑
+        for (int i = index;
+             i < slots.Length;
+             i++)
+        {
+            slots[i].SetItem(null, 0);
         }
     }
 }

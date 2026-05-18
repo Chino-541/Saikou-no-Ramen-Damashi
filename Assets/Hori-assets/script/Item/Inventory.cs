@@ -14,17 +14,17 @@ public class Inventory : MonoBehaviour
     public event Action onItemChanged;
 
     // ‰¼ƒAƒCƒeƒ€
-    public ItemData meat;
-    public ItemData water;
-    public ItemData wheat;
+    public ItemData butaniku;
+    public ItemData gyuniku;
+    public ItemData toriniku;
 
     void Start()
     {
-        AddItem(meat, 5);
+        AddItem(butaniku, 5);
 
-        AddItem(water, 3);
+        AddItem(gyuniku, 3);
 
-        AddItem(wheat, 2);
+        AddItem(toriniku, 2);
     }
 
     void Awake()
@@ -55,6 +55,7 @@ public class Inventory : MonoBehaviour
         onItemChanged?.Invoke();
 
         return true;
+
     }
 
     public void MoveAllToBox()
