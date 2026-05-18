@@ -3,8 +3,10 @@ using UnityEngine;
 public class Cook : MonoBehaviour
 {
 
-    public int a = 10;
-    public int b = 5;
+    public int beaf;
+    public int Vegetable;
+    public int fish;
+
     [SerializeField] private GameObject ramen;
 
     // Update is called once per frame
@@ -18,13 +20,13 @@ public class Cook : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (a > 0 && b > 0)
+            if (beaf > 0 && Vegetable > 0)
             {
                 Instantiate(ramen, transform.position, Quaternion.identity);
-                a--;
-                b--;
+                beaf--;
+                Vegetable--;
             }
-            else if (a <= 0 || b <= 0)
+            else if (beaf <= 0 || Vegetable <= 0)
             {
                 Debug.Log("‘fÞ‚ª‘«‚è‚Ü‚¹‚ñ");
             }

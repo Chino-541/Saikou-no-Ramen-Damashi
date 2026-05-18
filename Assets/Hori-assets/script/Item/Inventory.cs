@@ -6,40 +6,72 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
 
-    Dictionary<string, int> items = new Dictionary<string, int>();
-    public static Inventory Instance;
+    Dictionary<ItemData, int> items =
+        new Dictionary<ItemData, int>();
+
+    public int maxItemTypes = 5;
 
     public event Action onItemChanged;
+
+    // 仮アイテム
+    public ItemData meat;
+    public ItemData water;
+    public ItemData wheat;
+
+    void Start()
+    {
+        AddItem(meat, 5);
+
+        AddItem(water, 3);
+
+        AddItem(wheat, 2);
+    }
+
     void Awake()
     {
         instance = this;
     }
 
-    public void AddItem(string name, int amount)
+    public bool AddItem(ItemData item, int amount)
     {
-        if (items.ContainsKey(name))
-            items[name] += amount;
-        else
-            items.Add(name, amount);
+        // 新しい種類
+        if (!items.ContainsKey(item))
+        {
+            if (items.Count >= maxItemTypes)
+            {
+                Debug.Log("これ以上種類を持てない！");
+                return false;
+            }
 
-        Debug.Log(name + " を拾った");
+            items.Add(item, amount);
+        }
+        else
+        {
+            items[item] += amount;
+        }
+
+        Debug.Log(item.itemName + " を拾った");
 
         onItemChanged?.Invoke();
+
+        return true;
     }
 
     public void MoveAllToBox()
     {
         foreach (var item in items)
         {
-            Debug.Log(item.Key + " x" + item.Value + " を倉庫に入れた");
+            Debug.Log(item.Key.itemName +
+                " x" + item.Value +
+                " を倉庫に入れた");
         }
 
         items.Clear();
 
         onItemChanged?.Invoke();
-
     }
-    public Dictionary<string, int> GetItems()
+
+    public Dictionary<ItemData, int> GetItems()
     {
         return items;
     }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2013555831016875132}
   - component: {fileID: 5402480633379047415}
   - component: {fileID: 2677518150587054799}
+  - component: {fileID: -1661116563546234516}
   m_Layer: 0
   m_Name: beaf
   m_TagString: Untagged
@@ -104,8 +105,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dd7d1625c4afb46ab8d33662610c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
-  itemName: beaf
+  itemData: {fileID: 0}
   amount: 1
   player: {fileID: 0}
   pickupRange: 2
   pickupUI: {fileID: 0}
+--- !u!114 &-1661116563546234516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2767721151040760959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baf6693db0a3f7a4e85544baf93b2f5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::beaf
+  cook: {fileID: 0}

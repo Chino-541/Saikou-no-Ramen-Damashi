@@ -30,7 +30,7 @@ public class harvest : MonoBehaviour
                 timer = 0f;
                 Debug.Log("Ìæ");
                 // cook‚Ìb‚ğ‘‚â‚·
-                cook.b++;
+                cook.Vegetable++;
                 Debug.Log("–ìØ‚°‚Á‚¿‚ã");
             }
             else
