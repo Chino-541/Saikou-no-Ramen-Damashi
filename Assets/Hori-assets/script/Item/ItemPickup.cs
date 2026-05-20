@@ -3,13 +3,17 @@ using UnityEngine.UI;
 
 public class ItemPickup : MonoBehaviour
 {
-    public string itemName;
+    public ItemData itemData;
     public int amount = 1;
 
     public Transform player;
     public float pickupRange = 2f;
 
-    public GameObject pickupUI; 
+    public GameObject pickupUI;
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     void Update()
     {
@@ -23,16 +27,17 @@ public class ItemPickup : MonoBehaviour
         //　アイテムを拾う
         if (distance < pickupRange &&Input.GetKeyDown(KeyCode.E))
         {
+            bool success = false;
             if (Inventory.instance != null)
             {
-                Inventory.instance.AddItem(itemName, amount);
+                success = Inventory.instance.AddItem(itemData, amount);
+            }
+            if(success)
+            {
                 Destroy(gameObject);
             }
         }
     }
-    void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-    }
+    
 
 }

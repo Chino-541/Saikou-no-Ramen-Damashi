@@ -3,10 +3,13 @@ using UnityEngine;
 
 public class harvest : MonoBehaviour
 {
+    [SerializeField] Cook cook;
     private float timer = 0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // cookがアタッチされているオブジェクトを探す
+        cook = FindAnyObjectByType<Cook>();
         timer = 0f;
     }
 
@@ -21,12 +24,14 @@ public class harvest : MonoBehaviour
         {
             if (timer >= 8f)
             {
-                Destroy(gameObject);
                 // 自分を削除
                 Destroy(gameObject);
-
+                // timerの初期化
                 timer = 0f;
                 Debug.Log("採取");
+                // cookのbを増やす
+                cook.Vegetable++;
+                Debug.Log("野菜げっちゅ");
             }
             else
             {
