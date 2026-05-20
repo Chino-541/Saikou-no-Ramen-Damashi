@@ -30,9 +30,9 @@ public class Player : MonoBehaviour
         float inputY = Input.GetAxisRaw("Vertical");
         Vector2 dir = new Vector2(inputX, inputY).normalized;
         _rb.linearVelocity = dir * currentSpeed;
-        
 
-        // --- ???E ---
+
+        // left right
         if (Input.GetKey(KeyCode.A))
         {
             // move.x = -1;
@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
             SetAnimDirection("right");
         }
 
-        // --- ?? ---
+        // up down
         if (Input.GetKey(KeyCode.W))
         {
             // move.y = 1;
@@ -60,13 +60,13 @@ public class Player : MonoBehaviour
             SetAnimDirection("down");
         }
 
-        // ???????????
+        // no move
         if (move == Vector2.zero)
         {
             anim.SetBool("move", false);
         }
 
-        // ƒWƒƒƒ“ƒv
+        // jump
         if (Input.GetKey(KeyCode.Space))
         {
             anim.SetTrigger("jump");
