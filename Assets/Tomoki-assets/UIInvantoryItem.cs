@@ -7,7 +7,7 @@ using System;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.LowLevel;
 
-public class UIInvantoryItem : MonoBehaviour
+public class UIInventoryItem : MonoBehaviour
 {
     [SerializeField]
     private Image itemImage;
@@ -17,7 +17,7 @@ public class UIInvantoryItem : MonoBehaviour
     [SerializeField]
     private Image borderImage;
 
-    public event Action<UIInvantoryItem> OnItemClicked,
+    public event Action<UIInventoryItem> OnItemClicked,
                                          OnItemDroppedOn,
                                          OnItemBeginDrag,
                                          OnItemEndDrag,

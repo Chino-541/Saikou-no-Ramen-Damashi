@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 2926276501924396600}
   - component: {fileID: 8466764215394149427}
   - component: {fileID: 2746090537494601550}
+  - component: {fileID: 2861623006020532484}
   m_Layer: 5
   m_Name: inventoryDescription
   m_TagString: Untagged
@@ -250,6 +251,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &2861623006020532484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446852673399279584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d94a59fc25f9bf4297e5c046017c999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIInventoryDescription
+  itemImage: {fileID: 5516129585741224526}
+  title: {fileID: 1961180964773902113}
+  description: {fileID: 7068424474848689866}
 --- !u!1 &2444605035132287942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,3 +1835,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIInventoryPage
   itemPrefab: {fileID: 5039991822166414847, guid: ae47f092d2037fb45869929ebd5bd02f, type: 3}
   contentpanel: {fileID: 946424206140264857}
+  itemDescription: {fileID: 0}
+  image: {fileID: 0}
+  quantity: 0
+  title: 
+  description: 
