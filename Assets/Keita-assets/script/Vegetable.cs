@@ -1,20 +1,30 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Vegetable : MonoBehaviour
 {
     public GameObject banana;
     private Vector3 spawnPos;
+    private bool harvested = false;
 
     private void Start()
     {
-        // 最初に自分の位置を保存しておく
         spawnPos = transform.position;
+    }
+
+    public void Harvest()
+    {
+        harvested = true;
+        Destroy(gameObject);
     }
 
     private void OnDestroy()
     {
         if (!Application.isPlaying) return;
-        // 保存した位置に生成
+
+        // 採取による Destroy 以外（シーン切り替えなど）は生成しない
+        if (!harvested) return;
+
         Instantiate(banana, spawnPos, Quaternion.identity);
     }
 }

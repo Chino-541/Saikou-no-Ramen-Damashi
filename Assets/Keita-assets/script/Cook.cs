@@ -7,9 +7,13 @@ public class Cook : MonoBehaviour
     public int Vegetable;
     public int fish;
 
-    [SerializeField] private GameObject ramen;
-
+   // [SerializeField] private GameObject ramen;
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     // Update is called once per frame
+    /*
     void Update()
     {
         Ramen();
@@ -33,4 +37,5 @@ public class Cook : MonoBehaviour
 
         }
     }
+    */
 }

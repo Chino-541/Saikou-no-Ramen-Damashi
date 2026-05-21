@@ -8,7 +8,7 @@ public class beaf_Button : MonoBehaviour
     [SerializeField] Image centerSlot;
     [SerializeField] Image myImage;
     [SerializeField] TMP_Text countText;   // 所持数表示
-    [SerializeField] SlotBef slotCounter; // ← 追加
+    [SerializeField] SlotBef slotCounter; // スロット内部の数
 
     Button button;
 

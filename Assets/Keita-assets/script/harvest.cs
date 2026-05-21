@@ -24,21 +24,19 @@ public class harvest : MonoBehaviour
         {
             if (timer >= 8f)
             {
-                // ©•ª‚ğíœ
-                Destroy(gameObject);
-                // timer‚Ì‰Šú‰»
-                timer = 0f;
-                Debug.Log("Ìæ");
-                // cook‚Ìb‚ğ‘‚â‚·
+                // Vegetable ‚Ì Harvest() ‚ğŒÄ‚Ô
+                GetComponent<Vegetable>()?.Harvest();
+
                 cook.Vegetable++;
-                Debug.Log("–ìØ‚°‚Á‚¿‚ã");
+                timer = 0f;
+
+                Debug.Log("Ìæ");
             }
             else
             {
                 Debug.Log("‘‚·‚¬‘Ò‚¿‚È‚³‚¢");
             }
         }
-
     }
-    
+
 }
