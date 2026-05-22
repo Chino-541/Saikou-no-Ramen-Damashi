@@ -4,9 +4,10 @@ using UnityEngine.UI;
 
 public class beaf_Button : MonoBehaviour
 {
-    [SerializeField] Cook cook;
-    [SerializeField] Image centerSlot;
-    [SerializeField] Image myImage;
+    // fish_Buttonと中身はほぼ同じ
+    [SerializeField] Cook cook; // 数を格納してるコード
+    [SerializeField] Image centerSlot; // 移動先のスロット
+    [SerializeField] Image myImage; // 食材の画像
     [SerializeField] TMP_Text countText;   // 所持数表示
     [SerializeField] SlotBef slotCounter; // スロット内部の数
 
@@ -21,17 +22,18 @@ public class beaf_Button : MonoBehaviour
 
     void OnClickBef()
     {
+        // 0以下だとボタン押せません
         if (cook.beaf <= 0) return;
 
-        // 画像移動
+        // 画像をスロットに移動
         centerSlot.sprite = myImage.sprite;
         centerSlot.color = Color.white;
 
-        // 所持数を減らす
+        // 数を減らす
         cook.beaf--;
         UpdateCountText();
 
-        // 中央スロットの使用数を増やす
+        // 数をスロットのUIに移す
         slotCounter.BefCount();
 
         if (cook.beaf <= 0)

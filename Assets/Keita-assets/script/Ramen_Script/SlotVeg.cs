@@ -3,12 +3,26 @@ using TMPro;
 
 public class SlotVeg : MonoBehaviour
 {
-    public int usedCount = 0;
+    public int VeCount = 0;
     [SerializeField] TMP_Text countText;
 
+    // ”‚ğ‘‚â‚·
     public void VegCount()
     {
-        usedCount++;
-        countText.text = usedCount.ToString();
+        VeCount++;
+        countText.text = VeCount.ToString();
+    }
+
+    // ”‚ğŒ¸‚ç‚µ‚ÄUI‚ÌXV
+    public void Minus()
+    {
+        if (VeCount <= 0)
+        {
+            Debug.Log("–ìØ");
+            return;
+        }
+
+        VeCount--;
+        countText.text = VeCount.ToString();
     }
 }
