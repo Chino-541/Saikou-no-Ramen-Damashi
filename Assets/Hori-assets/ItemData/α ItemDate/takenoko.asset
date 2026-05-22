@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f131755a540a3e4409da21dbb62d10c0, type: 3}
   m_Name: takenoko
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: 
+  itemName: takenoko
   icon: {fileID: 0}
   description: 
   maxStack: 99
+  saltiness: 0
+  umami: 0
+  spiciness: 0
+  fatness: 0
+  mystery: 0
