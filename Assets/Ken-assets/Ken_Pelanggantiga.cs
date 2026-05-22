@@ -26,8 +26,7 @@ public class Ken_Pelanggantiga : MonoBehaviour
 
     public void PelangantigaInterek()
     {
-        while (true) 
-        {
+        
 
             for (int i = 5; i < 0; i--)
             {
@@ -37,7 +36,7 @@ public class Ken_Pelanggantiga : MonoBehaviour
 
             }
             Debug.Log("f");
-        }
+        
     }
     
 }
