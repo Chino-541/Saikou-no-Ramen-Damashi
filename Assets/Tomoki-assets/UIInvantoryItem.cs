@@ -1,27 +1,19 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem.LowLevel;
-
-public class UIInventoryItem : MonoBehaviour
+using UnityEngine.EventSystems; 
+public class UIInventoryItem : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDropHandler, IDragHandler
 {
     [SerializeField]
     private Image itemImage;
     [SerializeField]
     private TMP_Text quantityTxt;
-
     [SerializeField]
     private Image borderImage;
 
-    public event Action<UIInventoryItem> OnItemClicked,
-                                         OnItemDroppedOn,
-                                         OnItemBeginDrag,
-                                         OnItemEndDrag,
-                                         OnRightItemMouseBtnClick;
+    public event Action<UIInventoryItem> OnItemClicked, OnItemDroppedOn, OnItemBeginDrag, OnItemEndDrag, OnRightItemMouseBtnClick;
+
     private bool empty = true;
 
     public void Awake()
@@ -32,7 +24,7 @@ public class UIInventoryItem : MonoBehaviour
 
     public void ResetData()
     {
-        this.itemImage.gameObject.SetActive(false);
+        itemImage.gameObject.SetActive(false);
         empty = true;
     }
 
@@ -43,9 +35,9 @@ public class UIInventoryItem : MonoBehaviour
 
     public void SetData(Sprite sprite, int quantity)
     {
-        this.itemImage.gameObject.SetActive(true);
-        this.itemImage.sprite = sprite;
-        this.quantityTxt.text = quantity + "";
+        itemImage.gameObject.SetActive(true);
+        itemImage.sprite = sprite;
+        quantityTxt.text = quantity + "";
         empty = false;
     }
 
@@ -54,25 +46,9 @@ public class UIInventoryItem : MonoBehaviour
         borderImage.enabled = true;
     }
 
-    public void OnBegindrag()
+    public void OnPointerClick(PointerEventData pointerData)
     {
         if (empty) return;
-        OnItemBeginDrag?.Invoke(this);
-    }
-
-    public void OnDrop()
-    {
-        OnItemDroppedOn?.Invoke(this);
-    }
-
-    public void OnEndDrag()
-    {
-        OnItemEndDrag?.Invoke(this);
-    }
-
-    public void OnPointerClick(BaseEventData data)
-    {
-        PointerEventData pointerData = (PointerEventData)data;
         if (pointerData.button == PointerEventData.InputButton.Right)
         {
             OnRightItemMouseBtnClick?.Invoke(this);
@@ -81,5 +57,26 @@ public class UIInventoryItem : MonoBehaviour
         {
             OnItemClicked?.Invoke(this);
         }
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        if (empty) return;
+        OnItemBeginDrag?.Invoke(this);
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        OnItemEndDrag?.Invoke(this);
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        OnItemDroppedOn?.Invoke(this);
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        
     }
 }
