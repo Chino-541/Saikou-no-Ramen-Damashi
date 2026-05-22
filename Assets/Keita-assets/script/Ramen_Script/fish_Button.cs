@@ -14,6 +14,7 @@ public class fish_Button : MonoBehaviour
 
     void Start()
     {
+        cook = FindAnyObjectByType<Cook>();
         button = GetComponent<Button>();
         button.onClick.AddListener(OnClickFis);
         UpdateCountText();

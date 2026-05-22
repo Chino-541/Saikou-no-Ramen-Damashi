@@ -15,6 +15,7 @@ public class beaf_Button : MonoBehaviour
 
     void Start()
     {
+        cook = FindAnyObjectByType<Cook>();
         button = GetComponent<Button>();
         button.onClick.AddListener(OnClickBef);
         UpdateCountText();

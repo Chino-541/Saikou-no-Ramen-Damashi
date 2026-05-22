@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3313fb16ef9411944b5984b841452354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cook
-  beaf: 0
-  Vegetable: 0
-  fish: 0
+  beaf: 5
+  Vegetable: 5
+  fish: 5

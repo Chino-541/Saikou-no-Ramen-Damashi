@@ -963,7 +963,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9217621279873622325, guid: a1f51ae6fca410543914353424a9e560, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
-      value: 0.2
+      value: 0.20000002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -64091,7 +64091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07a481a84d03bf4ca5e6a82535128c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TMP_CountdownTimer
-  timeLeft: 10
+  timeLeft: 1
   timerText: {fileID: 2026658932}
   nextSceneName: RamenCreat
 --- !u!114 &2026658932
@@ -64423,6 +64423,18 @@ PrefabInstance:
     - target: {fileID: 2644334800998073906, guid: 2fcfe37ebd5275444862b756e01b7f6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593291660825228100, guid: 2fcfe37ebd5275444862b756e01b7f6a, type: 3}
+      propertyPath: beaf
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593291660825228100, guid: 2fcfe37ebd5275444862b756e01b7f6a, type: 3}
+      propertyPath: fish
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593291660825228100, guid: 2fcfe37ebd5275444862b756e01b7f6a, type: 3}
+      propertyPath: Vegetable
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

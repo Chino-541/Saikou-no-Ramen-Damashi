@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
 {
     private Animator anim;
 
+    //[SerializeField] Cook cook;
     public float speed = 2.0f;
     public float dash = 5.0f;
     private float currentSpeed;
