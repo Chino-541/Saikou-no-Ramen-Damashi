@@ -8,18 +8,23 @@ public class InventorySO : ScriptableObject
 {
     // インベントリの中身のリスト（インスペクターで初期アイテムを設定可能）
     [SerializeField] private List<InventoryItem> inventoryItems;
-    
+
     // インベントリの最大枠数
     [field: SerializeField] public int Size { get; private set; } = 10;
 
-   
     public event Action<Dictionary<int, InventoryItem>> OnInventoryUpdated;
 
     // ゲーム開始時にインベントリを初期化する
     public void Initialize()
     {
-        inventoryItems = new List<InventoryItem>();
-        for (int i = 0; i < Size; i++)
+        // 最初からセットされているアイテム（剣など）を消さないように修正！
+        if (inventoryItems == null)
+        {
+            inventoryItems = new List<InventoryItem>();
+        }
+
+        // 足りない枠の分だけ、空のアイテムを追加してサイズを合わせる
+        while (inventoryItems.Count < Size)
         {
             inventoryItems.Add(InventoryItem.GetEmptyItem());
         }
@@ -50,11 +55,9 @@ public class InventorySO : ScriptableObject
         inventoryItems[itemIndex1] = inventoryItems[itemIndex2];
         inventoryItems[itemIndex2] = item1;
 
-       
         InformAboutChange();
     }
 
-    
     private void InformAboutChange()
     {
         OnInventoryUpdated?.Invoke(GetCurrentInventoryState());

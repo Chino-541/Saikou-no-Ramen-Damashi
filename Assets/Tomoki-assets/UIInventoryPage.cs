@@ -11,7 +11,6 @@ public class UIInventoryPage : MonoBehaviour
 
     private List<UIInventoryItem> listOfUIItems = new List<UIInventoryItem>();
 
-   
     public event Action<int> OnDescriptionRequested, OnItemActionRequested, OnStartDragging;
     public event Action<int, int> OnSwapItems;
 
@@ -36,8 +35,8 @@ public class UIInventoryPage : MonoBehaviour
             uiItem.OnItemBeginDrag += HandleBeginDrag;
             uiItem.OnItemDroppedOn += HandleSwap;
             uiItem.OnItemEndDrag += HandleEndDrag;
-       
-           uiItem.OnRightItemMouseBtnClick += HandleShowItemActions;
+
+            uiItem.OnRightItemMouseBtnClick += HandleShowItemActions;
         }
     }
 
@@ -54,7 +53,7 @@ public class UIInventoryPage : MonoBehaviour
     {
         int index = listOfUIItems.IndexOf(inventoryItemUI);
         if (index == -1) return;
-        
+
         OnDescriptionRequested?.Invoke(index);
     }
 
@@ -86,7 +85,7 @@ public class UIInventoryPage : MonoBehaviour
     {
         int index = listOfUIItems.IndexOf(inventoryItemUI);
         if (index == -1) return;
-        
+
         OnItemActionRequested?.Invoke(index);
     }
 
@@ -112,12 +111,36 @@ public class UIInventoryPage : MonoBehaviour
     {
         itemDescription.ResetDescription();
         DeselectAllItems();
+
+        // 追記：空枠をクリックした時はパネルを隠す
+        itemDescription.gameObject.SetActive(false);
     }
 
     public void DeselectAllItems()
     {
         foreach (UIInventoryItem item in listOfUIItems)
         {
+            item.Deselect();
+        }
+    }
+
+    // 追記：説明パネルにデータを入れて表示する処理
+    public void UpdateDescription(int itemIndex, Sprite image, string name, string description)
+    {
+        itemDescription.SetDescription(image, name, description);
+        DeselectAllItems();
+        listOfUIItems[itemIndex].Select();
+
+        // 追記：説明パネルを表示する！
+        itemDescription.gameObject.SetActive(true);
+    }
+
+    // 追記：UIのアイテムをすべて空っぽにリセットする処理
+    public void ResetAllItems()
+    {
+        foreach (var item in listOfUIItems)
+        {
+            item.ResetData();
             item.Deselect();
         }
     }

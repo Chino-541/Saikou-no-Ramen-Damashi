@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryController
   inventoryUI: {fileID: 1730103775}
-  inventorySize: 10
+  inventoryData: {fileID: 11400000, guid: 1bdf72354d5b51a4b944de8bf580f415, type: 2}
 --- !u!212 &5782813
 SpriteRenderer:
   serializedVersion: 2
@@ -406,6 +406,56 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &960065511
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 960065513}
+  - component: {fileID: 960065512}
+  m_Layer: 0
+  m_Name: MouseFollower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &960065512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960065511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1f0e5cca2556394a9df1c59715bee68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MouseFollower
+  item: {fileID: 5039991822166414847, guid: ae47f092d2037fb45869929ebd5bd02f, type: 3}
+--- !u!4 &960065513
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960065511}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -103.59198, y: -16.353333, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1188838368}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &1166593847 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 946424206140264857, guid: bd584dc00fcb6b74f9dc925988d4b849, type: 3}
+  m_PrefabInstance: {fileID: 7820651558858082595}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1188838367
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,6 +487,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 960065513}
   - {fileID: 1730103771}
   m_Father: {fileID: 755944591}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -670,6 +721,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1188838368}
     m_Modifications:
+    - target: {fileID: 178930681685601445, guid: bd584dc00fcb6b74f9dc925988d4b849, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 628503514251985488, guid: bd584dc00fcb6b74f9dc925988d4b849, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -734,6 +789,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1563450005818157989, guid: bd584dc00fcb6b74f9dc925988d4b849, type: 3}
+      propertyPath: m_Size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563450005818157989, guid: bd584dc00fcb6b74f9dc925988d4b849, type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2304469175258790316, guid: bd584dc00fcb6b74f9dc925988d4b849, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -774,6 +837,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3365572663627780557, guid: bd584dc00fcb6b74f9dc925988d4b849, type: 3}
+      propertyPath: contentPanel
+      value: 
+      objectReference: {fileID: 1166593847}
+    - target: {fileID: 3365572663627780557, guid: bd584dc00fcb6b74f9dc925988d4b849, type: 3}
+      propertyPath: mouseFollower
+      value: 
+      objectReference: {fileID: 960065512}
+    - target: {fileID: 3365572663627780557, guid: bd584dc00fcb6b74f9dc925988d4b849, type: 3}
+      propertyPath: itemDescription
+      value: 
+      objectReference: {fileID: 7820651558858082596}
     - target: {fileID: 3591663568124209187, guid: bd584dc00fcb6b74f9dc925988d4b849, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -951,6 +1026,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd584dc00fcb6b74f9dc925988d4b849, type: 3}
+--- !u!114 &7820651558858082596 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2861623006020532484, guid: bd584dc00fcb6b74f9dc925988d4b849, type: 3}
+  m_PrefabInstance: {fileID: 7820651558858082595}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d94a59fc25f9bf4297e5c046017c999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIInventoryDescription
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

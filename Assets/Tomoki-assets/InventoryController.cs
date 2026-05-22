@@ -23,7 +23,7 @@ public class InventoryController : MonoBehaviour
     {
         // UI側のスロットをデータで指定した数だけ生成する
         inventoryUI.InitializeInventoryUI(inventoryData.Size);
-        
+
         // UIからのイベント（操作）を受け取ったら、Controllerのメソッドを実行するように紐づける
         inventoryUI.OnSwapItems += HandleSwapItems;
         inventoryUI.OnDescriptionRequested += HandleDescriptionRequest;
@@ -32,7 +32,6 @@ public class InventoryController : MonoBehaviour
     }
 
     // アイテムが入れ替えられたときの処理
-
     private void HandleSwapItems(int itemIndex1, int itemIndex2)
     {
         inventoryData.SwapItems(itemIndex1, itemIndex2);
@@ -42,7 +41,7 @@ public class InventoryController : MonoBehaviour
     {
         InventoryItem inventoryItem = inventoryData.GetItemAt(itemIndex);
         if (inventoryItem.IsEmpty) return;
-        
+
         // （本来はここでマウスにアイコンを追従させる処理などを呼び出します）
     }
 
@@ -59,12 +58,18 @@ public class InventoryController : MonoBehaviour
             inventoryUI.ResetSelection();
             return;
         }
-        
-       
+
+        // アイテムのデータを取得して、UIに「説明パネルを出して！」と命令する
+        ItemSO item = inventoryItem.item;
+        inventoryUI.UpdateDescription(itemIndex, item.ItemImage, item.Name, item.Description);
     }
 
     private void UpdateInventoryUI(Dictionary<int, InventoryItem> inventoryState)
     {
+        // 追記：まずすべてのUIを空っぽにリセットして、古い残像を消す！
+        inventoryUI.ResetAllItems();
+
+        // その後、データが入っている場所だけ絵を入れる
         foreach (var item in inventoryState)
         {
             inventoryUI.UpdateData(item.Key, item.Value.item.ItemImage, item.Value.quantity);
