@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Ken_Pelanggan : MonoBehaviour
@@ -20,12 +22,30 @@ public class Ken_Pelanggan : MonoBehaviour
 
     [SerializeField] private PolygonCollider2D _PColl;
 
+    [SerializeField] private static int _poin = 0;
+    [SerializeField] private string _SPoin = "îÃîÑÇµÇΩêîÅF";
+    [SerializeField] private TextMeshProUGUI _TmpPoin;
+
+    public static Ken_Pelanggan _PelangganInstance;
 
 
+    [SerializeField] private int _WaktuMain = 60;
+    [SerializeField] private TextMeshProUGUI _TmpWaktuMain;
+    [SerializeField] private Rigidbody2D _RigidbodyPlayer;
+
+    private void Awake()
+    {
+        _PelangganInstance = this;
+    }
+
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         StartCoroutine(SpawnPelangan());
+        
+
+        _TmpPoin.text = _SPoin+_poin.ToString();
     }
 
     // Update is called once per frame
@@ -72,5 +92,25 @@ public class Ken_Pelanggan : MonoBehaviour
         Vector2 _SpawnPos = new Vector2(ranX, ranY);
 
         return _SpawnPos;
+    }
+    public void yangterjual()
+    {
+        _poin++;
+        _TmpPoin.text = _SPoin + _poin.ToString();
+    }
+    IEnumerator WaktuMainNya()
+    {
+        _BisaSpawn = true;
+        //loopingin ini
+        _WaktuMain--;
+        yield return new WaitForSeconds(1);
+        if (_WaktuMain == 0)
+        {
+            _BisaSpawn = false;
+            //_RigidbodyPlayer.constraints = false;
+            _RigidbodyPlayer.constraints = RigidbodyConstraints2D.FreezePositionX 
+                                        | RigidbodyConstraints2D.FreezePositionY;
+
+        }
     }
 }

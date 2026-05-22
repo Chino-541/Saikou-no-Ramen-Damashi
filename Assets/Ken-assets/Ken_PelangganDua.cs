@@ -6,20 +6,21 @@ using System.Collections;
 
 public class Ken_PelangganDua : MonoBehaviour
 {
-    [Header("Nyanスクリプトへようこそ")]
-    [SerializeField] private int _Duration;
-    [SerializeField] private GameObject _Panel;
-    [SerializeField] private int _PanelDuration;
+    //[Header("Nyanスクリプトへようこそ")]
+   // [SerializeField] private int _Duration;
+    //[SerializeField] private GameObject _Panel;
+    //[SerializeField] private int _PanelDuration;
 
-    [SerializeField] private Slider _Slider;
+    //[SerializeField] private Slider _Slider;
 
-    public Ken_Pelanggantiga _PTigaInterek;
+    
+    //Collider2D _Collider2D;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        // _Collider2D
     }
 
     // Update is called once per frame
@@ -29,6 +30,7 @@ public class Ken_PelangganDua : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("sa");
         if (collision.CompareTag("Char"))
         {
            // StartCoroutine(Interek());
@@ -36,12 +38,22 @@ public class Ken_PelangganDua : MonoBehaviour
 
             //StartCoroutine(Ken_Pelanggantiga());
             //StartCoroutine(PelangganInterectDelay());
-            StartCoroutine(_PTigaInterek.PelangganInterectDelay());
+            //StartCoroutine(_PTigaInterek.PelangganInterectDelay());
+
+            // StartCoroutine(Ken_Pelanggantiga.instance.PelangganInterectDelay());
+
+            StartCoroutine(Destroy());
 
 
         }
     }
     
+    IEnumerator Destroy()
+    {
+        yield return StartCoroutine(Ken_Pelanggantiga.instance.PelangganInterectDelay());
+        Ken_Pelanggan._PelangganInstance.yangterjual();
+        Destroy(gameObject);
+    }
     /*
     IEnumerator Interek()
     {

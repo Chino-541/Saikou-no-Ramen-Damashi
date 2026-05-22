@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class Ken_Pelanggantiga : MonoBehaviour
 {
     [Header("Nyanスクリプトへようこそ")]
+    [SerializeField] private PlayerInput _playerInp;
+    public static Ken_Pelanggantiga instance;
     //[SerializeField] private GameObject _Panel;
     [SerializeField] private Image[] _Image;
     [SerializeField] private float _Delay = 5.0f;
@@ -29,6 +32,10 @@ public class Ken_Pelanggantiga : MonoBehaviour
     {
         
     }
+    private void Awake()
+    {
+        instance = this;
+    }
     /*
 
     public void PelangantigaInterek()
@@ -49,18 +56,27 @@ public class Ken_Pelanggantiga : MonoBehaviour
 
     public IEnumerator PelangganInterectDelay()
     {
+        /*
         _Image[0].gameObject.SetActive(true);
         _Image[1].gameObject.SetActive(true);
         _Image[2].gameObject.SetActive(true);
         _Image[3].gameObject.SetActive(true);
         _Image[4].gameObject.SetActive(true);
+        */
+
+        _playerInp.DeactivateInput();
+
+        for (int j = 0; j < _Image.Length; j++)
+        {
+            _Image[j].gameObject.SetActive(true);
+        }
 
         for (int i = 0; i < _Image.Length; i++)
         {
             _Image[i].gameObject.SetActive(false);
             yield return new WaitForSeconds(_Delay / 10);
         }
-        
+        _playerInp.ActivateInput();
     }
     /*
 
