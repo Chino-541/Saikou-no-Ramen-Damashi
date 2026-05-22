@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 541372139848761230}
   - component: {fileID: 8548497694793306426}
-  - component: {fileID: 8568299557566098922}
+  - component: {fileID: 1503454870417540221}
+  - component: {fileID: 5727697318780358516}
   m_Layer: 0
   m_Name: pelangan
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4737270996767442255}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.60795, y: -0.98916, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -92,7 +93,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &8568299557566098922
+--- !u!114 &1503454870417540221
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,6 +102,56 @@ MonoBehaviour:
   m_GameObject: {fileID: 4737270996767442255}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 529f2bdeb646f6d4bb7f56aabe0ea4fb, type: 3}
+  m_Script: {fileID: 11500000, guid: ed05538f0767fd94b9941afdca0d4d0d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Ken_PelanganInteract
+  m_EditorClassIdentifier: Assembly-CSharp::Ken_PelanganDua
+  _Duration: 0
+  _Panel: {fileID: 3738711732211456086, guid: cd95a4a3b8a51754aab43686b3f0f110, type: 3}
+  _PanelDuration: 0
+  _Slider: {fileID: 1339179436566924964, guid: ee99b787d0c7760409524866da419263, type: 3}
+--- !u!61 &5727697318780358516
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4737270996767442255}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2, y: 2}
+  m_EdgeRadius: 0

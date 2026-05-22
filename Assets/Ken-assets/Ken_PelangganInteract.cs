@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Ken_PelanganInteract : MonoBehaviour
+public class Ken_PelangganInteract : MonoBehaviour
 {
     [Header("Nyanスクリプトへようこそ")]
     [SerializeField] private GameObject _Char;
@@ -20,7 +20,7 @@ public class Ken_PelanganInteract : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-      
+      //_panel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -62,6 +62,12 @@ public class Ken_PelanganInteract : MonoBehaviour
         if(collision.CompareTag("Char"))
         {
             StartCoroutine(interec());
+            //interect2();
         }
+    }
+    
+    void interect2( )
+    {
+        //if ()
     }
 }

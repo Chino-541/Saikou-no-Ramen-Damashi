@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Ken_Pelangan : MonoBehaviour
+public class Ken_Pelanggan : MonoBehaviour
 {
     [Header("Nyanスクリプトへようこそ")]
     [SerializeField] private GameObject _player;
