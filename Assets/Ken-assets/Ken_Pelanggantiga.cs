@@ -3,7 +3,8 @@ using UnityEngine.UI;
 
 public class Ken_Pelanggantiga : MonoBehaviour
 {
-    [SerializeField] private GameObject _Panel;
+    [Header("Nyanスクリプトへようこそ")]
+    //[SerializeField] private GameObject _Panel;
     [SerializeField] private Image[] _Image;
     //[SerializeField] private Color _BaseColor;
     //[SerializeField] private Color _FullColor;
