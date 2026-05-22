@@ -13,7 +13,7 @@ public class Ken_PelangganDua : MonoBehaviour
 
     [SerializeField] private Slider _Slider;
 
-
+    public Ken_Pelanggantiga _PTigaInterek;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -34,6 +34,9 @@ public class Ken_PelangganDua : MonoBehaviour
            // StartCoroutine(Interek());
             Debug.Log("aaa");
 
+            //StartCoroutine(Ken_Pelanggantiga());
+            //StartCoroutine(PelangganInterectDelay());
+            StartCoroutine(_PTigaInterek.PelangganInterectDelay());
 
 
         }
