@@ -3,6 +3,9 @@ using TMPro;
 
 public class SlotBef : MonoBehaviour
 {
+
+
+
     public int BeCount = 0;
     [SerializeField] TMP_Text countText;
 
