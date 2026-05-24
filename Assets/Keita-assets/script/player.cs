@@ -5,15 +5,13 @@ public class Player : MonoBehaviour
 {
     private Animator anim;
 
-    //[SerializeField] Cook cook;
     public float speed = 2.0f;
     public float dash = 5.0f;
     private float currentSpeed;
     private Rigidbody2D _rb;
     public GameObject Attack;
 
-    Vector2 move = Vector2.zero;
-    Vector2 facing = Vector2.down; 
+    Vector2 facing = Vector2.down;
     bool isAttacking = false;
 
     void Start()
@@ -26,76 +24,42 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-       // move = Vector2.zero;
+        // 入力取得
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
         Vector2 dir = new Vector2(inputX, inputY).normalized;
+
+        // 移動
         _rb.linearVelocity = dir * currentSpeed;
 
-
-        // left right
-        if (Input.GetKey(KeyCode.A))
+        // ★左右反転＋向き更新
+        if (inputX > 0)
         {
-            // move.x = -1;
-            facing = Vector2.left;
-            SetAnimDirection("left");
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            // move.x = 1;
+            transform.localScale = new Vector3(4, 4, 4);
             facing = Vector2.right;
-            SetAnimDirection("right");
+        }
+        else if (inputX < 0)
+        {
+            transform.localScale = new Vector3(-4, 4, 4);
+            facing = Vector2.left;
         }
 
-        // up down
-        if (Input.GetKey(KeyCode.W))
-        {
-            // move.y = 1;
+        // ★上下移動のときも向きを更新
+        if (inputY > 0)
             facing = Vector2.up;
-            SetAnimDirection("Up");
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            // move.y = -1;
+        else if (inputY < 0)
             facing = Vector2.down;
-            SetAnimDirection("down");
-        }
 
-        // no move
-        if (move == Vector2.zero)
-        {
-            anim.SetBool("move", false);
-        }
+        // ★移動しているなら常に走るアニメーション
+        anim.SetBool("isRunning", dir.magnitude > 0);
 
-        // jump
-        if (Input.GetKey(KeyCode.Space))
-        {
-            anim.SetTrigger("jump");
-        }
-
-        
+        // ダッシュ
         currentSpeed = Input.GetKey(KeyCode.RightShift) ? dash : speed;
 
-       
+        // 攻撃
         Attacker();
     }
 
-    void FixedUpdate()
-    {
-        transform.Translate(move.normalized * currentSpeed * Time.fixedDeltaTime);
-    }
-
-    
-    void SetAnimDirection(string dir)
-    {
-        anim.SetBool("move", true);
-        anim.SetBool("left", dir == "left");
-        anim.SetBool("right", dir == "right");
-        anim.SetBool("Up", dir == "Up");
-        anim.SetBool("down", dir == "down");
-    }
-
-    
     void Attacker()
     {
         if (Input.GetKeyDown(KeyCode.V) && !isAttacking)
@@ -108,11 +72,11 @@ public class Player : MonoBehaviour
     {
         isAttacking = true;
 
-       
+        // ★攻撃方向を向きに合わせる
         Attack.transform.localPosition = facing * 0.5f;
 
         Attack.SetActive(true);
-        Debug.Log("attaking");
+        Debug.Log("attacking");
 
         yield return new WaitForSeconds(0.5f);
 
