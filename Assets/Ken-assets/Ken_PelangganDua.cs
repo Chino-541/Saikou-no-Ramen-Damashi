@@ -6,17 +6,18 @@ using System.Collections;
 
 public class Ken_PelangganDua : MonoBehaviour
 {
+    [Header("Nyanスクリプトへようこそ")]
     //[Header("Nyanスクリプトへようこそ")]
-   // [SerializeField] private int _Duration;
+    // [SerializeField] private int _Duration;
     //[SerializeField] private GameObject _Panel;
     //[SerializeField] private int _PanelDuration;
 
     //[SerializeField] private Slider _Slider;
 
-    
-    //Collider2D _Collider2D;
-    
 
+    //Collider2D _Collider2D;
+
+    public bool _melayani = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -42,14 +43,17 @@ public class Ken_PelangganDua : MonoBehaviour
 
             // StartCoroutine(Ken_Pelanggantiga.instance.PelangganInterectDelay());
 
-            StartCoroutine(Destroy());
+            StartCoroutine(DestroyCustomer());
+
+
 
 
         }
     }
     
-    IEnumerator Destroy()
+    IEnumerator DestroyCustomer()
     {
+        _melayani = true;
         yield return StartCoroutine(Ken_Pelanggantiga.instance.PelangganInterectDelay());
         Ken_Pelanggan._PelangganInstance.yangterjual();
         Destroy(gameObject);
