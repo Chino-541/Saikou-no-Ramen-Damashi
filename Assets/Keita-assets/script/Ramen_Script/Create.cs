@@ -1,20 +1,13 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Create : MonoBehaviour
 {
-    // スロットの数
+    static int Total;
     [SerializeField] SlotBef Bef;
     [SerializeField] SlotVeg Veg;
     [SerializeField] SlotFis Fis;
-    /*
-    // それを表示させるUI
-    [SerializeField] TMP_Text BefText;
-    [SerializeField] TMP_Text VegText;
-    [SerializeField] TMP_Text FisText;
-    // 押すボタン
-    */
+
     private Button button;
 
     private void Start()
@@ -22,63 +15,42 @@ public class Create : MonoBehaviour
         button = GetComponent<Button>();
         button.onClick.AddListener(OnClickButton);
     }
+
     void OnClickButton()
     {
+        // それぞれのMinusから値をとる
+        int befUsed = Bef.Minus();
+        int vegUsed = Veg.Minus();
+        int fisUsed = Fis.Minus();
+
+        Debug.Log("今回消費したお肉: " + befUsed);
+        Debug.Log("今回消費した野菜: " + vegUsed);
+        Debug.Log("今回消費した魚: " + fisUsed);
+
+        // 合計
+        int total = befUsed + vegUsed + fisUsed;
+        Debug.Log("消費合計: " +  total);
+
+
+        // 消費量別の処理
+        if (befUsed == vegUsed && vegUsed == fisUsed)
         {
-            Bef.Minus();
-            Veg.Minus();
-            Fis.Minus();
+            Debug.Log("程よいバランス");
         }
-        /*
-        // ボタン押したら数が減るお肉
-        if (Bef.BeCount > 0)
+        else if (total >= 15)
         {
-            Bef.BeCount--;
-            UpdateBefText();
+            Debug.Log("めっちゃ集めたね");
         }
-        // お肉ない場合
-        else if (Bef.BeCount == 0)
+        else if(total >= 3)
         {
-            Debug.Log("お肉");
+            Debug.Log("並み");
         }
-        // 野菜数ヘル
-        if (Veg.VeCount > 0)
+        else if(total <= 0)
         {
-            Veg.VeCount--;
-            UpdateVegText();
+            Debug.Log("無し");
         }
-        // 野菜がない場合
-        else if (Veg.VeCount == 0)
-        {
-            Debug.Log("野菜");
-        }
-        // 魚が減る
-        if (Fis.FiCount > 0)
-        {
-            Fis.FiCount--;
-            UpdateFisText();
-        }
-        // 魚がない
-        else if (Fis.FiCount == 0)
-        {
-            Debug.Log("魚");
-        }
+        Total = total;
     }
-    void UpdateBefText()
-    {
-        // お肉の数UI
-        BefText.text = Bef.BeCount.ToString();
-    }
-    void UpdateVegText()
-    {
-        // 野菜の数UI
-        VegText.text = Veg.VeCount.ToString();
-    }
-    void UpdateFisText()
-    {
-        // 魚の数UI
-        FisText.text = Fis.FiCount.ToString();
-    }
-        */
-    }
+   
+
 }

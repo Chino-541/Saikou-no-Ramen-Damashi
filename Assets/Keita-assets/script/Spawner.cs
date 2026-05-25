@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer >= 20f)
+        if (timer >= 15f)
         {
             float x = Random.Range(minX, maxX);
             float y = Random.Range(minY, maxY);

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1535090665448086625}
   - component: {fileID: 2116375734304209855}
   m_Layer: 5
-  m_Name: Beaf 1
+  m_Name: Beaf Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -24,20 +24,22 @@ public class ItemPickup : MonoBehaviour
         {
             pickupUI.SetActive(distance < pickupRange);
         }
+
         //　アイテムを拾う
-        if (distance < pickupRange &&Input.GetKeyDown(KeyCode.E))
+        if (distance < pickupRange && Input.GetKeyDown(KeyCode.E))
         {
             bool success = false;
             if (Inventory.instance != null)
             {
                 success = Inventory.instance.AddItem(itemData, amount);
             }
+            /*
             if(success)
             {
                 Destroy(gameObject);
             }
+        */
         }
-    }
-    
 
+    }
 }

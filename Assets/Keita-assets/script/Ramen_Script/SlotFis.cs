@@ -6,23 +6,25 @@ public class SlotFis : MonoBehaviour
     public int FiCount = 0;
     [SerializeField] TMP_Text countText;
 
-    // ”‚ğ‘‚â‚·
     public void FisCount()
     {
         FiCount++;
         countText.text = FiCount.ToString();
     }
 
-    // ”‚ğŒ¸‚ç‚µ‚ÄUI‚ÌXV
-    public void Minus()
+    // Á”ï‚ÉŠÖ‚·‚éˆ—
+    public int Minus()
     {
         if (FiCount <= 0)
         {
-            Debug.Log("‹›");
-            return;
+            Debug.Log("‹›‚ª‚ ‚è‚Ü‚¹‚ñ");
+            return 0;   
         }
 
-        FiCount--;
+        int used = FiCount;  // ¡‰ñ‚ÌÁ”ï—Ê
+        FiCount = 0;         // 0‚Ü‚ÅŒ¸‚ç‚·
         countText.text = FiCount.ToString();
+
+        return used;         // Á”ï—Ê‚ğ•Ô‚·
     }
 }

@@ -4,6 +4,7 @@ using System.Collections;
 public class Player : MonoBehaviour
 {
     private Animator anim;
+    private SpriteRenderer sr;
 
     public float speed = 2.0f;
     public float dash = 5.0f;
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         currentSpeed = speed;
         anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
         Attack.SetActive(false);
     }
 
@@ -32,25 +34,25 @@ public class Player : MonoBehaviour
         // 移動
         _rb.linearVelocity = dir * currentSpeed;
 
-        // ★左右反転＋向き更新
+        // ★左右反転は flipX を使う（子オブジェクトに影響しない）
         if (inputX > 0)
         {
-            transform.localScale = new Vector3(4, 4, 4);
+            sr.flipX = false;
             facing = Vector2.right;
         }
         else if (inputX < 0)
         {
-            transform.localScale = new Vector3(-4, 4, 4);
+            sr.flipX = true;
             facing = Vector2.left;
         }
 
-        // ★上下移動のときも向きを更新
+        // 上下の向き
         if (inputY > 0)
             facing = Vector2.up;
         else if (inputY < 0)
             facing = Vector2.down;
 
-        // ★移動しているなら常に走るアニメーション
+        // 走るアニメーション
         anim.SetBool("isRunning", dir.magnitude > 0);
 
         // ダッシュ
@@ -72,8 +74,8 @@ public class Player : MonoBehaviour
     {
         isAttacking = true;
 
-        // ★攻撃方向を向きに合わせる
-        Attack.transform.localPosition = facing * 0.5f;
+        // ★攻撃方向に合わせて位置を更新
+        Attack.transform.localPosition = facing * 0.2f;
 
         Attack.SetActive(true);
         Debug.Log("attacking");
