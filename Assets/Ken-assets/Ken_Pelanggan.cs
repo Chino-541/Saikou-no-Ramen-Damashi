@@ -43,6 +43,7 @@ public class Ken_Pelanggan : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpawnPelangan());
+        StartCoroutine(WaktuMainNya());
         
 
         _TmpPoin.text = _SPoin+_poin.ToString();
@@ -100,17 +101,26 @@ public class Ken_Pelanggan : MonoBehaviour
     }
     IEnumerator WaktuMainNya()
     {
-        _BisaSpawn = true;
-        //loopingin ini
-        _WaktuMain--;
-        yield return new WaitForSeconds(1);
-        if (_WaktuMain == 0)
-        {
-            _BisaSpawn = false;
-            //_RigidbodyPlayer.constraints = false;
-            _RigidbodyPlayer.constraints = RigidbodyConstraints2D.FreezePositionX 
-                                        | RigidbodyConstraints2D.FreezePositionY;
+        _TmpWaktuMain.text = _BisaSpawn.ToString();
 
+
+        _BisaSpawn = true;
+        while (_BisaSpawn)
+        {
+            _WaktuMain--;
+            _TmpWaktuMain.text = _BisaSpawn.ToString();
+            yield return new WaitForSeconds(1);
+            if (_WaktuMain == 0)
+            {
+                _BisaSpawn = false;
+                //Stop gerak 
+                //_RigidbodyPlayer.constraints = false;
+                _RigidbodyPlayer.constraints = RigidbodyConstraints2D.FreezePositionX
+                                            | RigidbodyConstraints2D.FreezePositionY;
+
+
+            }
         }
+        
     }
 }
