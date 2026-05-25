@@ -1,95 +1,88 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Inventory.UI;     // UIグループのコードを使う宣言
+using Inventory.Model;  // データグループのコードを使う宣言
 
-public class InventoryController : MonoBehaviour
+namespace Inventory
 {
-    [SerializeField] private UIInventoryPage inventoryUI;
-    [SerializeField] private InventorySO inventoryData;
-
-    private void Start()
+    public class InventoryController : MonoBehaviour
     {
-        PrepareUI();
-        PrepareInventoryData();
-    }
+        [SerializeField] private UIInventoryPage inventoryUI;
+        [SerializeField] private InventorySO inventoryData;
 
-    private void PrepareInventoryData()
-    {
-        // データを初期化し、データが更新されたらUIを更新するイベントを紐づける
-        inventoryData.Initialize();
-        inventoryData.OnInventoryUpdated += UpdateInventoryUI;
-    }
-
-    private void PrepareUI()
-    {
-        // UI側のスロットをデータで指定した数だけ生成する
-        inventoryUI.InitializeInventoryUI(inventoryData.Size);
-
-        // UIからのイベント（操作）を受け取ったら、Controllerのメソッドを実行するように紐づける
-        inventoryUI.OnSwapItems += HandleSwapItems;
-        inventoryUI.OnDescriptionRequested += HandleDescriptionRequest;
-        inventoryUI.OnStartDragging += HandleDragging;
-        inventoryUI.OnItemActionRequested += HandleItemActionRequest;
-    }
-
-    // アイテムが入れ替えられたときの処理
-    private void HandleSwapItems(int itemIndex1, int itemIndex2)
-    {
-        inventoryData.SwapItems(itemIndex1, itemIndex2);
-    }
-
-    private void HandleDragging(int itemIndex)
-    {
-        InventoryItem inventoryItem = inventoryData.GetItemAt(itemIndex);
-        if (inventoryItem.IsEmpty) return;
-
-        // （本来はここでマウスにアイコンを追従させる処理などを呼び出します）
-    }
-
-    private void HandleItemActionRequest(int itemIndex)
-    {
-        // （アイテムを使用する、捨てるなどの処理を今後ここに追加します）
-    }
-
-    private void HandleDescriptionRequest(int itemIndex)
-    {
-        InventoryItem inventoryItem = inventoryData.GetItemAt(itemIndex);
-        if (inventoryItem.IsEmpty)
+        private void Start()
         {
-            inventoryUI.ResetSelection();
-            return;
+            PrepareUI();
+            PrepareInventoryData();
         }
 
-        // アイテムのデータを取得して、UIに「説明パネルを出して！」と命令する
-        ItemSO item = inventoryItem.item;
-        inventoryUI.UpdateDescription(itemIndex, item.ItemImage, item.Name, item.Description);
-    }
-
-    private void UpdateInventoryUI(Dictionary<int, InventoryItem> inventoryState)
-    {
-        // 追記：まずすべてのUIを空っぽにリセットして、古い残像を消す！
-        inventoryUI.ResetAllItems();
-
-        // その後、データが入っている場所だけ絵を入れる
-        foreach (var item in inventoryState)
+        private void PrepareInventoryData()
         {
-            inventoryUI.UpdateData(item.Key, item.Value.item.ItemImage, item.Value.quantity);
+            inventoryData.Initialize();
+            inventoryData.OnInventoryUpdated += UpdateInventoryUI;
         }
-    }
 
-    // 「I」キーを押したときのインベントリ開閉処理
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.I))
+        private void PrepareUI()
         {
-            if (inventoryUI.isActiveAndEnabled == false)
+            inventoryUI.InitializeInventoryUI(inventoryData.Size);
+
+            inventoryUI.OnSwapItems += HandleSwapItems;
+            inventoryUI.OnDescriptionRequested += HandleDescriptionRequest;
+            inventoryUI.OnStartDragging += HandleDragging;
+            inventoryUI.OnItemActionRequested += HandleItemActionRequest;
+        }
+
+        private void HandleSwapItems(int itemIndex1, int itemIndex2)
+        {
+            inventoryData.SwapItems(itemIndex1, itemIndex2);
+        }
+
+        private void HandleDragging(int itemIndex)
+        {
+            InventoryItem inventoryItem = inventoryData.GetItemAt(itemIndex);
+            if (inventoryItem.IsEmpty) return;
+        }
+
+        private void HandleItemActionRequest(int itemIndex)
+        {
+        }
+
+        private void HandleDescriptionRequest(int itemIndex)
+        {
+            InventoryItem inventoryItem = inventoryData.GetItemAt(itemIndex);
+            if (inventoryItem.IsEmpty)
             {
-                inventoryUI.Show();
-                // 開いたときに現在のデータに合わせてUIを更新
-                UpdateInventoryUI(inventoryData.GetCurrentInventoryState());
+                inventoryUI.ResetSelection();
+                return;
             }
-            else
+
+            ItemSO item = inventoryItem.item;
+            inventoryUI.UpdateDescription(itemIndex, item.ItemImage, item.Name, item.Description);
+        }
+
+        private void UpdateInventoryUI(Dictionary<int, InventoryItem> inventoryState)
+        {
+            inventoryUI.ResetAllItems();
+
+            foreach (var item in inventoryState)
             {
-                inventoryUI.Hide();
+                inventoryUI.UpdateData(item.Key, item.Value.item.ItemImage, item.Value.quantity);
+            }
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                if (inventoryUI.isActiveAndEnabled == false)
+                {
+                    inventoryUI.Show();
+                    UpdateInventoryUI(inventoryData.GetCurrentInventoryState());
+                }
+                else
+                {
+                    inventoryUI.Hide();
+                }
             }
         }
     }
