@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+// 変更点1：YourNamespace を HoriAssets に変更
+using HoriAssets;
 
 public class ItemPickup : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class ItemPickup : MonoBehaviour
     public float pickupRange = 2f;
 
     public GameObject pickupUI;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -18,26 +21,31 @@ public class ItemPickup : MonoBehaviour
     void Update()
     {
         if (player == null) return;
+
         float distance = Vector2.Distance(transform.position, player.position);
-        //　UIの表示
+
+        // UIの表示
         if (pickupUI != null)
         {
             pickupUI.SetActive(distance < pickupRange);
         }
-        //　アイテムを拾う
-        if (distance < pickupRange &&Input.GetKeyDown(KeyCode.E))
+
+        // アイテムを拾う
+        if (distance < pickupRange && Input.GetKeyDown(KeyCode.E))
         {
             bool success = false;
-            if (Inventory.instance != null)
+
+            // 変更点2：頭に「HoriAssets.」をつける
+            if (HoriAssets.Inventory.instance != null)
             {
-                success = Inventory.instance.AddItem(itemData, amount);
+                // 変更点3：頭に「HoriAssets.」をつける
+                success = HoriAssets.Inventory.instance.AddItem(itemData, amount);
             }
-            if(success)
+
+            if (success)
             {
                 Destroy(gameObject);
             }
         }
     }
-    
-
 }
