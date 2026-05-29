@@ -66344,7 +66344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07a481a84d03bf4ca5e6a82535128c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TMP_CountdownTimer
-  timeLeft: 10
+  timeLeft: 2
   timerText: {fileID: 2026658932}
   nextSceneName: RamenCreat
 --- !u!114 &2026658932

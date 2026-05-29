@@ -10,19 +10,17 @@ public class foodSlot : MonoBehaviour
         Vegetable
     }
 
-    [SerializeField] foodType food; // ← 種類を選ぶ
+    [SerializeField] foodType food;
     [SerializeField] TMP_Text countText;
 
     int count = 0;
 
-    // スロットの値を増やす
     public void AddCount()
     {
         count++;
         countText.text = count.ToString();
     }
 
-    // 消費処理（全部使う）
     public int Minus()
     {
         if (count <= 0)
@@ -33,12 +31,11 @@ public class foodSlot : MonoBehaviour
 
         int used = count;
         count = 0;
-        countText.text = count.ToString();
+        countText.text = "0";
 
         return used;
     }
 
-    // 種類ごとのメッセージ
     string GetNoItemMessage()
     {
         return food switch
@@ -48,5 +45,12 @@ public class foodSlot : MonoBehaviour
             foodType.Vegetable => "野菜がありません",
             _ => "アイテムがありません"
         };
+    }
+
+    // Reset 用
+    public void ResetCount()
+    {
+        count = 0;
+        countText.text = "0";
     }
 }

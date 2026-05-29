@@ -11,13 +11,12 @@ public class foodButton : MonoBehaviour
         Vegetable
     }
 
-    [SerializeField] foodType food; // ← ここで種類を選ぶ
+    [SerializeField] foodType food;
     [SerializeField] Cook cook;
     [SerializeField] Image centerSlot;
     [SerializeField] Image myImage;
     [SerializeField] TMP_Text countText;
 
-    // スロットのカウンター（種類ごとに違うので共通化できない）
     [SerializeField] SlotBef slotBef;
     [SerializeField] SlotFis slotFis;
     [SerializeField] SlotVeg slotVeg;
@@ -34,21 +33,16 @@ public class foodButton : MonoBehaviour
 
     void OnClickfoodButton()
     {
-        // 1回押したら無効化
         button.interactable = false;
 
-        // 数が0なら処理しない
         if (GetCount() <= 0) return;
 
-        // スロットに画像をセット
         centerSlot.sprite = myImage.sprite;
         centerSlot.color = Color.white;
 
-        // 数を減らす
         DecreaseCount();
         UpdateCountText();
 
-        // スロットのカウント処理
         switch (food)
         {
             case foodType.Beaf:
@@ -68,7 +62,6 @@ public class foodButton : MonoBehaviour
         countText.text = GetCount().ToString();
     }
 
-    // 現在の数を取得
     int GetCount()
     {
         return food switch
@@ -80,7 +73,6 @@ public class foodButton : MonoBehaviour
         };
     }
 
-    // 数を減らす
     void DecreaseCount()
     {
         switch (food)
@@ -95,5 +87,19 @@ public class foodButton : MonoBehaviour
                 cook.Vegetable--;
                 break;
         }
+    }
+
+    // Reset 用
+    public void ResetButton()
+    {
+        // ボタンを押せるように戻す
+        button.interactable = true;
+
+        // UI の数字を更新
+        UpdateCountText();
+
+        // スロット画像を消す
+        centerSlot.sprite = null;
+        centerSlot.color = new Color(1, 1, 1, 0); // 透明にする
     }
 }
