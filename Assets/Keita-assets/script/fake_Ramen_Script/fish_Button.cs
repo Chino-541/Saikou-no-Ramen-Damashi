@@ -4,11 +4,11 @@ using UnityEngine.UI;
 
 public class fish_Button : MonoBehaviour
 {
-    [SerializeField] Cook cook;　// 数を格納しているコード
-    [SerializeField] Image centerSlot;　// 移動先のスロット
-    [SerializeField] Image myImage;　// ボタンの画像
-    [SerializeField] TMP_Text countText;   // 数を表示するUI
-    [SerializeField] SlotFis slotCounter; // スロットの数字
+    [SerializeField] Cook cook;
+    [SerializeField] Image centerSlot;
+    [SerializeField] Image myImage;
+    [SerializeField] TMP_Text countText;
+    [SerializeField] SlotFis slotCounter;
 
     Button button;
 
@@ -22,29 +22,22 @@ public class fish_Button : MonoBehaviour
 
     void OnClickFis()
     {
-        // 数が0以下だと押せない
+        // 押した瞬間にボタン無効化（1回だけ押せる）
+        button.interactable = false;
+
         if (cook.fish <= 0) return;
 
-        // 画像をスロットに移動
         centerSlot.sprite = myImage.sprite;
         centerSlot.color = Color.white;
 
-        // 数を減らす
         cook.fish--;
         UpdateCountText();
 
-        // 移動先のスロットに数を移す
         slotCounter.FisCount();
-
-        if (cook.fish <= 0)
-        {
-            button.interactable = false;
-        }
     }
 
     void UpdateCountText()
     {
-        //　魚の数をUIに表示する
         countText.text = cook.fish.ToString();
     }
 }

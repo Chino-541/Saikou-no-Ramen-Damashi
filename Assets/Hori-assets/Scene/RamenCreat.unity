@@ -969,7 +969,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 817.0002}
+  m_AnchoredPosition: {x: 0, y: 816.99994}
   m_SizeDelta: {x: 0, y: 1600}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &620172319
@@ -1022,6 +1022,7 @@ GameObject:
   - component: {fileID: 694448375}
   - component: {fileID: 694448374}
   - component: {fileID: 694448376}
+  - component: {fileID: 694448377}
   m_Layer: 5
   m_Name: tuikaItem (1)
   m_TagString: Untagged
@@ -1094,12 +1095,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 694448372}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0816aa9cb0f96a94c9e974221c73766c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotVeg
   VeCount: 0
+  countText: {fileID: 479564831}
+--- !u!114 &694448377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694448372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef6c935d15fe8c4cbb29cef42c8f009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::foodSlot
+  food: 2
   countText: {fileID: 479564831}
 --- !u!224 &880418360 stripped
 RectTransform:
@@ -1535,9 +1550,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07a481a84d03bf4ca5e6a82535128c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TMP_CountdownTimer
-  timeLeft: 60
+  timeLeft: 10
   timerText: {fileID: 1045461249}
-  nextSceneName: NextScene
+  nextSceneName: Map02
 --- !u!1 &1105844578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1849,8 +1864,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1327056971}
   m_HandleRect: {fileID: 1327056970}
   m_Direction: 2
-  m_Value: -0.00000029882574
-  m_Size: 0.489375
+  m_Value: 0.000000074706435
+  m_Size: 0.48937392
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2035,7 +2050,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546016425}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0071503b956fc0a47a0ae63f44d20480, type: 3}
   m_Name: 
@@ -2045,6 +2060,26 @@ MonoBehaviour:
   myImage: {fileID: 1546016428}
   countText: {fileID: 107125865}
   slotCounter: {fileID: 694448376}
+--- !u!114 &1546016431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546016425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e391524eff1924eb5057178cbecdf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::foodButton
+  food: 2
+  cook: {fileID: 0}
+  centerSlot: {fileID: 694448374}
+  myImage: {fileID: 1546016428}
+  countText: {fileID: 107125865}
+  slotBef: {fileID: 0}
+  slotFis: {fileID: 0}
+  slotVeg: {fileID: 694448376}
 --- !u!1 &1592288555
 GameObject:
   m_ObjectHideFlags: 0
@@ -2149,7 +2184,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594503027}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d236112960faf1848aa1de011b9efc9a, type: 3}
   m_Name: 
@@ -2159,6 +2194,26 @@ MonoBehaviour:
   myImage: {fileID: 1594503030}
   countText: {fileID: 1745943753}
   slotCounter: {fileID: 1710281782}
+--- !u!114 &1594503033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594503027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e391524eff1924eb5057178cbecdf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::foodButton
+  food: 0
+  cook: {fileID: 0}
+  centerSlot: {fileID: 1710281780}
+  myImage: {fileID: 1594503030}
+  countText: {fileID: 1745943753}
+  slotBef: {fileID: 1710281782}
+  slotFis: {fileID: 0}
+  slotVeg: {fileID: 0}
 --- !u!1 &1672400018
 GameObject:
   m_ObjectHideFlags: 0
@@ -2362,6 +2417,7 @@ GameObject:
   - component: {fileID: 1710281781}
   - component: {fileID: 1710281780}
   - component: {fileID: 1710281782}
+  - component: {fileID: 1710281783}
   m_Layer: 5
   m_Name: tuikaItem
   m_TagString: Untagged
@@ -2440,6 +2496,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotBef
   BeCount: 0
+  countText: {fileID: 1761387149}
+--- !u!114 &1710281783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710281778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef6c935d15fe8c4cbb29cef42c8f009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::foodSlot
+  food: 0
   countText: {fileID: 1761387149}
 --- !u!1 &1731125735
 GameObject:
@@ -2732,7 +2802,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755061544}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4cb98dab9d4f6e04b8dbdee4aaaf0f5d, type: 3}
   m_Name: 
@@ -2742,6 +2812,26 @@ MonoBehaviour:
   myImage: {fileID: 1755061547}
   countText: {fileID: 154269113}
   slotCounter: {fileID: 2136577644}
+--- !u!114 &1755061550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755061544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e391524eff1924eb5057178cbecdf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::foodButton
+  food: 1
+  cook: {fileID: 0}
+  centerSlot: {fileID: 2136577642}
+  myImage: {fileID: 1755061547}
+  countText: {fileID: 154269113}
+  slotBef: {fileID: 0}
+  slotFis: {fileID: 2136577644}
+  slotVeg: {fileID: 0}
 --- !u!1 &1761387148
 GameObject:
   m_ObjectHideFlags: 0
@@ -3453,6 +3543,7 @@ GameObject:
   - component: {fileID: 2136577643}
   - component: {fileID: 2136577642}
   - component: {fileID: 2136577644}
+  - component: {fileID: 2136577645}
   m_Layer: 5
   m_Name: tuikaItem (2)
   m_TagString: Untagged
@@ -3525,12 +3616,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2136577640}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b3f686aafc72804e902f5876077ff26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotFis
   FiCount: 0
+  countText: {fileID: 927098337}
+--- !u!114 &2136577645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136577640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef6c935d15fe8c4cbb29cef42c8f009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::foodSlot
+  food: 1
   countText: {fileID: 927098337}
 --- !u!1001 &37122989826025731
 PrefabInstance:
@@ -3654,6 +3759,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6683685290592516950, guid: 507bca052e893754d9a3f01662504cfd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1755061549}
+    - targetCorrespondingSourceObject: {fileID: 6683685290592516950, guid: 507bca052e893754d9a3f01662504cfd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1755061550}
   m_SourcePrefab: {fileID: 100100000, guid: 507bca052e893754d9a3f01662504cfd, type: 3}
 --- !u!1001 &1632266272288014631
 PrefabInstance:
@@ -3774,6 +3882,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 107125864}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2352148054066969881, guid: c19db5cc97dcdcf48bae9ff53d73f9f9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1546016431}
     - targetCorrespondingSourceObject: {fileID: 2352148054066969881, guid: c19db5cc97dcdcf48bae9ff53d73f9f9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1546016430}
@@ -3994,6 +4105,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1745943752}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2342899937080218161, guid: 789942d053a35134586d1ee3265fc3c4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1594503033}
     - targetCorrespondingSourceObject: {fileID: 2342899937080218161, guid: 789942d053a35134586d1ee3265fc3c4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1594503032}

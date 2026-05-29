@@ -23,8 +23,8 @@ public class beaf_Button : MonoBehaviour
 
     void OnClickBef()
     {
-        // 0以下だとボタン押せません
-        if (cook.beaf <= 0) return;
+        // ボタンを押した瞬間に無効化
+        button.interactable = false;
 
         // 画像をスロットに移動
         centerSlot.sprite = myImage.sprite;
@@ -34,13 +34,8 @@ public class beaf_Button : MonoBehaviour
         cook.beaf--;
         UpdateCountText();
 
-        // 数をスロットのUIに移す
+        // スロットのカウント処理
         slotCounter.BefCount();
-
-        if (cook.beaf <= 0)
-        {
-            button.interactable = false;
-        }
     }
 
     void UpdateCountText()
