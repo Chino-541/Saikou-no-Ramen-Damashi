@@ -1,8 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Create : MonoBehaviour
 {
+    // 次のシーンに渡すデータ
+    public static int UsedBeaf;
+    public static int UsedFish;
+    public static int UsedVeg;
+
     [SerializeField] SlotBef Bef;
     [SerializeField] SlotVeg Veg;
     [SerializeField] SlotFis Fis;
@@ -17,32 +23,43 @@ public class Create : MonoBehaviour
 
     void OnClickButton()
     {
-        int befUsed = Bef.Minus();
-        int vegUsed = Veg.Minus();
-        int fisUsed = Fis.Minus();
+        // スロットの Minus() で消費量を取得
+        UsedBeaf = Bef.Minus();
+        UsedFish = Fis.Minus();
+        UsedVeg = Veg.Minus();
 
-        Debug.Log("今回消費したお肉: " + befUsed);
+        // 次のシーンへ移動
+        SceneManager.LoadScene("NextScene");
+    }
+}
+
+/*
+Debug.Log("今回消費したお肉: " + befUsed);
         Debug.Log("今回消費した野菜: " + vegUsed);
         Debug.Log("今回消費した魚: " + fisUsed);
 
+        // 合計
         int total = befUsed + vegUsed + fisUsed;
+        Debug.Log("消費合計: " +  total);
 
+        Total += total;
+        Debug.Log("累計消費量: " + Total);
 
+        // 消費量別の処理
         if (befUsed == vegUsed && vegUsed == fisUsed)
         {
-            Debug.Log("程よいバランス");
+            Debug.Log("OK");
         }
-        else if (total >= 15)
+        else if(total >= 1)
         {
-            Debug.Log("めっちゃ集めたね");
-        }
-        else if(total >= 3)
-        {
-            Debug.Log("並み");
+            Debug.Log("Okよ");
         }
         else if(total <= 0)
         {
             Debug.Log("無し");
         }
+        Total = total;
     }
-}
+   
+
+}*/

@@ -74,6 +74,16 @@ public class Inventory : MonoBehaviour
 
     public Dictionary<ItemData, int> GetItems()
     {
+
         return items;
+    }
+    public int GetItemCount(ItemData item)
+    {
+        if (items.ContainsKey(item))
+        {
+            return items[item];
+        }
+
+        return 0;
     }
 }

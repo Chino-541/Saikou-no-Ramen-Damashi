@@ -209,53 +209,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 721455}
   m_CullTransparentMesh: 1
---- !u!1 &57062674
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 57062676}
-  - component: {fileID: 57062675}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &57062675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 57062674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3313fb16ef9411944b5984b841452354, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Cook
-  beaf: 5
-  Vegetable: 5
-  fish: 5
---- !u!4 &57062676
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 57062674}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.86419, y: 1.0843, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &107125863
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,6 +483,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154269111}
   m_CullTransparentMesh: 1
+--- !u!1 &246440388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 246440390}
+  - component: {fileID: 246440389}
+  - component: {fileID: 246440391}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &246440389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246440388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3313fb16ef9411944b5984b841452354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Cook
+  beaf: 5
+  Vegetable: 5
+  fish: 5
+--- !u!4 &246440390
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246440388}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.57647, y: 0.39489, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &246440391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246440388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f7ab11e5ec4ba4cbfc327b258ee1da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RamenStatusManager
+  hotbarSlots:
+  - {fileID: 1710281783}
+  - {fileID: 694448377}
+  - {fileID: 2136577645}
+  beafData: {fileID: 11400000, guid: 956567f8058787341ab779fc93f3a00c, type: 2}
+  fishData: {fileID: 11400000, guid: 107b6a5342a2f8e4abf1eecdb8fd0ef7, type: 2}
+  vegetableData: {fileID: 11400000, guid: 4455bd274586ad044b8c70699d465e7c, type: 2}
+  saltSlider: {fileID: 1984043600}
+  umamiSlider: {fileID: 1027437687}
+  spicinessSlider: {fileID: 1231256177}
+  fatnessSlider: {fileID: 1411440161}
+  mysterySlider: {fileID: 429967599}
+  maxBarValue: 100
 --- !u!1 &325399827
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,7 +613,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: suteru
+  m_text: Remove
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -845,6 +871,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3177084794863247378, guid: 57c3923965160e44990f2cf29ed5996b, type: 3}
   m_PrefabInstance: {fileID: 6471562188772968167}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &429967599 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7876892985992019618, guid: 57c3923965160e44990f2cf29ed5996b, type: 3}
+  m_PrefabInstance: {fileID: 6471562188772968167}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &479564830
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,7 +1053,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 817}
+  m_AnchoredPosition: {x: 0, y: 817.0004}
   m_SizeDelta: {x: 0, y: 1600}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &620172319
@@ -1069,6 +1106,7 @@ GameObject:
   - component: {fileID: 694448375}
   - component: {fileID: 694448374}
   - component: {fileID: 694448376}
+  - component: {fileID: 694448377}
   m_Layer: 5
   m_Name: tuikaItem (1)
   m_TagString: Untagged
@@ -1141,12 +1179,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 694448372}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0816aa9cb0f96a94c9e974221c73766c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotVeg
   VeCount: 0
+  countText: {fileID: 479564831}
+--- !u!114 &694448377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694448372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef6c935d15fe8c4cbb29cef42c8f009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::foodSlot
+  food: 2
   countText: {fileID: 479564831}
 --- !u!224 &880418360 stripped
 RectTransform:
@@ -1432,6 +1484,17 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &1027437687 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7112181134555749716, guid: 9c0ef6fd98c2e9f4d9d529f090d464b3, type: 3}
+  m_PrefabInstance: {fileID: 7570607299056680123}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &1045461247
 GameObject:
   m_ObjectHideFlags: 0
@@ -1582,9 +1645,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07a481a84d03bf4ca5e6a82535128c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TMP_CountdownTimer
-  timeLeft: 60
+  timeLeft: 10
   timerText: {fileID: 1045461249}
-  nextSceneName: NextScene
+  nextSceneName: Map02
 --- !u!1 &1105844578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1660,6 +1723,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105844578}
   m_CullTransparentMesh: 1
+--- !u!114 &1231256177 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4957520749395789194, guid: 90f1d62e612cfae4aa3d4b2a4c862383, type: 3}
+  m_PrefabInstance: {fileID: 5444452714409851435}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &1297677361
 GameObject:
   m_ObjectHideFlags: 0
@@ -1896,8 +1970,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1327056971}
   m_HandleRect: {fileID: 1327056970}
   m_Direction: 2
-  m_Value: 0.000000074706435
-  m_Size: 0.48937073
+  m_Value: -0.0000005976515
+  m_Size: 0.489375
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2054,6 +2128,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1409285054}
   m_CullTransparentMesh: 1
+--- !u!114 &1411440161 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9112138863348150909, guid: 59c8ae20b0a4b9b47b42b99b2ec3c3ff, type: 3}
+  m_PrefabInstance: {fileID: 9038037018986771816}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &1546016425 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2352148054066969881, guid: c19db5cc97dcdcf48bae9ff53d73f9f9, type: 3}
@@ -2082,16 +2167,32 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546016425}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0071503b956fc0a47a0ae63f44d20480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::vegetable_Button
-  cook: {fileID: 57062675}
+  cook: {fileID: 0}
   centerSlot: {fileID: 694448374}
   myImage: {fileID: 1546016428}
   countText: {fileID: 107125865}
   slotCounter: {fileID: 694448376}
+--- !u!114 &1546016431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546016425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e391524eff1924eb5057178cbecdf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::foodButton
+  itemData: {fileID: 11400000, guid: 4455bd274586ad044b8c70699d465e7c, type: 2}
+  centerSlot: {fileID: 694448374}
+  myImage: {fileID: 1546016428}
+  countText: {fileID: 107125865}
 --- !u!1 &1592288555
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,16 +2297,32 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594503027}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d236112960faf1848aa1de011b9efc9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::beaf_Button
-  cook: {fileID: 57062675}
+  cook: {fileID: 0}
   centerSlot: {fileID: 1710281780}
   myImage: {fileID: 1594503030}
   countText: {fileID: 1745943753}
   slotCounter: {fileID: 1710281782}
+--- !u!114 &1594503033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594503027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e391524eff1924eb5057178cbecdf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::foodButton
+  itemData: {fileID: 11400000, guid: 956567f8058787341ab779fc93f3a00c, type: 2}
+  centerSlot: {fileID: 1710281780}
+  myImage: {fileID: 1594503030}
+  countText: {fileID: 1745943753}
 --- !u!1 &1672400018
 GameObject:
   m_ObjectHideFlags: 0
@@ -2409,6 +2526,7 @@ GameObject:
   - component: {fileID: 1710281781}
   - component: {fileID: 1710281780}
   - component: {fileID: 1710281782}
+  - component: {fileID: 1710281783}
   m_Layer: 5
   m_Name: tuikaItem
   m_TagString: Untagged
@@ -2487,6 +2605,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotBef
   BeCount: 0
+  countText: {fileID: 1761387149}
+--- !u!114 &1710281783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710281778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef6c935d15fe8c4cbb29cef42c8f009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::foodSlot
+  food: 0
   countText: {fileID: 1761387149}
 --- !u!1 &1731125735
 GameObject:
@@ -2779,16 +2911,32 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755061544}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4cb98dab9d4f6e04b8dbdee4aaaf0f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::fish_Button
-  cook: {fileID: 57062675}
+  cook: {fileID: 0}
   centerSlot: {fileID: 2136577642}
   myImage: {fileID: 1755061547}
   countText: {fileID: 154269113}
   slotCounter: {fileID: 2136577644}
+--- !u!114 &1755061550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755061544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e391524eff1924eb5057178cbecdf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::foodButton
+  itemData: {fileID: 11400000, guid: 107b6a5342a2f8e4abf1eecdb8fd0ef7, type: 2}
+  centerSlot: {fileID: 2136577642}
+  myImage: {fileID: 1755061547}
+  countText: {fileID: 154269113}
 --- !u!1 &1761387148
 GameObject:
   m_ObjectHideFlags: 0
@@ -3256,6 +3404,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8131596385635350362, guid: e780e8b0c91f759408e95e4e17e8175e, type: 3}
   m_PrefabInstance: {fileID: 6966171670531379309}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1984043600 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5186882062336799453, guid: e780e8b0c91f759408e95e4e17e8175e, type: 3}
+  m_PrefabInstance: {fileID: 6966171670531379309}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &2059943724
 GameObject:
   m_ObjectHideFlags: 0
@@ -3269,7 +3428,7 @@ GameObject:
   - component: {fileID: 2059943727}
   - component: {fileID: 2059943726}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Remove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3500,6 +3659,7 @@ GameObject:
   - component: {fileID: 2136577643}
   - component: {fileID: 2136577642}
   - component: {fileID: 2136577644}
+  - component: {fileID: 2136577645}
   m_Layer: 5
   m_Name: tuikaItem (2)
   m_TagString: Untagged
@@ -3572,12 +3732,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2136577640}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b3f686aafc72804e902f5876077ff26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotFis
   FiCount: 0
+  countText: {fileID: 927098337}
+--- !u!114 &2136577645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136577640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef6c935d15fe8c4cbb29cef42c8f009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::foodSlot
+  food: 1
   countText: {fileID: 927098337}
 --- !u!1001 &37122989826025731
 PrefabInstance:
@@ -3701,6 +3875,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6683685290592516950, guid: 507bca052e893754d9a3f01662504cfd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1755061549}
+    - targetCorrespondingSourceObject: {fileID: 6683685290592516950, guid: 507bca052e893754d9a3f01662504cfd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1755061550}
   m_SourcePrefab: {fileID: 100100000, guid: 507bca052e893754d9a3f01662504cfd, type: 3}
 --- !u!1001 &1632266272288014631
 PrefabInstance:
@@ -3821,6 +3998,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 107125864}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2352148054066969881, guid: c19db5cc97dcdcf48bae9ff53d73f9f9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1546016431}
     - targetCorrespondingSourceObject: {fileID: 2352148054066969881, guid: c19db5cc97dcdcf48bae9ff53d73f9f9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1546016430}
@@ -4041,6 +4221,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1745943752}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2342899937080218161, guid: 789942d053a35134586d1ee3265fc3c4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1594503033}
     - targetCorrespondingSourceObject: {fileID: 2342899937080218161, guid: 789942d053a35134586d1ee3265fc3c4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1594503032}
@@ -4460,4 +4643,4 @@ SceneRoots:
   - {fileID: 990145102}
   - {fileID: 1694714877}
   - {fileID: 1297677364}
-  - {fileID: 57062676}
+  - {fileID: 246440390}
