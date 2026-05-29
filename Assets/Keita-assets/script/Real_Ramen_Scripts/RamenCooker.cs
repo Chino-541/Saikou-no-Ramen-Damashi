@@ -35,6 +35,10 @@ public class RamenCooker : MonoBehaviour
             data.SetData(beaf, fish, veg);
 
             Debug.Log($"¶¬‚³‚ê‚½ Ramen: “÷{data.beaf}, ‹›{data.fish}, –ìØ{data.vegetable}");
+            // ì‚Á‚½‚ç’l‚ğŒ¸‚ç‚·
+            veg--;
+            beaf--;
+            fish--;
         }
     }
 }

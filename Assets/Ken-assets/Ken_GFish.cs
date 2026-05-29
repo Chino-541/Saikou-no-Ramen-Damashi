@@ -33,7 +33,7 @@ public class Ken_GFish : MonoBehaviour
 
     [BoxGroup("UI")][SerializeField] private GameObject _PanelFishing;
 
-    
+    [SerializeField] Cook cook;
 
     private void Start()
     {
@@ -129,6 +129,7 @@ public class Ken_GFish : MonoBehaviour
                     _MissFishSprite.SetActive(true);
                     yield return new WaitForSeconds(3f);
                     _MissFishSprite.SetActive(false);
+                    cook.fish++;
                     ExitFishing();
                 }
             }
