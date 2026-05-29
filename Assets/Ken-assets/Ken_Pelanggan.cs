@@ -337,7 +337,7 @@ public class Ken_Pelanggan : MonoBehaviour
         _toResult.onClick.AddListener(() =>
         {
             Result();
-            _RivalPanelScore.SetActive(false);
+            //_RivalPanelScore.SetActive(false);
            
         });
 
@@ -365,6 +365,7 @@ public class Ken_Pelanggan : MonoBehaviour
             _ResultWinScoreText.text = _TotalScorenya.ToString();
             _ResultlosePanel.SetActive(true);
         }
+        _RivalPanelScore.SetActive(false);
     }
 
 }
