@@ -37,6 +37,8 @@ public class Ken_Pelanggan : MonoBehaviour
     [BoxGroup("Waktu Main")][SerializeField] private TextMeshProUGUI _TmpWaktuMain;
     [BoxGroup("Waktu Main")][SerializeField] private Rigidbody2D _RigidbodyPlayer;
 
+    //==================================================================
+
     [BoxGroup("LastS")][SerializeField] private GameObject _PanelScore;
     //public Ken_LScore _LScoreScript;
 
@@ -49,8 +51,51 @@ public class Ken_Pelanggan : MonoBehaviour
     [BoxGroup("LastS")][SerializeField] private string _TotalScoreString;
     [BoxGroup("LastS")][SerializeField] private TextMeshProUGUI _TotalScoreTextnya;
 
+    //==================================================================
+
+    //[BoxGroup("Scene")][SerializeField] private Button _TitleButton;
+    //[Scene][BoxGroup("Scene")][SerializeField] private int _scene;
+    [BoxGroup("RivalS")][SerializeField] private Button _toRivalScore;
+
+    [BoxGroup("Rival")][SerializeField] private int _RivalRamenScore;
+    [BoxGroup("Rival")][SerializeField] private TextMeshProUGUI _RivalTextScore;
+    [BoxGroup("Rival")][SerializeField] private int _DelayRivalScore;
+    [BoxGroup("Rival")][SerializeField] private int _MinDelayRivalRamenScore = 3;
+    [BoxGroup("Rival")][SerializeField] private int _MaxDelayRivalRamenScore = 6;
+    [BoxGroup("Rival")][SerializeField] private Slider _DelayRivalSlider;
+    [BoxGroup("Rival")][SerializeField] private const int _MinDelayRivalSlider = 0;
+    [BoxGroup("Rival")][SerializeField] private int _MaxDelayRivalSlider;
+    [BoxGroup("Rival")][SerializeField] private float _FloatRivalSlider;
+
+
+    //~~~~~~~~~~~~~~
+    [BoxGroup("RivalS")][SerializeField] private GameObject _RivalPanelScore;
+    [BoxGroup("RivalS")][SerializeField] private TextMeshProUGUI _RivalPanelScoreText;
+    [BoxGroup("RivalS")][SerializeField] private TextMeshProUGUI _RivalPanelRamenScoreText;
+
+    [BoxGroup("RivalS")][SerializeField] private int _RivalTotalScorenya = 0;
+    [BoxGroup("RivalS")][SerializeField] private string _RivalTotalScoreString;
+    [BoxGroup("RivalS")][SerializeField] private TextMeshProUGUI _RivalTotalScoreTextnya;
+    [BoxGroup("RivalS")][SerializeField] private Button _toResult;
+
+
     [BoxGroup("Scene")][SerializeField] private Button _TitleButton;
     [Scene][BoxGroup("Scene")][SerializeField] private int _scene;
+
+    //==================================================================
+
+    [BoxGroup("ResultWin")][SerializeField] private GameObject _ResultWinPanel;
+    [BoxGroup("ResultWin")][SerializeField] private Button _WinKembaliKeTitle;
+    [BoxGroup("ResultWin")][SerializeField] private TextMeshProUGUI _ResultWinScoreText;
+
+    [BoxGroup("ResultLose")][SerializeField] private GameObject _ResultlosePanel;
+    [BoxGroup("ResultLose")][SerializeField] private Button _LoseKembaliKeTitle;
+    [BoxGroup("ResultLose")][SerializeField] private TextMeshProUGUI _ResultLoseScoreText;
+
+    
+
+
+
     private void Awake()
     {
         _PelangganInstance = this;
@@ -125,6 +170,7 @@ public class Ken_Pelanggan : MonoBehaviour
 
 
         _BisaSpawn = true;
+        StartCoroutine(RivalSystem());
         while (_BisaSpawn)
         {
             _WaktuMain--;
@@ -149,6 +195,7 @@ public class Ken_Pelanggan : MonoBehaviour
                 _RigidbodyPlayer.constraints = RigidbodyConstraints2D.FreezePositionX
                                             | RigidbodyConstraints2D.FreezePositionY;
                 _PanelScore.SetActive(true);
+                _RivalPanelScore.SetActive(false);
                 LastScore();
                 //_LScoreScript.ScorAkhirnya();
                
@@ -176,6 +223,7 @@ public class Ken_Pelanggan : MonoBehaviour
     }
     void LastScore()
     {
+        RivalScorePanel();
         //222222222222222222222
         _RamenScorenya = 1;
 
@@ -191,9 +239,132 @@ public class Ken_Pelanggan : MonoBehaviour
         _TotalScoreTextnya.text = _TotalScoreString;
         //_TotalScoreTextnya.text = (_poin*_RamenScorenya).ToString();
 
+        /*
         _TitleButton.onClick.AddListener(() =>
         {
             SceneManager.LoadScene(_scene);
         });
+        */
+
+        _toRivalScore.onClick.AddListener(()=>
+        {
+            _RivalPanelScore.SetActive(true);
+            _PanelScore.SetActive(false);
+        });
     }
+    IEnumerator RivalSystem()
+    {
+        _RivalRamenScore = 0;
+        _RivalTextScore.text = _RivalRamenScore.ToString();
+        Debug.Log("aaaa");
+        while (_BisaSpawn)
+        {
+            /*
+            _DelayRivalScore = Random.Range(_MinDelayRivalRamenScore, _MaxDelayRivalRamenScore);
+            _RivalRamenScore++;
+            Debug.Log("nnnn");
+            _RivalTextScore.text = _RivalRamenScore.ToString();
+            yield return new WaitForSeconds(_DelayRivalScore);
+            */
+
+            _DelayRivalScore = Random.Range(_MinDelayRivalRamenScore, _MaxDelayRivalRamenScore);
+            _FloatRivalSlider = _DelayRivalScore * 100f;
+            _DelayRivalSlider.maxValue = _FloatRivalSlider ;
+            _DelayRivalSlider.value = _FloatRivalSlider;
+
+            float _DurationSlider = _DelayRivalScore;
+            float _TimerSlider = _DurationSlider;
+
+            while (_TimerSlider > 0)
+            {
+                _TimerSlider -= Time.deltaTime;
+                _DelayRivalSlider.value = (_TimerSlider / _DurationSlider) * _FloatRivalSlider;
+                yield return null;
+            }
+            _DelayRivalSlider.value = 0;
+            _RivalRamenScore++;
+            _RivalTextScore.text = _RivalRamenScore.ToString();
+
+            /*
+            while (_DelayRivalSlider.value > 0)
+            {
+                yield return new WaitForSeconds(1f);
+
+                _DelayRivalSlider.value -= 1;
+            }
+
+            _RivalRamenScore++;
+            _RivalTextScore.text = _RivalRamenScore.ToString();
+            */
+
+            /*
+
+            _MaxDelayRivalSlider = _DelayRivalScore;
+            _DelayRivalSlider.maxValue = _MaxDelayRivalSlider;
+            for (int i = _MaxDelayRivalSlider; i >= 0;i--)
+            {
+                _DelayRivalSlider.value = i;
+                
+            }
+            _RivalRamenScore++;
+            _RivalTextScore.text = _RivalRamenScore.ToString();
+            yield return new WaitForSeconds(_DelayRivalSlider.value);
+            */
+
+
+        }
+        RivalScorePanel();
+    }
+    void RivalScorePanel()
+    {
+        _RivalPanelScoreText.text = _RivalRamenScore.ToString();
+        _RivalPanelRamenScoreText.text = _RamenScorenya.ToString();
+
+        _RivalTotalScorenya = (_RamenScorenya * _RivalRamenScore);
+        _RivalTotalScoreString = "‡Œv : " + _RivalTotalScorenya.ToString();
+        _RivalTotalScoreTextnya.text = _RivalTotalScoreString;
+
+        /*
+        _TitleButton.onClick.AddListener(() =>
+        {
+            SceneManager.LoadScene(_scene);
+        });
+        */
+
+        _ResultWinPanel.SetActive(false);
+        _ResultlosePanel.SetActive(false);
+
+        _toResult.onClick.AddListener(() =>
+        {
+            Result();
+            _RivalPanelScore.SetActive(false);
+           
+        });
+
+
+    }
+    void Result()
+    {
+        //menang
+        if (_TotalScorenya > _RivalTotalScorenya)
+        {
+            _WinKembaliKeTitle.onClick.AddListener(() =>
+            {
+                SceneManager.LoadScene(_scene);
+            });
+            _ResultWinScoreText.text = _TotalScorenya.ToString();
+            _ResultWinPanel.SetActive(true);
+        }
+        //kalah
+        else
+        {
+            _LoseKembaliKeTitle.onClick.AddListener(() =>
+            {
+                SceneManager.LoadScene(_scene);
+            });
+            _ResultWinScoreText.text = _TotalScorenya.ToString();
+            _ResultlosePanel.SetActive(true);
+        }
+    }
+
 }
