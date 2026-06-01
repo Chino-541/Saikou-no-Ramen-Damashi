@@ -1,3 +1,4 @@
+using NUnit.Framework.Interfaces;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,17 +11,26 @@ public class foodButton : MonoBehaviour
         Fish,
         Vegetable
     }
-
+    // アイテムデータ
+    [SerializeField] private ItemData itemData;
+    // 食材の種類選ぶ
     [SerializeField] foodType food;
+    // scriptがついてるオブジェクトをアタッチ
     [SerializeField] Cook cook;
+    // スロットの画像
     [SerializeField] Image centerSlot;
+    // ボタンの画像
     [SerializeField] Image myImage;
+    // ボタンの食材UI
     [SerializeField] TMP_Text countText;
-
+    // スロットアタッチ
     [SerializeField] SlotBef slotBef;
     [SerializeField] SlotFis slotFis;
     [SerializeField] SlotVeg slotVeg;
 
+    [SerializeField] FoodData foodData;
+    // スライダーをアタッチ
+    [SerializeField] private Slider[] sliders = new Slider[5];
     Button button;
 
     void Start()
@@ -33,9 +43,9 @@ public class foodButton : MonoBehaviour
 
     void OnClickfoodButton()
     {
-        button.interactable = false;
-
         if (GetCount() <= 0) return;
+
+        button.interactable = false;
 
         centerSlot.sprite = myImage.sprite;
         centerSlot.color = Color.white;
@@ -55,6 +65,16 @@ public class foodButton : MonoBehaviour
                 slotVeg.VegCount();
                 break;
         }
+
+        // 味ステータスを Slider に反映
+        sliders[0].value += itemData.saltiness;
+        sliders[1].value += itemData.umami;
+        sliders[2].value += itemData.spiciness;
+        sliders[3].value += itemData.fatness;
+        sliders[4].value += itemData.mystery;
+
+        //  FoodData に保存
+        foodData.SetData(cook.beaf, cook.fish, cook.Vegetable);
     }
 
     void UpdateCountText()
@@ -89,17 +109,17 @@ public class foodButton : MonoBehaviour
         }
     }
 
-    // Reset 用
     public void ResetButton()
     {
-        // ボタンを押せるように戻す
         button.interactable = true;
+        
 
-        // UI の数字を更新
         UpdateCountText();
-
-        // スロット画像を消す
         centerSlot.sprite = null;
-        centerSlot.color = new Color(1, 1, 1, 0); // 透明にする
+        centerSlot.color = new Color(1, 1, 1, 0);
+        for (int i = 0; i < sliders.Length; i++)
+        {
+            sliders[i].value = 0;
+        }
     }
 }

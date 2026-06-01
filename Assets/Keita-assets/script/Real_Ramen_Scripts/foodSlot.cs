@@ -47,6 +47,12 @@ public class foodSlot : MonoBehaviour
         };
     }
 
+    // ★ Getter を追加（foodButton が参照する）
+    public int GetCount()
+    {
+        return count;
+    }
+
     // Reset 用
     public void ResetCount()
     {
