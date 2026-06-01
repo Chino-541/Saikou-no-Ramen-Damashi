@@ -28,6 +28,7 @@ public class foodButton : MonoBehaviour
         // 中央スロットへ表示
         centerSlot.sprite = myImage.sprite;
         centerSlot.color = Color.white;
+        RamenStatusManager.Instance.AddFood(itemData);
     }
 
     void UpdateCountText()
