@@ -10,12 +10,16 @@ public class RamenCooker : MonoBehaviour
     int beaf;
     int fish;
     int veg;
+    int salt;
+    int noodle;
 
     void Start()
     {
         beaf = Create.UsedBeaf;
         fish = Create.UsedFish;
         veg = Create.UsedVeg;
+        //salt = Create.UsedSalt;
+       // noodle = Create.UsedNoodle;
     }
 
     void Update()
@@ -26,15 +30,26 @@ public class RamenCooker : MonoBehaviour
             return;
         }
 
-        if (beaf == 0 || fish == 0 || veg == 0)
+        // ★ 5種類の素材を配列で管理
+        int[] ingredients = { beaf, fish, veg, salt, noodle };
+
+        // ★ 1つ以上ある素材の種類数を数える
+        int ingredientCount = 0;
+        foreach (int amount in ingredients)
         {
-            Debug.Log("材料が足りません！");
+            if (amount > 0) ingredientCount++;
+        }
+
+        // ★ 3種類未満なら作れない
+        if (ingredientCount < 3)
+        {
+            Debug.Log("5種類のうち3種類以上そろっていません！");
             return;
         }
 
+        // ★ 作成処理
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //  味の合計を計算
             int totalSalt = 0;
             int totalUmami = 0;
             int totalSpicy = 0;

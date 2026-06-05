@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class Customer : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private int score;
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-    }
+        if(collision.gameObject.CompareTag("ramen"))
+        {
+            score++;
+            Destroy(gameObject);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        }
     }
 }

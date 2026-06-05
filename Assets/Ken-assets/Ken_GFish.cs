@@ -33,10 +33,11 @@ public class Ken_GFish : MonoBehaviour
 
     [BoxGroup("UI")][SerializeField] private GameObject _PanelFishing;
 
-    [SerializeField] Cook cook;
+    [SerializeField] private Cook cook;
 
     private void Start()
     {
+
         SliderSystem();
         FishTimeSystem();
         StartCoroutine(FishTimeSystem());
@@ -114,10 +115,12 @@ public class Ken_GFish : MonoBehaviour
                 _GetFish = true;
                 while (_GetFish == true)
                 {
+                    cook.fish++;
                     _GetFishSprite.SetActive(true);
                     yield return new WaitForSeconds(3f);
                     _GetFishSprite.SetActive(false);
                     ExitFishing();
+
                 }
               
             }
