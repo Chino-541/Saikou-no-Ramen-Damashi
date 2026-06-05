@@ -82,5 +82,8 @@ TagManager:
   - name: c-ui
     uniqueID: 1683368381
     locked: 0
+  - name: Setsumei
+    uniqueID: 4124251423
+    locked: 0
   m_RenderingLayers:
   - Default
