@@ -1,75 +1,34 @@
 ﻿using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class foodSlot : MonoBehaviour
 {
-    public enum foodType
+    [SerializeField] Image slotImage;
+
+    ItemData currentItem;
+
+    public void SetItem(ItemData item)
     {
-        Beaf,
-        Fish,
-        Vegetable
+        currentItem = item;
+
+        slotImage.sprite = item.icon;
+        slotImage.color = Color.white;
     }
 
-    [SerializeField] foodType food;
-    [SerializeField] TMP_Text countText;
-
-    int count = 0;
-
-    // スロットの値を増やす
-    public void AddCount()
+    public ItemData GetItem()
     {
-        count++;
-        countText.text = count.ToString();
-
-        // 💡 カウントが増えたら自動でメーターを更新する
-        if (RamenStatusManager.Instance != null)
-        {
-            RamenStatusManager.Instance.CalculateAndApplyStatus();
-        }
+        return currentItem;
     }
 
-    // 消費処理（全部使う）
-    public int Minus()
+    public bool IsEmpty()
     {
-        if (count <= 0)
-        {
-            Debug.Log(GetNoItemMessage());
-            return 0;
-        }
-
-        int used = count;
-        count = 0;
-        countText.text = count.ToString();
-
-        // 💡 カウントが減ったら自動でメーターを更新する
-        if (RamenStatusManager.Instance != null)
-        {
-            RamenStatusManager.Instance.CalculateAndApplyStatus();
-        }
-
-        return used;
+        return currentItem == null;
     }
-
-    string GetNoItemMessage()
+    public void ClearItem()
     {
-        return food switch
-        {
-            foodType.Beaf => "お肉がありません",
-            foodType.Fish => "魚がありません",
-            foodType.Vegetable => "野菜がありません",
-            _ => "アイテムがありません"
-        };
-    }
+        currentItem = null;
 
-    // 外部から食材のタイプを取得するための関数
-    public foodType GetFoodType()
-    {
-        return food;
-    }
-
-    // 外部から現在の個数を取得するための関数
-    public int GetCount()
-    {
-        return count;
+        slotImage.sprite = null;
+        slotImage.color = new Color(1, 1, 1, 0);
     }
 }

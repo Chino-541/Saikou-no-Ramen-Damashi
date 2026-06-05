@@ -6,8 +6,8 @@ public class foodButton : MonoBehaviour
 {
     [SerializeField] ItemData itemData;
 
-    [SerializeField] Image centerSlot;
-    [SerializeField] Image myImage;
+    // [SerializeField] Image centerSlot;
+    [SerializeField] foodSlot[] slots;
     [SerializeField] TMP_Text countText;
 
     Button button;
@@ -22,13 +22,20 @@ public class foodButton : MonoBehaviour
 
     void OnClickfoodButton()
     {
-        // 所持数0なら何もしない
         if (GetCount() <= 0) return;
 
-        // 中央スロットへ表示
-        centerSlot.sprite = myImage.sprite;
-        centerSlot.color = Color.white;
-        RamenStatusManager.Instance.AddFood(itemData);
+        foreach (foodSlot slot in slots)
+        {
+            if (slot.IsEmpty())
+            {
+                slot.SetItem(itemData);
+
+                // 後でスライダー再計算
+                // RamenStatusManager.Instance.CalculateAndApplyStatus();
+
+                break;
+            }
+        }
     }
 
     void UpdateCountText()
@@ -38,6 +45,9 @@ public class foodButton : MonoBehaviour
 
     int GetCount()
     {
-        return Inventory.instance.GetItemCount(itemData);
+        // return Inventory.instance.GetItemCount(itemData);
+        // 仮でアイテムを持っている状態にしている
+            return 1;
+        
     }
 }
