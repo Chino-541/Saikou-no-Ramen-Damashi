@@ -17,7 +17,7 @@ MonoBehaviour:
   description: 
   maxStack: 99
   saltiness: 22
-  umami: 49
-  spiciness: 36
-  fatness: 22
-  mystery: 61
+  umami: 14
+  spiciness: 0
+  fatness: 13
+  mystery: 27

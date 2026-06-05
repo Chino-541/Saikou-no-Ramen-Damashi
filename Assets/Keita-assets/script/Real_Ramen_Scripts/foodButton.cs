@@ -1,36 +1,25 @@
-using NUnit.Framework.Interfaces;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class foodButton : MonoBehaviour
 {
-    public enum foodType
-    {
-        Beaf,
-        Fish,
-        Vegetable
-    }
-    // アイテムデータ
+    public enum foodType { Beaf, Fish, Vegetable }
+
     [SerializeField] private ItemData itemData;
-    // 食材の種類選ぶ
     [SerializeField] foodType food;
-    // scriptがついてるオブジェクトをアタッチ
+
     [SerializeField] Cook cook;
-    // スロットの画像
     [SerializeField] Image centerSlot;
-    // ボタンの画像
     [SerializeField] Image myImage;
-    // ボタンの食材UI
     [SerializeField] TMP_Text countText;
-    // スロットアタッチ
+
     [SerializeField] SlotBef slotBef;
     [SerializeField] SlotFis slotFis;
     [SerializeField] SlotVeg slotVeg;
 
-    [SerializeField] FoodData foodData;
-    // スライダーをアタッチ
     [SerializeField] private Slider[] sliders = new Slider[5];
+
     Button button;
 
     void Start()
@@ -55,26 +44,19 @@ public class foodButton : MonoBehaviour
 
         switch (food)
         {
-            case foodType.Beaf:
-                slotBef.BefCount();
-                break;
-            case foodType.Fish:
-                slotFis.FisCount();
-                break;
-            case foodType.Vegetable:
-                slotVeg.VegCount();
-                break;
+            case foodType.Beaf: slotBef.BefCount(); break;
+            case foodType.Fish: slotFis.FisCount(); break;
+            case foodType.Vegetable: slotVeg.VegCount(); break;
         }
 
-        // 味ステータスを Slider に反映
         sliders[0].value += itemData.saltiness;
         sliders[1].value += itemData.umami;
         sliders[2].value += itemData.spiciness;
         sliders[3].value += itemData.fatness;
         sliders[4].value += itemData.mystery;
 
-        //  FoodData に保存
-        foodData.SetData(cook.beaf, cook.fish, cook.Vegetable);
+        // ★ ScriptableObject をリストに追加
+        Create.UsedItemDataList.Add(itemData);
     }
 
     void UpdateCountText()
@@ -97,29 +79,24 @@ public class foodButton : MonoBehaviour
     {
         switch (food)
         {
-            case foodType.Beaf:
-                cook.beaf--;
-                break;
-            case foodType.Fish:
-                cook.fish--;
-                break;
-            case foodType.Vegetable:
-                cook.Vegetable--;
-                break;
+            case foodType.Beaf: cook.beaf--; break;
+            case foodType.Fish: cook.fish--; break;
+            case foodType.Vegetable: cook.Vegetable--; break;
         }
     }
 
     public void ResetButton()
     {
         button.interactable = true;
-        
 
         UpdateCountText();
         centerSlot.sprite = null;
         centerSlot.color = new Color(1, 1, 1, 0);
+
         for (int i = 0; i < sliders.Length; i++)
         {
             sliders[i].value = 0;
         }
+        Create.UsedItemDataList.Clear();
     }
 }

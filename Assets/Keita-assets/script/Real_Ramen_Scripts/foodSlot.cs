@@ -46,8 +46,6 @@ public class foodSlot : MonoBehaviour
             _ => "アイテムがありません"
         };
     }
-
-    // ★ Getter を追加（foodButton が参照する）
     public int GetCount()
     {
         return count;

@@ -1,6 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Create : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Create : MonoBehaviour
     public static int UsedBeaf;
     public static int UsedFish;
     public static int UsedVeg;
+
+    public static List<ItemData> UsedItemDataList = new List<ItemData>();
 
     [SerializeField] SlotBef Bef;
     [SerializeField] SlotVeg Veg;

@@ -1,21 +1,18 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class RamenCooker : MonoBehaviour
 {
     [SerializeField] GameObject Ramen;
     [SerializeField] float cooldownTime = 3f;
+
     float cooldown = 0f;
-    // Start で読み込んだ値を保持する
+
     int beaf;
     int fish;
     int veg;
-    
 
     void Start()
     {
-       
-        // Create で保存されたデータを取得
         beaf = Create.UsedBeaf;
         fish = Create.UsedFish;
         veg = Create.UsedVeg;
@@ -23,43 +20,47 @@ public class RamenCooker : MonoBehaviour
 
     void Update()
     {
-        // クールダウン
         if (cooldown > 0)
         {
-            Debug.Log("クールダウン中");
             cooldown -= Time.deltaTime;
             return;
         }
 
         if (beaf == 0 || fish == 0 || veg == 0)
         {
-            Debug.Log("材料が足りません！生成できません");
+            Debug.Log("材料が足りません！");
             return;
         }
 
-        
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            // ラーメンを生成
+            //  味の合計を計算
+            int totalSalt = 0;
+            int totalUmami = 0;
+            int totalSpicy = 0;
+            int totalFat = 0;
+            int totalMystery = 0;
+
+            foreach (var item in Create.UsedItemDataList)
+            {
+                totalSalt += item.saltiness;
+                totalUmami += item.umami;
+                totalSpicy += item.spiciness;
+                totalFat += item.fatness;
+                totalMystery += item.mystery;
+            }
+
             GameObject obj = Instantiate(Ramen, transform.position, Quaternion.identity);
-
-            // FoodData をセット
             FoodData data = obj.GetComponent<FoodData>();
-            data.SetData(beaf, fish, veg);
 
-            Debug.Log($"生成された Ramen: 肉{data.beaf}, 魚{data.fish}, 野菜{data.vegetable}");
+            data.SetData(
+                beaf, fish, veg,
+                totalSalt, totalUmami, totalSpicy, totalFat, totalMystery
+            );
 
-            /*
-            // 作ったら値を減らす
-            veg--;
-            beaf--;
-            fish--;
-            */
+            Debug.Log($"合計味データ: 塩{totalSalt}, 旨味{totalUmami}, 辛さ{totalSpicy}, 脂{totalFat}, 神秘{totalMystery}");
 
-            // クールダウン
             cooldown = cooldownTime;
-            Debug.Log("クールダウン3秒");
         }
     }
 }
