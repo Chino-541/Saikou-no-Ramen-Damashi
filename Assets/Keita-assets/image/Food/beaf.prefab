@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2013555831016875132}
   - component: {fileID: 5402480633379047415}
-  - component: {fileID: 2677518150587054799}
   - component: {fileID: -1661116563546234516}
+  - component: {fileID: 86167203027081453}
   - component: {fileID: 5416098706915548910}
   m_Layer: 0
   m_Name: beaf
@@ -94,23 +94,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &2677518150587054799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2767721151040760959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64dd7d1625c4afb46ab8d33662610c6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
-  itemData: {fileID: 11400000, guid: f45b085d9bfd18f4b936d073eb55e781, type: 2}
-  amount: 1
-  player: {fileID: 0}
-  pickupRange: 2
-  pickupUI: {fileID: 0}
 --- !u!114 &-1661116563546234516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +107,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::beaf
   cook: {fileID: 0}
+--- !u!114 &86167203027081453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2767721151040760959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c81ef23169a0f045b843e30b5edf883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
+  itemData: {fileID: 11400000, guid: 312015a80c99850438019261e7d7bc7f, type: 2}
+  amount: 1
+  player: {fileID: 0}
+  pickupRange: 2
+  pickupUI: {fileID: 0}
+  pickupCooldown: 8
 --- !u!61 &5416098706915548910
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f131755a540a3e4409da21dbb62d10c0, type: 3}
   m_Name: fish
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: 
-  icon: {fileID: 0}
+  itemName: fish
+  icon: {fileID: -15400064238052547, guid: 9374ae48bc317dc489cdc9948bcae378, type: 3}
   description: 
   maxStack: 99
   saltiness: 10
