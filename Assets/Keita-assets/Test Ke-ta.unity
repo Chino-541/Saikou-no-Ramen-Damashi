@@ -8051,6 +8051,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2655d9d2fd62b7146908e1fb48bf62ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
+  maxItemTypes: 5
+  butaniku: {fileID: 0}
+  gyuniku: {fileID: 0}
+  toriniku: {fileID: 0}
 --- !u!1 &2140986050
 GameObject:
   m_ObjectHideFlags: 0
