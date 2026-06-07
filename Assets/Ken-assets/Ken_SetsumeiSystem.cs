@@ -63,7 +63,6 @@ public class Ken_SetsumeiSystem : MonoBehaviour
     }
     IEnumerator CharSetsumeiText()
     {
-        /*
         _CharName.text = _Ojiisan;
         _CharName.color = _RamenYaColour;
         _CharImage.sprite = _RamenYaImage.sprite;
@@ -71,52 +70,21 @@ public class Ken_SetsumeiSystem : MonoBehaviour
         yield return StartCoroutine(CharSetsumeiSystem("こんにちは"));
         yield return StartCoroutine(AutoClickText());
         //yield return new WaitForSeconds(_CharTextDelay);
-        */
-        
 
         _CharName.text = _PlayerName;
         _CharName.color = _PlayerColour;
         _CharImage.sprite = _PlayerImage.sprite;
         _CharNaikTurun.SetTrigger("CharNaikTurun");
-        yield return StartCoroutine(CharSetsumeiSystem("店長！やってるかい"));
+        yield return StartCoroutine(CharSetsumeiSystem("こんにちは"));
         yield return StartCoroutine(AutoClickText());
 
         _CharName.text = _Ojiisan;
         _CharName.color = _RamenYaColour;
         _CharImage.sprite = _RamenYaImage.sprite;
         //_CharNaikTurun.SetTrigger("CharNaikTurun");
-        yield return StartCoroutine(CharSetsumeiSystem("。。。"));
+        yield return StartCoroutine(CharSetsumeiSystem("君の名前を教えてくれないかな？"));
         yield return StartCoroutine(AutoClickText());
 
-        _CharName.text = _PlayerName;
-        _CharName.color = _PlayerColour;
-        _CharImage.sprite = _PlayerImage.sprite;
-        yield return StartCoroutine(CharSetsumeiSystem("そういえばアンタはいつもどんな感じでラーメン作ってんだい？"));
-        yield return StartCoroutine(AutoClickText());
-
-        _CharName.text = _PlayerName;
-        _CharName.color = _PlayerColour;
-        _CharImage.sprite = _PlayerImage.sprite;
-        yield return StartCoroutine(CharSetsumeiSystem("常連のよしみでよ、良かったら見せてくれよ"));
-        yield return StartCoroutine(AutoClickText());
-
-        _CharName.text = _Ojiisan;
-        _CharName.color = _RamenYaColour;
-        _CharImage.sprite = _RamenYaImage.sprite;
-        _CharNaikTurun.SetTrigger("CharNaikTurun");
-        yield return StartCoroutine(CharSetsumeiSystem("わかったわ"));
-        yield return StartCoroutine(AutoClickText());
-
-        _CharName.text = _PlayerName;
-        _CharName.color = _PlayerColour;
-        _CharImage.sprite = _PlayerImage.sprite;
-        _CharNaikTurun.SetTrigger("CharNaikTurun");
-        yield return StartCoroutine(CharSetsumeiSystem("よしきた！"));
-        yield return StartCoroutine(AutoClickText());
-
-
-
-        /*
         //-----------------------------------------------------------
         yield return StartCoroutine(PlayerNameIn());
 
@@ -162,8 +130,7 @@ public class Ken_SetsumeiSystem : MonoBehaviour
         yield return StartCoroutine(AutoClickText());
 
         //-----------------------------------------------------------
-        */
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene(_NScene);
       
     }
@@ -269,7 +236,6 @@ public class Ken_SetsumeiSystem : MonoBehaviour
 
         _ChoiceYes.gameObject.SetActive(false);
         _ChoiceNo.gameObject.SetActive(false);
-        //tunggu
         pilihan?.Invoke(_Answer);
     }
     
