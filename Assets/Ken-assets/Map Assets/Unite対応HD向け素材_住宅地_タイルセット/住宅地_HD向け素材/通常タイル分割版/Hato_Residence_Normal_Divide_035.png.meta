@@ -1,0 +1,702 @@
+fileFormatVersion: 2
+guid: 8e67edf77eef8c2419e88252ed30b56c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3824836306553899740
+    second: Hato_Residence_Normal_Divide_035_0
+  - first:
+      213: 5450411852677614088
+    second: Hato_Residence_Normal_Divide_035_1
+  - first:
+      213: 3474806297188473215
+    second: Hato_Residence_Normal_Divide_035_2
+  - first:
+      213: 420007862971445867
+    second: Hato_Residence_Normal_Divide_035_3
+  - first:
+      213: 1049486961837052067
+    second: Hato_Residence_Normal_Divide_035_4
+  - first:
+      213: 6170250090768586900
+    second: Hato_Residence_Normal_Divide_035_5
+  - first:
+      213: -6926902806789283045
+    second: Hato_Residence_Normal_Divide_035_6
+  - first:
+      213: 8235731290022596465
+    second: Hato_Residence_Normal_Divide_035_7
+  - first:
+      213: -9132625127686828327
+    second: Hato_Residence_Normal_Divide_035_8
+  - first:
+      213: -607233946082669425
+    second: Hato_Residence_Normal_Divide_035_9
+  - first:
+      213: -7372566729206376952
+    second: Hato_Residence_Normal_Divide_035_10
+  - first:
+      213: -9155230545556974892
+    second: Hato_Residence_Normal_Divide_035_11
+  - first:
+      213: -8045263003106700163
+    second: Hato_Residence_Normal_Divide_035_12
+  - first:
+      213: -2595247653997112979
+    second: Hato_Residence_Normal_Divide_035_13
+  - first:
+      213: -6113721306726359469
+    second: Hato_Residence_Normal_Divide_035_14
+  - first:
+      213: 1400978970614156213
+    second: Hato_Residence_Normal_Divide_035_15
+  - first:
+      213: -1961861996677836993
+    second: Hato_Residence_Normal_Divide_035_16
+  - first:
+      213: -1657882731691329307
+    second: Hato_Residence_Normal_Divide_035_17
+  - first:
+      213: -3112974090963812601
+    second: Hato_Residence_Normal_Divide_035_18
+  - first:
+      213: -5316876049813720929
+    second: Hato_Residence_Normal_Divide_035_19
+  - first:
+      213: -3111831752025566547
+    second: Hato_Residence_Normal_Divide_035_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hato_Residence_Normal_Divide_035_0
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 588
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42576dfd4a37beac0800000000000000
+      internalID: -3824836306553899740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Normal_Divide_035_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 490
+        width: 50
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80a8d66d3b0c3ab40800000000000000
+      internalID: 5450411852677614088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Normal_Divide_035_2
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 588
+        width: 98
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f79953fbaedf83030800000000000000
+      internalID: 3474806297188473215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Normal_Divide_035_3
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 490
+        width: 98
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b62b8431dea24d500800000000000000
+      internalID: 420007862971445867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Normal_Divide_035_4
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 588
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a093b4d4d6809e00800000000000000
+      internalID: 1049486961837052067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Normal_Divide_035_5
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 490
+        width: 50
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 498559324c121a550800000000000000
+      internalID: 6170250090768586900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Normal_Divide_035_6
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 440
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b132ba7f892bedf90800000000000000
+      internalID: -6926902806789283045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Normal_Divide_035_7
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 440
+        width: 98
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17fcd5739f13b4270800000000000000
+      internalID: 8235731290022596465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Normal_Divide_035_8
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 440
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9de8b6545d5624180800000000000000
+      internalID: -9132625127686828327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Normal_Divide_035_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 294
+        width: 98
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8c0f2c71fba297f0800000000000000
+      internalID: -607233946082669425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Normal_Divide_035_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 268
+        width: 98
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8065ace0f916fa990800000000000000
+      internalID: -7372566729206376952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Normal_Divide_035_11
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 294
+        width: 98
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d25547435612f080800000000000000
+      internalID: -9155230545556974892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Normal_Divide_035_12
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 254
+        width: 98
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d749b3f9ceb795090800000000000000
+      internalID: -8045263003106700163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Normal_Divide_035_13
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 294
+        width: 98
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6116574204dbfbd0800000000000000
+      internalID: -2595247653997112979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Normal_Divide_035_14
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 283
+        width: 98
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35e96d80dd2b72ba0800000000000000
+      internalID: -6113721306726359469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Normal_Divide_035_15
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 98
+        width: 25
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bbcf3973f6417310800000000000000
+      internalID: 1400978970614156213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Normal_Divide_035_16
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 0
+        width: 11
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3fcdad88e016c4e0800000000000000
+      internalID: -1961861996677836993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Normal_Divide_035_17
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 98
+        width: 26
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e8b84a70740ef8e0800000000000000
+      internalID: -1657882731691329307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Normal_Divide_035_18
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 0
+        width: 11
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70f7b19be8e7cc4d0800000000000000
+      internalID: -3112974090963812601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Normal_Divide_035_19
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 0
+        width: 40
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9032181769a636b0800000000000000
+      internalID: -5316876049813720929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hato_Residence_Normal_Divide_035_20
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 98
+        width: 40
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da21cbb328d80d4d0800000000000000
+      internalID: -3111831752025566547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Hato_Residence_Normal_Divide_035_0: -3824836306553899740
+      Hato_Residence_Normal_Divide_035_1: 5450411852677614088
+      Hato_Residence_Normal_Divide_035_10: -7372566729206376952
+      Hato_Residence_Normal_Divide_035_11: -9155230545556974892
+      Hato_Residence_Normal_Divide_035_12: -8045263003106700163
+      Hato_Residence_Normal_Divide_035_13: -2595247653997112979
+      Hato_Residence_Normal_Divide_035_14: -6113721306726359469
+      Hato_Residence_Normal_Divide_035_15: 1400978970614156213
+      Hato_Residence_Normal_Divide_035_16: -1961861996677836993
+      Hato_Residence_Normal_Divide_035_17: -1657882731691329307
+      Hato_Residence_Normal_Divide_035_18: -3112974090963812601
+      Hato_Residence_Normal_Divide_035_19: -5316876049813720929
+      Hato_Residence_Normal_Divide_035_2: 3474806297188473215
+      Hato_Residence_Normal_Divide_035_20: -3111831752025566547
+      Hato_Residence_Normal_Divide_035_3: 420007862971445867
+      Hato_Residence_Normal_Divide_035_4: 1049486961837052067
+      Hato_Residence_Normal_Divide_035_5: 6170250090768586900
+      Hato_Residence_Normal_Divide_035_6: -6926902806789283045
+      Hato_Residence_Normal_Divide_035_7: 8235731290022596465
+      Hato_Residence_Normal_Divide_035_8: -9132625127686828327
+      Hato_Residence_Normal_Divide_035_9: -607233946082669425
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
