@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f131755a540a3e4409da21dbb62d10c0, type: 3}
-  m_Name: naganegi
+  m_Name: toriniku
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: naganegi
-  icon: {fileID: 0}
+  itemName: toriniku
+  icon: {fileID: -2196035622865519434, guid: a2b40ef4033516b46a11d1f68105d5ec, type: 3}
   description: 
   maxStack: 99
-  saltiness: 0
-  umami: 0
+  saltiness: 50
+  umami: 30
   spiciness: 0
   fatness: 0
-  mystery: 0
+  mystery: 20
