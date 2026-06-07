@@ -104,7 +104,7 @@ public class Ken_SetsumeiSystem : MonoBehaviour
         _CharName.color = _RamenYaColour;
         _CharImage.sprite = _RamenYaImage.sprite;
         _CharNaikTurun.SetTrigger("CharNaikTurun");
-        yield return StartCoroutine(CharSetsumeiSystem("わかったわ"));
+        yield return StartCoroutine(CharSetsumeiSystem("。。。いいぜ"));
         yield return StartCoroutine(AutoClickText());
 
         _CharName.text = _PlayerName;
@@ -114,8 +114,33 @@ public class Ken_SetsumeiSystem : MonoBehaviour
         yield return StartCoroutine(CharSetsumeiSystem("よしきた！"));
         yield return StartCoroutine(AutoClickText());
 
+        _CharName.text = _Ojiisan;
+        _CharName.color = _RamenYaColour;
+        _CharImage.sprite = _RamenYaImage.sprite;
+        _CharNaikTurun.SetTrigger("CharNaikTurun");
+        yield return StartCoroutine(CharSetsumeiSystem("まず食材を集めてもらう"));
+        yield return StartCoroutine(AutoClickText());
 
+        _CharName.text = _Ojiisan;
+        _CharName.color = _RamenYaColour;
+        _CharImage.sprite = _RamenYaImage.sprite;
+        _CharNaikTurun.SetTrigger("CharNaikTurun");
+        yield return StartCoroutine(CharSetsumeiSystem("いい食材が採れる場所があるからそこに行って調達してきな"));
+        yield return StartCoroutine(AutoClickText());
 
+        _CharName.text = _PlayerName;
+        _CharName.color = _PlayerColour;
+        _CharImage.sprite = _PlayerImage.sprite;
+        _CharNaikTurun.SetTrigger("CharNaikTurun");
+        yield return StartCoroutine(CharSetsumeiSystem("わかった！"));
+        yield return StartCoroutine(AutoClickText());
+
+        _CharName.text = _Ojiisan;
+        _CharName.color = _RamenYaColour;
+        _CharImage.sprite = _RamenYaImage.sprite;
+        _CharNaikTurun.SetTrigger("CharNaikTurun");
+        yield return StartCoroutine(CharSetsumeiSystem("時間になったら戻ってきてもらうからな"));
+        yield return StartCoroutine(AutoClickText());
         /*
         //-----------------------------------------------------------
         yield return StartCoroutine(PlayerNameIn());

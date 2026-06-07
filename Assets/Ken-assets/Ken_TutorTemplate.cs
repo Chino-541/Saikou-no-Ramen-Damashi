@@ -82,32 +82,32 @@ public class Ken_TutorTemplate : MonoBehaviour
         _CharName.color = _PlayerColour;
         _CharImage.sprite = _PlayerImage.sprite;
         _CharNaikTurun.SetTrigger("CharNaikTurun");
-        yield return StartCoroutine(CharSetsumeiSystem("どうすればいいのか？"));
+        yield return StartCoroutine(CharSetsumeiSystem("まさか自分から食材を調達しに行ってるなんてね"));
         yield return StartCoroutine(AutoClickText());
 
         _CharName.text = _Ojiisan;
         _CharName.color = _RamenYaColour;
         _CharImage.sprite = _RamenYaImage.sprite;
-        yield return StartCoroutine(CharSetsumeiSystem("まず、食材を収集せよ"));
+        yield return StartCoroutine(CharSetsumeiSystem("ここからが本番だ"));
         yield return StartCoroutine(AutoClickText());
 
         _CharName.text = _Ojiisan;
         _CharName.color = _RamenYaColour;
         _CharImage.sprite = _RamenYaImage.sprite;
-        yield return StartCoroutine(CharSetsumeiSystem("E ボタンで食材を収集する"));
+        yield return StartCoroutine(CharSetsumeiSystem("使いたい食材を３種類以上選んでラーメンを作ってもらう"));
         yield return StartCoroutine(AutoClickText());
 
         _CharName.text = _Ojiisan;
         _CharName.color = _RamenYaColour;
         _CharImage.sprite = _RamenYaImage.sprite;
-        yield return StartCoroutine(CharSetsumeiSystem("制限時間があるので、注意してよ"));
+        yield return StartCoroutine(CharSetsumeiSystem("それが終わったら実際に販売もしてもらうからな"));
         yield return StartCoroutine(AutoClickText());
 
         _CharName.text = _PlayerName;
         _CharName.color = _PlayerColour;
         _CharImage.sprite = _PlayerImage.sprite;
         _CharNaikTurun.SetTrigger("CharNaikTurun");
-        yield return StartCoroutine(CharSetsumeiSystem("わかった"));
+        yield return StartCoroutine(CharSetsumeiSystem("まかせて！"));
         yield return StartCoroutine(AutoClickText());
 
 

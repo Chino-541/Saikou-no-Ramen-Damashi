@@ -32,7 +32,7 @@ public class Create : MonoBehaviour
         UsedVeg = Veg.Minus();
 
         // Ÿ‚ÌƒV[ƒ“‚ÖˆÚ“®
-        SceneManager.LoadScene("Map02");
+        SceneManager.LoadScene("Customer");
     }
 }
 

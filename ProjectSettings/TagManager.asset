@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Attack
+  - Vegetable
+  - Char
   layers:
   - Default
   - TransparentFX
@@ -40,6 +43,18 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: animal
+    uniqueID: 4291506887
+    locked: 0
+  - name: player
+    uniqueID: 2904995969
+    locked: 0
+  - name: item
+    uniqueID: 341566283
+    locked: 0
+  - name: ramen
+    uniqueID: 682233009
     locked: 0
   m_RenderingLayers:
   - Default
