@@ -1416,7 +1416,7 @@ MonoBehaviour:
   _PlayerInputB: {fileID: 2106082676}
   _ChoiceYes: {fileID: 569246124}
   _ChoiceNo: {fileID: 80664535}
-  _NScene: 2
+  _NScene: 4
 --- !u!1 &193945375
 GameObject:
   m_ObjectHideFlags: 0

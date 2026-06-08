@@ -7,6 +7,8 @@ TagManager:
   - Attack
   - Vegetable
   - Char
+  - BGM
+  - SE
   layers:
   - Default
   - TransparentFX
