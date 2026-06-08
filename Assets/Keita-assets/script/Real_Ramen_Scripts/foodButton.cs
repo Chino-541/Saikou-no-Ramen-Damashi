@@ -5,8 +5,6 @@ using UnityEngine.UI;
 public class foodButton : MonoBehaviour
 {
     [SerializeField] ItemData itemData;
-
-    // [SerializeField] Image centerSlot;
     [SerializeField] foodSlot[] slots;
     [SerializeField] TMP_Text countText;
 
@@ -15,14 +13,15 @@ public class foodButton : MonoBehaviour
     void Start()
     {
         button = GetComponent<Button>();
-        button.onClick.AddListener(OnClickfoodButton);
+        button.onClick.AddListener(OnClickFoodButton);
 
         UpdateCountText();
     }
 
-    void OnClickfoodButton()
+    void OnClickFoodButton()
     {
-        if (GetCount() <= 0) return;
+        if (GetCount() <= 0)
+            return;
 
         foreach (foodSlot slot in slots)
         {
@@ -30,8 +29,9 @@ public class foodButton : MonoBehaviour
             {
                 slot.SetItem(itemData);
 
-                // 後でスライダー再計算
-                // RamenStatusManager.Instance.CalculateAndApplyStatus();
+                Inventory.instance.RemoveItem(itemData, 1);
+
+                UpdateCountText();
 
                 break;
             }
@@ -45,9 +45,6 @@ public class foodButton : MonoBehaviour
 
     int GetCount()
     {
-        // return Inventory.instance.GetItemCount(itemData);
-        // 仮でアイテムを持っている状態にしている
-            return 1;
-        
+        return Inventory.instance.GetItemCount(itemData);
     }
 }

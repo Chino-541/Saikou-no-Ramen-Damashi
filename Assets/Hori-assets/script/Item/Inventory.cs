@@ -20,11 +20,11 @@ public class Inventory : MonoBehaviour
 
     void Start()
     {
-        AddItem(butaniku, 5);
+        Debug.Log("Inventory Start");
 
-        AddItem(gyuniku, 3);
-
-        AddItem(toriniku, 2);
+            AddItem(butaniku, 5);
+            AddItem(gyuniku, 3);
+            AddItem(toriniku, 2);
     }
 
     void Awake()
@@ -85,5 +85,28 @@ public class Inventory : MonoBehaviour
         }
 
         return 0;
+    }
+    public bool RemoveItem(ItemData item, int amount)
+    {
+        Debug.Log("çÌèúóvãÅ: " + item.itemName);
+
+        if (!items.ContainsKey(item))
+        {
+            Debug.Log("ÇªÇÃItemDataÇÕInventoryÇ…ë∂ç›ÇµÇ‹ÇπÇÒ");
+            return false;
+        }
+
+        items[item] -= amount;
+
+        Debug.Log("écÇË: " + items[item]);
+
+        if (items[item] <= 0)
+        {
+            items.Remove(item);
+        }
+
+        onItemChanged?.Invoke();
+
+        return true;
     }
 }

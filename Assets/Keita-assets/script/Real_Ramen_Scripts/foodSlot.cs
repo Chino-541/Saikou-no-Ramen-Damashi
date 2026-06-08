@@ -3,16 +3,21 @@ using UnityEngine.UI;
 
 public class foodSlot : MonoBehaviour
 {
-    [SerializeField] Image slotImage;
+    [SerializeField] Image iconImage;
 
     ItemData currentItem;
+
+    public bool IsEmpty()
+    {
+        return currentItem == null;
+    }
 
     public void SetItem(ItemData item)
     {
         currentItem = item;
 
-        slotImage.sprite = item.icon;
-        slotImage.color = Color.white;
+        iconImage.sprite = item.icon;
+        iconImage.color = Color.white;
     }
 
     public ItemData GetItem()
@@ -20,15 +25,11 @@ public class foodSlot : MonoBehaviour
         return currentItem;
     }
 
-    public bool IsEmpty()
-    {
-        return currentItem == null;
-    }
-    public void ClearItem()
+    public void Clear()
     {
         currentItem = null;
 
-        slotImage.sprite = null;
-        slotImage.color = new Color(1, 1, 1, 0);
+        iconImage.sprite = null;
+        iconImage.color = new Color(1, 1, 1, 0);
     }
 }
