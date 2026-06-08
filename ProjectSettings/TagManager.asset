@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Vegetable
   - Char
+  - BGM
+  - SE
   layers:
   - Default
   - TransparentFX
