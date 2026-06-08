@@ -141,6 +141,13 @@ public class Ken_SetsumeiSystem : MonoBehaviour
         _CharNaikTurun.SetTrigger("CharNaikTurun");
         yield return StartCoroutine(CharSetsumeiSystem("ŠÔ‚É‚È‚Á‚½‚ç–ß‚Á‚Ä‚«‚Ä‚à‚ç‚¤‚©‚ç‚È"));
         yield return StartCoroutine(AutoClickText());
+
+        _CharName.text = _Ojiisan;
+        _CharName.color = _RamenYaColour;
+        _CharImage.sprite = _RamenYaImage.sprite;
+        _CharNaikTurun.SetTrigger("CharNaikTurun");
+        yield return StartCoroutine(CharSetsumeiSystem("TabƒL[‚Å‘€ìà–¾‚ªŒ©‚ê‚Ü‚·"));
+        yield return StartCoroutine(AutoClickText());
         /*
         //-----------------------------------------------------------
         yield return StartCoroutine(PlayerNameIn());

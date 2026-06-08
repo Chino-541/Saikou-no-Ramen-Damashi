@@ -56,5 +56,8 @@ TagManager:
   - name: ramen
     uniqueID: 682233009
     locked: 0
+  - name: Panel
+    uniqueID: 2624910899
+    locked: 0
   m_RenderingLayers:
   - Default
