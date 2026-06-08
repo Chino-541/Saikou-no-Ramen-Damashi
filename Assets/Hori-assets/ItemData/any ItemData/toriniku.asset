@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f131755a540a3e4409da21dbb62d10c0, type: 3}
+  m_Name: toriniku
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  itemName: toriniku
+  icon: {fileID: -2196035622865519434, guid: a2b40ef4033516b46a11d1f68105d5ec, type: 3}
+  description: 
+  maxStack: 99
+  saltiness: 50
+  umami: 30
+  spiciness: 0
+  fatness: 0
+  mystery: 20

@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: ninjin
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: ninjin
+<<<<<<< HEAD
   icon: {fileID: 0}
+=======
+  icon: {fileID: 2301922973543145194, guid: 5ff40dbf5f061644284804f09618b7d7, type: 3}
+>>>>>>> main
   description: 
   maxStack: 99
   saltiness: 0

@@ -1,5 +1,8 @@
 using UnityEngine;
+<<<<<<< HEAD
 using HoriAssets; // ←念のためこれも追加しておきます
+=======
+>>>>>>> main
 
 public class ItemBox : MonoBehaviour
 {
@@ -11,7 +14,11 @@ public class ItemBox : MonoBehaviour
         GameObject obj = GameObject.FindGameObjectWithTag("Player");
         if (obj != null)
         {
+<<<<<<< HEAD
             this.player = obj.transform;
+=======
+            player = obj.transform;
+>>>>>>> main
         }
     }
 
@@ -23,11 +30,17 @@ public class ItemBox : MonoBehaviour
 
         if (distance < interactRange && Input.GetKeyDown(KeyCode.E))
         {
+<<<<<<< HEAD
             // 変更点1：頭に「HoriAssets.」をつける
             if (HoriAssets.Inventory.instance != null)
             {
                 // 変更点2：頭に「HoriAssets.」をつける
                 HoriAssets.Inventory.instance.MoveAllToBox();
+=======
+            if (Inventory.instance != null)
+            {
+                Inventory.instance.MoveAllToBox();
+>>>>>>> main
             }
             else
             {

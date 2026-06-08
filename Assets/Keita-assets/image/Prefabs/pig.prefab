@@ -107,7 +107,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Animal
   EnemyHp: 2
+<<<<<<< HEAD
   Speed: 0.1
+=======
+  Speed: 0.2
+>>>>>>> main
   dash: 0.5
   chargeTime: 5
   item: {fileID: 2767721151040760959, guid: decc92f2000e2924c96f1c5c41b7cde9, type: 3}
