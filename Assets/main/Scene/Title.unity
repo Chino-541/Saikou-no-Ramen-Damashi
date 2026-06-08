@@ -3161,7 +3161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9e3b1a8666a5a4b88a3cd790d47f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ken_Skip
-  _SceneIndex: 4
+  _SceneIndex: 2
   _SkipButton: {fileID: 314617137}
 --- !u!4 &551498955
 Transform:
@@ -5154,7 +5154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _SButton: {fileID: 1217572335}
-  _Scene: 3
+  _Scene: 1
 --- !u!114 &1217572335
 MonoBehaviour:
   m_ObjectHideFlags: 0
