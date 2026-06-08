@@ -92,7 +92,9 @@ public class Ken_Pelanggan : MonoBehaviour
     [BoxGroup("ResultLose")][SerializeField] private Button _LoseKembaliKeTitle;
     [BoxGroup("ResultLose")][SerializeField] private TextMeshProUGUI _ResultLoseScoreText;
 
-    
+    //==================================================================
+    [BoxGroup("BGM")][SerializeField] public Ken_BgmSystem BgmSystem;
+
 
 
 
@@ -223,6 +225,7 @@ public class Ken_Pelanggan : MonoBehaviour
     }
     void LastScore()
     {
+        BgmSystem.gantiBGM();
         RivalScorePanel();
         //222222222222222222222
         _RamenScorenya = 1;
