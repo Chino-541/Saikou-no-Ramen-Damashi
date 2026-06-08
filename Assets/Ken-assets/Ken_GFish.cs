@@ -61,6 +61,7 @@ public class Ken_GFish : MonoBehaviour
     IEnumerator FishTimeSystem()
     {
         _Fishing = true;
+        _FishTime = 0;
         while (_Fishing == true)
         {
             _FishTime++;
@@ -140,11 +141,16 @@ public class Ken_GFish : MonoBehaviour
     }
     void ExitFishing()
     {
+        _Fishing =false;
         _GetFish = false;
         _MissFish = false;
+
+        _FishTime = 0;
+
         _slider.value = _StartValue;
         _PanelFishing.gameObject.SetActive(false);
-        
+
+        StartCoroutine(FishTimeSystem());
     }
 
 }
