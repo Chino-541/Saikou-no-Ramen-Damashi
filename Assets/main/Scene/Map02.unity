@@ -602,7 +602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9217621279873622325, guid: a1f51ae6fca410543914353424a9e560, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
-      value: 0.2
+      value: 0.20000002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -906,7 +906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9217621279873622325, guid: a1f51ae6fca410543914353424a9e560, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
-      value: 0.2
+      value: 0.20000002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1966,6 +1966,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -3460409
       objectReference: {fileID: 0}
+    - target: {fileID: 8911075807503165215, guid: 52900a1a843b623429f76dc854d1461b, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 2767721151040760959, guid: 7b4450cda8b92904cbe3c6e9d4bfc364, type: 3}
     - target: {fileID: 8911075807503165215, guid: 52900a1a843b623429f76dc854d1461b, type: 3}
       propertyPath: Speed
       value: 1
@@ -39398,6 +39402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelView
   panel: {fileID: 688022855}
+  fishing: {fileID: 0}
 --- !u!1 &505527584
 GameObject:
   m_ObjectHideFlags: 0
@@ -39749,6 +39754,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -3460409
       objectReference: {fileID: 0}
+    - target: {fileID: 8911075807503165215, guid: 34339cf88a2368049862a9585ed18dad, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 2767721151040760959, guid: a94998a94dd862543b06687f950edf4c, type: 3}
     - target: {fileID: 8911075807503165215, guid: 34339cf88a2368049862a9585ed18dad, type: 3}
       propertyPath: EnemyHp
       value: 3
@@ -41798,6 +41807,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -3460409
       objectReference: {fileID: 0}
+    - target: {fileID: 8911075807503165215, guid: 34339cf88a2368049862a9585ed18dad, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 2767721151040760959, guid: a94998a94dd862543b06687f950edf4c, type: 3}
     - target: {fileID: 8911075807503165215, guid: 34339cf88a2368049862a9585ed18dad, type: 3}
       propertyPath: EnemyHp
       value: 3
@@ -52549,6 +52562,10 @@ PrefabInstance:
       value: -3460409
       objectReference: {fileID: 0}
     - target: {fileID: 8911075807503165215, guid: 52900a1a843b623429f76dc854d1461b, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 2767721151040760959, guid: 7b4450cda8b92904cbe3c6e9d4bfc364, type: 3}
+    - target: {fileID: 8911075807503165215, guid: 52900a1a843b623429f76dc854d1461b, type: 3}
       propertyPath: Speed
       value: 1
       objectReference: {fileID: 0}
@@ -52772,7 +52789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9217621279873622325, guid: a1f51ae6fca410543914353424a9e560, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
-      value: 0.2
+      value: 0.20000002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -68756,7 +68773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07a481a84d03bf4ca5e6a82535128c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TMP_CountdownTimer
-  timeLeft: 30
+  timeLeft: 60
   timerText: {fileID: 2026658932}
   nextSceneName: SetsumeiTemplate
 --- !u!114 &2026658932
@@ -69420,7 +69437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9217621279873622325, guid: a1f51ae6fca410543914353424a9e560, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
-      value: 0.19999999
+      value: 0.20000002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
