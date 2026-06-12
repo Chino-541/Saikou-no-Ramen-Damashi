@@ -7,6 +7,7 @@ public class foodSlot : MonoBehaviour
 
     ItemData currentItem;
 
+
     public bool IsEmpty()
     {
         return currentItem == null;
@@ -32,4 +33,5 @@ public class foodSlot : MonoBehaviour
         iconImage.sprite = null;
         iconImage.color = new Color(1, 1, 1, 0);
     }
+
 }

@@ -17,6 +17,13 @@ public class foodButton : MonoBehaviour
 
         UpdateCountText();
     }
+    public void Setup(ItemData item, foodSlot[] targetSlots)
+    {
+        itemData = item;
+        slots = targetSlots;
+
+        UpdateCountText();
+    }
 
     void OnClickFoodButton()
     {
