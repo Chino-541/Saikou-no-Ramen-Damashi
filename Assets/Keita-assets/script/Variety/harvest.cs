@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class harvest : MonoBehaviour
 {
-    public ItemData item;   // ← これが野菜の画像やデータ
+    public ItemData item;   // scriptableObj
     [SerializeField] Cook cook;
     private float timer = 0f;
 
@@ -28,10 +28,10 @@ public class harvest : MonoBehaviour
 
                 if (success)
                 {
-                    // Vegetable カウントも増やすならここ
+                   // cookのカウント
                     cook.Vegetable++;
 
-                    // Vegetable の Harvest() を呼ぶ
+                    // VegetableのHarvestを呼ぶ
                     GetComponent<Vegetable>()?.Harvest();
 
                     timer = 0f;

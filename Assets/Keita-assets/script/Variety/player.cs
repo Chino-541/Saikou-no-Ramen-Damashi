@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
         // 移動
         _rb.linearVelocity = dir * currentSpeed;
 
-        // ★左右反転は flipX を使う（子オブジェクトに影響しない）
+        // 左右反転は flipX を使う（子オブジェクトに影響しない）
         if (inputX > 0)
         {
             sr.flipX = false;
@@ -67,6 +67,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.V) && !isAttacking)
         {
             StartCoroutine(AttackForOneSecond());
+            
         }
     }
 
@@ -74,14 +75,16 @@ public class Player : MonoBehaviour
     {
         isAttacking = true;
 
-        // ★攻撃方向に合わせて位置を更新
+        // 攻撃方向に合わせて位置を更新
         Attack.transform.localPosition = facing * 0.2f;
 
         Attack.SetActive(true);
+        anim.SetBool("isAttacking", true);
         Debug.Log("attacking");
 
         yield return new WaitForSeconds(0.5f);
 
+        anim.SetBool("isAttacking", false);
         Attack.SetActive(false);
         isAttacking = false;
     }
