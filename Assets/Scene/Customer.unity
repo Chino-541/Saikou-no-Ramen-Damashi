@@ -799,8 +799,8 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1338579325
-  m_SortingLayer: 0
+  m_SortingLayerID: 1452182707
+  m_SortingLayer: 7
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
@@ -3015,7 +3015,7 @@ GameObject:
   - component: {fileID: 584152869}
   m_Layer: 0
   m_Name: BGM Pelanggan
-  m_TagString: Untagged
+  m_TagString: BGM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3032,7 +3032,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 7ff751515b99e5a4485e6fb10f2a3173, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -3347,7 +3347,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1338579325
+  m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
@@ -11201,8 +11201,8 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1338579325
-  m_SortingLayer: 0
+  m_SortingLayerID: 1571822169
+  m_SortingLayer: 9
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
@@ -13275,7 +13275,7 @@ MonoBehaviour:
   _ResultlosePanel: {fileID: 1065593750}
   _LoseKembaliKeTitle: {fileID: 1582149710}
   _ResultLoseScoreText: {fileID: 105201884}
-  BgmSystem: {fileID: 0}
+  BgmSystem: {fileID: 17887473}
 --- !u!4 &1157852310
 Transform:
   m_ObjectHideFlags: 0
@@ -13414,7 +13414,7 @@ GameObject:
   - component: {fileID: 1236246908}
   m_Layer: 0
   m_Name: BGM Score
-  m_TagString: Untagged
+  m_TagString: BGM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17533,8 +17533,8 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1338579325
-  m_SortingLayer: 0
+  m_SortingLayerID: -1867433717
+  m_SortingLayer: 8
   m_SortingOrder: 4
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
@@ -18786,7 +18786,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 1683368381
+  m_SortingLayerID: 1985823033
   m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &2043955740
@@ -18894,8 +18894,8 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1338579325
-  m_SortingLayer: 0
+  m_SortingLayerID: 1571822169
+  m_SortingLayer: 9
   m_SortingOrder: 5
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
@@ -19240,8 +19240,8 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1338579325
-  m_SortingLayer: 0
+  m_SortingLayerID: 1077907723
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
