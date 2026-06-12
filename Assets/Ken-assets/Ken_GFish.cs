@@ -32,8 +32,10 @@ public class Ken_GFish : MonoBehaviour
     [BoxGroup("Fish Sprite")][SerializeField] private GameObject _MissFishSprite;
 
     [BoxGroup("UI")][SerializeField] private GameObject _PanelFishing;
-
+    // 個数格納のスクリプト参照
     [SerializeField] private Cook cook;
+    // 素材
+    [SerializeField] private ItemData item;
 
     private void Start()
     {
@@ -116,6 +118,9 @@ public class Ken_GFish : MonoBehaviour
                 _GetFish = true;
                 while (_GetFish == true)
                 {
+                    // Inventory に追加（UI も更新される）
+                    bool success = Inventory.instance.AddItem(item, 1);
+                    // 個数++
                     cook.fish++;
                     _GetFishSprite.SetActive(true);
                     yield return new WaitForSeconds(3f);
@@ -133,7 +138,6 @@ public class Ken_GFish : MonoBehaviour
                     _MissFishSprite.SetActive(true);
                     yield return new WaitForSeconds(3f);
                     _MissFishSprite.SetActive(false);
-                    cook.fish++;
                     ExitFishing();
                 }
             }

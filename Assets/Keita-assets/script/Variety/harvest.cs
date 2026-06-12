@@ -1,37 +1,42 @@
 using UnityEngine;
 
-
 public class harvest : MonoBehaviour
 {
-    public ItemData item;
+    public ItemData item;   // ← これが野菜の画像やデータ
     [SerializeField] Cook cook;
     private float timer = 0f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
-        // cookがアタッチされているオブジェクトを探す
         cook = FindAnyObjectByType<Cook>();
         timer = 0f;
     }
 
-    // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
     }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.E))
         {
             if (timer >= 8f)
             {
-                // Vegetable の Harvest() を呼ぶ
-                GetComponent<Vegetable>()?.Harvest();
+                // Inventory に追加（UI も更新される）
+                bool success = Inventory.instance.AddItem(item, 1);
 
-                cook.Vegetable++;
-                timer = 0f;
+                if (success)
+                {
+                    // Vegetable カウントも増やすならここ
+                    cook.Vegetable++;
 
-                Debug.Log("採取");
+                    // Vegetable の Harvest() を呼ぶ
+                    GetComponent<Vegetable>()?.Harvest();
+
+                    timer = 0f;
+                    Debug.Log("採取して Inventory に追加しました");
+                }
             }
             else
             {
@@ -39,5 +44,4 @@ public class harvest : MonoBehaviour
             }
         }
     }
-
 }

@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf6693db0a3f7a4e85544baf93b2f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::beaf
+  item: {fileID: 11400000, guid: f45b085d9bfd18f4b936d073eb55e781, type: 2}
   cook: {fileID: 0}
 --- !u!114 &86167203027081453
 MonoBehaviour:
@@ -114,7 +115,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2767721151040760959}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c81ef23169a0f045b843e30b5edf883, type: 3}
   m_Name: 

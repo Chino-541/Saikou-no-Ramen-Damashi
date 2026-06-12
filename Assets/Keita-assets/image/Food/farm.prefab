@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3695538690110899690
+--- !u!1 &4517357532346688978
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4504454783374894655}
-  - component: {fileID: 9217621279873622325}
-  - component: {fileID: 3069524685995020354}
-  - component: {fileID: 8738061470163757512}
-  - component: {fileID: 142561891394285493}
-  - component: {fileID: 617171269582091276}
-  - component: {fileID: 2555354494895902531}
+  - component: {fileID: 5558983652231822923}
+  - component: {fileID: 8536461016607717944}
+  - component: {fileID: 7191576515364155368}
+  - component: {fileID: 4557577134625748772}
+  - component: {fileID: 5649831553583493335}
+  - component: {fileID: -2026303326708274586}
+  - component: {fileID: 7638074586817615890}
   m_Layer: 0
-  m_Name: farm clone
+  m_Name: farm
   m_TagString: Vegetable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4504454783374894655
+--- !u!4 &5558983652231822923
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3695538690110899690}
+  m_GameObject: {fileID: 4517357532346688978}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.36, y: -0.4465043, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1839735485 &9217621279873622325
+--- !u!1839735485 &8536461016607717944
 Tilemap:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3695538690110899690}
+  m_GameObject: {fileID: 4517357532346688978}
   m_Enabled: 1
   m_Tiles:
   - first: {x: -1, y: -1, z: 0}
@@ -65,7 +65,7 @@ Tilemap:
       - {fileID: 7970753316438003428, guid: 5ff40dbf5f061644284804f09618b7d7, type: 3}
       - {fileID: 4748092831001568428, guid: 5ff40dbf5f061644284804f09618b7d7, type: 3}
       - {fileID: -1142901117228979249, guid: 5ff40dbf5f061644284804f09618b7d7, type: 3}
-      m_AnimationSpeed: 0.2
+      m_AnimationSpeed: 0.20000002
       m_AnimationTimeOffset: 0
       m_Flags: 1
   m_TileAssetArray:
@@ -124,14 +124,14 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!483693784 &3069524685995020354
+--- !u!483693784 &7191576515364155368
 TilemapRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3695538690110899690}
+  m_GameObject: {fileID: 4517357532346688978}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -180,14 +180,14 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
---- !u!95 &8738061470163757512
+--- !u!95 &4557577134625748772
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3695538690110899690}
+  m_GameObject: {fileID: 4517357532346688978}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 501629a2459d4774e86562a742f86da4, type: 2}
@@ -202,40 +202,40 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &142561891394285493
+--- !u!114 &5649831553583493335
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3695538690110899690}
+  m_GameObject: {fileID: 4517357532346688978}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8b5569c0773a3d44845d05d146502f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::harvest
-  item: {fileID: 0}
+  item: {fileID: 11400000, guid: b6ba39634176a50428700a58fc882a6c, type: 2}
   cook: {fileID: 0}
---- !u!114 &617171269582091276
+--- !u!114 &-2026303326708274586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3695538690110899690}
+  m_GameObject: {fileID: 4517357532346688978}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ccebd4c1de31d840adc037be087b22f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Vegetable
-  banana: {fileID: 4517357532346688978, guid: ce385fd4cb48b8e4286b56b3585190cf, type: 3}
---- !u!19719996 &2555354494895902531
+  banana: {fileID: 3695538690110899690, guid: a1f51ae6fca410543914353424a9e560, type: 3}
+--- !u!19719996 &7638074586817615890
 TilemapCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3695538690110899690}
+  m_GameObject: {fileID: 4517357532346688978}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1

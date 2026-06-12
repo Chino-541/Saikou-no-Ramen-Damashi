@@ -1,7 +1,9 @@
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class beaf : MonoBehaviour
 {
+    public ItemData item; // scriptableObj
     [SerializeField] Cook cook;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,7 +21,9 @@ public class beaf : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.E))
         {
-                Destroy(gameObject);
+            // Inventory に追加（UI も更新される）
+            bool success = Inventory.instance.AddItem(item, 1);
+            Destroy(gameObject);
                  
                 cook.beaf++;
                 Debug.Log("げっちゅ");
