@@ -3295,6 +3295,7 @@ MonoBehaviour:
   _SceneIndex: 2
   _SkipButton: {fileID: 314617137}
   _SE: {fileID: 1620835710}
+  _CanvasHide: {fileID: 1548164243}
 --- !u!4 &551498955
 Transform:
   m_ObjectHideFlags: 0
@@ -4561,8 +4562,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1075494597}
   - component: {fileID: 1075494598}
+  - component: {fileID: 1075494599}
   m_Layer: 5
-  m_Name: Slider (1)
+  m_Name: SliderSE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4641,6 +4643,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1075494599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075494596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a55cd1c11faab6b4fb3be9dfb16516f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ken_SoundNoDestroy
 --- !u!1 &1115755998
 GameObject:
   m_ObjectHideFlags: 0
@@ -5288,6 +5302,7 @@ MonoBehaviour:
   _SButton: {fileID: 1217572335}
   _Scene: 1
   _SE: {fileID: 2089722328}
+  _canvashide: {fileID: 1548164243}
 --- !u!114 &1217572335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5713,6 +5728,7 @@ GameObject:
   - component: {fileID: 1260268700}
   - component: {fileID: 1260268702}
   - component: {fileID: 1260268701}
+  - component: {fileID: 1260268703}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -5839,6 +5855,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1260268699}
   m_CullTransparentMesh: 1
+--- !u!114 &1260268703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260268699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a55cd1c11faab6b4fb3be9dfb16516f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ken_SoundNoDestroy
 --- !u!1 &1342934389
 GameObject:
   m_ObjectHideFlags: 0
@@ -5849,8 +5877,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1342934390}
   - component: {fileID: 1342934391}
+  - component: {fileID: 1342934392}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: SliderBGM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5929,6 +5958,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1342934392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342934389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a55cd1c11faab6b4fb3be9dfb16516f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ken_SoundNoDestroy
 --- !u!1 &1350870088
 GameObject:
   m_ObjectHideFlags: 0
@@ -6757,6 +6798,7 @@ GameObject:
   - component: {fileID: 1548164246}
   - component: {fileID: 1548164245}
   - component: {fileID: 1548164244}
+  - component: {fileID: 1548164248}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -6849,6 +6891,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1548164248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548164243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a55cd1c11faab6b4fb3be9dfb16516f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ken_SoundNoDestroy
 --- !u!1 &1557773773
 GameObject:
   m_ObjectHideFlags: 0
@@ -7416,7 +7470,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1686361268}
-  - component: {fileID: 1686361267}
+  - component: {fileID: 1686361269}
   m_Layer: 0
   m_Name: BGM Controll
   m_TagString: Untagged
@@ -7424,21 +7478,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1686361267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1686361266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b535b2cfc551d194f99925b82436c254, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Ken_VolumeSystem
-  _Volume: 70
-  _VolumeSlider: {fileID: 1342934391}
-  _VolumeText: {fileID: 1260268701}
 --- !u!4 &1686361268
 Transform:
   m_ObjectHideFlags: 0
@@ -7454,6 +7493,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1686361269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686361266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b535b2cfc551d194f99925b82436c254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ken_VolumeSystem
+  _Volume: 70
+  _VolumeSlider: {fileID: 1342934391}
+  _VolumeText: {fileID: 1260268701}
 --- !u!1 &1753376442
 GameObject:
   m_ObjectHideFlags: 0
@@ -8379,6 +8433,7 @@ GameObject:
   - component: {fileID: 1922215055}
   - component: {fileID: 1922215057}
   - component: {fileID: 1922215056}
+  - component: {fileID: 1922215058}
   m_Layer: 5
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
@@ -8505,6 +8560,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1922215054}
   m_CullTransparentMesh: 1
+--- !u!114 &1922215058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922215054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a55cd1c11faab6b4fb3be9dfb16516f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ken_SoundNoDestroy
 --- !u!1 &1951214782
 GameObject:
   m_ObjectHideFlags: 0

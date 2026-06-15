@@ -11,6 +11,7 @@ public class Ken_TStartButton : MonoBehaviour
     [Scene]
     [SerializeField] private int _Scene;
     [SerializeField] private AudioSource _SE;
+    [SerializeField] private GameObject _canvashide;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,9 +27,11 @@ public class Ken_TStartButton : MonoBehaviour
     
     IEnumerator StartButtons()
     {
+        
         _SE.Play();
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene( _Scene );
+        _canvashide.SetActive(false);
     }
 
     //void StartButton()
