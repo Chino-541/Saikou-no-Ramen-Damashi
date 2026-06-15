@@ -29,7 +29,7 @@ public class InventoryUIRamen : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        foreach (var pair in Inventory.instance.GetItems())
+        foreach (var pair in Storage.instance.GetItems())
         {
             ItemData item = pair.Key;
 

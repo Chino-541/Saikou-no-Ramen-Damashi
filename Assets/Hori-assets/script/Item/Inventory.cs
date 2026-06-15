@@ -29,7 +29,14 @@ public class Inventory : MonoBehaviour
 
     void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public bool AddItem(ItemData item, int amount)
@@ -62,6 +69,7 @@ public class Inventory : MonoBehaviour
     {
         foreach (var item in items)
         {
+            Storage.instance.AddItem(item.Key, item.Value);
             Debug.Log(item.Key.itemName +
                 " x" + item.Value +
                 " ‚ð‘qŒÉ‚É“ü‚ê‚½");

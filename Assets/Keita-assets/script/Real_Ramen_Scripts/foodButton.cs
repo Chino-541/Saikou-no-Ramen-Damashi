@@ -36,7 +36,7 @@ public class foodButton : MonoBehaviour
             {
                 slot.SetItem(itemData);
 
-                Inventory.instance.RemoveItem(itemData, 1);
+                Storage.instance.RemoveItem(itemData, 1);
 
                 UpdateCountText();
 
@@ -52,6 +52,6 @@ public class foodButton : MonoBehaviour
 
     int GetCount()
     {
-        return Inventory.instance.GetItemCount(itemData);
+        return Storage.instance.GetItemCount(itemData);
     }
 }
