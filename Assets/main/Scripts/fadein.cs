@@ -1,66 +1,63 @@
 using System.Collections;
 using TMPro;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Fadein : MonoBehaviour
 {
-    //[SerializeField] private GameObject _StartTutorPanel;
-    [SerializeField] private GameObject _MainTutorPanel;
-    [SerializeField] private TextMeshProUGUI _Tmp;
-    [SerializeField] private string _TmpTex;
-    [SerializeField] private Image _StartTutorPanelImage;
-    private float _Duration = 0.01f;
-    [SerializeField] private bool _boolC = false;
+    [Header("UI Elements")]
+    [SerializeField] private GameObject mainTutorPanel;
+    [SerializeField] private TextMeshProUGUI tmpText;
+    [SerializeField] private string displayText;
+    [SerializeField] private Image startTutorPanelImage;
 
+    [Header("Fade Settings")]
+    [SerializeField] private float fadeSpeed = 0.002f;
+    [SerializeField] private float startDelay = 0.5f;
+    [SerializeField] private float textDelay = 0.5f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public bool IsFinished { get; private set; } = false;
+
+    private void Start()
     {
         StartCoroutine(StartTutor());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator StartTutor()
     {
+        // 最初の待機
+        yield return new WaitForSecondsRealtime(startDelay);
 
-    }
-    IEnumerator StartTutor()
-    {
-        Time.timeScale = 0f;
+        // テキスト表示
+        tmpText.text = displayText;
+        yield return new WaitForSecondsRealtime(textDelay);
 
-        yield return new WaitForSecondsRealtime(0.5f);
-        _Tmp.text = _TmpTex;
-        yield return new WaitForSecondsRealtime(0.5f);
+        // フェード開始
+        Color color = startTutorPanelImage.color;
+        color.a = 1f;
 
-        Color StartC = _StartTutorPanelImage.color;
-        Color endC = new Color(StartC.r, StartC.g, StartC.b, 1f);
-
-        while (true)
+        while (color.a > 0f)
         {
-            endC.a -= 0.002f;
-            _StartTutorPanelImage.color = endC;
+            color.a -= fadeSpeed;
+            startTutorPanelImage.color = color;
 
-            yield return new WaitForSecondsRealtime(_Duration);
+            // テキストを途中で消す
+            if (color.a < 0.01f)
+                tmpText.gameObject.SetActive(false);
 
-            if (endC.a < 0.5f)
-            {
-                _Tmp.gameObject.SetActive(false);
-            }
-            else if (endC.a < 0.1f)
-            {
+            // 0.3 以下になったら UI ブロック解除
+            if (color.a < 0.3f)
                 break;
-            }
+
+            yield return null;
         }
 
         // UI ブロック解除
-        _StartTutorPanelImage.raycastTarget = false;
+        startTutorPanelImage.raycastTarget = false;
 
-        // 親の Panel ごと消す
-        _StartTutorPanelImage.transform.parent.gameObject.SetActive(false);
+        // 親ごと非表示
+        startTutorPanelImage.transform.parent.gameObject.SetActive(false);
 
-        Time.timeScale = 1f;
+        IsFinished = true;
     }
-
 }

@@ -1,21 +1,31 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
 
-public class TMP_CountdownTimer : MonoBehaviour
+public class Timer : MonoBehaviour
 {
     public float timeLeft = 60f;
     public TextMeshProUGUI timerText;
-    public string nextSceneName = "NextScene";
+
+    public Fadein fadein;   // フェードイン
+    public Fadeout fadeout; // フェードアウト
 
     void Update()
     {
+        // フェードインが終わるまでタイマーを止める
+        if (!fadein.IsFinished)
+            return;
+
         timeLeft -= Time.deltaTime;
 
-        if (timeLeft < 0)
+        if (timeLeft <= 0)
         {
             timeLeft = 0;
-            SceneManager.LoadScene(nextSceneName); 
+
+            // タイマー終了 → Fadeout 開始
+            if (!fadeout.Started)
+            {
+                fadeout.Started = true;
+            }
         }
 
         int minutes = Mathf.FloorToInt(timeLeft / 60);

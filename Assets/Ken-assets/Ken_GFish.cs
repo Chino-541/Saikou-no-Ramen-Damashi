@@ -11,7 +11,7 @@ using UnityEngine.UI;
 public class Ken_GFish : MonoBehaviour
 {
     [Header("Nyanスクリプトへようこそ")]
-
+    
     [BoxGroup("UI")][SerializeField] private Slider _slider;
     [BoxGroup("Fish System")][SerializeField] private bool _Fishing;
     [BoxGroup("Slider System")][SerializeField] private int _PlusValue = 25;
@@ -36,7 +36,8 @@ public class Ken_GFish : MonoBehaviour
     [SerializeField] private Cook cook;
     // 素材
     [SerializeField] private ItemData item;
-
+    // 入手量
+    [SerializeField] private int Getfish;
     private void Start()
     {
 
@@ -119,9 +120,10 @@ public class Ken_GFish : MonoBehaviour
                 while (_GetFish == true)
                 {
                     // Inventory に追加（UI も更新される）
-                    bool success = Inventory.instance.AddItem(item, 1);
+                    bool success = Inventory.instance.AddItem(item, Getfish);
                     // 個数++
-                    cook.fish++;
+                    cook.fish += Getfish;
+
                     _GetFishSprite.SetActive(true);
                     yield return new WaitForSeconds(3f);
                     _GetFishSprite.SetActive(false);

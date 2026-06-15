@@ -26,15 +26,15 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        // “ü—Íæ“¾
+        // ï¿½ï¿½ï¿½Íæ“¾
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
         Vector2 dir = new Vector2(inputX, inputY).normalized;
 
-        // ˆÚ“®
+        // ï¿½Ú“ï¿½
         _rb.linearVelocity = dir * currentSpeed;
 
-        // ¶‰E”½“]‚Í flipX ‚ğg‚¤iqƒIƒuƒWƒFƒNƒg‚É‰e‹¿‚µ‚È‚¢j
+        // ï¿½ï¿½ï¿½Eï¿½ï¿½ï¿½]ï¿½ï¿½ flipX ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½iï¿½qï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½É‰eï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½j
         if (inputX > 0)
         {
             sr.flipX = false;
@@ -46,19 +46,19 @@ public class Player : MonoBehaviour
             facing = Vector2.left;
         }
 
-        // ã‰º‚ÌŒü‚«
+        // ï¿½ã‰ºï¿½ÌŒï¿½ï¿½ï¿½
         if (inputY > 0)
             facing = Vector2.up;
         else if (inputY < 0)
             facing = Vector2.down;
 
-        // ‘–‚éƒAƒjƒ[ƒVƒ‡ƒ“
+        // ï¿½ï¿½ï¿½ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
         anim.SetBool("isRunning", dir.magnitude > 0);
 
-        // ƒ_ƒbƒVƒ…
+        // ï¿½_ï¿½bï¿½Vï¿½ï¿½
         currentSpeed = Input.GetKey(KeyCode.RightShift) ? dash : speed;
 
-        // UŒ‚
+        // ï¿½Uï¿½ï¿½
         Attacker();
     }
 
@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
     {
         isAttacking = true;
 
-        // UŒ‚•ûŒü‚É‡‚í‚¹‚ÄˆÊ’u‚ğXV
+        // ï¿½Uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éï¿½ï¿½í‚¹ï¿½ÄˆÊ’uï¿½ï¿½ï¿½Xï¿½V
         Attack.transform.localPosition = facing * 0.2f;
 
         Attack.SetActive(true);
