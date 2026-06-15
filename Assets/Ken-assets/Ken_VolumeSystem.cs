@@ -1,8 +1,6 @@
 using System;
 using TMPro;
-using UnityEditor.Tilemaps;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
