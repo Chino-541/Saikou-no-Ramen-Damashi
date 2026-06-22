@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour
+public class Player2 : MonoBehaviour
 {
     private Animator anim;
     private SpriteRenderer sr;
@@ -13,13 +13,7 @@ public class Player : MonoBehaviour
     public GameObject Attack;
 
     Vector2 facing = Vector2.down;
-    // 攻撃表示bool
     bool isAttacking = false;
-    // 入力無効化bool
-    private bool canMove = true;
-    // スピードアップbool
-    private bool SPDup = false;
-
 
     void Start()
     {
@@ -32,21 +26,15 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        // 入力無効化中は動かない
-        if (!canMove)
-        {
-            _rb.linearVelocity = Vector2.zero;
-            anim.SetBool("isRunning", false);
-            return;
-        }
-
-        // 操作
+      
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
         Vector2 dir = new Vector2(inputX, inputY).normalized;
 
+  
         _rb.linearVelocity = dir * currentSpeed;
 
+  
         if (inputX > 0)
         {
             sr.flipX = false;
@@ -58,30 +46,36 @@ public class Player : MonoBehaviour
             facing = Vector2.left;
         }
 
+        
         if (inputY > 0)
             facing = Vector2.up;
         else if (inputY < 0)
             facing = Vector2.down;
 
+       
         anim.SetBool("isRunning", dir.magnitude > 0);
 
+       
         currentSpeed = Input.GetKey(KeyCode.RightShift) ? dash : speed;
 
+       
         Attacker();
     }
-    // 攻撃の関数
+
     void Attacker()
     {
         if (Input.GetKeyDown(KeyCode.V) && !isAttacking)
         {
             StartCoroutine(AttackForOneSecond());
+
         }
     }
-    // 攻撃表示のコルーチン
+
     IEnumerator AttackForOneSecond()
     {
         isAttacking = true;
 
+       
         Attack.transform.localPosition = facing * 0.2f;
 
         Attack.SetActive(true);
@@ -93,45 +87,5 @@ public class Player : MonoBehaviour
         anim.SetBool("isAttacking", false);
         Attack.SetActive(false);
         isAttacking = false;
-    }
-
-    // 入力無効化のコルーチン
-    public void DisableInput(float seconds)
-    {
-        StartCoroutine(DisableInputCoroutine(seconds));
-    }
-
-    private IEnumerator DisableInputCoroutine(float seconds)
-    {
-        canMove = false;
-        Debug.Log("フリーズ");
-        yield return new WaitForSeconds(seconds);
-
-        Debug.Log("フリーズ解除");
-        canMove = true;
-    }
-
-    // スピードアップのコルーチン
-    public void SpeedUp(float seconds)
-    {
-        StartCoroutine(SpeedUpCoroutine(seconds));
-    }
-    IEnumerator SpeedUpCoroutine(float seconds)
-    {
-        SPDup = true;
-        Debug.Log("5秒間加速");
-
-        float originalSpeed = speed;      // 元の歩き速度
-        float originalDash = dash;        // 元のダッシュ速度
-
-        speed = originalSpeed * 2f;
-        dash = originalDash * 2f;
-
-        yield return new WaitForSeconds(seconds);
-
-        speed = originalSpeed;
-        dash = originalDash;
-
-        Debug.Log("加速終了");
     }
 }

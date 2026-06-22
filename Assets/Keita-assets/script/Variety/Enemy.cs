@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float Speed;
+    [SerializeField] private float Speed = 2.0f;
     public float CurrentSpeed;
-
-    [SerializeField] private int KnockBackpower;
+    [SerializeField] private float Dash = 8.0f;
+    [SerializeField] private int KnockBackpower = 5;
     [SerializeField] private int EnemyHP;
 
     [SerializeField] private Transform player;
@@ -23,10 +23,10 @@ public class Enemy : MonoBehaviour
     {
         HP();
 
-        if (!isStopped)   // ← 停止中は動かない
         {
             Attack();
         }
+
     }
 
     // プレイヤー追跡
@@ -51,21 +51,19 @@ public class Enemy : MonoBehaviour
             if (r == 1) cook.fish--;
             if (r == 2) cook.Vegetable--;
 
-            // プレイヤーをノックバック
+            // ノックバック処理
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+
             if (rb != null)
             {
-                // 敵 → プレイヤー の方向
-                Vector2 knockDir = (collision.transform.position - transform.position).normalized;
+                // プレイヤー → アニマル の逆方向に吹き飛ばす
+                Vector2 direction = (collision.transform.position - transform.position).normalized;
 
-                // 逆方向へ吹っ飛ばす（ここが重要）
-                rb.AddForce(-knockDir * KnockBackpower, ForceMode2D.Impulse);
+                rb.AddForce(direction * KnockBackpower, ForceMode2D.Impulse);
             }
-
-
-           
         }
     }
+
 
 
     // HP処理

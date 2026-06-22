@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class KnockBack : MonoBehaviour
 {
+    [SerializeField] private Transform Animal;
+    [SerializeField] private Transform Player;
     public float knockbackForce = 5.0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -14,15 +16,8 @@ public class KnockBack : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Attack"))
-        {
-            // プレイヤーをノックバックさせる
-            Rigidbody2D rb = GetComponent<Rigidbody2D>();
-            Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
-             float knockbackForce = 5.0f; // ノックバックの強さを調整
-            rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
-        }
+        
     }
 }
