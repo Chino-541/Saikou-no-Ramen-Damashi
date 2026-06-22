@@ -1195,7 +1195,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 20840994a83f9c34db35688481e32f59, type: 3}
+  m_Sprite: {fileID: 8912456414852224830, guid: 16cba15db3c18ea4b830246d6ef4eeae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1243,7 +1243,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.57, y: 1.43}
+    oldSize: {x: 0.77166665, y: 1.7220834}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1293,6 +1293,10 @@ MonoBehaviour:
   _MoveInp: {x: 0, y: 0}
   _Rb: {fileID: 119709424}
   _MoveSpeed: 5
+  _Idle: {fileID: 8912456414852224830, guid: 16cba15db3c18ea4b830246d6ef4eeae, type: 3}
+  _left: {fileID: -863588102301119391, guid: ca02e37ba7a2ef24d876cbed1ed82670, type: 3}
+  _Back: {fileID: 4442543215967868212, guid: a42b0747dd093e044bdc2f8269af39ba, type: 3}
+  _right: {fileID: 4699842155992170130, guid: f732a11fdde7f4e45bf9b5e84e6f6873, type: 3}
 --- !u!114 &119709426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10836,7 +10840,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2263932576691592586, guid: d371c5f14b7987449993f1562fae654e, type: 3}
+  m_Sprite: {fileID: 7990174457722283011, guid: 7bb31f79fb8a2e04ab151c67ced6030e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -20400,10 +20404,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: pelangan (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4073484208645637268, guid: d842084a576a735408eb6af209843086, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4169515315537474758, guid: d842084a576a735408eb6af209843086, type: 3}
       propertyPath: _PTigaInterek
       value: 
       objectReference: {fileID: 1870073873}
+    - target: {fileID: 5212980669370748919, guid: d842084a576a735408eb6af209843086, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8989986355865486765, guid: 62a4ca07db460644fa0613416b441361, type: 3}
+    - target: {fileID: 5212980669370748919, guid: d842084a576a735408eb6af209843086, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5212980669370748919, guid: d842084a576a735408eb6af209843086, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8406796446945925753, guid: d842084a576a735408eb6af209843086, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.61
