@@ -16,8 +16,11 @@ MonoBehaviour:
   icon: {fileID: 0}
   description: 
   maxStack: 99
+<<<<<<< HEAD
+=======
   saltiness: 0
   umami: 0
   spiciness: 0
   fatness: 0
   mystery: 0
+>>>>>>> main

@@ -2,88 +2,87 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+namespace HoriAssets
 {
-    public static Inventory instance;
-
-    Dictionary<ItemData, int> items =
-        new Dictionary<ItemData, int>();
-
-    public int maxItemTypes = 5;
-
-    public event Action onItemChanged;
-
-    // 仮アイテム
-    public ItemData butaniku;
-    public ItemData gyuniku;
-    public ItemData toriniku;
-
-    void Start()
+    public class Inventory : MonoBehaviour
     {
-        AddItem(butaniku, 5);
+        public static Inventory instance;
 
-        AddItem(gyuniku, 3);
+        Dictionary<ItemData, int> items = new Dictionary<ItemData, int>();
 
-        AddItem(toriniku, 2);
-    }
+        public int maxItemTypes = 5;
 
-    void Awake()
-    {
-        instance = this;
-    }
+        public event Action onItemChanged;
 
-    public bool AddItem(ItemData item, int amount)
-    {
-        // 新しい種類
-        if (!items.ContainsKey(item))
+        // 仮アイテム
+        public ItemData butaniku;
+        public ItemData gyuniku;
+        public ItemData toriniku;
+
+        void Awake()
         {
-            if (items.Count >= maxItemTypes)
+            instance = this;
+        }
+
+        void Start()
+        {
+            AddItem(butaniku, 5);
+            AddItem(gyuniku, 3);
+            AddItem(toriniku, 2);
+        }
+
+        public bool AddItem(ItemData item, int amount)
+        {
+            // 新しい種類
+            if (!items.ContainsKey(item))
             {
-                Debug.Log("これ以上種類を持てない！");
-                return false;
+                if (items.Count >= maxItemTypes)
+                {
+                    Debug.Log("これ以上種類を持てない！");
+                    return false;
+                }
+
+                items.Add(item, amount);
+            }
+            else
+            {
+                items[item] += amount;
             }
 
-            items.Add(item, amount);
+            Debug.Log(item.itemName + " を拾った");
+
+            onItemChanged?.Invoke();
+
+            return true;
         }
-        else
+
+        public void MoveAllToBox()
         {
-            items[item] += amount;
+            foreach (var item in items)
+            {
+                Debug.Log(item.Key.itemName +
+                    " x" + item.Value +
+                    " を倉庫に入れた");
+            }
+
+            items.Clear();
+
+            onItemChanged?.Invoke();
         }
 
-        Debug.Log(item.itemName + " を拾った");
-
-        onItemChanged?.Invoke();
-
-        return true;
-
-    }
-
-    public void MoveAllToBox()
-    {
-        foreach (var item in items)
+        public Dictionary<ItemData, int> GetItems()
         {
-            Debug.Log(item.Key.itemName +
-                " x" + item.Value +
-                " を倉庫に入れた");
+            return items;
         }
 
-        items.Clear();
-
-        onItemChanged?.Invoke();
-    }
-
-    public Dictionary<ItemData, int> GetItems()
-    {
-
-        return items;
-    }
-    public int GetItemCount(ItemData item)
-    {
-        if (items.ContainsKey(item))
+        public int GetItemCount(ItemData item)
         {
-            return items[item];
-        }
+            if (items.ContainsKey(item))
+            {
+                return items[item];
+            }
 
-        return 0;
+            return 0;
+        }
     }
 }
