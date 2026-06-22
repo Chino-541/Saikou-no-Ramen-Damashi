@@ -1,9 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-<<<<<<< HEAD
-using HoriAssets;
-=======
->>>>>>> main
+    using HoriAssets;
 
 public class HotbarUI : MonoBehaviour
 {
@@ -11,26 +8,17 @@ public class HotbarUI : MonoBehaviour
 
     void Start()
     {
-<<<<<<< HEAD
         // 変更点1：頭に「HoriAssets.」をつける
         HoriAssets.Inventory.instance.onItemChanged += RefreshUI;
-=======
-        Inventory.instance.onItemChanged += RefreshUI;
->>>>>>> main
 
         RefreshUI();
     }
 
     void RefreshUI()
     {
-<<<<<<< HEAD
         // 変更点2：頭に「HoriAssets.」をつける
         Dictionary<ItemData, int> items =
             HoriAssets.Inventory.instance.GetItems();
-=======
-        Dictionary<ItemData, int> items =
-            Inventory.instance.GetItems();
->>>>>>> main
 
         int index = 0;
 
