@@ -7,6 +7,7 @@ public class foodButton : MonoBehaviour
     [SerializeField] ItemData itemData;
     [SerializeField] foodSlot[] slots;
     [SerializeField] TMP_Text countText;
+    [SerializeField] Image iconImage;
 
     Button button;
 
@@ -21,6 +22,8 @@ public class foodButton : MonoBehaviour
     {
         itemData = item;
         slots = targetSlots;
+
+        iconImage.sprite = item.icon;
 
         UpdateCountText();
     }

@@ -537,7 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07a481a84d03bf4ca5e6a82535128c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TMP_CountdownTimer
-  timeLeft: 10
+  timeLeft: 13
   timerText: {fileID: 746190330}
   nextSceneName: RamenCreat
 --- !u!114 &746190330
@@ -850,10 +850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2655d9d2fd62b7146908e1fb48bf62ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
-  maxItemTypes: 5
-  butaniku: {fileID: 11400000, guid: 53fe1f2b3c7a0434a87e0ce9b4f8424f, type: 2}
-  gyuniku: {fileID: 11400000, guid: f45b085d9bfd18f4b936d073eb55e781, type: 2}
-  toriniku: {fileID: 11400000, guid: b97149853ac84e0409fdd95a6ec4e50c, type: 2}
+  maxItemTypes: 3
 --- !u!1 &1210757651
 GameObject:
   m_ObjectHideFlags: 0

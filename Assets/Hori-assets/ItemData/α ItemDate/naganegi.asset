@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: naganegi
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: naganegi
-  icon: {fileID: 0}
+  icon: {fileID: -6957032287726039281, guid: 6db8341f0e081f947aec5d0f0901e46d, type: 3}
   description: 
   maxStack: 99
   saltiness: 0

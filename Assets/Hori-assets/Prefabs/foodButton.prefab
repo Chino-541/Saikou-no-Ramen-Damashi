@@ -141,7 +141,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  countText: {fileID: 0}
+  countText: {fileID: 6592794860945106094}
+  iconImage: {fileID: 4819608919934872345}
 --- !u!1 &4329555841444543570
 GameObject:
   m_ObjectHideFlags: 0

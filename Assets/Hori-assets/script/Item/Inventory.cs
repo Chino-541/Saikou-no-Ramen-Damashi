@@ -14,17 +14,11 @@ public class Inventory : MonoBehaviour
     public event Action onItemChanged;
 
     // ‰¼ƒAƒCƒeƒ€
-    public ItemData butaniku;
-    public ItemData gyuniku;
-    public ItemData toriniku;
+
 
     void Start()
     {
         Debug.Log("Inventory Start");
-
-            AddItem(butaniku, 5);
-            AddItem(gyuniku, 3);
-            AddItem(toriniku, 2);
     }
 
     void Awake()
