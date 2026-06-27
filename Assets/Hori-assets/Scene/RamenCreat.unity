@@ -527,6 +527,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f7ab11e5ec4ba4cbfc327b258ee1da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RamenStatusManager
+  foodSlots:
+  - {fileID: 1710281783}
+  - {fileID: 1784260766}
+  - {fileID: 1519740456}
+  - {fileID: 1105844582}
   saltSlider: {fileID: 1984043600}
   umamiSlider: {fileID: 1027437687}
   spicySlider: {fileID: 1231256177}
@@ -1944,6 +1949,7 @@ MonoBehaviour:
   - {fileID: 1784260766}
   - {fileID: 1519740456}
   countText: {fileID: 107125865}
+  iconImage: {fileID: 0}
 --- !u!1 &1592288555
 GameObject:
   m_ObjectHideFlags: 0
@@ -2076,6 +2082,7 @@ MonoBehaviour:
   - {fileID: 1784260766}
   - {fileID: 1519740456}
   countText: {fileID: 1745943753}
+  iconImage: {fileID: 0}
 --- !u!1 &1672400018
 GameObject:
   m_ObjectHideFlags: 0
@@ -2549,6 +2556,7 @@ MonoBehaviour:
   - {fileID: 1784260766}
   - {fileID: 1519740456}
   countText: {fileID: 154269113}
+  iconImage: {fileID: 0}
 --- !u!1 &1784260764
 GameObject:
   m_ObjectHideFlags: 0

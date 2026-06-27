@@ -33,13 +33,26 @@ public class foodButton : MonoBehaviour
         if (GetCount() <= 0)
             return;
 
+        // “¯‚¶‘fÞ‚ªŠù‚É“ü‚Á‚Ä‚¢‚é‚©Šm”F
+        foreach (foodSlot slot in slots)
+        {
+            if (slot.GetItem() == itemData)
+            {
+                Debug.Log("‚±‚Ì‘fÞ‚ÍŠù‚ÉŽg—p‚µ‚Ä‚¢‚Ü‚·");
+                return;
+            }
+        }
+
+        // ‹ó‚¢‚Ä‚¢‚é˜g‚ð’T‚·
         foreach (foodSlot slot in slots)
         {
             if (slot.IsEmpty())
             {
                 slot.SetItem(itemData);
 
-                Storage.instance.RemoveItem(itemData, 1);
+                Inventory.instance.RemoveItem(itemData, 1);
+
+                RamenStatusManager.Instance.CalculateStatus();
 
                 UpdateCountText();
 
