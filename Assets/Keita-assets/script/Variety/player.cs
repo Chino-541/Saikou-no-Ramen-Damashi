@@ -13,13 +13,9 @@ public class Player : MonoBehaviour
     public GameObject Attack;
 
     Vector2 facing = Vector2.down;
-    // 攻撃表示bool
     bool isAttacking = false;
-    // 入力無効化bool
     private bool canMove = true;
-    // スピードアップbool
     private bool SPDup = false;
-
 
     void Start()
     {
@@ -32,36 +28,22 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        // 入力無効化中は動かない
         if (!canMove)
         {
             _rb.linearVelocity = Vector2.zero;
             anim.SetBool("isRunning", false);
+            ResetDirectionBools();
             return;
         }
 
-        // 操作
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
         Vector2 dir = new Vector2(inputX, inputY).normalized;
 
         _rb.linearVelocity = dir * currentSpeed;
 
-        if (inputX > 0)
-        {
-            sr.flipX = false;
-            facing = Vector2.right;
-        }
-        else if (inputX < 0)
-        {
-            sr.flipX = true;
-            facing = Vector2.left;
-        }
-
-        if (inputY > 0)
-            facing = Vector2.up;
-        else if (inputY < 0)
-            facing = Vector2.down;
+        // ★ 方向アニメーション
+        UpdateDirectionBools(inputX, inputY);
 
         anim.SetBool("isRunning", dir.magnitude > 0);
 
@@ -69,24 +51,78 @@ public class Player : MonoBehaviour
 
         Attacker();
     }
-    // 攻撃の関数
+
+
+    void UpdateDirectionBools(float inputX, float inputY)
+    {
+        // 入力があるときだけ方向を更新する
+        if (inputX != 0 || inputY != 0)
+        {
+            // まず全部 false にする
+            ResetDirectionBools();
+
+            // ★ 横入力があるときは横を優先（縦は無視）
+            if (inputX > 0)
+            {
+                anim.SetBool("right", true);
+                sr.flipX = false;
+                facing = Vector2.right;
+                return;
+            }
+            else if (inputX < 0)
+            {
+                anim.SetBool("left", true);
+                sr.flipX = true;
+                facing = Vector2.left;
+                return;
+            }
+
+            // ★ 横が 0 のときだけ縦を見る
+            if (inputY > 0)
+            {
+                anim.SetBool("up", true);
+                facing = Vector2.up;
+            }
+            else if (inputY < 0)
+            {
+                anim.SetBool("down", true);
+                facing = Vector2.down;
+            }
+        }
+
+        // 入力がないときは何もしない（最後の向きを維持）
+    }
+
+    //  全方向 false にする
+    void ResetDirectionBools()
+    {
+        anim.SetBool("up", false);
+        anim.SetBool("down", false);
+        anim.SetBool("right", false);
+        anim.SetBool("left", false);
+    }
+
+    // 攻撃
+    public AudioSource attackSound;
+
     void Attacker()
     {
         if (Input.GetKeyDown(KeyCode.V) && !isAttacking)
         {
+            attackSound.Play();   // ← 攻撃した瞬間の音
             StartCoroutine(AttackForOneSecond());
         }
     }
-    // 攻撃表示のコルーチン
+
+
     IEnumerator AttackForOneSecond()
     {
         isAttacking = true;
 
-        Attack.transform.localPosition = facing * 0.2f;
+        Attack.transform.localPosition = facing * 0.7f;
 
         Attack.SetActive(true);
         anim.SetBool("isAttacking", true);
-        Debug.Log("attacking");
 
         yield return new WaitForSeconds(0.5f);
 
@@ -95,7 +131,7 @@ public class Player : MonoBehaviour
         isAttacking = false;
     }
 
-    // 入力無効化のコルーチン
+    // 入力無効化
     public void DisableInput(float seconds)
     {
         StartCoroutine(DisableInputCoroutine(seconds));
@@ -104,25 +140,22 @@ public class Player : MonoBehaviour
     private IEnumerator DisableInputCoroutine(float seconds)
     {
         canMove = false;
-        Debug.Log("フリーズ");
         yield return new WaitForSeconds(seconds);
-
-        Debug.Log("フリーズ解除");
         canMove = true;
     }
 
-    // スピードアップのコルーチン
+    // スピードアップ
     public void SpeedUp(float seconds)
     {
         StartCoroutine(SpeedUpCoroutine(seconds));
     }
+
     IEnumerator SpeedUpCoroutine(float seconds)
     {
         SPDup = true;
-        Debug.Log("5秒間加速");
 
-        float originalSpeed = speed;      // 元の歩き速度
-        float originalDash = dash;        // 元のダッシュ速度
+        float originalSpeed = speed;
+        float originalDash = dash;
 
         speed = originalSpeed * 2f;
         dash = originalDash * 2f;
@@ -131,7 +164,5 @@ public class Player : MonoBehaviour
 
         speed = originalSpeed;
         dash = originalDash;
-
-        Debug.Log("加速終了");
     }
 }

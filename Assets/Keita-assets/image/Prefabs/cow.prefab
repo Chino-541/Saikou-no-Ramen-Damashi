@@ -111,6 +111,7 @@ MonoBehaviour:
   dash: 1
   chargeTime: 3
   item: {fileID: 2767721151040760959, guid: decc92f2000e2924c96f1c5c41b7cde9, type: 3}
+  hitSound: {fileID: 7909616987782297532, guid: a4ad1db33a349fa4985a475256a6d41f, type: 3}
 --- !u!61 &7634726888470727179
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -40,7 +40,7 @@ public class Animal : MonoBehaviour
 
     void Update()
     {
-       
+
         // ƒ‰ƒ“ƒ_ƒ€ˆÚ“®
         timeCount += Time.deltaTime;
 
@@ -54,7 +54,7 @@ public class Animal : MonoBehaviour
 
             timeCount = 0;
         }
-        
+
     }
     public void Hp()
     {
@@ -70,10 +70,13 @@ public class Animal : MonoBehaviour
             Debug.Log("uwaaa");
         }
     }
+    public AudioSource hitSound;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Attack"))
         {
+            hitSound.Play();   // © Prefab ‚Éİ’è‚µ‚½‰¹‚ª–Â‚é
             Hp();
             Debug.Log("“–‚½‚Á‚½");
             CurrentHp--;
