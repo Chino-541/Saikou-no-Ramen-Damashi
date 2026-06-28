@@ -5,6 +5,7 @@ public class harvest : MonoBehaviour
     public ItemData item;   // scriptableObj
     [SerializeField] Cook cook;
     private float timer = 0f;
+    [SerializeField] private AudioSource VAudio;
 
     void Start()
     {
@@ -30,7 +31,7 @@ public class harvest : MonoBehaviour
                 {
                    // cook‚ÌƒJƒEƒ“ƒg
                     cook.Vegetable++;
-
+                    VAudio.Play();
                     // Vegetable‚ÌHarvest‚ðŒÄ‚Ô
                     GetComponent<Vegetable>()?.Harvest();
 
