@@ -5,12 +5,20 @@ public class harvest : MonoBehaviour
     public ItemData item;   // scriptableObj
     [SerializeField] Cook cook;
     private float timer = 0f;
-    [SerializeField] private AudioSource VAudio;
+
+    private AudioSource VAudio;   // ← Inspector でセットしない
 
     void Start()
     {
         cook = FindAnyObjectByType<Cook>();
         timer = 0f;
+
+        // AudioSource を自動取得（Prefabでも確実に拾える）
+        VAudio = GetComponent<AudioSource>();
+        if (VAudio == null)
+        {
+            Debug.LogWarning("AudioSource が見つかりませんでした");
+        }
     }
 
     void Update()
@@ -24,14 +32,16 @@ public class harvest : MonoBehaviour
         {
             if (timer >= 8f)
             {
-                // Inventory に追加（UI も更新される）
                 bool success = Inventory.instance.AddItem(item, 1);
 
                 if (success)
                 {
-                   // cookのカウント
                     cook.Vegetable++;
-                    VAudio.Play();
+
+                    // 音を鳴らす（Prefabでも確実に鳴る）
+                    if (VAudio != null)
+                        VAudio.Play();
+
                     // VegetableのHarvestを呼ぶ
                     GetComponent<Vegetable>()?.Harvest();
 

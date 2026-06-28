@@ -15,7 +15,6 @@ public class Fisher : MonoBehaviour
             {
                 isFishing = true;
                 Fishing.SetActive(true);
-                fishSystem.StartFishing();
                 Debug.Log("’Þ‚èŠJŽn");
             }
         }
