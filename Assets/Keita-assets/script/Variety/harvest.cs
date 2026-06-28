@@ -2,22 +2,27 @@ using UnityEngine;
 
 public class harvest : MonoBehaviour
 {
-    public ItemData item;   // scriptableObj
+    public ItemData item;
     [SerializeField] Cook cook;
     private float timer = 0f;
 
-    private AudioSource VAudio;   // ← Inspector でセットしない
+    private AudioSource VAudio;
 
     void Start()
     {
         cook = FindAnyObjectByType<Cook>();
         timer = 0f;
 
-        // AudioSource を自動取得（Prefabでも確実に拾える）
-        VAudio = GetComponent<AudioSource>();
+        // 名前で AudioSource を探す（Hierarchy 内）
+        GameObject audioObj = GameObject.Find("harvest");
+        if (audioObj != null)
+        {
+            VAudio = audioObj.GetComponent<AudioSource>();
+        }
+
         if (VAudio == null)
         {
-            Debug.LogWarning("AudioSource が見つかりませんでした");
+            Debug.LogWarning("AudioSource 'harvest' が見つかりませんでした");
         }
     }
 
@@ -38,11 +43,10 @@ public class harvest : MonoBehaviour
                 {
                     cook.Vegetable++;
 
-                    // 音を鳴らす（Prefabでも確実に鳴る）
+                    // 名前で取得した AudioSource を鳴らす
                     if (VAudio != null)
                         VAudio.Play();
 
-                    // VegetableのHarvestを呼ぶ
                     GetComponent<Vegetable>()?.Harvest();
 
                     timer = 0f;
