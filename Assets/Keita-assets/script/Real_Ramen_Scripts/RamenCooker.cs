@@ -19,63 +19,63 @@ public class RamenCooker : MonoBehaviour
         fish = Create.UsedFish;
         veg = Create.UsedVeg;
         //salt = Create.UsedSalt;
-       // noodle = Create.UsedNoodle;
+        //noodle = Create.UsedNoodle;
     }
 
     void Update()
     {
+        // ▼ Space を押していないなら何もしない
+        if (!Input.GetKeyDown(KeyCode.Space))
+            return;
+
+        // ▼ クールダウン中なら何もしない
         if (cooldown > 0)
         {
-            cooldown -= Time.deltaTime;
+            Debug.Log("クールダウン中です");
             return;
         }
 
-        // ★ 5種類の素材を配列で管理
+        // ▼ 素材チェック
         int[] ingredients = { beaf, fish, veg, salt, noodle };
 
-        // ★ 1つ以上ある素材の種類数を数える
         int ingredientCount = 0;
         foreach (int amount in ingredients)
         {
             if (amount > 0) ingredientCount++;
         }
 
-        // ★ 3種類未満なら作れない
         if (ingredientCount < 3)
         {
             Debug.Log("5種類のうち3種類以上そろっていません！");
             return;
         }
 
-        // ★ 作成処理
-        if (Input.GetKeyDown(KeyCode.Space))
+        // ▼ 作成処理
+        int totalSalt = 0;
+        int totalUmami = 0;
+        int totalSpicy = 0;
+        int totalFat = 0;
+        int totalMystery = 0;
+
+        foreach (var item in Create.UsedItemDataList)
         {
-            int totalSalt = 0;
-            int totalUmami = 0;
-            int totalSpicy = 0;
-            int totalFat = 0;
-            int totalMystery = 0;
-
-            foreach (var item in Create.UsedItemDataList)
-            {
-                totalSalt += item.saltiness;
-                totalUmami += item.umami;
-                totalSpicy += item.spiciness;
-                totalFat += item.fatness;
-                totalMystery += item.mystery;
-            }
-
-            GameObject obj = Instantiate(Ramen, transform.position, Quaternion.identity);
-            FoodData data = obj.GetComponent<FoodData>();
-
-            data.SetData(
-                beaf, fish, veg,
-                totalSalt, totalUmami, totalSpicy, totalFat, totalMystery
-            );
-
-            Debug.Log($"合計味データ: 塩{totalSalt}, 旨味{totalUmami}, 辛さ{totalSpicy}, 脂{totalFat}, 神秘{totalMystery}");
-
-            cooldown = cooldownTime;
+            totalSalt += item.saltiness;
+            totalUmami += item.umami;
+            totalSpicy += item.spiciness;
+            totalFat += item.fatness;
+            totalMystery += item.mystery;
         }
+
+        GameObject obj = Instantiate(Ramen, transform.position, Quaternion.identity);
+        FoodData data = obj.GetComponent<FoodData>();
+
+        data.SetData(
+            beaf, fish, veg,
+            totalSalt, totalUmami, totalSpicy, totalFat, totalMystery
+        );
+
+        Debug.Log($"合計味データ: 塩{totalSalt}, 旨味{totalUmami}, 辛さ{totalSpicy}, 脂{totalFat}, 神秘{totalMystery}");
+
+        cooldown = cooldownTime;
     }
 }

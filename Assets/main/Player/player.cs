@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     Vector2 facing = Vector2.down;
     bool isAttacking = false;
     private bool canMove = true;
-    private bool SPDup = false;
 
     void Start()
     {
@@ -42,7 +41,7 @@ public class Player : MonoBehaviour
 
         _rb.linearVelocity = dir * currentSpeed;
 
-        // ★ 方向アニメーション
+        //  方向アニメーション
         UpdateDirectionBools(inputX, inputY);
 
         anim.SetBool("isRunning", dir.magnitude > 0);
@@ -58,10 +57,8 @@ public class Player : MonoBehaviour
         // 入力があるときだけ方向を更新する
         if (inputX != 0 || inputY != 0)
         {
-            // まず全部 false にする
             ResetDirectionBools();
 
-            // ★ 横入力があるときは横を優先（縦は無視）
             if (inputX > 0)
             {
                 anim.SetBool("right", true);
@@ -77,7 +74,6 @@ public class Player : MonoBehaviour
                 return;
             }
 
-            // ★ 横が 0 のときだけ縦を見る
             if (inputY > 0)
             {
                 anim.SetBool("up", true);
@@ -109,7 +105,8 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.V) && !isAttacking)
         {
-            attackSound.Play();   // ← 攻撃した瞬間の音
+            attackSound.Play();  // 攻撃音
+            Debug.Log("attacking");
             StartCoroutine(AttackForOneSecond());
         }
     }
@@ -152,8 +149,6 @@ public class Player : MonoBehaviour
 
     IEnumerator SpeedUpCoroutine(float seconds)
     {
-        SPDup = true;
-
         float originalSpeed = speed;
         float originalDash = dash;
 

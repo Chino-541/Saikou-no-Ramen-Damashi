@@ -63,24 +63,33 @@ public class Animal : MonoBehaviour
             CurrentSpeed = dash;
             Debug.Log("ƒsƒ“ƒ`");
         }
-        else if (CurrentHp < 0)
+        else if (CurrentHp <= 0)
         {
             Destroy(gameObject);
             Instantiate(item, transform.position, Quaternion.identity);
             Debug.Log("uwaaa");
         }
     }
-    public AudioSource hitSound;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Attack"))
         {
-            hitSound.Play();   // © Prefab ‚ÉÝ’è‚µ‚½‰¹‚ª–Â‚é
             Hp();
             Debug.Log("“–‚½‚Á‚½");
             CurrentHp--;
         }
     }
+    */
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Attack"))
+        {
+            Hp();
+            Debug.Log("“–‚½‚Á‚½");
+            CurrentHp--;
+        }
+    }
+
 }
 

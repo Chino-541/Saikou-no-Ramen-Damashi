@@ -9,6 +9,7 @@ TagManager:
   - Char
   - BGM
   - SE
+  - Animal
   layers:
   - Default
   - TransparentFX
