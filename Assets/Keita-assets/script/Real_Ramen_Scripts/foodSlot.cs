@@ -3,11 +3,30 @@ using TMPro;
 
 public class foodSlot : MonoBehaviour
 {
+<<<<<<< HEAD
     public enum foodType
     {
         Beaf,
         Fish,
         Vegetable
+=======
+    [SerializeField] Image iconImage;
+
+    ItemData currentItem;
+
+
+    public bool IsEmpty()
+    {
+        return currentItem == null;
+    }
+
+    public void SetItem(ItemData item)
+    {
+        currentItem = item;
+
+        iconImage.sprite = item.icon;
+        iconImage.color = Color.white;
+>>>>>>> hori
     }
 
     [SerializeField] foodType food;
@@ -21,6 +40,7 @@ public class foodSlot : MonoBehaviour
         countText.text = count.ToString();
     }
 
+<<<<<<< HEAD
     public int Minus()
     {
         if (count <= 0)
@@ -58,3 +78,14 @@ public class foodSlot : MonoBehaviour
         countText.text = "0";
     }
 }
+=======
+    public void Clear()
+    {
+        currentItem = null;
+
+        iconImage.sprite = null;
+        iconImage.color = new Color(1, 1, 1, 0);
+    }
+
+}
+>>>>>>> hori

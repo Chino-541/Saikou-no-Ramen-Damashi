@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,30 +5,22 @@ public class RamenStatusManager : MonoBehaviour
 {
     public static RamenStatusManager Instance;
 
+    [Header("投入枠")]
+    public foodSlot[] foodSlots;
+
+    [Header("ステータス")]
     public Slider saltSlider;
     public Slider umamiSlider;
     public Slider spicySlider;
     public Slider fatSlider;
     public Slider mysterySlider;
 
-    List<ItemData> selectedFoods = new();
-
     void Awake()
     {
         Instance = this;
     }
 
-    public void AddFood(ItemData item)
-    {
-        if (selectedFoods.Count >= 3)
-            return;
-
-        selectedFoods.Add(item);
-
-        CalculateStatus();
-    }
-
-    void CalculateStatus()
+    public void CalculateStatus()
     {
         int salt = 0;
         int umami = 0;
@@ -37,8 +28,13 @@ public class RamenStatusManager : MonoBehaviour
         int fat = 0;
         int mystery = 0;
 
-        foreach (ItemData item in selectedFoods)
+        foreach (foodSlot slot in foodSlots)
         {
+            ItemData item = slot.GetItem();
+
+            if (item == null)
+                continue;
+
             salt += item.saltiness;
             umami += item.umami;
             spicy += item.spiciness;
@@ -55,7 +51,11 @@ public class RamenStatusManager : MonoBehaviour
 
     public void ClearFoods()
     {
-        selectedFoods.Clear();
+        foreach (foodSlot slot in foodSlots)
+        {
+            slot.Clear();
+        }
+
         CalculateStatus();
     }
 }

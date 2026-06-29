@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: shouga
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: shouga
-  icon: {fileID: 0}
+  icon: {fileID: -7398361763237014727, guid: 8a81527bb4dec5b4ab18f4d63f931582, type: 3}
   description: 
   maxStack: 99
+  saltiness: 0
+  umami: 0
+  spiciness: 0
+  fatness: 0
+  mystery: 0
