@@ -43,7 +43,7 @@ public class Ken_GFish : MonoBehaviour
 
         SliderSystem();
         FishTimeSystem();
-        StartCoroutine(FishTimeSystem());
+       // StartCoroutine(FishTimeSystem());
         //StartCoroutine(FishSystem());
         //FishFinal();
         
@@ -57,7 +57,7 @@ public class Ken_GFish : MonoBehaviour
         _slider.value = _StartValue;
 
         _MaxFishTime = (int)(_FishSpeed * 10);
-        _FishSpeed = _FishSpeed / 10;
+       _FishSpeed = _FishSpeed / 10;
     }
     
     

@@ -6,23 +6,41 @@ public class Player : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sr;
 
+    // ƒXƒs[ƒhŠÖ˜A
     public float speed = 2.0f;
     public float dash = 5.0f;
     private float currentSpeed;
+
     private Rigidbody2D _rb;
+
+    // UŒ‚obj
     public GameObject Attack;
 
+    // UŒ‚ƒN[ƒ‹ƒ^ƒCƒ€
+    public float attackCooldown = 0.5f;   // ’Êí‚ÌUŒ‚ŠÔŠu
+    private float currentAttackCooldown;  // ¡‚ÌUŒ‚ŠÔŠu
+    private bool canAttack = true;
+
     Vector2 facing = Vector2.down;
+
     bool isAttacking = false;
     private bool canMove = true;
 
+    // ƒoƒt‚Ì‚ÌƒI[ƒ‰“I‚È
+    public GameObject aura;
+
+    public AudioSource attackSound;
+
     void Start()
     {
+        aura.SetActive(false);
         _rb = GetComponent<Rigidbody2D>();
         currentSpeed = speed;
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
         Attack.SetActive(false);
+
+        currentAttackCooldown = attackCooldown; // ‰Šú‰»
     }
 
     void Update()
@@ -41,7 +59,6 @@ public class Player : MonoBehaviour
 
         _rb.linearVelocity = dir * currentSpeed;
 
-        //  •ûŒüƒAƒjƒ[ƒVƒ‡ƒ“
         UpdateDirectionBools(inputX, inputY);
 
         anim.SetBool("isRunning", dir.magnitude > 0);
@@ -51,10 +68,8 @@ public class Player : MonoBehaviour
         Attacker();
     }
 
-
     void UpdateDirectionBools(float inputX, float inputY)
     {
-        // “ü—Í‚ª‚ ‚é‚Æ‚«‚¾‚¯•ûŒü‚ğXV‚·‚é
         if (inputX != 0 || inputY != 0)
         {
             ResetDirectionBools();
@@ -85,11 +100,8 @@ public class Player : MonoBehaviour
                 facing = Vector2.down;
             }
         }
-
-        // “ü—Í‚ª‚È‚¢‚Æ‚«‚Í‰½‚à‚µ‚È‚¢iÅŒã‚ÌŒü‚«‚ğˆÛj
     }
 
-    //  ‘S•ûŒü false ‚É‚·‚é
     void ResetDirectionBools()
     {
         anim.SetBool("up", false);
@@ -98,19 +110,23 @@ public class Player : MonoBehaviour
         anim.SetBool("left", false);
     }
 
-    // UŒ‚
-    public AudioSource attackSound;
-
+    // UŒ‚ˆ—
     void Attacker()
     {
-        if (Input.GetKeyDown(KeyCode.V) && !isAttacking)
+        if (Input.GetKeyDown(KeyCode.V) && canAttack)
         {
-            attackSound.Play();  // UŒ‚‰¹
-            Debug.Log("attacking");
+            attackSound.Play();
             StartCoroutine(AttackForOneSecond());
+            StartCoroutine(AttackCooldownCoroutine());
         }
     }
 
+    IEnumerator AttackCooldownCoroutine()
+    {
+        canAttack = false;
+        yield return new WaitForSeconds(currentAttackCooldown);
+        canAttack = true;
+    }
 
     IEnumerator AttackForOneSecond()
     {
@@ -151,13 +167,42 @@ public class Player : MonoBehaviour
     {
         float originalSpeed = speed;
         float originalDash = dash;
+        sr.color = Color.yellow;
+        aura.SetActive(true);
 
         speed = originalSpeed * 2f;
         dash = originalDash * 2f;
 
         yield return new WaitForSeconds(seconds);
 
+        aura.SetActive(false);
+        sr.color = Color.white;
+
         speed = originalSpeed;
         dash = originalDash;
+    }
+
+    // UŒ‚ŠÔŠu’Zkj
+    public void PowerUp(float seconds)
+    {
+        StartCoroutine(PowerUpCoroutine(seconds));
+    }
+
+    IEnumerator PowerUpCoroutine(float seconds)
+    {
+        float originalCooldown = attackCooldown;
+
+        // UŒ‚ŠÔŠu‚ğ’Zk
+        currentAttackCooldown = attackCooldown * 0.3f;
+
+        aura.SetActive(true);
+        // sr.color = Color.red;
+
+        yield return new WaitForSeconds(seconds);
+
+        // Œ³‚É–ß‚·
+        currentAttackCooldown = originalCooldown;
+        aura.SetActive(false);
+       //  sr.color = Color.white;
     }
 }
