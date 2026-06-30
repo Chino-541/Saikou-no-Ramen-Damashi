@@ -167,13 +167,27 @@ public class Player : MonoBehaviour
     private IEnumerator DisableInputCoroutine(float seconds)
     {
         canMove = false;
-        anim.SetBool("isDisabled", true);
+
+        // ★ Animator が null でも落ちないようにする
+        if (anim != null)
+        {
+            anim.SetBool("isDisabled", true);
+        }
+        else
+        {
+            Debug.LogWarning("Player: Animator がまだ初期化されていません（Start() より前に呼ばれています）");
+        }
 
         yield return new WaitForSeconds(seconds);
 
-        anim.SetBool("isDisabled", false);
+        if (anim != null)
+        {
+            anim.SetBool("isDisabled", false);
+        }
+
         canMove = true;
     }
+
 
     // スピードアップ
     public void SpeedUp(float seconds)

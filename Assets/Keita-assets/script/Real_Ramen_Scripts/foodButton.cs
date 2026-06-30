@@ -18,6 +18,7 @@ public class foodButton : MonoBehaviour
 
         UpdateCountText();
     }
+
     public void Setup(ItemData item, foodSlot[] targetSlots)
     {
         itemData = item;
@@ -50,8 +51,21 @@ public class foodButton : MonoBehaviour
             {
                 slot.SetItem(itemData);
 
+                // ★ 所持数を取得
+                int count = GetCount();
+
+                // ★ 所持数分スコアを加算
+                FoodScoreData.score += count;
+
+                // ★ Debug 表示（圭汰の希望）
+                Debug.Log($"選んだ食材: {itemData.name}");
+                Debug.Log($"所持数: {count}");
+                Debug.Log($"加算後のスコア: {FoodScoreData.score}");
+
+                // インベントリから1個減らす
                 Inventory.instance.RemoveItem(itemData, 1);
 
+                // ステータス更新
                 RamenStatusManager.Instance.CalculateStatus();
 
                 UpdateCountText();

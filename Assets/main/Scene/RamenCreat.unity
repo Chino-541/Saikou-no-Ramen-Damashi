@@ -1539,7 +1539,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1327056970}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99999845
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2189,9 +2189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d33b8f062660e1449dc5732e132a936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Create
-  Bef: {fileID: 0}
-  Veg: {fileID: 0}
-  Fis: {fileID: 0}
+  button: {fileID: 1809113493}
 --- !u!1 &1893720170
 GameObject:
   m_ObjectHideFlags: 0

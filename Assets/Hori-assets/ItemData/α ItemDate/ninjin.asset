@@ -16,8 +16,8 @@ MonoBehaviour:
   icon: {fileID: 2301922973543145194, guid: 5ff40dbf5f061644284804f09618b7d7, type: 3}
   description: 
   maxStack: 99
-  saltiness: 0
-  umami: 0
-  spiciness: 0
-  fatness: 0
-  mystery: 0
+  saltiness: 10
+  umami: 10
+  spiciness: 7
+  fatness: 6
+  mystery: 28

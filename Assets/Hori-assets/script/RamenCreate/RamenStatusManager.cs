@@ -31,7 +31,6 @@ public class RamenStatusManager : MonoBehaviour
         foreach (foodSlot slot in foodSlots)
         {
             ItemData item = slot.GetItem();
-
             if (item == null)
                 continue;
 
@@ -47,15 +46,14 @@ public class RamenStatusManager : MonoBehaviour
         spicySlider.value = Mathf.Clamp(spicy, 0, 100);
         fatSlider.value = Mathf.Clamp(fat, 0, 100);
         mysterySlider.value = Mathf.Clamp(mystery, 0, 100);
-    }
 
-    public void ClearFoods()
-    {
-        foreach (foodSlot slot in foodSlots)
-        {
-            slot.Clear();
-        }
+        // ステータスを保存（次のシーンで使う）
+        RamenStatusData.salt = salt;
+        RamenStatusData.umami = umami;
+        RamenStatusData.spicy = spicy;
+        RamenStatusData.fat = fat;
+        RamenStatusData.mystery = mystery;
 
-        CalculateStatus();
+        RamenStatusData.total = salt + umami + spicy + fat + mystery;
     }
 }
