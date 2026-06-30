@@ -17,8 +17,8 @@ public class Player : MonoBehaviour
     public GameObject Attack;
 
     // UŒ‚ƒN[ƒ‹ƒ^ƒCƒ€
-    public float attackCooldown = 0.5f;   // ’Êí‚ÌUŒ‚ŠÔŠu
-    private float currentAttackCooldown;  // ¡‚ÌUŒ‚ŠÔŠu
+    public float attackCooldown = 0.5f;
+    private float currentAttackCooldown;
     private bool canAttack = true;
 
     Vector2 facing = Vector2.down;
@@ -40,11 +40,12 @@ public class Player : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         Attack.SetActive(false);
 
-        currentAttackCooldown = attackCooldown; // ‰Šú‰»
+        currentAttackCooldown = attackCooldown;
     }
 
     void Update()
     {
+        // š “®‚¯‚È‚¢‚Ìˆ—iƒAƒjƒ[ƒVƒ‡ƒ“‚à‚±‚±‚ÅŒÅ’èj
         if (!canMove)
         {
             _rb.linearVelocity = Vector2.zero;
@@ -115,7 +116,6 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.V) && canAttack)
         {
-            attackSound.Play();
             StartCoroutine(AttackForOneSecond());
             StartCoroutine(AttackCooldownCoroutine());
         }
@@ -124,7 +124,10 @@ public class Player : MonoBehaviour
     IEnumerator AttackCooldownCoroutine()
     {
         canAttack = false;
+        attackSound.Play();
+        isAttacking = true;
         yield return new WaitForSeconds(currentAttackCooldown);
+        isAttacking = false;
         canAttack = true;
     }
 
@@ -144,7 +147,7 @@ public class Player : MonoBehaviour
         isAttacking = false;
     }
 
-    // “ü—Í–³Œø‰»
+    //  “ü—Í–³Œø‰»
     public void DisableInput(float seconds)
     {
         StartCoroutine(DisableInputCoroutine(seconds));
@@ -153,7 +156,15 @@ public class Player : MonoBehaviour
     private IEnumerator DisableInputCoroutine(float seconds)
     {
         canMove = false;
+
+        // “®‚¯‚È‚¢ƒAƒjƒ[ƒVƒ‡ƒ“ŠJn
+        anim.SetBool("isDisabled", true);
+
         yield return new WaitForSeconds(seconds);
+
+        // “®‚¯‚é‚æ‚¤‚É‚È‚Á‚½‚çƒAƒjƒ[ƒVƒ‡ƒ“‰ğœ
+        anim.SetBool("isDisabled", false);
+
         canMove = true;
     }
 
@@ -182,7 +193,7 @@ public class Player : MonoBehaviour
         dash = originalDash;
     }
 
-    // UŒ‚ŠÔŠu’Zkj
+    // UŒ‚ŠÔŠu’Zk
     public void PowerUp(float seconds)
     {
         StartCoroutine(PowerUpCoroutine(seconds));
@@ -192,17 +203,13 @@ public class Player : MonoBehaviour
     {
         float originalCooldown = attackCooldown;
 
-        // UŒ‚ŠÔŠu‚ğ’Zk
         currentAttackCooldown = attackCooldown * 0.3f;
 
         aura.SetActive(true);
-        // sr.color = Color.red;
 
         yield return new WaitForSeconds(seconds);
 
-        // Œ³‚É–ß‚·
         currentAttackCooldown = originalCooldown;
         aura.SetActive(false);
-       //  sr.color = Color.white;
     }
 }
