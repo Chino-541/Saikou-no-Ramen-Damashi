@@ -1,60 +1,37 @@
-using UnityEngine;
-using TMPro;
+ï»¿using UnityEngine;
+using UnityEngine.UI;
 
 public class foodSlot : MonoBehaviour
 {
-    public enum foodType
+    [SerializeField] Image iconImage;
+
+    ItemData currentItem;
+
+
+    public bool IsEmpty()
     {
-        Beaf,
-        Fish,
-        Vegetable
+        return currentItem == null;
     }
 
-    [SerializeField] foodType food;
-    [SerializeField] TMP_Text countText;
-
-    int count = 0;
-
-    public void AddCount()
+    public void SetItem(ItemData item)
     {
-        count++;
-        countText.text = count.ToString();
+        currentItem = item;
+
+        iconImage.sprite = item.icon;
+        iconImage.color = Color.white;
     }
 
-    public int Minus()
+    public ItemData GetItem()
     {
-        if (count <= 0)
-        {
-            Debug.Log(GetNoItemMessage());
-            return 0;
-        }
-
-        int used = count;
-        count = 0;
-        countText.text = "0";
-
-        return used;
+        return currentItem;
     }
 
-    string GetNoItemMessage()
+    public void Clear()
     {
-        return food switch
-        {
-            foodType.Beaf => "‚¨“÷‚ª‚ ‚è‚Ü‚¹‚ñ",
-            foodType.Fish => "‹›‚ª‚ ‚è‚Ü‚¹‚ñ",
-            foodType.Vegetable => "–ìØ‚ª‚ ‚è‚Ü‚¹‚ñ",
-            _ => "ƒAƒCƒeƒ€‚ª‚ ‚è‚Ü‚¹‚ñ"
-        };
-    }
-    public int GetCount()
-    {
-        return count;
+        currentItem = null;
+
+        iconImage.sprite = null;
+        iconImage.color = new Color(1, 1, 1, 0);
     }
 
-    // Reset —p
-    public void ResetCount()
-    {
-        count = 0;
-        countText.text = "0";
-    }
 }

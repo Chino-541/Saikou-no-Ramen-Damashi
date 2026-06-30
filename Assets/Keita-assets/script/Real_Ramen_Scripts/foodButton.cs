@@ -4,59 +4,61 @@ using UnityEngine.UI;
 
 public class foodButton : MonoBehaviour
 {
-    public enum foodType { Beaf, Fish, Vegetable }
-
-    [SerializeField] private ItemData itemData;
-    [SerializeField] foodType food;
-
-    [SerializeField] Cook cook;
-    [SerializeField] Image centerSlot;
-    [SerializeField] Image myImage;
+    [SerializeField] ItemData itemData;
+    [SerializeField] foodSlot[] slots;
     [SerializeField] TMP_Text countText;
-
-    [SerializeField] SlotBef slotBef;
-    [SerializeField] SlotFis slotFis;
-    [SerializeField] SlotVeg slotVeg;
-
-    [SerializeField] private Slider[] sliders = new Slider[5];
+    [SerializeField] Image iconImage;
 
     Button button;
 
     void Start()
     {
-        cook = FindAnyObjectByType<Cook>();
         button = GetComponent<Button>();
-        button.onClick.AddListener(OnClickfoodButton);
+        button.onClick.AddListener(OnClickFoodButton);
+
+        UpdateCountText();
+    }
+    public void Setup(ItemData item, foodSlot[] targetSlots)
+    {
+        itemData = item;
+        slots = targetSlots;
+
+        iconImage.sprite = item.icon;
+
         UpdateCountText();
     }
 
-    void OnClickfoodButton()
+    void OnClickFoodButton()
     {
-        if (GetCount() <= 0) return;
+        if (GetCount() <= 0)
+            return;
 
-        button.interactable = false;
-
-        centerSlot.sprite = myImage.sprite;
-        centerSlot.color = Color.white;
-
-        DecreaseCount();
-        UpdateCountText();
-
-        switch (food)
+        // “¯‚¶‘fÞ‚ªŠù‚É“ü‚Á‚Ä‚¢‚é‚©Šm”F
+        foreach (foodSlot slot in slots)
         {
-            case foodType.Beaf: slotBef.BefCount(); break;
-            case foodType.Fish: slotFis.FisCount(); break;
-            case foodType.Vegetable: slotVeg.VegCount(); break;
+            if (slot.GetItem() == itemData)
+            {
+                Debug.Log("‚±‚Ì‘fÞ‚ÍŠù‚ÉŽg—p‚µ‚Ä‚¢‚Ü‚·");
+                return;
+            }
         }
 
-        sliders[0].value += itemData.saltiness;
-        sliders[1].value += itemData.umami;
-        sliders[2].value += itemData.spiciness;
-        sliders[3].value += itemData.fatness;
-        sliders[4].value += itemData.mystery;
+        // ‹ó‚¢‚Ä‚¢‚é˜g‚ð’T‚·
+        foreach (foodSlot slot in slots)
+        {
+            if (slot.IsEmpty())
+            {
+                slot.SetItem(itemData);
 
-        // š ScriptableObject ‚ðƒŠƒXƒg‚É’Ç‰Á
-        Create.UsedItemDataList.Add(itemData);
+                Inventory.instance.RemoveItem(itemData, 1);
+
+                RamenStatusManager.Instance.CalculateStatus();
+
+                UpdateCountText();
+
+                break;
+            }
+        }
     }
 
     void UpdateCountText()
@@ -66,37 +68,6 @@ public class foodButton : MonoBehaviour
 
     int GetCount()
     {
-        return food switch
-        {
-            foodType.Beaf => cook.beaf,
-            foodType.Fish => cook.fish,
-            foodType.Vegetable => cook.Vegetable,
-            _ => 0
-        };
-    }
-
-    void DecreaseCount()
-    {
-        switch (food)
-        {
-            case foodType.Beaf: cook.beaf--; break;
-            case foodType.Fish: cook.fish--; break;
-            case foodType.Vegetable: cook.Vegetable--; break;
-        }
-    }
-
-    public void ResetButton()
-    {
-        button.interactable = true;
-
-        UpdateCountText();
-        centerSlot.sprite = null;
-        centerSlot.color = new Color(1, 1, 1, 0);
-
-        for (int i = 0; i < sliders.Length; i++)
-        {
-            sliders[i].value = 0;
-        }
-        Create.UsedItemDataList.Clear();
+        return Storage.instance.GetItemCount(itemData);
     }
 }

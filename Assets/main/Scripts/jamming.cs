@@ -15,6 +15,4 @@ public class jamming : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-
 }
