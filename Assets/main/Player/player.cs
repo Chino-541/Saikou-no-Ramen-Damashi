@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     // 攻撃クールタイム
     public float attackCooldown = 0.5f;
     private float currentAttackCooldown;
+
+    // ゲーム開始時に攻撃できるようにする
     private bool canAttack = true;
 
     Vector2 facing = Vector2.down;
@@ -41,11 +43,14 @@ public class Player : MonoBehaviour
         Attack.SetActive(false);
 
         currentAttackCooldown = attackCooldown;
+
+        //  Animator の攻撃フラグを必ず初期化
+        anim.SetBool("isAttacking", false);
     }
 
     void Update()
     {
-        // ★ 動けない時の処理（アニメーションもここで固定）
+        // 動けない時の処理
         if (!canMove)
         {
             _rb.linearVelocity = Vector2.zero;
@@ -53,6 +58,10 @@ public class Player : MonoBehaviour
             ResetDirectionBools();
             return;
         }
+
+        // ★ 攻撃していないときは攻撃アニメーションを強制OFF
+        if (!isAttacking)
+            anim.SetBool("isAttacking", false);
 
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
@@ -126,7 +135,9 @@ public class Player : MonoBehaviour
         canAttack = false;
         attackSound.Play();
         isAttacking = true;
+
         yield return new WaitForSeconds(currentAttackCooldown);
+
         isAttacking = false;
         canAttack = true;
     }
@@ -147,7 +158,7 @@ public class Player : MonoBehaviour
         isAttacking = false;
     }
 
-    //  入力無効化
+    // 入力無効化
     public void DisableInput(float seconds)
     {
         StartCoroutine(DisableInputCoroutine(seconds));
@@ -156,15 +167,11 @@ public class Player : MonoBehaviour
     private IEnumerator DisableInputCoroutine(float seconds)
     {
         canMove = false;
-
-        // 動けないアニメーション開始
         anim.SetBool("isDisabled", true);
 
         yield return new WaitForSeconds(seconds);
 
-        // 動けるようになったらアニメーション解除
         anim.SetBool("isDisabled", false);
-
         canMove = true;
     }
 
