@@ -9,7 +9,6 @@ TagManager:
   - Char
   - BGM
   - SE
-  - Animal
   layers:
   - Default
   - TransparentFX
@@ -62,8 +61,20 @@ TagManager:
   - name: Panel
     uniqueID: 2624910899
     locked: 0
-  - name: jamming
-    uniqueID: 1440155971
+  - name: Customer1
+    uniqueID: 1077907723
+    locked: 0
+  - name: Customer2
+    uniqueID: 1452182707
+    locked: 0
+  - name: Customer3
+    uniqueID: 2427533579
+    locked: 0
+  - name: Customer4
+    uniqueID: 1571822169
+    locked: 0
+  - name: Customer5
+    uniqueID: 1985823033
     locked: 0
   m_RenderingLayers:
   - Default

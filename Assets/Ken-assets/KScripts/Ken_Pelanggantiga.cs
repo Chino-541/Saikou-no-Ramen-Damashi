@@ -18,6 +18,10 @@ public class Ken_Pelanggantiga : MonoBehaviour
     //[SerializeField] private int _SliderMinVal = 0, _SliderMaxVal = 5;
     //[SerializeField] private int _SliderValue;
 
+    [SerializeField] private AudioSource _SakuseiSEI;
+    [SerializeField] private AudioSource _SakuseiSEII;
+    [SerializeField] private AudioSource _SakuseiSEIII;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -63,7 +67,8 @@ public class Ken_Pelanggantiga : MonoBehaviour
         _Image[3].gameObject.SetActive(true);
         _Image[4].gameObject.SetActive(true);
         */
-
+        _SakuseiSEI.Play();
+        _SakuseiSEII.Play();
         _playerInp.DeactivateInput();
 
         for (int j = 0; j < _Image.Length; j++)
@@ -76,6 +81,10 @@ public class Ken_Pelanggantiga : MonoBehaviour
             _Image[i].gameObject.SetActive(false);
             yield return new WaitForSeconds(_Delay / 10);
         }
+
+        _SakuseiSEI.Stop();
+        _SakuseiSEII.Stop();
+        _SakuseiSEIII.Play();
         _playerInp.ActivateInput();
     }
     /*

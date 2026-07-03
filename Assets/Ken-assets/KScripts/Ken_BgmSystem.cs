@@ -9,7 +9,7 @@ public class Ken_BgmSystem : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _BgmPelanggan.enabled = true;
+       // _BgmPelanggan.enabled = true;
 
     }
 
@@ -20,8 +20,11 @@ public class Ken_BgmSystem : MonoBehaviour
     }
     public void gantiBGM()
     {
-        _BgmPelanggan.enabled=false;
-        _BgmScore.enabled=true;
+        //_BgmPelanggan.enabled=false;
+        //_BgmScore.enabled=true;
+
+        _BgmPelanggan.Stop();
+        _BgmScore.Play();
     }
     
 }
