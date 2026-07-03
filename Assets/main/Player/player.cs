@@ -168,7 +168,7 @@ public class Player : MonoBehaviour
     {
         canMove = false;
 
-        // š Animator ‚ª null ‚Å‚à—‚¿‚È‚¢‚æ‚¤‚É‚·‚é
+        // Animator ‚ª null ‚Å‚à—‚¿‚È‚¢‚æ‚¤‚É‚·‚é
         if (anim != null)
         {
             anim.SetBool("isDisabled", true);
