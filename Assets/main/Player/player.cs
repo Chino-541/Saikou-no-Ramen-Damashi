@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
     public float dash = 5.0f;
     private float currentSpeed;
 
+    private float baseSpeed;
+    private float baseDash;
+
     private Rigidbody2D _rb;
 
     // 攻撃obj
@@ -38,19 +41,22 @@ public class Player : MonoBehaviour
         aura.SetActive(false);
         _rb = GetComponent<Rigidbody2D>();
         currentSpeed = speed;
+
+        //  初期値を保存
+        baseSpeed = speed;
+        baseDash = dash;
+
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
         Attack.SetActive(false);
 
         currentAttackCooldown = attackCooldown;
 
-        //  Animator の攻撃フラグを必ず初期化
         anim.SetBool("isAttacking", false);
     }
 
     void Update()
     {
-        // 動けない時の処理
         if (!canMove)
         {
             _rb.linearVelocity = Vector2.zero;
@@ -59,7 +65,6 @@ public class Player : MonoBehaviour
             return;
         }
 
-        // ★ 攻撃していないときは攻撃アニメーションを強制OFF
         if (!isAttacking)
             anim.SetBool("isAttacking", false);
 
@@ -73,7 +78,7 @@ public class Player : MonoBehaviour
 
         anim.SetBool("isRunning", dir.magnitude > 0);
 
-        currentSpeed = Input.GetKey(KeyCode.RightShift) ? dash : speed;
+        currentSpeed = Input.GetKey(KeyCode.LeftShift) ? dash : speed;
 
         Attacker();
     }
@@ -168,14 +173,13 @@ public class Player : MonoBehaviour
     {
         canMove = false;
 
-        // Animator が null でも落ちないようにする
         if (anim != null)
         {
             anim.SetBool("isDisabled", true);
         }
         else
         {
-            Debug.LogWarning("Player: Animator がまだ初期化されていません（Start() より前に呼ばれています）");
+            Debug.LogWarning("Player: Animator がまだ初期化されていません");
         }
 
         yield return new WaitForSeconds(seconds);
@@ -188,7 +192,6 @@ public class Player : MonoBehaviour
         canMove = true;
     }
 
-
     // スピードアップ
     public void SpeedUp(float seconds)
     {
@@ -197,21 +200,21 @@ public class Player : MonoBehaviour
 
     IEnumerator SpeedUpCoroutine(float seconds)
     {
-        float originalSpeed = speed;
-        float originalDash = dash;
         sr.color = Color.yellow;
         aura.SetActive(true);
 
-        speed = originalSpeed * 2f;
-        dash = originalDash * 2f;
+        //  常に初期値から計算する（バグ完全防止）
+        speed = baseSpeed * 2f;
+        dash = baseDash * 2f;
 
         yield return new WaitForSeconds(seconds);
 
         aura.SetActive(false);
         sr.color = Color.white;
 
-        speed = originalSpeed;
-        dash = originalDash;
+        //  必ず初期値に戻す
+        speed = baseSpeed;
+        dash = baseDash;
     }
 
     // 攻撃間隔短縮

@@ -1,31 +1,54 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class Ken_PChar : MonoBehaviour
 {
-    [Header("Nyanスクリプトへようこそ")]
     [SerializeField] private Vector2 _MoveInp;
     [SerializeField] Rigidbody2D _Rb;
     [SerializeField] float _MoveSpeed = 5f;
+
+    private bool canMove = true; 
 
     private void Awake()
     {
         _Rb = GetComponent<Rigidbody2D>();
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        _Rb.linearVelocity = _MoveInp * _MoveSpeed;
-    }
-    public void Move(InputAction.CallbackContext context)
-    {
-        _MoveInp = context.ReadValue<Vector2>();
+        if (canMove)
+        {
+            _Rb.linearVelocity = _MoveInp * _MoveSpeed;
+        }
+        else
+        {
+            _Rb.linearVelocity = Vector2.zero; // ←停止
+        }
     }
 
+    public void Move(InputAction.CallbackContext context)
+    {
+        if (canMove)
+        {
+            _MoveInp = context.ReadValue<Vector2>();
+        }
+        else
+        {
+            _MoveInp = Vector2.zero;
+        }
+    }
+
+    public void DisableInput(float seconds)
+    {
+        StartCoroutine(DisableInputCoroutine(seconds));
+    }
+
+    private IEnumerator DisableInputCoroutine(float seconds)
+    {
+        canMove = false; // ←停止開始
+        yield return new WaitForSeconds(seconds);
+        canMove = true;  // ←停止解除
+    }
 }

@@ -3,6 +3,7 @@ using UnityEngine;
 public class Track : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
+    [SerializeField] private Ken_PChar Ken;
 
     void Update()
     {
@@ -12,7 +13,7 @@ public class Track : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<Player>().DisableInput(3f);
+            collision.GetComponent<Ken_PChar>().DisableInput(3f);
         }
     }
 }
