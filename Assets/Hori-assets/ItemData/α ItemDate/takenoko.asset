@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: takenoko
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: takenoko
-  icon: {fileID: 0}
+  icon: {fileID: 5273248136925229624, guid: 41adb9ab691ddb344a98dd6d66e52df1, type: 3}
   description: 
   maxStack: 99
   saltiness: 0
