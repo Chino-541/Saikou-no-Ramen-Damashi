@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class MiniGameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject miniGameUI;
     void Start()
     {
-        
+        miniGameUI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -15,6 +16,7 @@ public class MiniGameManager : MonoBehaviour
     }
     public void MiniGame()
     {
-    
+        miniGameUI.SetActive(true);
+        
     }
 }
