@@ -10744,7 +10744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameTimer
   timeLimit: 60
   timeText: {fileID: 211608885}
-  playerRb: {fileID: 0}
+  playerRb: {fileID: 661034999}
 --- !u!4 &691009560
 Transform:
   m_ObjectHideFlags: 0
