@@ -50,7 +50,7 @@ public class foodButton : MonoBehaviour
             {
                 slot.SetItem(itemData);
 
-                Inventory.instance.RemoveItem(itemData, 1);
+                Storage.instance.RemoveItem(itemData, 1);
 
                 RamenStatusManager.Instance.CalculateStatus();
 

@@ -1651,7 +1651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 093e1e6219d4a4441a0f9ef6c2066fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  speed: 2
+  speed: 5
   dash: 5
   Attack: {fileID: 0}
 --- !u!95 &1703355851
