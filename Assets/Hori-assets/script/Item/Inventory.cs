@@ -14,22 +14,23 @@ public class Inventory : MonoBehaviour
     public event Action onItemChanged;
 
     // 仮アイテム
-    public ItemData butaniku;
-    public ItemData gyuniku;
-    public ItemData toriniku;
+
 
     void Start()
     {
-        AddItem(butaniku, 5);
-
-        AddItem(gyuniku, 3);
-
-        AddItem(toriniku, 2);
+        Debug.Log("Inventory Start");
     }
 
     void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public bool AddItem(ItemData item, int amount)
@@ -62,6 +63,7 @@ public class Inventory : MonoBehaviour
     {
         foreach (var item in items)
         {
+            Storage.instance.AddItem(item.Key, item.Value);
             Debug.Log(item.Key.itemName +
                 " x" + item.Value +
                 " を倉庫に入れた");
@@ -85,5 +87,28 @@ public class Inventory : MonoBehaviour
         }
 
         return 0;
+    }
+    public bool RemoveItem(ItemData item, int amount)
+    {
+        Debug.Log("削除要求: " + item.itemName);
+
+        if (!items.ContainsKey(item))
+        {
+            Debug.Log("そのItemDataはInventoryに存在しません");
+            return false;
+        }
+
+        items[item] -= amount;
+
+        Debug.Log("残り: " + items[item]);
+
+        if (items[item] <= 0)
+        {
+            items.Remove(item);
+        }
+
+        onItemChanged?.Invoke();
+
+        return true;
     }
 }

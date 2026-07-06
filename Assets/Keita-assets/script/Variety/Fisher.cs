@@ -2,25 +2,52 @@ using UnityEngine;
 
 public class Fisher : MonoBehaviour
 {
-    [SerializeField] private GameObject Fishing;
-    [SerializeField] private Ken_GFish fishSystem;
+    [SerializeField] private Fishing fishSystem;
 
     private bool isFishing = false;
+    private bool playerInArea = false;
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void Update()
     {
-        if (collision.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
+        // プレイヤーが範囲内にいる時だけ
+        if (playerInArea)
         {
-            if (!isFishing)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                isFishing = true;
-                Fishing.SetActive(true);
-                Debug.Log("釣り開始");
+                Debug.Log("Eキー押した");
+
+                if (!isFishing)
+                {
+                    Debug.Log("釣りはじめ");
+                    isFishing = true;
+                    // Fishingのコルーチンはじめ
+                    fishSystem.StartFishing();
+                }
             }
         }
     }
-    public void EndFishingFlag()
+    // Trigger内にいる時
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Player"))
+        {
+            Debug.Log("釣り場にいるよ");
+            playerInArea = true;
+        }
+    }
+    // Trigger外に出た時
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            Debug.Log("釣り場から出た");
+            playerInArea = false;
+        }
+    }
+    // fishingから通知受け取るとこ
+    public void EndFishing()
+    {
+        Debug.Log("Triggerがfalseになたよ");
         isFishing = false;
     }
 }

@@ -26,7 +26,7 @@ public class Reset : MonoBehaviour
         cook.beaf = initialBeaf;
         cook.fish = initialFish;
         cook.Vegetable = initialVeg;
-
+        /*
         // foodButton の UI とボタン状態を戻す
         foreach (var btn in foodButtons)
         {
@@ -40,5 +40,6 @@ public class Reset : MonoBehaviour
         }
 
         Debug.Log("シーン内の食材・UI を初期状態に戻しました");
+        */
     }
 }

@@ -6,23 +6,53 @@ public class Player : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sr;
 
+    // スピード関連
     public float speed = 2.0f;
     public float dash = 5.0f;
     private float currentSpeed;
+
+    private float baseSpeed;
+    private float baseDash;
+
     private Rigidbody2D _rb;
+
+    // 攻撃obj
     public GameObject Attack;
 
+    // 攻撃クールタイム
+    public float attackCooldown = 0.5f;
+    private float currentAttackCooldown;
+
+    // ゲーム開始時に攻撃できるようにする
+    private bool canAttack = true;
+
     Vector2 facing = Vector2.down;
+
     bool isAttacking = false;
     private bool canMove = true;
 
+    // バフの時のオーラ的な
+    public GameObject aura;
+
+    public AudioSource attackSound;
+
     void Start()
     {
+        aura.SetActive(false);
         _rb = GetComponent<Rigidbody2D>();
         currentSpeed = speed;
+
+        //  初期値を保存
+        baseSpeed = speed;
+        baseDash = dash;
+
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
         Attack.SetActive(false);
+
+        currentAttackCooldown = attackCooldown;
+
+        anim.SetBool("isAttacking", false);
     }
 
     void Update()
@@ -35,26 +65,26 @@ public class Player : MonoBehaviour
             return;
         }
 
+        if (!isAttacking)
+            anim.SetBool("isAttacking", false);
+
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
         Vector2 dir = new Vector2(inputX, inputY).normalized;
 
         _rb.linearVelocity = dir * currentSpeed;
 
-        //  方向アニメーション
         UpdateDirectionBools(inputX, inputY);
 
         anim.SetBool("isRunning", dir.magnitude > 0);
 
-        currentSpeed = Input.GetKey(KeyCode.RightShift) ? dash : speed;
+        currentSpeed = Input.GetKey(KeyCode.LeftShift) ? dash : speed;
 
         Attacker();
     }
 
-
     void UpdateDirectionBools(float inputX, float inputY)
     {
-        // 入力があるときだけ方向を更新する
         if (inputX != 0 || inputY != 0)
         {
             ResetDirectionBools();
@@ -85,11 +115,8 @@ public class Player : MonoBehaviour
                 facing = Vector2.down;
             }
         }
-
-        // 入力がないときは何もしない（最後の向きを維持）
     }
 
-    //  全方向 false にする
     void ResetDirectionBools()
     {
         anim.SetBool("up", false);
@@ -98,19 +125,27 @@ public class Player : MonoBehaviour
         anim.SetBool("left", false);
     }
 
-    // 攻撃
-    public AudioSource attackSound;
-
+    // 攻撃処理
     void Attacker()
     {
-        if (Input.GetKeyDown(KeyCode.V) && !isAttacking)
+        if (Input.GetKeyDown(KeyCode.V) && canAttack)
         {
-            attackSound.Play();  // 攻撃音
-            Debug.Log("attacking");
             StartCoroutine(AttackForOneSecond());
+            StartCoroutine(AttackCooldownCoroutine());
         }
     }
 
+    IEnumerator AttackCooldownCoroutine()
+    {
+        canAttack = false;
+        attackSound.Play();
+        isAttacking = true;
+
+        yield return new WaitForSeconds(currentAttackCooldown);
+
+        isAttacking = false;
+        canAttack = true;
+    }
 
     IEnumerator AttackForOneSecond()
     {
@@ -137,7 +172,23 @@ public class Player : MonoBehaviour
     private IEnumerator DisableInputCoroutine(float seconds)
     {
         canMove = false;
+
+        if (anim != null)
+        {
+            anim.SetBool("isDisabled", true);
+        }
+        else
+        {
+            Debug.LogWarning("Player: Animator がまだ初期化されていません");
+        }
+
         yield return new WaitForSeconds(seconds);
+
+        if (anim != null)
+        {
+            anim.SetBool("isDisabled", false);
+        }
+
         canMove = true;
     }
 
@@ -149,15 +200,40 @@ public class Player : MonoBehaviour
 
     IEnumerator SpeedUpCoroutine(float seconds)
     {
-        float originalSpeed = speed;
-        float originalDash = dash;
+        sr.color = Color.yellow;
+        aura.SetActive(true);
 
-        speed = originalSpeed * 2f;
-        dash = originalDash * 2f;
+        //  常に初期値から計算する（バグ完全防止）
+        speed = baseSpeed * 2f;
+        dash = baseDash * 2f;
 
         yield return new WaitForSeconds(seconds);
 
-        speed = originalSpeed;
-        dash = originalDash;
+        aura.SetActive(false);
+        sr.color = Color.white;
+
+        //  必ず初期値に戻す
+        speed = baseSpeed;
+        dash = baseDash;
+    }
+
+    // 攻撃間隔短縮
+    public void PowerUp(float seconds)
+    {
+        StartCoroutine(PowerUpCoroutine(seconds));
+    }
+
+    IEnumerator PowerUpCoroutine(float seconds)
+    {
+        float originalCooldown = attackCooldown;
+
+        currentAttackCooldown = attackCooldown * 0.3f;
+
+        aura.SetActive(true);
+
+        yield return new WaitForSeconds(seconds);
+
+        currentAttackCooldown = originalCooldown;
+        aura.SetActive(false);
     }
 }

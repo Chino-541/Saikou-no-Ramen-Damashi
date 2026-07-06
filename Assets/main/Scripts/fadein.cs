@@ -12,11 +12,13 @@ public class Fadein : MonoBehaviour
     [SerializeField] private Image startTutorPanelImage;
 
     [Header("Fade Settings")]
-    [SerializeField] private float fadeSpeed = 0.002f;
     [SerializeField] private float startDelay = 0.5f;
     [SerializeField] private float textDelay = 0.5f;
+    [SerializeField] private float fadeDuration = 1.0f;   // ★ 秒指定フェード
 
     public bool IsFinished { get; private set; } = false;
+
+    public Player player;   // ★ Player を Inspector でセットする
 
     private void Start()
     {
@@ -25,39 +27,44 @@ public class Fadein : MonoBehaviour
 
     private IEnumerator StartTutor()
     {
-        // 最初の待機
+        // ★ フェードイン中はプレイヤーを停止
+        player.DisableInput(9999f);
+
         yield return new WaitForSecondsRealtime(startDelay);
 
-        // テキスト表示
         tmpText.text = displayText;
         yield return new WaitForSecondsRealtime(textDelay);
 
         // フェード開始
         Color color = startTutorPanelImage.color;
         color.a = 1f;
+        startTutorPanelImage.color = color;
 
-        while (color.a > 0f)
+        float t = 0f;
+
+        while (t < fadeDuration)
         {
-            color.a -= fadeSpeed;
+            t += Time.unscaledDeltaTime;
+
+            float normalized = 1f - (t / fadeDuration);
+            color.a = normalized;
             startTutorPanelImage.color = color;
 
-            // テキストを途中で消す
             if (color.a < 0.01f)
                 tmpText.gameObject.SetActive(false);
-
-            // 0.3 以下になったら UI ブロック解除
-            if (color.a < 0.3f)
-                break;
 
             yield return null;
         }
 
-        // UI ブロック解除
-        startTutorPanelImage.raycastTarget = false;
+        color.a = 0f;
+        startTutorPanelImage.color = color;
 
-        // 親ごと非表示
+        startTutorPanelImage.raycastTarget = false;
         startTutorPanelImage.transform.parent.gameObject.SetActive(false);
 
         IsFinished = true;
+
+        // ★ フェードイン終了 → プレイヤーを動かせるようにする
+        player.DisableInput(0f);
     }
 }

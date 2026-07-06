@@ -4,59 +4,75 @@ using UnityEngine.UI;
 
 public class foodButton : MonoBehaviour
 {
-    public enum foodType { Beaf, Fish, Vegetable }
-
-    [SerializeField] private ItemData itemData;
-    [SerializeField] foodType food;
-
-    [SerializeField] Cook cook;
-    [SerializeField] Image centerSlot;
-    [SerializeField] Image myImage;
+    [SerializeField] ItemData itemData;
+    [SerializeField] foodSlot[] slots;
     [SerializeField] TMP_Text countText;
-
-    [SerializeField] SlotBef slotBef;
-    [SerializeField] SlotFis slotFis;
-    [SerializeField] SlotVeg slotVeg;
-
-    [SerializeField] private Slider[] sliders = new Slider[5];
+    [SerializeField] Image iconImage;
 
     Button button;
 
     void Start()
     {
-        cook = FindAnyObjectByType<Cook>();
         button = GetComponent<Button>();
-        button.onClick.AddListener(OnClickfoodButton);
+        button.onClick.AddListener(OnClickFoodButton);
+
         UpdateCountText();
     }
 
-    void OnClickfoodButton()
+    public void Setup(ItemData item, foodSlot[] targetSlots)
     {
-        if (GetCount() <= 0) return;
+        itemData = item;
+        slots = targetSlots;
 
-        button.interactable = false;
+        iconImage.sprite = item.icon;
 
-        centerSlot.sprite = myImage.sprite;
-        centerSlot.color = Color.white;
-
-        DecreaseCount();
         UpdateCountText();
+    }
 
-        switch (food)
+    void OnClickFoodButton()
+    {
+        if (GetCount() <= 0)
+            return;
+
+        // 同じ素材が既に入っているか確認
+        foreach (foodSlot slot in slots)
         {
-            case foodType.Beaf: slotBef.BefCount(); break;
-            case foodType.Fish: slotFis.FisCount(); break;
-            case foodType.Vegetable: slotVeg.VegCount(); break;
+            if (slot.GetItem() == itemData)
+            {
+                Debug.Log("この素材は既に使用しています");
+                return;
+            }
         }
 
-        sliders[0].value += itemData.saltiness;
-        sliders[1].value += itemData.umami;
-        sliders[2].value += itemData.spiciness;
-        sliders[3].value += itemData.fatness;
-        sliders[4].value += itemData.mystery;
+        // 空いている枠を探す
+        foreach (foodSlot slot in slots)
+        {
+            if (slot.IsEmpty())
+            {
+                slot.SetItem(itemData);
 
-        // ★ ScriptableObject をリストに追加
-        Create.UsedItemDataList.Add(itemData);
+                // ★ 所持数を取得
+                int count = GetCount();
+
+                // ★ 所持数分スコアを加算
+                FoodScoreData.score += count;
+
+                // ★ Debug 表示（圭汰の希望）
+                Debug.Log($"選んだ食材: {itemData.name}");
+                Debug.Log($"所持数: {count}");
+                Debug.Log($"加算後のスコア: {FoodScoreData.score}");
+
+                // インベントリから1個減らす
+                Inventory.instance.RemoveItem(itemData, 1);
+
+                // ステータス更新
+                RamenStatusManager.Instance.CalculateStatus();
+
+                UpdateCountText();
+
+                break;
+            }
+        }
     }
 
     void UpdateCountText()
@@ -66,37 +82,6 @@ public class foodButton : MonoBehaviour
 
     int GetCount()
     {
-        return food switch
-        {
-            foodType.Beaf => cook.beaf,
-            foodType.Fish => cook.fish,
-            foodType.Vegetable => cook.Vegetable,
-            _ => 0
-        };
-    }
-
-    void DecreaseCount()
-    {
-        switch (food)
-        {
-            case foodType.Beaf: cook.beaf--; break;
-            case foodType.Fish: cook.fish--; break;
-            case foodType.Vegetable: cook.Vegetable--; break;
-        }
-    }
-
-    public void ResetButton()
-    {
-        button.interactable = true;
-
-        UpdateCountText();
-        centerSlot.sprite = null;
-        centerSlot.color = new Color(1, 1, 1, 0);
-
-        for (int i = 0; i < sliders.Length; i++)
-        {
-            sliders[i].value = 0;
-        }
-        Create.UsedItemDataList.Clear();
+        return Storage.instance.GetItemCount(itemData);
     }
 }

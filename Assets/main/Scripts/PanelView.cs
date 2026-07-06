@@ -38,8 +38,19 @@ public class PanelView : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            panel.SetActive(true);
-            Time.timeScale = 0f;
+            // パネルが開いているなら閉じる
+            if (panel.activeSelf)
+            {
+                panel.SetActive(false);
+                Time.timeScale = 1f;
+            }
+            else
+            {
+                // パネルが閉じているなら開く
+                panel.SetActive(true);
+                Time.timeScale = 0f;
+            }
         }
     }
+
 }

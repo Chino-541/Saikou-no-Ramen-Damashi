@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -20,12 +21,16 @@ public class Animal : MonoBehaviour
 
     // ランダム移動の方向
     private Vector2 direction;
-
+    // 色変更
+    private SpriteRenderer Sr;
 
     private Rigidbody2D rb2;
     public GameObject item;
     void Start()
     {
+        // 元の色
+        Sr = GetComponent<SpriteRenderer>();
+
         rb2 = GetComponent<Rigidbody2D>();
         // 速さの定義？
         CurrentSpeed = Speed;
@@ -86,9 +91,16 @@ public class Animal : MonoBehaviour
         if (collision.gameObject.CompareTag("Attack"))
         {
             Hp();
+            StartCoroutine(Damage());
             Debug.Log("当たった");
             CurrentHp--;
         }
+    }
+ IEnumerator Damage()
+    {
+        Sr.color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        Sr.color = Color.white;
     }
 
 }
