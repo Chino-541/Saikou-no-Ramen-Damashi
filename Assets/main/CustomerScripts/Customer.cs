@@ -1,28 +1,38 @@
-using System;
-using System.Collections;
 using UnityEngine;
-using UnityEditor;
-
 
 public class Customer : MonoBehaviour
 {
-    [SerializeField] private MiniGameManager miniGame;
-    void Start()
-    {
+    private MiniGameManager miniGame;
+    private CustomerSpawner spawner;
 
+    public void Setup(MiniGameManager manager, CustomerSpawner spawnerRef)
+    {
+        miniGame = manager;
+        spawner = spawnerRef;
+
+        // ミニゲーム終了時にこの Customer を消す
+        miniGame.OnMiniGameEnd += DestroySelf;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void DestroySelf()
     {
+        // すでに破棄されていたら何もしない
+        if (this == null) return;
 
+        // スポナーに通知
+        spawner.CustomerDestroyed();
+
+        // 自分を消す
+        Destroy(gameObject);
+
+        // イベント解除（重要）
+        miniGame.OnMiniGameEnd -= DestroySelf;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("ミニゲーム始め");
             miniGame.MiniGame();
         }
     }

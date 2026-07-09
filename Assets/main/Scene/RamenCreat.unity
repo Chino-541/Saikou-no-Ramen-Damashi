@@ -2189,7 +2189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d33b8f062660e1449dc5732e132a936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Create
-  button: {fileID: 1809113493}
 --- !u!1 &1893720170
 GameObject:
   m_ObjectHideFlags: 0
@@ -2523,9 +2522,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   foodSlots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1710281782}
+  - {fileID: 694448376}
+  - {fileID: 2136577644}
+  - {fileID: 1105844582}
 --- !u!1 &2136577640
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,17 +3,14 @@ using System.Collections;
 
 public class CustomerSpawner : MonoBehaviour
 {
-    // お客さん
     [SerializeField] private GameObject customerPrefab;
-    // 範囲
     [SerializeField] private PolygonCollider2D spawnArea;
-    // 生成間隔
     [SerializeField] private float spawnDelay = 10f;
-    // お客さんが消える(?)
     [SerializeField] private float destroyDelay = 12f;
-    // 同時に存在できる人数
     [SerializeField] private int maxSpawn = 5;
-    // 生成人数と生成できるかのbool
+
+    [SerializeField] private MiniGameManager miniGameManager;
+
     private int currentSpawn = 0;
     public bool canSpawn = false;
 
@@ -26,11 +23,14 @@ public class CustomerSpawner : MonoBehaviour
     {
         while (true)
         {
-            // boolがいけて規定人数を下回ってたらspawn開始
             if (canSpawn && currentSpawn < maxSpawn)
             {
                 Vector2 pos = GetRandomPos();
                 GameObject obj = Instantiate(customerPrefab, pos, Quaternion.identity);
+
+                // スポーン時に MiniGameManager 
+                Customer customer = obj.GetComponent<Customer>();
+                customer.Setup(miniGameManager, this);
 
                 currentSpawn++;
                 StartCoroutine(DestroyDelay(obj));
@@ -39,7 +39,7 @@ public class CustomerSpawner : MonoBehaviour
             yield return new WaitForSeconds(spawnDelay);
         }
     }
-    // 一定時間たったらお客さんが消えるコルーチン
+
     IEnumerator DestroyDelay(GameObject obj)
     {
         yield return new WaitForSeconds(destroyDelay);
@@ -54,7 +54,12 @@ public class CustomerSpawner : MonoBehaviour
             currentSpawn--;
         }
     }
-    // ランダムにスポーン
+
+    public void CustomerDestroyed()
+    {
+        currentSpawn--;
+    }
+
     Vector2 GetRandomPos()
     {
         Bounds b = spawnArea.bounds;

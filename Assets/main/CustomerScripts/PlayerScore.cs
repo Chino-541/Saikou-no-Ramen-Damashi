@@ -3,29 +3,50 @@ using TMPro;
 
 public class PlayerScore : MonoBehaviour
 {
-    // ラーメン販売数のテキスト
     [SerializeField] private TextMeshProUGUI poinText;
-    // 合計スコアのテキスト
     [SerializeField] private TextMeshProUGUI totalScoreText;
-    // ラーメン販売数
-    private int point = 0;
 
+    private int point = 0;   // 販売した数
+    private int score = 0;   // スコア（+50 など）
+
+    [SerializeField] private MiniGameManager miniGameManager;
+
+    void Start()
+    {
+        // パネルが閉じたら販売数+1 & スコア+50
+        miniGameManager.OnMiniGameEnd += () =>
+        {
+            AddPoint();     // ★販売数 +1
+            AddScore50();   // ★スコア +50
+            UpdateUI();     // UI更新
+        };
+    }
+
+   
     public void AddPoint()
     {
         point++;
-        // ラーメン販売数の更新
-        poinText.text = "販売した数：" + point;
     }
 
+    //  // ラーメンを1杯売ったとき(ミニゲーム終了時)
+    public void AddScore50()
+    {
+        score += 50;
+    }
+
+    // UI 更新（販売数と合計スコア）
+    private void UpdateUI()
+    {
+        poinText.text = "販売数：" + point;
+        totalScoreText.text = "Score：" + CalculateTotalScore();
+    }
+
+    // 合計スコア計算
+    
     public int CalculateTotalScore()
     {
-        // ラーメンのスコア
-        int ramenScore = 1;
-        // 合計スコアの計算(スコア*販売数+追加スコア)
-        int total = ramenScore * point + FoodScoreData.score;
-        // 合計スコアの更新
-        totalScoreText.text = "合計：" + total;
-        // 合計スコアを返す
+        int ramenScore = 0;
+        int total = ramenScore * point + score + FoodScoreData.score;
         return total;
     }
 }
