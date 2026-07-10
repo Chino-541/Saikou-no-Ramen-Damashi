@@ -7,7 +7,7 @@ public class PlayerScore : MonoBehaviour
     [SerializeField] private TextMeshProUGUI totalScoreText;
 
     private int point = 0;   // 販売した数
-    private int score = 0;   // スコア（+50 など）
+    private int score = 0;   // スコア
 
     [SerializeField] private MiniGameManager miniGameManager;
 
@@ -16,8 +16,8 @@ public class PlayerScore : MonoBehaviour
         // パネルが閉じたら販売数+1 & スコア+50
         miniGameManager.OnMiniGameEnd += () =>
         {
-            AddPoint();     // ★販売数 +1
-            AddScore50();   // ★スコア +50
+            AddPoint();     // 販売数 +1
+            AddScore50();   // スコア +50
             UpdateUI();     // UI更新
         };
     }
@@ -28,13 +28,13 @@ public class PlayerScore : MonoBehaviour
         point++;
     }
 
-    //  // ラーメンを1杯売ったとき(ミニゲーム終了時)
+    //  // ラーメンを1杯売ったとき
     public void AddScore50()
     {
         score += 50;
     }
 
-    // UI 更新（販売数と合計スコア）
+    // UI 更新
     private void UpdateUI()
     {
         poinText.text = "販売数：" + point;

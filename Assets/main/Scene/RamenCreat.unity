@@ -2382,6 +2382,7 @@ GameObject:
   - component: {fileID: 2059943728}
   - component: {fileID: 2059943727}
   - component: {fileID: 2059943726}
+  - component: {fileID: 2059943730}
   - component: {fileID: 2059943729}
   m_Layer: 5
   m_Name: ResetButton
@@ -2454,9 +2455,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2059943729}
-        m_TargetAssemblyTypeName: Reset, Assembly-CSharp
-        m_MethodName: ResetAll
+      - m_Target: {fileID: 2059943730}
+        m_TargetAssemblyTypeName: RemoveButton, Assembly-CSharp
+        m_MethodName: OnClickRemove
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2511,7 +2512,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2059943724}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4c846b29189f4b46861e30b812fba82, type: 3}
   m_Name: 
@@ -2521,6 +2522,23 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  foodSlots:
+  - {fileID: 1710281782}
+  - {fileID: 694448376}
+  - {fileID: 2136577644}
+  - {fileID: 1105844582}
+--- !u!114 &2059943730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059943724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e8bbe70c73481f48bf1769ead34f112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoveButton
   foodSlots:
   - {fileID: 1710281782}
   - {fileID: 694448376}
@@ -2626,6 +2644,10 @@ PrefabInstance:
     - target: {fileID: 3303165325187521780, guid: 90f1d62e612cfae4aa3d4b2a4c862383, type: 3}
       propertyPath: m_Name
       value: karami
+      objectReference: {fileID: 0}
+    - target: {fileID: 4957520749395789194, guid: 90f1d62e612cfae4aa3d4b2a4c862383, type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7845388072308261058, guid: 90f1d62e612cfae4aa3d4b2a4c862383, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2843,6 +2865,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7876892985992019618, guid: 57c3923965160e44990f2cf29ed5996b, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8747678954860704971, guid: 57c3923965160e44990f2cf29ed5996b, type: 3}
       propertyPath: m_Name
       value: sinpi
@@ -2889,6 +2915,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5186882062336799453, guid: e780e8b0c91f759408e95e4e17e8175e, type: 3}
       propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186882062336799453, guid: e780e8b0c91f759408e95e4e17e8175e, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8131596385635350362, guid: e780e8b0c91f759408e95e4e17e8175e, type: 3}
@@ -3107,6 +3137,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7112181134555749716, guid: 9c0ef6fd98c2e9f4d9d529f090d464b3, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3229,6 +3263,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6500025881847034554, guid: 59c8ae20b0a4b9b47b42b99b2ec3c3ff, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9112138863348150909, guid: 59c8ae20b0a4b9b47b42b99b2ec3c3ff, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

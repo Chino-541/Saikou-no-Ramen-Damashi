@@ -10,13 +10,13 @@ public class InventoryUIRamen : MonoBehaviour
     {
         Refresh();
 
-        Inventory.instance.onItemChanged += Refresh;
+        Storage.instance.onItemChanged += Refresh;
     }
 
     void OnDestroy()
     {
-        if (Inventory.instance != null)
-            Inventory.instance.onItemChanged -= Refresh;
+        if (Storage.instance != null)
+            Storage.instance.onItemChanged -= Refresh;
     }
 
     void Refresh()
