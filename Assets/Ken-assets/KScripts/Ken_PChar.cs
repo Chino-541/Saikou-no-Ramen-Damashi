@@ -24,7 +24,7 @@ public class Ken_PChar : MonoBehaviour
         }
         else
         {
-            _Rb.linearVelocity = Vector2.zero; // Å©í‚é~
+            _Rb.linearVelocity = Vector2.zero; // í‚é~
         }
     }
 
@@ -47,7 +47,7 @@ public class Ken_PChar : MonoBehaviour
 
     private IEnumerator DisableInputCoroutine(float seconds)
     {
-        canMove = false; // Å©í‚é~äJén
+        canMove = false; // í‚é~äJén
         yield return new WaitForSeconds(seconds);
         canMove = true;  // Å©í‚é~âèú
     }

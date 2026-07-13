@@ -116,7 +116,7 @@ public class Player : MonoBehaviour
             }
         }
     }
-
+    // 移動アニメーション
     void ResetDirectionBools()
     {
         anim.SetBool("up", false);
@@ -128,6 +128,7 @@ public class Player : MonoBehaviour
     // 攻撃処理
     void Attacker()
     {
+        // V押したらコルーチン作動
         if (Input.GetKeyDown(KeyCode.V) && canAttack)
         {
             StartCoroutine(AttackForOneSecond());
@@ -138,6 +139,7 @@ public class Player : MonoBehaviour
     IEnumerator AttackCooldownCoroutine()
     {
         canAttack = false;
+        // 攻撃音
         attackSound.Play();
         isAttacking = true;
 
@@ -150,12 +152,12 @@ public class Player : MonoBehaviour
     IEnumerator AttackForOneSecond()
     {
         isAttacking = true;
-
+        // *の後の数字分前に判定
         Attack.transform.localPosition = facing * 0.7f;
 
         Attack.SetActive(true);
         anim.SetBool("isAttacking", true);
-
+        // ()内の秒数分攻撃判定がでる
         yield return new WaitForSeconds(0.5f);
 
         anim.SetBool("isAttacking", false);
@@ -179,7 +181,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Player: Animator がまだ初期化されていません");
+            Debug.LogWarning("あああ");
         }
 
         yield return new WaitForSeconds(seconds);
@@ -203,7 +205,7 @@ public class Player : MonoBehaviour
         sr.color = Color.yellow;
         aura.SetActive(true);
 
-        //  常に初期値から計算する（バグ完全防止）
+        //  常に初期値から計算する
         speed = baseSpeed * 2f;
         dash = baseDash * 2f;
 

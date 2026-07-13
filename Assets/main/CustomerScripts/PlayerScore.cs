@@ -13,36 +13,43 @@ public class PlayerScore : MonoBehaviour
 
     void Start()
     {
-        // パネルが閉じたら販売数+1 & スコア+50
-        miniGameManager.OnMiniGameEnd += () =>
+        // 正解・不正解を受け取る
+        miniGameManager.OnMiniGameEnd += (isCorrect) =>
         {
-            AddPoint();     // 販売数 +1
-            AddScore50();   // スコア +50
-            UpdateUI();     // UI更新
+            if (isCorrect)
+            {
+                AddPoint();     // 販売数 +1
+                AddScore50();   // スコア +50
+                UpdateUI();     // UI更新
+            }
+            else
+            {
+                Debug.Log("不正解");
+                MinScore();
+                UpdateUI();
+            }
         };
     }
 
-   
     public void AddPoint()
     {
         point++;
     }
-
-    //  // ラーメンを1杯売ったとき
+    public void MinScore()
+    {
+        score -= 30;
+    }
     public void AddScore50()
     {
         score += 50;
     }
 
-    // UI 更新
     private void UpdateUI()
     {
         poinText.text = "販売数：" + point;
         totalScoreText.text = "Score：" + CalculateTotalScore();
     }
 
-    // 合計スコア計算
-    
     public int CalculateTotalScore()
     {
         int ramenScore = 0;

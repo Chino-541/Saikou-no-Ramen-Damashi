@@ -3,16 +3,21 @@ using System.Collections;
 
 public class CustomerSpawner : MonoBehaviour
 {
+    // お客さんのプレハブ
     [SerializeField] private GameObject customerPrefab;
+    // スポーンするエリア
     [SerializeField] private PolygonCollider2D spawnArea;
-    [SerializeField] private float spawnDelay = 10f;
-    [SerializeField] private float destroyDelay = 12f;
-    [SerializeField] private int maxSpawn = 5;
+    // スポーン間隔
+    [SerializeField] private float spawnTime;
 
+   [SerializeField] private float destroyDelay = 12f;
+   // 場に存在できる最大数
+   [SerializeField] private int maxSpawn = 10;
+    // minigameManagerの参照的な
     [SerializeField] private MiniGameManager miniGameManager;
 
     private int currentSpawn = 0;
-    public bool canSpawn = false;
+   public bool canSpawn = false;
 
     private void Start()
     {
@@ -23,7 +28,7 @@ public class CustomerSpawner : MonoBehaviour
     {
         while (true)
         {
-            if (canSpawn && currentSpawn < maxSpawn)
+            if (currentSpawn < maxSpawn)
             {
                 Vector2 pos = GetRandomPos();
                 GameObject obj = Instantiate(customerPrefab, pos, Quaternion.identity);
@@ -33,13 +38,13 @@ public class CustomerSpawner : MonoBehaviour
                 customer.Setup(miniGameManager, this);
 
                 currentSpawn++;
-                StartCoroutine(DestroyDelay(obj));
+               // StartCoroutine(DestroyDelay(obj));
             }
 
-            yield return new WaitForSeconds(spawnDelay);
+            yield return new WaitForSeconds(spawnTime);
         }
     }
-
+    /*
     IEnumerator DestroyDelay(GameObject obj)
     {
         yield return new WaitForSeconds(destroyDelay);
@@ -54,7 +59,7 @@ public class CustomerSpawner : MonoBehaviour
             currentSpawn--;
         }
     }
-
+    */
     public void CustomerDestroyed()
     {
         currentSpawn--;

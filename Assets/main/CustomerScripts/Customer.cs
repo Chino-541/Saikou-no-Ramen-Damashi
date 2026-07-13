@@ -9,14 +9,22 @@ public class Customer : MonoBehaviour
     {
         miniGame = manager;
         spawner = spawnerRef;
-
-        // ミニゲーム終了時にこの Customer を消す
-        miniGame.OnMiniGameEnd += DestroySelf;
     }
 
-    private void DestroySelf()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        // すでに破棄されていたら何もしない
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // ミニゲームを起こした「この Customer だけ」イベント登録する
+            miniGame.OnMiniGameEnd += DestroySelf;
+
+            miniGame.MiniGame();
+        }
+    }
+
+    // bool を受け取る形にする（使わなくてもOK）
+    private void DestroySelf(bool isCorrect)
+    {
         if (this == null) return;
 
         // スポナーに通知
@@ -25,15 +33,7 @@ public class Customer : MonoBehaviour
         // 自分を消す
         Destroy(gameObject);
 
-        // イベント解除（重要）
+        // イベント解除
         miniGame.OnMiniGameEnd -= DestroySelf;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            miniGame.MiniGame();
-        }
     }
 }

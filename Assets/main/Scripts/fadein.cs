@@ -5,20 +5,20 @@ using UnityEngine.UI;
 
 public class Fadein : MonoBehaviour
 {
-    [Header("UI Elements")]
+    [Header("UI関連")]
     [SerializeField] private GameObject mainTutorPanel;
     [SerializeField] private TextMeshProUGUI tmpText;
     [SerializeField] private string displayText;
     [SerializeField] private Image startTutorPanelImage;
 
-    [Header("Fade Settings")]
+    [Header("フェード関連")]
     [SerializeField] private float startDelay = 0.5f;
     [SerializeField] private float textDelay = 0.5f;
-    [SerializeField] private float fadeDuration = 1.0f;   // ★ 秒指定フェード
+    [SerializeField] private float fadeDuration = 1.0f; 
 
     public bool IsFinished { get; private set; } = false;
 
-    public Player player;   // ★ Player を Inspector でセットする
+    public Player player;   // Player を Inspector でセットする
 
     private void Start()
     {
@@ -27,7 +27,7 @@ public class Fadein : MonoBehaviour
 
     private IEnumerator StartTutor()
     {
-        // ★ フェードイン中はプレイヤーを停止
+        // フェードイン中はプレイヤーを停止
         player.DisableInput(9999f);
 
         yield return new WaitForSecondsRealtime(startDelay);
@@ -64,7 +64,7 @@ public class Fadein : MonoBehaviour
 
         IsFinished = true;
 
-        // ★ フェードイン終了 → プレイヤーを動かせるようにする
+        // フェードイン終了 → プレイヤーを動かせるようにする
         player.DisableInput(0f);
     }
 }

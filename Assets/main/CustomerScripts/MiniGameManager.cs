@@ -5,15 +5,20 @@ using TMPro;
 
 public class MiniGameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject Player;
+    // 問題のパネル
     [SerializeField] private GameObject miniGameUI;
+    // 消えるまでの時間
     [SerializeField] private float hideTime = 3f;
-    [SerializeField] private PlayerScore Score;
+    // 注文データ
     [SerializeField] private QuestionDatabase database;
+    // 注文のテキスト
     [SerializeField] private TextMeshProUGUI questionText;
     [SerializeField] private Button[] buttons;
 
-    public System.Action OnMiniGameEnd;
-
+    // 正解かどうかを渡すイベント
+    public System.Action<bool> OnMiniGameEnd;
+    
     private Question currentQuestion;
 
     void Start()
@@ -29,13 +34,9 @@ public class MiniGameManager : MonoBehaviour
 
     private void SetupQuestion()
     {
-        // ランダムで問題を取得
         currentQuestion = database.GetRandomQuestion();
-
-        // 問題文を表示
         questionText.text = currentQuestion.text;
 
-        // ボタンにイベント登録
         for (int i = 0; i < buttons.Length; i++)
         {
             int index = i;
@@ -46,25 +47,25 @@ public class MiniGameManager : MonoBehaviour
 
     private void OnButtonClicked(int index)
     {
-        if (index == currentQuestion.correctIndex)
-        {
-            Debug.Log("正解！");
-        }
-        else
-        {
-            Debug.Log("不正解！");
-        }
+        bool isCorrect = index == currentQuestion.correctIndex;
 
-        StartCoroutine(HideMiniGameUI());
+        if (isCorrect)
+            Debug.Log("正解！");
+        else
+            Debug.Log("不正解！");
+
+        StartCoroutine(HideMiniGameUI(isCorrect));
     }
 
-    private IEnumerator HideMiniGameUI()
+    private IEnumerator HideMiniGameUI(bool isCorrect)
     {
-        yield return new WaitForSeconds(hideTime);
-
+        
         miniGameUI.SetActive(false);
+        yield return new WaitForSeconds(hideTime);
+        // アニメーションの処理をしたい
+     
 
-        // ミニゲーム終了通知
-        OnMiniGameEnd?.Invoke();
+        // 正解かどうかを通知
+        OnMiniGameEnd?.Invoke(isCorrect);
     }
 }
