@@ -6,6 +6,8 @@ using TMPro;
 public class MiniGameManager : MonoBehaviour
 {
     [SerializeField] private GameObject Player;
+    // プレイヤーが止まる時間
+    [SerializeField] private float playerStopTime = 0.5f;
     // 問題のパネル
     [SerializeField] private GameObject miniGameUI;
     // 消えるまでの時間
@@ -29,6 +31,8 @@ public class MiniGameManager : MonoBehaviour
     public void MiniGame()
     {
         miniGameUI.SetActive(true);
+        // ミニゲーム中はプレイヤーが動けないように
+        Player.GetComponent<Ken_PChar>().canMove = false;
         SetupQuestion();
     }
 
@@ -61,9 +65,14 @@ public class MiniGameManager : MonoBehaviour
     {
         
         miniGameUI.SetActive(false);
+
+        // プレイヤーが動けるように
+        yield return new WaitForSeconds(playerStopTime);
+        Player.GetComponent<Ken_PChar>().canMove = true;
         yield return new WaitForSeconds(hideTime);
+       
         // アニメーションの処理をしたい
-     
+
 
         // 正解かどうかを通知
         OnMiniGameEnd?.Invoke(isCorrect);

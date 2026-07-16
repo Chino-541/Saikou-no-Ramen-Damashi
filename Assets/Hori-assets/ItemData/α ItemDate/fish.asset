@@ -19,5 +19,5 @@ MonoBehaviour:
   saltiness: 10
   umami: 5
   spiciness: 0
-  fatness: 40
-  mystery: 28
+  fatness: 10
+  mystery: 7

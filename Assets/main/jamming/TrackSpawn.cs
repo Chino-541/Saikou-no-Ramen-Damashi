@@ -3,21 +3,34 @@ using UnityEngine;
 
 public class TrackSpawn : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer sr;
     [SerializeField] private GameObject track;
 
-    [SerializeField] private float timer = 10f;
+    // 危険地帯（点滅する場所）
+    [SerializeField] private GameObject[] dangerZone;
+
+    // トラックがスポーンする場所
+    [SerializeField] private GameObject[] SpawnArea;
+
+    [SerializeField] private float timer = 6f;
 
     private bool isBlinking = false;
     private Coroutine blinkRoutine;
 
-    // 薄い赤色
-    private Color blinkRed = new Color(1f, 0f, 0f, 100f/ 255f);
-    private Color transparent = new Color(1f, 1f, 1f, 0f); // 完全透明
+    private SpriteRenderer currentSR; // 今点滅している場所
+
+    private Color blinkRed = new Color(1f, 0f, 0f, 100f / 255f);
+    private Color transparent = new Color(1f, 1f, 1f, 0f);
+
+    private int spawnIndex; // どの場所からスポーンするかの値
 
     void Start()
     {
-        sr.color = transparent;
+        // 最初にランダムでスポーン場所を決める
+        spawnIndex = Random.Range(0, SpawnArea.Length);
+
+        // 対応する危険地帯の SpriteRenderer を取得
+        currentSR = dangerZone[spawnIndex].GetComponent<SpriteRenderer>();
+        currentSR.color = transparent;
     }
 
     void Update()
@@ -35,15 +48,20 @@ public class TrackSpawn : MonoBehaviour
         if (timer <= 0f)
         {
             if (blinkRoutine != null)
-            {
                 StopCoroutine(blinkRoutine);
-            }
 
-            sr.color = transparent; // 完全透明に戻す
+            currentSR.color = transparent;
             isBlinking = false;
 
-            Instantiate(track, transform.position, Quaternion.identity);
-            timer = 10f;
+            // 対応する SpawnArea の位置にトラックを生成
+            Instantiate(track, SpawnArea[spawnIndex].transform.position, Quaternion.identity);
+
+            // 次のスポーン場所をランダムで決める
+            spawnIndex = Random.Range(0, SpawnArea.Length);
+            currentSR = dangerZone[spawnIndex].GetComponent<SpriteRenderer>();
+            currentSR.color = transparent;
+
+            timer = 6f;
         }
     }
 
@@ -51,10 +69,10 @@ public class TrackSpawn : MonoBehaviour
     {
         while (true)
         {
-            sr.color = blinkRed; // 薄い赤
+            currentSR.color = blinkRed;
             yield return new WaitForSeconds(0.2f);
 
-            sr.color = transparent; // 透明
+            currentSR.color = transparent;
             yield return new WaitForSeconds(0.2f);
         }
     }

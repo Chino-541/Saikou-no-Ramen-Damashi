@@ -6,38 +6,42 @@ using UnityEngine.UIElements;
 
 public class Animal : MonoBehaviour
 {
-    // 体力
+    public Transform player;
+
+    // 体力関係
     public int EnemyHp = 2;
     int CurrentHp;
 
-    // 速さ
+    // 速さ関係
     public float Speed = 1f;
     public float dash = 3f;
     float CurrentSpeed;
 
-    // 方向が切り替わる時間
+    // ランダム移動関係
     public float chargeTime = 3f;
     private float timeCount;
 
-    // ランダム移動の方向
+    // 
     private Vector2 direction;
-    // 色変更
     private SpriteRenderer Sr;
-
     private Rigidbody2D rb2;
+
     public GameObject item;
+
+    // 逃げる時用のbool
+    bool isEscape = false; 
+
     void Start()
     {
-        // 元の色
+        // プレイヤーを取得
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         Sr = GetComponent<SpriteRenderer>();
-
         rb2 = GetComponent<Rigidbody2D>();
-        // 速さの定義？
+
         CurrentSpeed = Speed;
-        // 体力の定義？
         CurrentHp = EnemyHp;
 
-        // 最初の方向
+        // ランダムな方向を設定
         float angle = Random.Range(0f, 360f);
         direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad),
                                 Mathf.Sin(angle * Mathf.Deg2Rad));
@@ -45,27 +49,33 @@ public class Animal : MonoBehaviour
 
     void Update()
     {
-
-        // ランダム移動
-        timeCount += Time.deltaTime;
-
-        transform.position += (Vector3)(direction * CurrentSpeed * Time.deltaTime);
-
-        if (timeCount > chargeTime)
+        if (!isEscape)
         {
-            float angle = Random.Range(0f, 360f);
-            direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad),
-                                    Mathf.Sin(angle * Mathf.Deg2Rad));
+            // 体力が１以外の時ランダム移動
+            timeCount += Time.deltaTime;
+            transform.position += (Vector3)(direction * CurrentSpeed * Time.deltaTime);
 
-            timeCount = 0;
+            if (timeCount > chargeTime)
+            {
+                float angle = Random.Range(0f, 360f);
+                direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad),
+                                        Mathf.Sin(angle * Mathf.Deg2Rad));
+                timeCount = 0;
+            }
         }
-
+        else
+        {
+            
+            Escape();
+        }
     }
+
     public void Hp()
     {
         if (CurrentHp == 1)
         {
             CurrentSpeed = dash;
+            isEscape = true; // 逃走開始
             Debug.Log("ピンチ");
         }
         else if (CurrentHp <= 0)
@@ -75,33 +85,32 @@ public class Animal : MonoBehaviour
             Debug.Log("uwaaa");
         }
     }
-    /*
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Attack"))
-        {
-            Hp();
-            Debug.Log("当たった");
-            CurrentHp--;
-        }
-    }
-    */
+    // ダメージ処理
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Attack"))
         {
             Hp();
             StartCoroutine(Damage());
-            Debug.Log("当たった");
             CurrentHp--;
         }
     }
- IEnumerator Damage()
+    // ダメージ演出
+    IEnumerator Damage()
     {
         Sr.color = Color.red;
         yield return new WaitForSeconds(0.2f);
         Sr.color = Color.white;
     }
 
-}
+    // 逃げる処理
+    void Escape()
+    {
+        if (player == null) return;
 
+        // プレイヤーから離れる方向
+        Vector2 Es = (transform.position - player.position).normalized;
+
+        transform.position += (Vector3)(Es * CurrentSpeed * Time.deltaTime);
+    }
+}

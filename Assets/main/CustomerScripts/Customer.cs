@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class Customer : MonoBehaviour
 {
+    // ミニゲームとスポナー
     private MiniGameManager miniGame;
     private CustomerSpawner spawner;
 
+    // ミニゲームとスポナーのセットアップ
     public void Setup(MiniGameManager manager, CustomerSpawner spawnerRef)
     {
         miniGame = manager;
@@ -15,14 +17,14 @@ public class Customer : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            // ミニゲームを起こした「この Customer だけ」イベント登録する
+            // ミニゲームを起こしたCustomerのイベントを登録
             miniGame.OnMiniGameEnd += DestroySelf;
 
             miniGame.MiniGame();
         }
     }
 
-    // bool を受け取る形にする（使わなくてもOK）
+    // 引数で正誤判定
     private void DestroySelf(bool isCorrect)
     {
         if (this == null) return;

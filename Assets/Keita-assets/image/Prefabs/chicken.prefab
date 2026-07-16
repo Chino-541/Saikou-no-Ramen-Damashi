@@ -106,12 +106,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe35118ef66114f4a9eddfd7c59c9ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Animal
-  EnemyHp: 1
-  Speed: 0.1
-  dash: 2
-  chargeTime: 2
+  player: {fileID: 0}
+  EnemyHp: 2
+  Speed: 1.5
+  dash: 3
+  chargeTime: 1
   item: {fileID: 2767721151040760959, guid: decc92f2000e2924c96f1c5c41b7cde9, type: 3}
-  hitSound: {fileID: 0}
 --- !u!61 &7634726888470727179
 BoxCollider2D:
   m_ObjectHideFlags: 0

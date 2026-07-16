@@ -9,7 +9,7 @@ public class Ken_PChar : MonoBehaviour
     [SerializeField] Rigidbody2D _Rb;
     [SerializeField] float _MoveSpeed = 5f;
 
-    private bool canMove = true; 
+    public bool canMove = true; 
 
     private void Awake()
     {
