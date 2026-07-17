@@ -7,6 +7,7 @@ public class Ken_TSettButton : MonoBehaviour
     [Header("Nyanスクリプトへようこそ")]
     [SerializeField] private Button _SettButton;
     [SerializeField] private GameObject _SettPanel;
+    [SerializeField] private AudioSource _SE;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,6 +22,7 @@ public class Ken_TSettButton : MonoBehaviour
     }
     void SettPanel()
     {
+        _SE.Play();
         _SettPanel.gameObject.SetActive(true);
     }
 }

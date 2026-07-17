@@ -1,4 +1,5 @@
 using NaughtyAttributes;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,6 +8,9 @@ public class Ken_Skip : MonoBehaviour
 {
     [Scene][SerializeField] private int _SceneIndex;
     [SerializeField] private Button _SkipButton;
+    [SerializeField] private AudioSource _SE;
+    [SerializeField] private GameObject _CanvasHide;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,7 +26,14 @@ public class Ken_Skip : MonoBehaviour
     {
         _SkipButton.onClick.AddListener(() =>
         {
-            SceneManager.LoadScene(_SceneIndex);
+           StartCoroutine(SkipButtonSE());
         });
+    }
+    IEnumerator SkipButtonSE()
+    {
+        _SE.Play();
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(_SceneIndex);
+        _CanvasHide.SetActive(false);
     }
 }

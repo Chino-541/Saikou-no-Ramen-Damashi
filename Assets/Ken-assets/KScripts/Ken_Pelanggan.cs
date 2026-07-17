@@ -94,6 +94,7 @@ public class Ken_Pelanggan : MonoBehaviour
 
     //==================================================================
     [BoxGroup("BGM")][SerializeField] public Ken_BgmSystem BgmSystem;
+    [BoxGroup("BGM")][SerializeField] private AudioSource _SE;
 
 
 
@@ -251,6 +252,7 @@ public class Ken_Pelanggan : MonoBehaviour
 
         _toRivalScore.onClick.AddListener(()=>
         {
+            _SE.Play();
             _RivalPanelScore.SetActive(true);
             _PanelScore.SetActive(false);
         });
@@ -339,6 +341,7 @@ public class Ken_Pelanggan : MonoBehaviour
 
         _toResult.onClick.AddListener(() =>
         {
+            _SE.Play();
             Result();
             //_RivalPanelScore.SetActive(false);
            
@@ -353,6 +356,7 @@ public class Ken_Pelanggan : MonoBehaviour
         {
             _WinKembaliKeTitle.onClick.AddListener(() =>
             {
+                _SE.Play();
                 SceneManager.LoadScene(_scene);
             });
             _ResultWinScoreText.text = _TotalScorenya.ToString();
@@ -363,6 +367,7 @@ public class Ken_Pelanggan : MonoBehaviour
         {
             _LoseKembaliKeTitle.onClick.AddListener(() =>
             {
+                _SE.Play();
                 SceneManager.LoadScene(_scene);
             });
             _ResultWinScoreText.text = _TotalScorenya.ToString();

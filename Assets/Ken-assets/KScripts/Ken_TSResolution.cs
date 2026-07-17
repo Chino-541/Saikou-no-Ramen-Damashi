@@ -17,9 +17,10 @@ public class Ken_TSResolution : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _ResText;
 
     private int _RMaxIndex = 2;
+    [SerializeField] private AudioSource _SE;
 
-    
- 
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -37,12 +38,14 @@ public class Ken_TSResolution : MonoBehaviour
     }
     void RMin()
     {
+        _SE.Play();
         _RIndex--;
         _RIndex = Mathf.Clamp(_RIndex, 0, _RMaxIndex);
         AppRes();
     }
     void RPlus()
     {
+        _SE.Play();
         _RIndex++;
         _RIndex = Mathf.Clamp(_RIndex, 0, _RMaxIndex);
         AppRes();
@@ -52,16 +55,19 @@ public class Ken_TSResolution : MonoBehaviour
         switch (_RIndex)
         {
             case 0:
+                //_SE.Play();
                 IColor();
                 Screen.SetResolution(1280, 720, FullScreenMode.Windowed);
                 break;
 
             case 1:
+                //_SE.Play();
                 IColor();
                 Screen.SetResolution(1920, 1080, FullScreenMode.Windowed);
                 break;
 
             case 2:
+                //_SE.Play();
                 IColor();
                 Screen.SetResolution(2560, 1440, FullScreenMode.Windowed);
                 break;
