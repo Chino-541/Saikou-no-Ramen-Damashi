@@ -80278,6 +80278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dde6552e0981c541860d12e50cf9965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawner
+  SpawnTime: 10
   banana: {fileID: 35975519845684496, guid: 0232a7b5ad74de844a360201c2ffc373, type: 3}
   minX: 9
   maxX: 24
@@ -97467,6 +97468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dde6552e0981c541860d12e50cf9965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawner
+  SpawnTime: 10
   banana: {fileID: 35975519845684496, guid: 34339cf88a2368049862a9585ed18dad, type: 3}
   minX: -35.1
   maxX: -21.2
