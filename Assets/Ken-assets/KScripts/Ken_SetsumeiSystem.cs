@@ -43,6 +43,7 @@ public class Ken_SetsumeiSystem : MonoBehaviour
 
     [BoxGroup("NScene")][Scene][SerializeField] private int _NScene;
 
+    [SerializeField] private AudioSource _SEText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -201,6 +202,7 @@ public class Ken_SetsumeiSystem : MonoBehaviour
     }
     IEnumerator CharSetsumeiSystem(string _CharT)
     {
+        _SEText.Play();
         _CharText.text = "";
 
         foreach (char T in _CharT)

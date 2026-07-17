@@ -13,6 +13,7 @@ public class Ken_TutorSystem : MonoBehaviour
     [SerializeField] private Image _StartTutorPanelImage;
     private float _Duration = 0.01f;
     [SerializeField] private bool _boolC = false;
+    [SerializeField] private AudioSource _SEAruhi;
   
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,9 +29,11 @@ public class Ken_TutorSystem : MonoBehaviour
     }
     IEnumerator StartTutor()
     {
+        
         //_MainTutorPanel.gameObject.SetActive(false);
         yield return new WaitForSeconds(0.5f);
         _Tmp.text = _TmpTex.ToString();
+        _SEAruhi.Play();
         yield return new WaitForSeconds(0.5f);
 
         Color StartC = _StartTutorPanelImage.color;

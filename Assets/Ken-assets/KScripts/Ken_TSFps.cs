@@ -14,6 +14,7 @@ public class Ken_TSFps : MonoBehaviour
     [Range(0, 1)]
     [SerializeField] private int _FpsIndex;
     [SerializeField] private TextMeshProUGUI _FpsText;
+    [SerializeField] private AudioSource _SE;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,12 +36,14 @@ public class Ken_TSFps : MonoBehaviour
     }
     void RMin()
     {
+        _SE.Play();
         _FpsIndex--;
         _FpsIndex = Mathf.Clamp(_FpsIndex, 0, 1);
         AppRes();
     }
     void RPlus()
     {
+        _SE.Play();
         _FpsIndex++;
         _FpsIndex = Mathf.Clamp(_FpsIndex, 0, 1);
         AppRes();
