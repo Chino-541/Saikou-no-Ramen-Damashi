@@ -65,5 +65,17 @@ TagManager:
   - name: jamming
     uniqueID: 1440155971
     locked: 0
+  - name: Ground
+    uniqueID: 1935000733
+    locked: 0
+  - name: back
+    uniqueID: 4158063487
+    locked: 0
+  - name: wall
+    uniqueID: 1965612989
+    locked: 0
+  - name: item
+    uniqueID: 3856954515
+    locked: 0
   m_RenderingLayers:
   - Default

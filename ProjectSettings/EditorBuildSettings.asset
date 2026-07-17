@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/main/Scene/Map02.unity
     guid: 505dad0067ed03d478aa4df5dfa1db29
   - enabled: 1
+    path: Assets/main/Scene/Final Map.unity
+    guid: 759277ca63e33ca4788bc5a35471df7f
+  - enabled: 1
     path: Assets/main/Scene/SetsumeiTemplate.unity
     guid: e4d922bcb7489714c935de2ac6c9362a
   - enabled: 1
