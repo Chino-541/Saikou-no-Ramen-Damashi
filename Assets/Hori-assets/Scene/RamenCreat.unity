@@ -537,6 +537,11 @@ MonoBehaviour:
   spicySlider: {fileID: 1231256177}
   fatSlider: {fileID: 1411440161}
   mysterySlider: {fileID: 429967599}
+  salt: 0
+  umami: 0
+  spicy: 0
+  fat: 0
+  mystery: 0
 --- !u!1 &325399827
 GameObject:
   m_ObjectHideFlags: 0
@@ -1389,6 +1394,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::foodSlot
   iconImage: {fileID: 1105844580}
+--- !u!1 &1135627359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1135627361}
+  - component: {fileID: 1135627360}
+  m_Layer: 0
+  m_Name: RamenData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1135627360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135627359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7754105845904f4cae4372f7554a619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RamenData
+  salt: 80
+  umami: 0
+  spicy: 0
+  fat: 0
+  mystery: 0
+--- !u!4 &1135627361
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135627359}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.27801, y: 0.26705, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1231256177 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4957520749395789194, guid: 90f1d62e612cfae4aa3d4b2a4c862383, type: 3}
@@ -2730,13 +2784,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1809113491}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1809113496}
+        m_TargetAssemblyTypeName: CreateButton, Assembly-CSharp
+        m_MethodName: OnClickCreate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2789,12 +2843,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1809113491}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d33b8f062660e1449dc5732e132a936, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d311ca30029af84cab495e9c8da5313, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Create
-  Bef: {fileID: 0}
-  Veg: {fileID: 0}
-  Fis: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::CreateButton
+  nextSceneName: New Scene
 --- !u!1 &1893720170
 GameObject:
   m_ObjectHideFlags: 0
@@ -4087,3 +4139,4 @@ SceneRoots:
   - {fileID: 1297677364}
   - {fileID: 246440390}
   - {fileID: 801575202}
+  - {fileID: 1135627361}

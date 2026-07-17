@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,12 @@ public class RamenStatusManager : MonoBehaviour
     public Slider spicySlider;
     public Slider fatSlider;
     public Slider mysterySlider;
+
+    public int salt;
+    public int umami;
+    public int spicy;
+    public int fat;
+    public int mystery;
 
     void Awake()
     {
@@ -47,6 +54,12 @@ public class RamenStatusManager : MonoBehaviour
         spicySlider.value = Mathf.Clamp(spicy, 0, 100);
         fatSlider.value = Mathf.Clamp(fat, 0, 100);
         mysterySlider.value = Mathf.Clamp(mystery, 0, 100);
+
+        saltSlider.value = salt;
+        umamiSlider.value = umami;
+        spicySlider.value = spicy; 
+        fatSlider.value = fat;
+        mysterySlider.value  = mystery;
     }
 
     public void ClearFoods()
@@ -58,4 +71,12 @@ public class RamenStatusManager : MonoBehaviour
 
         CalculateStatus();
     }
+
+    public int Salt => (int) saltSlider.value;
+    public int Umami => (int)umamiSlider.value;
+    public int Spicy => (int)spicySlider.value;
+    public int Fat => (int)fatSlider.value;
+    public int Mystery => (int)mysterySlider.value;
+
+
 }

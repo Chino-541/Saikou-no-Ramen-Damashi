@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Hori-assets/Scene/RamenCreat.unity
     guid: 8053e4ea9e4d02840ba977763f795b35
+  - enabled: 1
+    path: Assets/Hori-assets/Scene/New Scene.unity
+    guid: ad37d6e22b64c4a4fb15e2c0af9e4c4e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
