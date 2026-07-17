@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: butaniku
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: butaniku
-  icon: {fileID: 5218823490559287709, guid: b09020e3f5c3ed64ba00632a4e32cbb6, type: 3}
+  icon: {fileID: 21300000, guid: 1de7e8de162e9a14a989dd676e862317, type: 3}
   description: 
   maxStack: 99
   saltiness: 10

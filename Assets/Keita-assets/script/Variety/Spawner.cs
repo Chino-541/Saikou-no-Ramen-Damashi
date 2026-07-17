@@ -3,6 +3,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     private float timer = 0f;
+    [SerializeField] private  float SpawnTime;
     public GameObject banana;
 
     public float minX;
@@ -14,7 +15,7 @@ public class Spawner : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer >= 15f)
+        if (timer >= SpawnTime)
         {
             float x = Random.Range(minX, maxX);
             float y = Random.Range(minY, maxY);
@@ -24,7 +25,7 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    // š ¶¬”ÍˆÍ‚ğ Scene ã‚É•\¦
+    //  ¶¬”ÍˆÍ‚ğ Scene ã‚É•\¦
     void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;

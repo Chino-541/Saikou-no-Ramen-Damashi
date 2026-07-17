@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: toriniku
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: toriniku
-  icon: {fileID: -2196035622865519434, guid: a2b40ef4033516b46a11d1f68105d5ec, type: 3}
+  icon: {fileID: 21300000, guid: ab755e22cd2a90b43932de42cee38362, type: 3}
   description: 
   maxStack: 99
   saltiness: 50
