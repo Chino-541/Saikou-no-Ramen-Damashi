@@ -6,25 +6,26 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/main/Scene/Title.unity
+    path: Assets/Scene/Title.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/main/Scene/Setsumei.unity
+    path: Assets/Scene/Setsumei.unity
     guid: f934540df14fd4845b40f928523dd3d7
   - enabled: 1
-    path: Assets/main/Scene/Map02.unity
+    path: Assets/Scene/Map02.unity
     guid: 505dad0067ed03d478aa4df5dfa1db29
   - enabled: 1
-    path: Assets/main/Scene/Final Map.unity
+    path: Assets/Scene/Final Map.unity
     guid: 759277ca63e33ca4788bc5a35471df7f
   - enabled: 1
-    path: Assets/main/Scene/SetsumeiTemplate.unity
+    path: Assets/Scene/SetsumeiTemplate.unity
     guid: e4d922bcb7489714c935de2ac6c9362a
   - enabled: 1
-    path: Assets/main/Scene/RamenCreat.unity
+    path: Assets/Scene/RamenCreat.unity
     guid: 8053e4ea9e4d02840ba977763f795b35
   - enabled: 1
-    path: Assets/main/Scene/Customer.unity
+    path: Assets/Scene/Customer.unity
     guid: 4d498b390e94fe644af127239c71b0da
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 10eeccc35a7402a429b522e37728414c, type: 2}
   m_UseUCBPForAssetBundles: 0
