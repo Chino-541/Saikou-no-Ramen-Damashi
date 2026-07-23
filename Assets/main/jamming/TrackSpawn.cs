@@ -11,7 +11,7 @@ public class TrackSpawn : MonoBehaviour
     // トラックがスポーンする場所
     [SerializeField] private GameObject[] SpawnArea;
 
-    [SerializeField] private float timer = 6f;
+    [SerializeField] private float timer = 10f;
 
     private bool isBlinking = false;
     private Coroutine blinkRoutine;
@@ -61,7 +61,7 @@ public class TrackSpawn : MonoBehaviour
             currentSR = dangerZone[spawnIndex].GetComponent<SpriteRenderer>();
             currentSR.color = transparent;
 
-            timer = 6f;
+            timer = 10f;
         }
     }
 

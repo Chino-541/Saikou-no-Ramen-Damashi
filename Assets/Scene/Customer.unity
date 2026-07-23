@@ -13016,8 +13016,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u8CA9\u58F2\u6570\uFF1A0"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3169e125659f412468332f424757f761, type: 2}
-  m_sharedMaterial: {fileID: -9176531257306657492, guid: 3169e125659f412468332f424757f761, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a5a98804a41c8ed4fbd1fc1176363add, type: 2}
+  m_sharedMaterial: {fileID: 8119356684679222687, guid: a5a98804a41c8ed4fbd1fc1176363add, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13792,6 +13792,7 @@ MonoBehaviour:
   _LoseKembaliKeTitle: {fileID: 1582149710}
   _ResultLoseScoreText: {fileID: 105201884}
   BgmSystem: {fileID: 0}
+  _SE: {fileID: 0}
 --- !u!4 &1157852310
 Transform:
   m_ObjectHideFlags: 0
@@ -14132,8 +14133,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1440155971
-  m_SortingLayer: 6
+  m_SortingLayerID: 682233009
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
@@ -14921,8 +14922,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Score\uFF1A0"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3169e125659f412468332f424757f761, type: 2}
-  m_sharedMaterial: {fileID: -9176531257306657492, guid: 3169e125659f412468332f424757f761, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a5a98804a41c8ed4fbd1fc1176363add, type: 2}
+  m_sharedMaterial: {fileID: 8119356684679222687, guid: a5a98804a41c8ed4fbd1fc1176363add, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -19661,6 +19662,9 @@ MonoBehaviour:
   - {fileID: 740745585}
   - {fileID: 976056353}
   _Delay: 5
+  _SakuseiSEI: {fileID: 0}
+  _SakuseiSEII: {fileID: 0}
+  _SakuseiSEIII: {fileID: 0}
 --- !u!1 &1888115893
 GameObject:
   m_ObjectHideFlags: 0
@@ -20720,8 +20724,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1440155971
-  m_SortingLayer: 6
+  m_SortingLayerID: 682233009
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
@@ -21549,7 +21553,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CustomerSpawner
   customerPrefab: {fileID: 4073484208645637268, guid: d842084a576a735408eb6af209843086, type: 3}
   spawnArea: {fileID: 1157852308}
-  spawnTime: 4
+  spawnTime: 3
   destroyDelay: 30
   maxSpawn: 5
   miniGameManager: {fileID: 1980802627}
@@ -21742,7 +21746,7 @@ MonoBehaviour:
   SpawnArea:
   - {fileID: 6728697317968535153}
   - {fileID: 1100724200}
-  timer: 6
+  timer: 10
 --- !u!1 &5872270264200780472
 GameObject:
   m_ObjectHideFlags: 0

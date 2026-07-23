@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4746855288158788875}
   m_Layer: 0
   m_Name: Track
-  m_TagString: Untagged
+  m_TagString: Track
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,8 +79,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1440155971
-  m_SortingLayer: 6
+  m_SortingLayerID: 682233009
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 6b5fe8a41985d2f4f8245abab9596e57, type: 3}

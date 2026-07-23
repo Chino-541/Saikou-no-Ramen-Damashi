@@ -13,18 +13,16 @@ public class PlayerScore : MonoBehaviour
 
     void Start()
     {
-        // 正解・不正解を受け取る
         miniGameManager.OnMiniGameEnd += (isCorrect) =>
         {
             if (isCorrect)
             {
-                AddPoint();     // 販売数 +1
-                AddScore50();   // スコア +50
-                UpdateUI();     // UI更新
+                AddPoint();
+                AddScore50();
+                UpdateUI();
             }
             else
             {
-                Debug.Log("不正解");
                 MinScore();
                 UpdateUI();
             }
@@ -34,14 +32,19 @@ public class PlayerScore : MonoBehaviour
     public void AddPoint()
     {
         point++;
+        ScoreData.point = point;   // 保存
     }
+
     public void MinScore()
     {
         score -= 30;
+        ScoreData.score = score;   // 保存
     }
+
     public void AddScore50()
     {
         score += 50;
+        ScoreData.score = score;   // 保存
     }
 
     private void UpdateUI()
