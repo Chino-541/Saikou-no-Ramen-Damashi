@@ -3430,7 +3430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9e3b1a8666a5a4b88a3cd790d47f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ken_Skip
-  _SceneIndex: 3
+  _SceneIndex: 2
   _SkipButton: {fileID: 314617137}
   _SE: {fileID: 1620835710}
   _CanvasHide: {fileID: 1548164243}
