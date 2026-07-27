@@ -10,6 +10,8 @@ public class RamenData : MonoBehaviour
     public int fat;
     public int mystery;
 
+    public int ramenCount;
+
     void Awake()
     {
         if (Instance == null)
@@ -21,5 +23,9 @@ public class RamenData : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    private void Update()
+    {
+        
     }
 }

@@ -7,7 +7,6 @@ public class foodSlot : MonoBehaviour
 
     ItemData currentItem;
 
-
     public bool IsEmpty()
     {
         return currentItem == null;
