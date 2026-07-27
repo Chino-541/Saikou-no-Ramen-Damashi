@@ -6,7 +6,7 @@ public class Customer : MonoBehaviour
     private MiniGameManager miniGame;
     private CustomerSpawner spawner;
 
-    // ミニゲームとスポナーのセットアップ
+    // ミニゲームとスポナーのセット
     public void Setup(MiniGameManager manager, CustomerSpawner spawnerRef)
     {
         miniGame = manager;
@@ -17,12 +17,22 @@ public class Customer : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            // ミニゲームを起こしたCustomerのイベントを登録
-            miniGame.OnMiniGameEnd += DestroySelf;
+            Ken_PChar ken = collision.gameObject.GetComponent<Ken_PChar>();
 
+            // BonusTime 中ならミニゲームなしで即得点
+            if (ken.isBonusTime)  // ← BonusTime フラグを使う
+            {
+                miniGame.OnMiniGameEnd?.Invoke(true);
+                DestroySelf(true);
+                return;
+            }
+
+            // 通常時はミニゲーム開始
+            miniGame.OnMiniGameEnd += DestroySelf;
             miniGame.MiniGame();
         }
     }
+
 
     // 引数で正誤判定
     private void DestroySelf(bool isCorrect)
@@ -41,8 +51,10 @@ public class Customer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Track"))
+        if (collision.gameObject.CompareTag("Track"))
         {
+            // スポナーに通知
+            spawner.CustomerDestroyed(); 
             Destroy(gameObject);
         }
     }

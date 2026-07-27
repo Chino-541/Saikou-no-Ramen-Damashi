@@ -3259,9 +3259,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 814305313214125831, guid: be6ca963a77a35c45901ccc608143ab0, type: 3}
+      propertyPath: Score
+      value: 
+      objectReference: {fileID: 756698047}
     - target: {fileID: 4992652196499254578, guid: be6ca963a77a35c45901ccc608143ab0, type: 3}
       propertyPath: m_Name
-      value: ramenya
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8091555711731583667, guid: be6ca963a77a35c45901ccc608143ab0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11132,8 +11136,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2c434acfc7685c47b078914541e8d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerScore
+  Ken: {fileID: 635619778}
   poinText: {fileID: 1080747263}
   totalScoreText: {fileID: 1405535688}
+  Soldpoint: 0
   miniGameManager: {fileID: 1980802627}
 --- !u!4 &756698048
 Transform:
@@ -20099,7 +20105,7 @@ MonoBehaviour:
   Player: {fileID: 661034992}
   playerStopTime: 0.5
   miniGameUI: {fileID: 234347191}
-  hideTime: 1.5
+  hideTime: 0.5
   database: {fileID: 1980802628}
   questionText: {fileID: 1705266924}
   buttons:
@@ -21553,7 +21559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CustomerSpawner
   customerPrefab: {fileID: 4073484208645637268, guid: d842084a576a735408eb6af209843086, type: 3}
   spawnArea: {fileID: 1157852308}
-  spawnTime: 3
+  spawnTime: 0
   destroyDelay: 30
   maxSpawn: 5
   miniGameManager: {fileID: 1980802627}
