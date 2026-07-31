@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
+using System.Collections;
 
 public class PlayerScore : MonoBehaviour
 {
@@ -39,11 +40,10 @@ public class PlayerScore : MonoBehaviour
 
     private void Update()
     {
-        if (Soldpoint <= 5 && !bonusStarted)
+        if (Soldpoint <= 0 && !bonusStarted)
         {
             bonusStarted = true;
-            StartCoroutine(Ken.BonusTime());  // ← Ken の BonusTime を呼ぶ
-            bonusStarted = false;
+            StartCoroutine(BonusTimeWrapper());  // ← Ken の BonusTime を呼ぶ
         }
     }
     public void AddPoint()
@@ -66,7 +66,7 @@ public class PlayerScore : MonoBehaviour
         ScoreData.score = score;   // 保存
     }
 
-    private void UpdateUI()
+    public void UpdateUI()
     {
         poinText.text = "販売数：" + point;
         totalScoreText.text = "Score：" + CalculateTotalScore();
@@ -80,6 +80,10 @@ public class PlayerScore : MonoBehaviour
         return total;
     }
 
+    private IEnumerator BonusTimeWrapper()
+    {
+        yield return Ken.BonusTime();  // Ken のボーナス処理が終わるまで待つ
+        bonusStarted = false;          // ← 終わってから解除する
+    }
 
-    
 }

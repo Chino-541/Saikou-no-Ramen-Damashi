@@ -9,7 +9,7 @@ public class Fisher : MonoBehaviour
 
     private void Update()
     {
-        // プレイヤーが範囲内にいる時だけ
+        // 釣りできる範囲にいるとき
         if (playerInArea)
         {
             if (Input.GetKeyDown(KeyCode.E))
@@ -20,13 +20,14 @@ public class Fisher : MonoBehaviour
                 {
                     Debug.Log("釣りはじめ");
                     isFishing = true;
-                    // Fishingのコルーチンはじめ
+
                     fishSystem.StartFishing();
                 }
             }
         }
     }
-    // Trigger内にいる時
+
+    // 釣り範囲に入ってる間
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -35,7 +36,7 @@ public class Fisher : MonoBehaviour
             playerInArea = true;
         }
     }
-    // Trigger外に出た時
+    // 出たとき
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -44,7 +45,7 @@ public class Fisher : MonoBehaviour
             playerInArea = false;
         }
     }
-    // fishingから通知受け取るとこ
+    // 終わったときにboolをfalseに戻す
     public void EndFishing()
     {
         Debug.Log("Triggerがfalseになたよ");

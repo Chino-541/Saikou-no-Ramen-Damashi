@@ -3,9 +3,7 @@ using UnityEngine;
 public class PanelView : MonoBehaviour
 {
     [SerializeField] private GameObject panel;
-
-    // 釣りスクリプト参照
-    [SerializeField] private Ken_GFish fishing;
+    [SerializeField] private Fishing fishing;
 
     private void Start()
     {
@@ -15,7 +13,7 @@ public class PanelView : MonoBehaviour
     void Update()
     {
         // 釣り中は説明パネルを開けない
-        if (fishing != null && fishing)
+        if (fishing != null && fishing._Fishing)
         {
             if (panel.activeSelf)
             {
@@ -38,7 +36,6 @@ public class PanelView : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            // パネルが開いているなら閉じる
             if (panel.activeSelf)
             {
                 panel.SetActive(false);
@@ -46,11 +43,9 @@ public class PanelView : MonoBehaviour
             }
             else
             {
-                // パネルが閉じているなら開く
                 panel.SetActive(true);
                 Time.timeScale = 0f;
             }
         }
     }
-
 }

@@ -6,6 +6,8 @@ using System.Collections.Generic;
 
 public class Ken_PChar : MonoBehaviour
 {
+    
+    [SerializeField] private GameObject RamenFace;
     [SerializeField] private Vector2 _MoveInp;
     [SerializeField] Rigidbody2D _Rb;
     [SerializeField] private SpriteRenderer sr;
@@ -22,6 +24,7 @@ public class Ken_PChar : MonoBehaviour
     [SerializeField] private int bonusTimer;
     private void Awake()
     {
+        RamenFace.SetActive(false);
         _Rb = GetComponent<Rigidbody2D>();
     }
 
@@ -63,8 +66,9 @@ public class Ken_PChar : MonoBehaviour
 
     public IEnumerator BonusTime()
     {
+        RamenFace.SetActive(true);
         isBonusTime = true;
-
+        Debug.Log("ボーナス中");
         // 元の色を保存
         defaultColor = sr.color;
 
@@ -72,6 +76,9 @@ public class Ken_PChar : MonoBehaviour
 
         while (timer < bonusTimer)
         {
+
+            Score.Soldpoint = 0;
+            Score.UpdateUI();
             // 0〜1の範囲で色相を回す
             float hue = Mathf.Repeat(Time.time * 0.5f, 1f);
             sr.color = Color.HSVToRGB(hue, 1f, 1f);
@@ -82,9 +89,11 @@ public class Ken_PChar : MonoBehaviour
 
         // ボーナス終わり
         sr.color = Color.white;
-
+        RamenFace.SetActive(false);
+        Debug.Log("ボーナス終わり");
         isBonusTime = false;
-        Score.Soldpoint = 0;
+        Score.Soldpoint = 5;
+        Score.UpdateUI();
     }
 
 }

@@ -5,7 +5,13 @@ public class Customer : MonoBehaviour
     // ミニゲームとスポナー
     private MiniGameManager miniGame;
     private CustomerSpawner spawner;
+    public AudioSource TrackSound;
 
+
+    void Start()
+    {
+        TrackSound = GetComponent<AudioSource>();
+    }
     // ミニゲームとスポナーのセット
     public void Setup(MiniGameManager manager, CustomerSpawner spawnerRef)
     {
@@ -53,6 +59,8 @@ public class Customer : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Track"))
         {
+            if (TrackSound != null)
+                TrackSound.Play();
             // スポナーに通知
             spawner.CustomerDestroyed(); 
             Destroy(gameObject);
