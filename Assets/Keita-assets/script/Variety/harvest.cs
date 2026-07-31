@@ -6,7 +6,7 @@ public class harvest : MonoBehaviour
     [SerializeField] Cook cook;
     private float timer = 0f;
 
-    private AudioSource VAudio;
+    public AudioSource VAudio;
 
     void Start()
     {
