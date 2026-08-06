@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameTimer : MonoBehaviour
+public class Timer2 : MonoBehaviour
 {
     // カウントダウン
     [SerializeField] private float countdownTime = 3;
@@ -15,7 +15,7 @@ public class GameTimer : MonoBehaviour
 
     // player関連
     [SerializeField] private Rigidbody2D playerRb;
-    [SerializeField] private Ken_PChar Player;
+    [SerializeField] private Player player;
 
     // シーン遷移
     [SerializeField] private string SceneName;
@@ -35,9 +35,6 @@ public class GameTimer : MonoBehaviour
         countdownText.gameObject.SetActive(false);
         finishText.gameObject.SetActive(false);
 
-        spawner = FindObjectOfType<CustomerSpawner>();
-        spawner.canSpawn = true;
-
         CountDown();
     }
 
@@ -56,7 +53,7 @@ public class GameTimer : MonoBehaviour
         float countdown = countdownTime;
         while (countdown > 0)
         {
-            Player.DisableInput(3f);
+            player.DisableInput(3f);
             countdownText.text = countdown.ToString("F0");
             yield return new WaitForSeconds(1f);
             countdown--;
@@ -78,18 +75,17 @@ public class GameTimer : MonoBehaviour
         {
             timeLimit--;
 
-
             int minutes = Mathf.FloorToInt(timeLimit / 60);
             int seconds = Mathf.FloorToInt(timeLimit % 60);
+
             timeText.text = $"{minutes:00}:{seconds:00}";
 
-            // 残り3秒でカウントダウン開始
             if (timeLimit == 3)
             {
+                timeText.gameObject.SetActive(false);
                 StartCoroutine(LastCountdown());
             }
 
-            // 終了処理
             if (timeLimit <= 0)
             {
                 timeLimit = 0;
@@ -98,7 +94,6 @@ public class GameTimer : MonoBehaviour
 
             yield return new WaitForSeconds(1);
         }
-        spawner.canSpawn = false;
 
         playerRb.constraints = RigidbodyConstraints2D.FreezePositionX |
                                RigidbodyConstraints2D.FreezePositionY;
@@ -128,7 +123,7 @@ public class GameTimer : MonoBehaviour
     {
         isFinished = true;
 
-        Player.DisableInput(9999f);
+        player.DisableInput(9999f);
 
         finishText.gameObject.SetActive(true);
         finishText.text = "終了！";

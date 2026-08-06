@@ -86,4 +86,22 @@ public class PlayerScore : MonoBehaviour
         bonusStarted = false;          // ← 終わってから解除する
     }
 
+    // ゲーム終了時にリセットするための関数
+    public void ResetScore()
+    {
+        // 全部初期に戻してる
+        point = 0;
+        score = 0;
+        Soldpoint = 5;
+
+        ScoreData.point = 0;
+        ScoreData.score = 0;
+        FoodScoreData.score = 0;
+
+        bonusStarted = false;
+
+        UpdateUI();
+
+        Debug.Log("スコア関係リセット");
+    }
 }

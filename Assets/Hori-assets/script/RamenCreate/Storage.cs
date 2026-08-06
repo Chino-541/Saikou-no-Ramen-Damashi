@@ -57,4 +57,11 @@ public class Storage : MonoBehaviour
 
         onItemChanged?.Invoke();
     }
+    // ゲーム終了時のリセットのための関数
+    public void Clearitems()
+    {
+        items.Clear();
+        onItemChanged?.Invoke();
+        Debug.Log("アイテム削除");
+    }
 }
