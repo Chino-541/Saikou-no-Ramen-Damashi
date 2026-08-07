@@ -8,6 +8,8 @@ public class foodButton : MonoBehaviour
     [SerializeField] foodSlot[] slots;
     [SerializeField] TMP_Text countText;
     [SerializeField] Image iconImage;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip clickSE;
 
     Button button;
 
@@ -62,8 +64,8 @@ public class foodButton : MonoBehaviour
                 Debug.Log($"所持数: {count}");
                 Debug.Log($"加算後のスコア: {FoodScoreData.score}");
 
-                // インベントリから1個減らす
-                Inventory.instance.RemoveItem(itemData, 1);
+                // SEを鳴らす
+                audioSource.PlayOneShot(clickSE);
 
                 // ステータス更新
                 RamenStatusManager.Instance.CalculateStatus();
