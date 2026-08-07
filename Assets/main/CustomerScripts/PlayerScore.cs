@@ -14,10 +14,12 @@ public class PlayerScore : MonoBehaviour
     [SerializeField] private TextMeshProUGUI BonusText;
     private int point = 0;   // 販売した数
     private int score = 0;   // スコア
-
+    // 辛みが高い場合のスコア倍率
+    public float scoreMultiplier = 1f;
     public int Soldpoint = 5;
     [SerializeField] private MiniGameManager miniGameManager;
     private bool bonusStarted = false;
+
 
     void Start()
     {
@@ -27,12 +29,12 @@ public class PlayerScore : MonoBehaviour
             if (isCorrect)
             {
                 AddPoint();
-                AddScore50();
+                AddScore(50);
                 UpdateUI();
             }
             else
             {
-                MinScore();
+                MinScore(30);
                 UpdateUI();
             }
         };
@@ -52,19 +54,20 @@ public class PlayerScore : MonoBehaviour
         ScoreData.point = point;   // 保存
     }
 
-    public void MinScore()
+    public void MinScore(int score)
     {
         Soldpoint++;
         score -= 30;
         ScoreData.score = score;   // 保存
     }
 
-    public void AddScore50()
+    public void AddScore(int baseScore)
     {
         Soldpoint--;
-        score += 50;
-        ScoreData.score = score;   // 保存
+        score += Mathf.RoundToInt(baseScore * scoreMultiplier);
+        ScoreData.score = score;
     }
+
 
     public void UpdateUI()
     {

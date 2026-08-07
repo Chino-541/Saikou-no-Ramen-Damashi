@@ -12,7 +12,7 @@ public class TrackSpawn : MonoBehaviour
     [SerializeField] private GameObject[] SpawnArea;
 
     [SerializeField] private float timer = 10f;
-
+    private float defaulttime;
     private bool isBlinking = false;
     private Coroutine blinkRoutine;
 
@@ -25,6 +25,7 @@ public class TrackSpawn : MonoBehaviour
 
     void Start()
     {
+        defaulttime = timer;
         // 最初にランダムでスポーン場所を決める
         spawnIndex = Random.Range(0, SpawnArea.Length);
 
@@ -61,7 +62,7 @@ public class TrackSpawn : MonoBehaviour
             currentSR = dangerZone[spawnIndex].GetComponent<SpriteRenderer>();
             currentSR.color = transparent;
 
-            timer = 10f;
+            timer = defaulttime;
         }
     }
 
@@ -75,5 +76,11 @@ public class TrackSpawn : MonoBehaviour
             currentSR.color = transparent;
             yield return new WaitForSeconds(0.2f);
         }
+    }
+
+    public void SetTimer(float Time)
+    {
+        timer = Time;
+        defaulttime = Time;
     }
 }

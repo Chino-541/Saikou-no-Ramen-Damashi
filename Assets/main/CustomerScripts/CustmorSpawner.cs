@@ -15,6 +15,8 @@ public class CustomerSpawner : MonoBehaviour
    [SerializeField] private int maxSpawn = 10;
     // minigameManagerの参照的な
     [SerializeField] private MiniGameManager miniGameManager;
+    // Playerがボーナスタイムの時に使う
+    [SerializeField] private Ken_PChar player;
 
     private int currentSpawn = 0;
    public bool canSpawn = false;
@@ -28,20 +30,24 @@ public class CustomerSpawner : MonoBehaviour
     {
         while (true)
         {
-            if (currentSpawn < maxSpawn)
+            bool isBonus = player.isBonusTime;
+
+            // ボーナス中はスポーン数制限なし
+            if (isBonus || currentSpawn < maxSpawn)
             {
                 Vector2 pos = GetRandomPos();
                 GameObject obj = Instantiate(customerPrefab, pos, Quaternion.identity);
 
-                // スポーン時に MiniGameManager 
                 Customer customer = obj.GetComponent<Customer>();
                 customer.Setup(miniGameManager, this);
 
                 currentSpawn++;
-               // StartCoroutine(DestroyDelay(obj));
             }
 
-            yield return new WaitForSeconds(spawnTime);
+            // ボーナス中はスポーン間隔が半分
+            // ?はif分の短縮みたいなやつでtrueなら：より左の処理、falseなら:より右の処理を返す
+            float waitTime = isBonus ? spawnTime / 2f : spawnTime;
+            yield return new WaitForSeconds(waitTime);
         }
     }
     /*
@@ -69,5 +75,11 @@ public class CustomerSpawner : MonoBehaviour
     {
         Bounds b = spawnArea.bounds;
         return new Vector2(Random.Range(b.min.x, b.max.x), Random.Range(b.min.y, b.max.y));
+    }
+
+    // 外部からお客さんの最大数を変更する
+    public void SetCustomerCount(int count)
+    {
+        maxSpawn = count;
     }
 }

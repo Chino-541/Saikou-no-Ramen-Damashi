@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Track : MonoBehaviour
@@ -21,5 +22,10 @@ public class Track : MonoBehaviour
             collision.GetComponent<Ken_PChar>().DisableInput(3f);
             hitSound.Play();
         }
+        else if (collision.CompareTag("Barrier"))
+        {
+            Destroy(gameObject);
+        }
     }
+
 }

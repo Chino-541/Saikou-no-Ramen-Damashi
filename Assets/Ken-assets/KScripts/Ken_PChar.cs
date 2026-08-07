@@ -1,4 +1,4 @@
-ï»¿using Unity.VisualScripting;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
@@ -6,24 +6,31 @@ using System.Collections.Generic;
 
 public class Ken_PChar : MonoBehaviour
 {
-    
     [SerializeField] private GameObject RamenFace;
     [SerializeField] private Vector2 _MoveInp;
     [SerializeField] Rigidbody2D _Rb;
     [SerializeField] private SpriteRenderer sr;
-    // å…ƒã®è‰²
+    // Œ³‚ÌF
     private Color defaultColor;
-    // é€Ÿã•
+    // ‘¬‚³
     [SerializeField] float _MoveSpeed = 5f;
-    // scoreå‚ç…§
+    // scoreQÆ
     [SerializeField] private PlayerScore Score;
-    // ç§»å‹•ã«é–¢ã™ã‚‹bool
+    // ˆÚ“®‚ÉŠÖ‚·‚ébool
     public bool canMove = true;
-    // ãƒœãƒ¼ãƒŠã‚¹ä¸­
+    // ƒ{[ƒiƒX’†
     public bool isBonusTime = false;
     [SerializeField] private int bonusTimer;
+    // mystery‚ªˆê”Ô‚‚¢ê‡
+    public bool isMystery = false;
+    private bool canUseBarrier = true;
+    [SerializeField] private GameObject barrier;
+    [SerializeField] private float barrierCooldown = 15f;
+    [SerializeField] private float barrierTime = 2f;
+
     private void Awake()
     {
+        barrier.SetActive(false);
         RamenFace.SetActive(false);
         _Rb = GetComponent<Rigidbody2D>();
     }
@@ -36,8 +43,15 @@ public class Ken_PChar : MonoBehaviour
         }
         else
         {
-            _Rb.linearVelocity = Vector2.zero; // åœæ­¢
+            _Rb.linearVelocity = Vector2.zero; // ’â~
         }
+        if(isMystery && Input.GetKeyDown(KeyCode.Space))
+        {
+            TryUseBarrier();
+        }
+        // ƒoƒŠƒA‚ğƒvƒŒƒCƒ„[‚É’Ç]‚³‚¹‚é
+        if (barrier.activeSelf)
+            barrier.transform.position = transform.position;
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -51,25 +65,25 @@ public class Ken_PChar : MonoBehaviour
             _MoveInp = Vector2.zero;
         }
     }
-
+    // ’â~‚ÉŠÖ‚·‚éŠÖ”
     public void DisableInput(float seconds)
     {
         StartCoroutine(DisableInputCoroutine(seconds));
     }
-
+    // ’â~‚ÉŠÖ‚·‚éƒRƒ‹[ƒ`ƒ“
     private IEnumerator DisableInputCoroutine(float seconds)
     {
-        canMove = false; // åœæ­¢é–‹å§‹
+        canMove = false; // ’â~ŠJn
         yield return new WaitForSeconds(seconds);
-        canMove = true;  // â†åœæ­¢è§£é™¤
+        canMove = true;  // ©’â~‰ğœ
     }
-
+    // ƒ{[ƒiƒXƒ^ƒCƒ€’†‚Ìˆ—
     public IEnumerator BonusTime()
     {
         RamenFace.SetActive(true);
         isBonusTime = true;
-        Debug.Log("ãƒœãƒ¼ãƒŠã‚¹ä¸­");
-        // å…ƒã®è‰²ã‚’ä¿å­˜
+        Debug.Log("ƒ{[ƒiƒX’†");
+        // Œ³‚ÌF‚ğ•Û‘¶
         defaultColor = sr.color;
 
         float timer = 0f;
@@ -79,7 +93,7 @@ public class Ken_PChar : MonoBehaviour
 
             Score.Soldpoint = 0;
             Score.UpdateUI();
-            // 0ã€œ1ã®ç¯„å›²ã§è‰²ç›¸ã‚’å›ã™
+            // 0?1‚Ì”ÍˆÍ‚ÅF‘Š‚ğ‰ñ‚·
             float hue = Mathf.Repeat(Time.time * 0.5f, 1f);
             sr.color = Color.HSVToRGB(hue, 1f, 1f);
 
@@ -87,13 +101,48 @@ public class Ken_PChar : MonoBehaviour
             yield return null;
         }
 
-        // ãƒœãƒ¼ãƒŠã‚¹çµ‚ã‚ã‚Š
+        // ƒ{[ƒiƒXI‚í‚è
         sr.color = Color.white;
         RamenFace.SetActive(false);
-        Debug.Log("ãƒœãƒ¼ãƒŠã‚¹çµ‚ã‚ã‚Š");
+        Debug.Log("ƒ{[ƒiƒXI‚í‚è");
         isBonusTime = false;
         Score.Soldpoint = 5;
         Score.UpdateUI();
     }
+    // Speed‚ğŠO•”‚©‚ç•ÏX‚·‚é
+    public void SetMoveSpeed(float speed)
+    {
+        _MoveSpeed = speed;
+    }
 
+    // mystery‚ªˆê”Ô‚‚¢ê‡‚Ìˆ—
+    // ƒoƒŠƒA”­“®ˆ—
+    private void TryUseBarrier()
+    {
+        if (!canUseBarrier) return;
+        StartCoroutine(BarrierRoutine());
+    }
+
+    // ƒoƒŠƒA‚ÌƒRƒ‹[ƒ`ƒ“
+    private IEnumerator BarrierRoutine()
+    {
+        canUseBarrier = false;
+
+        // ƒoƒŠƒA‚ğo‚·
+        barrier.SetActive(true);
+        Debug.Log("ƒoƒŠƒA”­“®");
+
+        // ƒoƒŠƒA‚ªo‚Ä‚¢‚éŠÔ
+        yield return new WaitForSeconds(barrierTime);
+
+        // ƒoƒŠƒA‚ğÁ‚·
+        barrier.SetActive(false);
+        Debug.Log("ƒoƒŠƒAI—¹");
+
+        // ƒN[ƒ‹ƒ_ƒEƒ“i15•bj
+        yield return new WaitForSeconds(barrierCooldown);
+
+        canUseBarrier = true;
+        Debug.Log("ƒoƒŠƒAÄg—p‰Â”\");
+    }
 }

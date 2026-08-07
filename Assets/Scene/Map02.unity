@@ -66606,7 +66606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Timer2
   countdownTime: 3
   countdownText: {fileID: 1214811969}
-  timeLimit: 10
+  timeLimit: 60
   timeText: {fileID: 2026658932}
   playerRb: {fileID: 1711423038}
   player: {fileID: 1711423036}
@@ -87477,7 +87477,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026658929}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a07a481a84d03bf4ca5e6a82535128c8, type: 3}
   m_Name: 
