@@ -13,9 +13,6 @@ public class RemoveButton : MonoBehaviour
             if (item == null)
                 continue;
 
-            // Storage‚É–ß‚·
-            Storage.instance.AddItem(item, 1);
-
             // ƒXƒƒbƒg‚ğ‹ó‚É‚·‚é
             slot.Clear();
         }
