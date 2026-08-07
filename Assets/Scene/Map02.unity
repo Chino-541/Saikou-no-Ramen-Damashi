@@ -66606,7 +66606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Timer2
   countdownTime: 3
   countdownText: {fileID: 1214811969}
-  timeLimit: 10
+  timeLimit: 120
   timeText: {fileID: 2026658932}
   playerRb: {fileID: 1711423038}
   player: {fileID: 1711423036}
