@@ -23,12 +23,60 @@ public class GameTimer : MonoBehaviour
     // 終了時の文字
     [SerializeField] private TextMeshProUGUI finishText;
 
+    // SE
+    [SerializeField] private AudioSource audioSource;
+
+    // 開始前カウントダウンSE
+    [SerializeField] private AudioClip count3SE;
+    [SerializeField] private AudioClip count2SE;
+    [SerializeField] private AudioClip count1SE;
+    [SerializeField] private AudioClip startSE;
+
+    // 終了前カウントダウンSE
+    [SerializeField] private AudioClip finish3SE;
+    [SerializeField] private AudioClip finish2SE;
+    [SerializeField] private AudioClip finish1SE;
+
+    // 終了SE
+    [SerializeField] private AudioClip endSE;
+
     private bool isFinished = false;
     private bool isCounting = false;
     public System.Action OnTimeUp;
 
     private CustomerSpawner spawner;
 
+    private void PlayStartCountSE(float count)
+    {
+        if (count == 3)
+        {
+            audioSource.PlayOneShot(count3SE);
+        }
+        else if (count == 2)
+        {
+            audioSource.PlayOneShot(count2SE);
+        }
+        else if (count == 1)
+        {
+            audioSource.PlayOneShot(count1SE);
+        }
+    }
+
+    private void PlayFinishCountSE(float count)
+    {
+        if (count == 3)
+        {
+            audioSource.PlayOneShot(finish3SE);
+        }
+        else if (count == 2)
+        {
+            audioSource.PlayOneShot(finish2SE);
+        }
+        else if (count == 1)
+        {
+            audioSource.PlayOneShot(finish1SE);
+        }
+    }
     private void Start()
     {
         timeText.gameObject.SetActive(false);
@@ -58,11 +106,13 @@ public class GameTimer : MonoBehaviour
         {
             Player.DisableInput(3f);
             countdownText.text = countdown.ToString("F0");
+            PlayStartCountSE(countdown);
             yield return new WaitForSeconds(1f);
             countdown--;
         }
 
         countdownText.text = "開始！";
+        audioSource.PlayOneShot(startSE);
         yield return new WaitForSeconds(1f);
 
         countdownText.gameObject.SetActive(false);
@@ -114,11 +164,13 @@ public class GameTimer : MonoBehaviour
         while (countdown2 > 0)
         {
             countdownText.text = countdown2.ToString("F0");
+            PlayFinishCountSE(countdown2);
             yield return new WaitForSeconds(1f);
             countdown2--;
         }
 
         countdownText.text = "終了！";
+        audioSource.Play();
         yield return new WaitForSeconds(1f);
 
         countdownText.gameObject.SetActive(false);

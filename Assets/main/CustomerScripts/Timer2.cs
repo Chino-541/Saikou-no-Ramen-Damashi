@@ -23,11 +23,66 @@ public class Timer2 : MonoBehaviour
     // 終了時の文字
     [SerializeField] private TextMeshProUGUI finishText;
 
+    [SerializeField] private AudioSource audioSource;
+    // 開始前
+    [SerializeField] private AudioClip count3SE;
+    [SerializeField] private AudioClip count2SE;
+    [SerializeField] private AudioClip count1SE;
+    [SerializeField] private AudioClip startSE;
+    // 終了前
+    [SerializeField] private AudioClip finish5SE;
+    [SerializeField] private AudioClip finish4SE;
+    [SerializeField] private AudioClip finish3SE;
+    [SerializeField] private AudioClip finish2SE;
+    [SerializeField] private AudioClip finish1SE;
+
+    [SerializeField] private AudioClip endSE;
+
     private bool isFinished = false;
     private bool isCounting = false;
     public System.Action OnTimeUp;
 
     private CustomerSpawner spawner;
+
+    private void PlayCountSE(float count)
+    {
+        if (count == 3)
+        {
+            audioSource.PlayOneShot(count3SE);
+        }
+        else if (count == 2)
+        {
+            audioSource.PlayOneShot(count2SE);
+        }
+        else if (count == 1)
+        {
+            audioSource.PlayOneShot(count1SE);
+        }
+    }
+
+    private void PlayFinishSE(float count)
+    {
+        if (count == 5)
+        {
+            audioSource.PlayOneShot(finish5SE);
+        }
+        else if (count == 4)
+        {
+            audioSource.PlayOneShot(finish4SE);
+        }
+        else if (count == 3)
+        {
+            audioSource.PlayOneShot(finish3SE);
+        }
+        else if (count == 2)
+        {
+            audioSource.PlayOneShot(finish2SE);
+        }
+        else if (count == 1)
+        {
+            audioSource.PlayOneShot(finish1SE);
+        }
+    }
 
     private void Start()
     {
@@ -55,11 +110,13 @@ public class Timer2 : MonoBehaviour
         {
             player.DisableInput(3f);
             countdownText.text = countdown.ToString("F0");
+            PlayCountSE(countdown);
             yield return new WaitForSeconds(1f);
             countdown--;
         }
 
         countdownText.text = "開始！";
+        audioSource.PlayOneShot(startSE);
         yield return new WaitForSeconds(1f);
 
         countdownText.gameObject.SetActive(false);
@@ -80,7 +137,7 @@ public class Timer2 : MonoBehaviour
 
             timeText.text = $"{minutes:00}:{seconds:00}";
 
-            if (timeLimit == 3)
+            if (timeLimit == 5)
             {
                 timeText.gameObject.SetActive(false);
                 StartCoroutine(LastCountdown());
@@ -105,15 +162,17 @@ public class Timer2 : MonoBehaviour
     {
         countdownText.gameObject.SetActive(true);
 
-        float countdown2 = 3;
+        float countdown2 = 5;
         while (countdown2 > 0)
         {
             countdownText.text = countdown2.ToString("F0");
+            PlayFinishSE(countdown2);
             yield return new WaitForSeconds(1f);
             countdown2--;
         }
 
         countdownText.text = "終了！";
+        audioSource.PlayOneShot(endSE);
         yield return new WaitForSeconds(1f);
 
         countdownText.gameObject.SetActive(false);
@@ -137,4 +196,5 @@ public class Timer2 : MonoBehaviour
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(SceneName);
     }
+
 }
