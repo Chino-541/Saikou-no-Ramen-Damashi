@@ -1,71 +1,72 @@
+using System.Collections;
 using UnityEngine;
 
 public class ItemBox : MonoBehaviour
 {
-    public Transform player;
-    public float interactRange = 2f;
+    [SerializeField] private GameObject NoItemUI;   // アイテムがない場合のUI
+    [SerializeField] private GameObject interactUI; // 吹き出しUI
 
-    public GameObject interactUI; // 近づいたら出るUI
-
-    private bool isPlayerTouching = false;
+    private bool isPlayerTouching = false; // BOXに触れているかbool
 
     void Start()
     {
-        GameObject obj = GameObject.FindGameObjectWithTag("Player");
-        if (obj != null)
-        {
-            player = obj.transform;
-        }
-
         if (interactUI != null)
-        {
-            interactUI.SetActive(false); 
-        }
+            interactUI.SetActive(false);
+
+        if (NoItemUI != null)
+            NoItemUI.SetActive(false);
     }
 
     void Update()
     {
-        if (player == null) return;
+        // Inventoryにアイテムがあるか
+        bool hasItems = Inventory.instance != null &&
+                        Inventory.instance.GetItems().Count > 0;
 
-        float distance = Vector2.Distance(transform.position, player.position);
-
-        // UI の表示条件：接触していて、距離が近い
-        bool canShowUI = isPlayerTouching && distance < interactRange;
-
+        // アイテムを持っていたらUIを表示
         if (interactUI != null)
-        {
-            interactUI.SetActive(canShowUI);
-        }
+            interactUI.SetActive(hasItems);
 
-        // Eキーでアイテム回収
-        if (canShowUI && Input.GetKeyDown(KeyCode.E))
+        // Eキー判定
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if (Inventory.instance != null)
+            // BOXに触れている時だけ反応
+            if (isPlayerTouching)
             {
-                Inventory.instance.MoveAllToBox();
-                Debug.Log("アイテムを回収しました！");
+                // アイテムを持っていたら
+                if (hasItems)
+                {
+                    // アイテム収納
+                    Inventory.instance.MoveAllToBox();
+                    Debug.Log("アイテム収納！");
+                }
+                // 持っていない場合
+                else
+                {
+                    // 2秒間表示のコルーチン
+                    StartCoroutine(NoItem());
+                    Debug.Log("アイテムないです！");
+                }
             }
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    IEnumerator NoItem()
+    {
+        NoItemUI.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        NoItemUI.SetActive(false);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-        {
             isPlayerTouching = true;
-        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-        {
             isPlayerTouching = false;
-
-            if (interactUI != null)
-            {
-                interactUI.SetActive(false); // 離れたら消す
-            }
-        }
     }
 }
