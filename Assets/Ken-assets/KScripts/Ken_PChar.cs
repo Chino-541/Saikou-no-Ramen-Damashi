@@ -83,6 +83,7 @@ public class Ken_PChar : MonoBehaviour
         RamenFace.SetActive(true);
         isBonusTime = true;
         Debug.Log("ボーナス中");
+
         // 元の色を保存
         defaultColor = sr.color;
 
@@ -90,25 +91,35 @@ public class Ken_PChar : MonoBehaviour
 
         while (timer < bonusTimer)
         {
-
             Score.Soldpoint = 0;
             Score.UpdateUI();
-            // 0?1の範囲で色相を回す
+
+            // 虹色（Hue を回す）
             float hue = Mathf.Repeat(Time.time * 0.5f, 1f);
-            sr.color = Color.HSVToRGB(hue, 1f, 1f);
+            Color rainbow = Color.HSVToRGB(hue, 1f, 1f);
+
+            // 透明度を徐々に下げる（1 → 0）
+            float alpha = Mathf.Lerp(1f, 0f, timer / bonusTimer);
+
+            rainbow.a = alpha;
+
+            sr.color = rainbow;
 
             timer += Time.deltaTime;
             yield return null;
         }
 
-        // ボーナス終わり
-        sr.color = Color.white;
+        // ボーナス終わり → 元の色に戻す
+        sr.color = defaultColor;
         RamenFace.SetActive(false);
         Debug.Log("ボーナス終わり");
+
         isBonusTime = false;
         Score.Soldpoint = 5;
         Score.UpdateUI();
     }
+
+
     // Speedを外部から変更する
     public void SetMoveSpeed(float speed)
     {

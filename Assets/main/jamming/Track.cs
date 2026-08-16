@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -6,10 +7,12 @@ public class Track : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private Ken_PChar Ken;
     public AudioSource hitSound;
+    [SerializeField] private float time = 5f;
 
     private void Start()
     {
         hitSound = GetComponent<AudioSource>();
+        StartCoroutine(Destroyy(time));
     }
     void Update()
     {
@@ -26,6 +29,12 @@ public class Track : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator Destroyy(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Destroy(gameObject);
     }
 
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class Player : MonoBehaviour
 {
@@ -205,19 +206,33 @@ public class Player : MonoBehaviour
         sr.color = Color.yellow;
         aura.SetActive(true);
 
-        //  í‚É‰Šú’l‚©‚çŒvŽZ‚·‚é
         speed = baseSpeed * 2f;
         dash = baseDash * 2f;
 
-        yield return new WaitForSeconds(seconds);
+        float remaining = seconds;
 
+        while (remaining > 0f)
+        {
+            if (remaining <= 3f)
+            {
+                // “_–ÅŠÔŠu 0.2•b
+                aura.SetActive(!aura.activeSelf);
+                yield return new WaitForSeconds(0.2f);
+                remaining -= 0.2f;
+            }
+            else
+            {
+                yield return null;
+                remaining -= Time.deltaTime;
+            }
+        }
         aura.SetActive(false);
         sr.color = Color.white;
 
-        //  •K‚¸‰Šú’l‚É–ß‚·
         speed = baseSpeed;
         dash = baseDash;
     }
+
 
     // UŒ‚ŠÔŠu’Zk
     public void PowerUp(float seconds)

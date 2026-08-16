@@ -6,7 +6,7 @@ public class SpeedUp : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.GetComponent<Player>().SpeedUp(5f);
+            collision.GetComponent<Player>().SpeedUp(7f);
             Destroy(gameObject);
         }
     }

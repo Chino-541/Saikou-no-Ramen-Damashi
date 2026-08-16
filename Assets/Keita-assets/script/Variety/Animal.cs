@@ -90,11 +90,12 @@ public class Animal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Attack"))
         {
-            Hp();
+            CurrentHp--;        // 先に減らす
+            Hp();               // 減った後の値で判定
             StartCoroutine(Damage());
-            CurrentHp--;
         }
     }
+
     // ダメージ演出
     IEnumerator Damage()
     {

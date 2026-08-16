@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2013555831016875132}
   - component: {fileID: 5402480633379047415}
+  - component: {fileID: 512872150797644304}
   - component: {fileID: -1661116563546234516}
   - component: {fileID: 86167203027081453}
   - component: {fileID: 5416098706915548910}
@@ -94,6 +95,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &512872150797644304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2767721151040760959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0846d059ee0b6b14caf035af7a652d80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimeLimit
 --- !u!114 &-1661116563546234516
 MonoBehaviour:
   m_ObjectHideFlags: 0
