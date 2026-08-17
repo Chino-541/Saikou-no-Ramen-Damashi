@@ -20,8 +20,14 @@ public class RamenManager : MonoBehaviour
         // 一番高いステータスを判定
         int max = Mathf.Max(salt, umami, spicy, fat, mystery);
 
+        // 何もない場合
+        if (max == 0)
+        {
+            Debug.Log("何もなし");
+            return;
+        }
         // 塩分が一番の場合スピードが上がる
-        if (max == salt)
+        else if (max == salt)
         {
             player.SetMoveSpeed(7f);
             Debug.Log("playerのスピードが上がった");

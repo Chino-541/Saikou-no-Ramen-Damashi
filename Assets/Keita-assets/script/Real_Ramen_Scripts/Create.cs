@@ -29,11 +29,13 @@ public class Create : MonoBehaviour
             }
         }
 
+        /*
         if (itemCount < 4)
         {
             Debug.Log("素材を4つ入れてください！");
             return;
         }
+        */
 
         // 最新ステータスを保存
         RamenStatusManager.Instance.CalculateStatus();
