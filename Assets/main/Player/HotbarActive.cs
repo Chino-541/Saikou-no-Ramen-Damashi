@@ -11,7 +11,7 @@ public class HotbarActive : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             Hotbar.SetActive(!Hotbar.activeSelf);
         }
