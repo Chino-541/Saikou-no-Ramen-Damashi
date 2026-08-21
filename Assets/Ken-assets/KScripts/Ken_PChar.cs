@@ -153,10 +153,7 @@ public class Ken_PChar : MonoBehaviour
     }
 
 
-    // =========================
     // 停止
-    // =========================
-
     public void DisableInput(float seconds)
     {
         StartCoroutine(DisableInputCoroutine(seconds));
@@ -173,11 +170,7 @@ public class Ken_PChar : MonoBehaviour
         canMove = true;
     }
 
-
-    // =========================
     // ボーナスタイム
-    // =========================
-
     public IEnumerator BonusTime()
     {
         RamenFace.SetActive(true);
@@ -194,11 +187,11 @@ public class Ken_PChar : MonoBehaviour
             Score.Soldpoint = 0;
             Score.UpdateUI();
 
-            // 虹色（Hue を回す）
+            // 虹色
             float hue = Mathf.Repeat(Time.time * 0.5f, 1f);
             Color rainbow = Color.HSVToRGB(hue, 1f, 1f);
 
-            // 透明度を徐々に下げる（1 → 0）
+            // 透明度を徐々に下げる
             float alpha = Mathf.Lerp(1f, 0f, timer / bonusTimer);
 
             rainbow.a = alpha;
@@ -219,22 +212,13 @@ public class Ken_PChar : MonoBehaviour
         Score.Soldpoint = 5;
         Score.UpdateUI();
     }
-
-
-    // =========================
     // Speedを外部から変更する
-    // =========================
-
     public void SetMoveSpeed(float speed)
     {
         _MoveSpeed = speed;
     }
 
-
-    // =========================
-    // バリア
-    // =========================
-
+    // バリア関係
     private void TryUseBarrier()
     {
         if (!canUseBarrier)
@@ -242,8 +226,7 @@ public class Ken_PChar : MonoBehaviour
 
         StartCoroutine(BarrierRoutine());
     }
-
-
+    // バリアのコルーチン
     private IEnumerator BarrierRoutine()
     {
         canUseBarrier = false;
