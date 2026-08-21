@@ -10,17 +10,26 @@ public class Ken_PChar : MonoBehaviour
     [SerializeField] private Vector2 _MoveInp;
     [SerializeField] Rigidbody2D _Rb;
     [SerializeField] private SpriteRenderer sr;
+
+    // ★ Animator
+    [SerializeField] private Animator anim;
+
     // 元の色
     private Color defaultColor;
+
     // 速さ
     [SerializeField] float _MoveSpeed = 5f;
+
     // score参照
     [SerializeField] private PlayerScore Score;
+
     // 移動に関するbool
     public bool canMove = true;
+
     // ボーナス中
     public bool isBonusTime = false;
     [SerializeField] private int bonusTimer;
+
     // mysteryが一番高い場合
     public bool isMystery = false;
     private bool canUseBarrier = true;
@@ -28,31 +37,57 @@ public class Ken_PChar : MonoBehaviour
     [SerializeField] private float barrierCooldown = 15f;
     [SerializeField] private float barrierTime = 2f;
 
+
     private void Awake()
     {
         barrier.SetActive(false);
         RamenFace.SetActive(false);
+
         _Rb = GetComponent<Rigidbody2D>();
+
+        // ★ Animatorを取得
+        if (anim == null)
+        {
+            anim = GetComponent<Animator>();
+        }
+
+        // 最初は下向き
+        anim.SetBool("down", true);
     }
+
 
     void Update()
     {
         if (canMove)
         {
             _Rb.linearVelocity = _MoveInp * _MoveSpeed;
+
+            // ★ 移動方向に応じてアニメーション変更
+            UpdateDirectionAnimation();
         }
         else
         {
-            _Rb.linearVelocity = Vector2.zero; // 停止
+            _Rb.linearVelocity = Vector2.zero;
+
+            // 動けないときは方向アニメーションを止める
+            ResetDirectionAnimation();
         }
-        if(isMystery && Input.GetKeyDown(KeyCode.Space))
+
+
+        if (isMystery && Input.GetKeyDown(KeyCode.Space))
         {
             TryUseBarrier();
         }
+
         // バリアをプレイヤーに追従させる
         if (barrier.activeSelf)
             barrier.transform.position = transform.position;
     }
+
+
+    // =========================
+    // 移動入力
+    // =========================
 
     public void Move(InputAction.CallbackContext context)
     {
@@ -65,19 +100,84 @@ public class Ken_PChar : MonoBehaviour
             _MoveInp = Vector2.zero;
         }
     }
-    // 停止に関する関数
+
+
+    // =========================
+    // 上下左右アニメーション
+    // =========================
+
+    private void UpdateDirectionAnimation()
+    {
+        // 入力がない場合は何もしない
+        // → 最後の方向を維持
+        if (_MoveInp == Vector2.zero)
+        {
+            return;
+        }
+
+        // 一度全部OFF
+        ResetDirectionAnimation();
+
+        // 横方向を優先
+        if (_MoveInp.x > 0)
+        {
+            anim.SetBool("right", true);
+            sr.flipX = false;
+        }
+        else if (_MoveInp.x < 0)
+        {
+            anim.SetBool("left", true);
+            sr.flipX = true;
+        }
+        else if (_MoveInp.y > 0)
+        {
+            anim.SetBool("up", true);
+        }
+        else if (_MoveInp.y < 0)
+        {
+            anim.SetBool("down", true);
+        }
+    }
+
+
+    // =========================
+    // 方向アニメーションOFF
+    // =========================
+
+    private void ResetDirectionAnimation()
+    {
+        anim.SetBool("up", false);
+        anim.SetBool("down", false);
+        anim.SetBool("left", false);
+        anim.SetBool("right", false);
+    }
+
+
+    // =========================
+    // 停止
+    // =========================
+
     public void DisableInput(float seconds)
     {
         StartCoroutine(DisableInputCoroutine(seconds));
     }
-    // 停止に関するコルーチン
+
+
     private IEnumerator DisableInputCoroutine(float seconds)
     {
-        canMove = false; // 停止開始
+        canMove = false;
+        _MoveInp = Vector2.zero;
+
         yield return new WaitForSeconds(seconds);
-        canMove = true;  // ←停止解除
+
+        canMove = true;
     }
-    // ボーナスタイム中の処理
+
+
+    // =========================
+    // ボーナスタイム
+    // =========================
+
     public IEnumerator BonusTime()
     {
         RamenFace.SetActive(true);
@@ -109,9 +209,10 @@ public class Ken_PChar : MonoBehaviour
             yield return null;
         }
 
-        // ボーナス終わり → 元の色に戻す
+        // 元の色に戻す
         sr.color = defaultColor;
         RamenFace.SetActive(false);
+
         Debug.Log("ボーナス終わり");
 
         isBonusTime = false;
@@ -120,21 +221,29 @@ public class Ken_PChar : MonoBehaviour
     }
 
 
+    // =========================
     // Speedを外部から変更する
+    // =========================
+
     public void SetMoveSpeed(float speed)
     {
         _MoveSpeed = speed;
     }
 
-    // mysteryが一番高い場合の処理
-    // バリア発動処理
+
+    // =========================
+    // バリア
+    // =========================
+
     private void TryUseBarrier()
     {
-        if (!canUseBarrier) return;
+        if (!canUseBarrier)
+            return;
+
         StartCoroutine(BarrierRoutine());
     }
 
-    // バリアのコルーチン
+
     private IEnumerator BarrierRoutine()
     {
         canUseBarrier = false;
@@ -150,7 +259,7 @@ public class Ken_PChar : MonoBehaviour
         barrier.SetActive(false);
         Debug.Log("バリア終了");
 
-        // クールダウン（15秒）
+        // クールダウン
         yield return new WaitForSeconds(barrierCooldown);
 
         canUseBarrier = true;

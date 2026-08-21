@@ -71,8 +71,8 @@ public class PlayerScore : MonoBehaviour
 
     public void UpdateUI()
     {
-        poinText.text = "販売数：" + point;
-        totalScoreText.text = "Score：" + CalculateTotalScore();
+        poinText.text = "販売数：" + point + "杯";
+        totalScoreText.text = "売上：" + CalculateTotalScore() + "円";
         BonusText.text = "ボーナスまであと: " + Soldpoint;
     }
 
@@ -86,7 +86,7 @@ public class PlayerScore : MonoBehaviour
     private IEnumerator BonusTimeWrapper()
     {
         yield return Ken.BonusTime();  // Ken のボーナス処理が終わるまで待つ
-        bonusStarted = false;          // ← 終わってから解除する
+        bonusStarted = false;          // 終わってから解除する
     }
 
     // ゲーム終了時にリセットするための関数

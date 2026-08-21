@@ -1443,7 +1443,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u820C\u304C\u75FA\u308C\u308B\u5473"
+  m_text: "\u8F9B\u3081\u306E\u5473\u304C\u3044\u3044"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a5a98804a41c8ed4fbd1fc1176363add, type: 2}
   m_sharedMaterial: {fileID: 8119356684679222687, guid: a5a98804a41c8ed4fbd1fc1176363add, type: 2}
@@ -1582,8 +1582,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 01:00
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1b65e3a5b0a9e594b91691dc8f4ae40a, type: 2}
+  m_sharedMaterial: {fileID: -7038342487613207277, guid: 1b65e3a5b0a9e594b91691dc8f4ae40a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12803,7 +12803,7 @@ TilemapCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 816413492}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -13786,7 +13786,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u8CA9\u58F2\u6570\uFF1A0"
+  m_text: "\u8CA9\u58F2\u6570\uFF1A0 \u676F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a5a98804a41c8ed4fbd1fc1176363add, type: 2}
   m_sharedMaterial: {fileID: 8119356684679222687, guid: a5a98804a41c8ed4fbd1fc1176363add, type: 2}
@@ -14748,7 +14748,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u89D2\u304C\u306A\u3044\u5473"
+  m_text: "\u512A\u3057\u3044\u5473\u304C\u3044\u3044"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1b65e3a5b0a9e594b91691dc8f4ae40a, type: 2}
   m_sharedMaterial: {fileID: -7038342487613207277, guid: 1b65e3a5b0a9e594b91691dc8f4ae40a, type: 2}
@@ -15692,10 +15692,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Score\uFF1A0"
+  m_text: "\u58F2\u4E0A: 0 \u5186"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a5a98804a41c8ed4fbd1fc1176363add, type: 2}
-  m_sharedMaterial: {fileID: 8119356684679222687, guid: a5a98804a41c8ed4fbd1fc1176363add, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1b65e3a5b0a9e594b91691dc8f4ae40a, type: 2}
+  m_sharedMaterial: {fileID: -7038342487613207277, guid: 1b65e3a5b0a9e594b91691dc8f4ae40a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -19072,8 +19072,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u8F9B\u307F\u306E\u3042\u308B\u306E\u304C\u3044\u3044"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a5a98804a41c8ed4fbd1fc1176363add, type: 2}
-  m_sharedMaterial: {fileID: 8119356684679222687, guid: a5a98804a41c8ed4fbd1fc1176363add, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1b65e3a5b0a9e594b91691dc8f4ae40a, type: 2}
+  m_sharedMaterial: {fileID: -7038342487613207277, guid: 1b65e3a5b0a9e594b91691dc8f4ae40a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -21016,11 +21016,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestionDatabase
   questions:
-  - text: "\u8F9B\u3081\u304C\u3044\u3044"
+  - text: "\u8F9B\u3081\u306E\u5473\u304C\u3044\u3044"
     correctIndex: 0
-  - text: "\u512A\u3057\u3081\u306E\u5473\u306B\u3057\u3066"
+  - text: "\u512A\u3057\u3081\u306E\u5473\u304C\u3044\u3044"
     correctIndex: 1
-  - text: "\u82E6\u3044\u306E\u304C\u3044\u3044\u304B\u3082"
+  - text: "\u82E6\u3081\u306E\u5473\u304C\u3044\u3044\u3044"
     correctIndex: 2
 --- !u!1 &1989196225
 GameObject:
@@ -21216,7 +21216,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u30B3\u30FC\u30D2\u30FC\u307F\u305F\u3044\u306A\u5473"
+  m_text: "\u82E6\u3081\u306A\u5473\u304C\u3044\u3044"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1b65e3a5b0a9e594b91691dc8f4ae40a, type: 2}
   m_sharedMaterial: {fileID: -7038342487613207277, guid: 1b65e3a5b0a9e594b91691dc8f4ae40a, type: 2}
@@ -21243,8 +21243,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

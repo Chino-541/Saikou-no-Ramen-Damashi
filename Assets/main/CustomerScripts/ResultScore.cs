@@ -9,6 +9,6 @@ public class ResultUI : MonoBehaviour
     void Start()
     {
         pointText.text = "”Ì”„”F" + ScoreData.point;
-        scoreText.text = "ScoreF" + ScoreData.score;
+        scoreText.text = "”„ãF" + ScoreData.score + "‰~";
     }
 }

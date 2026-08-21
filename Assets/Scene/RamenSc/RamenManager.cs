@@ -17,46 +17,37 @@ public class RamenManager : MonoBehaviour
         int fat = RamenStatusData.fat;
         int mystery = RamenStatusData.mystery;
 
-        // 一番高いステータスを判定
+        Debug.Log($"【RamenStatus】salt={salt}, umami={umami}, spicy={spicy}, fat={fat}, mystery={mystery}");
+
         int max = Mathf.Max(salt, umami, spicy, fat, mystery);
 
-        // 何もない場合
+        Debug.Log($"【RamenStatus】max={max}");
+
         if (max == 0)
         {
             Debug.Log("何もなし");
-            return;
         }
-        // 塩分が一番の場合スピードが上がる
         else if (max == salt)
         {
             player.SetMoveSpeed(7f);
             Debug.Log("playerのスピードが上がった");
         }
-
-        // 旨味が一番の場合お客さんが画面に出る数が高まる
-       else if (max == umami)
+        else if (max == umami)
         {
             Customer.SetCustomerCount(10);
             Debug.Log("お客さんの出現数が増加した");
         }
-
-        // 辛味が一番の場合一回のスコアが高まる
-        else if(max == spicy)
+        else if (max == spicy)
         {
-            // 1回のスコアが1.5倍になる
             Score.scoreMultiplier = 1.5f;
             Debug.Log("スコア倍率が1.5倍になった");
         }
-
-        // 脂が一番の場合トラックの出現率が低くなる
-        else if(max == fat)
+        else if (max == fat)
         {
             track.SetTimer(15f);
             Debug.Log("トラックの頻度が低くなった");
         }
-
-        // 謎が一番の場合
-        else if(max == mystery) 
+        else if (max == mystery)
         {
             player.isMystery = true;
             Debug.Log("バリアが使えるようになった");

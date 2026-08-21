@@ -47,6 +47,14 @@ public class RamenStatusManager : MonoBehaviour
         spicySlider.value = Mathf.Clamp(spicy, 0, 100);
         fatSlider.value = Mathf.Clamp(fat, 0, 100);
         mysterySlider.value = Mathf.Clamp(mystery, 0, 100);
+
+        RamenStatusData.salt = salt;
+        RamenStatusData.umami = umami;
+        RamenStatusData.spicy = spicy;
+        RamenStatusData.fat = fat;
+        RamenStatusData.mystery = mystery;
+
+        Debug.Log($"salt={salt}, umami={umami}, spicy={spicy}, fat={fat}, mystery={mystery}");
     }
 
     public void ClearFoods()
